@@ -14,7 +14,7 @@ function shortServiceTitle(title: string) {
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-line bg-navy-deep">
+    <footer className="mt-auto bg-navy-deep">
       <div className="wrap grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-4">
           <p className="font-display text-2xl font-extrabold tracking-tight text-pearl">
@@ -82,8 +82,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-line">
-        <div className="wrap flex flex-col gap-2 py-4 text-sm text-muted sm:flex-row sm:justify-between">
+      <div>
+        <div className="wrap flex flex-col gap-2 py-6 text-sm text-muted sm:flex-row sm:justify-between">
           <span>© {new Date().getFullYear()} Doctor Yachts</span>
           <span>Diagnose first · free estimates</span>
         </div>

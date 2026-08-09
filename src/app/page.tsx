@@ -175,9 +175,9 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="border-y border-line bg-navy">
+      <section>
         <div className="wrap section-pad">
-          <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow">Services</p>
               <h2 className="font-display text-3xl font-semibold text-pearl sm:text-4xl">
@@ -195,28 +195,25 @@ export default function HomePage() {
               View all services →
             </Link>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 6).map((service, i) => (
               <ServiceCard key={service.id} service={service} index={i} />
             ))}
           </div>
           {services.length > 6 && (
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
               {services.slice(6).map((s) => (
                 <Link
                   key={s.id}
                   href={`/services/${s.slug}`}
-                  className="panel flex items-center justify-between px-5 py-4 no-underline"
+                  className="text-pearl no-underline hover:text-gold"
                 >
-                  <span className="font-semibold text-pearl">
-                    {s.title.replace(" Fort Lauderdale", "")}
-                  </span>
-                  <span className="text-gold">→</span>
+                  {s.title.replace(" Fort Lauderdale", "")} →
                 </Link>
               ))}
             </div>
           )}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-12 flex flex-wrap items-center gap-4">
             <Link href="/book" className="btn">
               Book repair
             </Link>
@@ -228,7 +225,7 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section className="section-soft">
+      <section>
         <div className="wrap section-pad">
           <div className="max-w-2xl">
             <p className="eyebrow">How it works</p>
@@ -236,7 +233,7 @@ export default function HomePage() {
               From your call to back on the water
             </h2>
           </div>
-          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="process-open mt-12">
             {[
               {
                 n: "01",
@@ -259,9 +256,9 @@ export default function HomePage() {
                 d: "Free estimate path, clear options, notes you can keep.",
               },
             ].map((step) => (
-              <li key={step.n} className="panel p-5">
-                <p className="text-sm font-bold text-gold">{step.n}</p>
-                <h3 className="font-display mt-3 text-xl font-semibold text-pearl">{step.t}</h3>
+              <li key={step.n}>
+                <span className="n">{step.n}</span>
+                <h3 className="font-display text-xl font-semibold text-pearl">{step.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{step.d}</p>
               </li>
             ))}
@@ -270,9 +267,9 @@ export default function HomePage() {
       </section>
 
       {/* Why us */}
-      <section className="border-y border-line">
-        <div className="grid lg:grid-cols-2">
-          <div className="relative min-h-[300px] lg:min-h-[460px]">
+      <section>
+        <div className="wrap grid items-center gap-10 section-pad lg:grid-cols-2 lg:gap-16">
+          <div className="relative min-h-[280px] overflow-hidden rounded-[1.75rem] lg:min-h-[420px]">
             <Image
               src={yachts.cockpit.src}
               alt={yachts.cockpit.alt}
@@ -281,7 +278,7 @@ export default function HomePage() {
               className="object-cover"
             />
           </div>
-          <div className="flex flex-col justify-center bg-navy px-6 py-12 sm:px-10 lg:px-14">
+          <div className="flex flex-col justify-center py-2">
             <p className="eyebrow">Why Doctor Yachts</p>
             <h2 className="font-display text-3xl font-semibold text-pearl sm:text-4xl">
               A shop that listens—not a sales yard
@@ -308,9 +305,9 @@ export default function HomePage() {
       </section>
 
       {/* Areas */}
-      <section className="section-soft">
+      <section>
         <div className="wrap section-pad">
-          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow">Service areas</p>
               <h2 className="font-display text-3xl font-semibold text-pearl">
@@ -324,16 +321,16 @@ export default function HomePage() {
               All areas →
             </Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {locations.map((loc) => {
               const img = images.locations[loc.slug as keyof typeof images.locations];
               return (
                 <Link
                   key={loc.slug}
                   href={`/locations/${loc.slug}`}
-                  className="group overflow-hidden rounded-2xl no-underline"
+                  className="group no-underline"
                 >
-                  <div className="relative aspect-[16/10]">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
                     <Image
                       src={img.src}
                       alt={img.alt}
@@ -342,12 +339,12 @@ export default function HomePage() {
                       className="object-cover transition duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="flex items-center justify-between px-4 py-3.5">
+                  <div className="mt-3 flex items-baseline justify-between gap-3">
                     <div>
                       <p className="font-display text-lg font-semibold text-pearl group-hover:text-gold-light">
                         {loc.name}
                       </p>
-                      <p className="text-xs text-muted">{loc.region}</p>
+                      <p className="text-sm text-muted">{loc.region}</p>
                     </div>
                     <span className="text-gold">→</span>
                   </div>
@@ -359,9 +356,9 @@ export default function HomePage() {
       </section>
 
       {/* Gallery */}
-      <section className="border-y border-line bg-navy">
+      <section>
         <div className="wrap section-pad">
-          <div className="mb-6 flex items-end justify-between gap-3">
+          <div className="mb-8 flex items-end justify-between gap-3">
             <h2 className="font-display text-2xl font-semibold text-pearl sm:text-3xl">
               On the water
             </h2>
@@ -372,9 +369,9 @@ export default function HomePage() {
               Gallery →
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {yachtStrip.slice(0, 4).map((img) => (
-              <div key={img.src} className="shot relative aspect-[4/3] shadow-none">
+              <div key={img.src} className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem]">
                 <Image src={img.src} alt={img.alt} fill sizes="25vw" className="object-cover" />
               </div>
             ))}
@@ -383,14 +380,17 @@ export default function HomePage() {
       </section>
 
       {/* Quote */}
-      <section className="section-soft">
-        <div className="wrap max-w-3xl py-14 text-center sm:py-16">
+      <section>
+        <div className="wrap max-w-3xl py-16 text-center sm:py-20">
           <blockquote className="font-display text-2xl font-medium leading-snug text-pearl sm:text-3xl">
             “Clear diagnosis. Honest options. Dockside when it makes sense—not a mystery invoice.”
           </blockquote>
-          <p className="mt-5 text-sm text-steel">
-            <Link href="/reviews">Reviews</Link> · <Link href="/free-estimate">Free estimate</Link>{" "}
-            · <Link href="/book">Book repair</Link>
+          <p className="mt-6 text-sm text-steel">
+            <Link href="/reviews">Reviews</Link>
+            <span className="mx-2 text-muted">·</span>
+            <Link href="/free-estimate">Free estimate</Link>
+            <span className="mx-2 text-muted">·</span>
+            <Link href="/book">Book repair</Link>
           </p>
         </div>
       </section>

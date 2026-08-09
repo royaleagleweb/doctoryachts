@@ -238,9 +238,9 @@ export function BookingForm() {
   const current = steps[step];
 
   return (
-    <form onSubmit={onSubmit} className="panel overflow-hidden">
+    <form onSubmit={onSubmit} className="max-w-2xl">
       {/* Progress */}
-      <div className="border-b border-line px-4 py-4 sm:px-6">
+      <div className="pb-6">
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="text-sm font-semibold  text-gold">
@@ -274,7 +274,7 @@ export function BookingForm() {
         </ol>
       </div>
 
-      <div className="space-y-5 p-5 sm:p-6">
+      <div className="space-y-5">
         <div>
           <h2 className="font-display m-0 text-xl font-semibold text-pearl sm:text-2xl">
             {current.title}
@@ -619,7 +619,7 @@ export function BookingForm() {
         )}
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-5 py-4">
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-3 pt-2">
         <button
           type="button"
           className="btn btn-ghost disabled:opacity-40"

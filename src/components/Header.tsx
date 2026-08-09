@@ -11,7 +11,7 @@ export function Header() {
   const mainLinks = navLinks.filter((l) => l.href !== "/book" && l.href !== "/");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-navy-deep/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-navy-deep/90 backdrop-blur-xl">
       <div className="wrap flex items-center justify-between gap-4 py-3.5">
         <Link
           href="/"
