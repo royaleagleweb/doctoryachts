@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doctor Yachts — Pick a design to review</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Doctor Yachts — Design mockups</title>
   <style>
     * { box-sizing: border-box; margin: 0; }
     body {
@@ -15,7 +16,8 @@
     }
     .wrap { max-width: 960px; margin: 0 auto; }
     h1 { font-size: clamp(1.75rem, 4vw, 2.4rem); letter-spacing: -0.02em; }
-    .lead { margin: .75rem 0 2rem; color: #a8b0ad; line-height: 1.55; max-width: 36rem; }
+    .lead { margin: .75rem 0 2rem; color: #a8b0ad; line-height: 1.55; max-width: 40rem; }
+    h2 { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7d8a87; margin: 2rem 0 0.85rem; }
     .grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
     @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
     a.card {
@@ -34,6 +36,8 @@
     .s2 { background: linear-gradient(135deg, #f4efe6, #c24e1d 70%, #161411); }
     .s3 { background: linear-gradient(135deg, #fff, #e8a317 55%, #1c1c1c); }
     .s4 { background: linear-gradient(135deg, #f3ead7, #1f6a6e 55%, #e05a3c); }
+    .s5 { background: linear-gradient(135deg, #f7f6f3, #0b2a3d 45%, #9a7b4f); }
+    .s6 { background: linear-gradient(135deg, #1c1c1c, #e8a317 55%, #f0ede6); }
     .body { padding: 1.1rem 1.2rem 1.25rem; }
     .num { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #7d8a87; }
     .title { font-size: 1.2rem; font-weight: 700; margin: .35rem 0; }
@@ -42,62 +46,103 @@
       display: inline-block; margin-top: .75rem; font-size: .68rem; font-weight: 700;
       background: #e05a3c; color: #fff; padding: .25rem .5rem; border-radius: 999px;
     }
+    .badge.new { background: #1f6a6e; }
     .note {
       margin-top: 2rem; padding: 1rem 1.15rem; border: 1px dashed #334042; border-radius: 10px;
       color: #8f9a97; font-size: .9rem; line-height: 1.5;
     }
+    .live {
+      margin-top: 1rem;
+      padding: 0.9rem 1.1rem;
+      background: #1a282a;
+      border-radius: 10px;
+      border: 1px solid #2f4042;
+    }
+    .live a { color: #7ec8c4; font-weight: 600; }
     code { background: #1c2628; padding: .1rem .35rem; border-radius: 4px; color: #d8e0de; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Doctor Yachts — design review</h1>
+    <h1>Doctor Yachts — design mockups</h1>
     <p class="lead">
-      Four live variations for you and your partner. Click one, click around (Home / Services / About / Book),
-      then come back here to compare the next.
+      Compare looks for partner review. <strong style="color:#e8e0d4">V5 &amp; V6 are new</strong> —
+      deliberately less “AI template” than the chart-clinic live site (mono tags, coral chips, paper texture).
     </p>
 
+    <div class="live">
+      Live production site: <a href="/">doctoryachts.com</a>
+      · Book form: <a href="/book">/book</a>
+    </div>
+
+    <h2>New mockups (anti-AI look)</h2>
     <div class="grid">
-      <a class="card" href="/versions/v1/index.html">
-        <div class="swatch s1"></div>
+      <a class="card" href="v5/index.html">
+        <div class="swatch s5"></div>
         <div class="body">
-          <div class="num">Variation 1 · UPDATED</div>
-          <div class="title">Luxury Navy + Gold · Animated</div>
-          <div class="desc">Cinematic Ken Burns hero, scroll reveals, gold shimmer CTAs, floating glass card, marquee, film grain—high-end motion.</div>
+          <div class="num">Version 05</div>
+          <div class="title">Harbor Work</div>
+          <p class="desc">
+            Clean commercial marina shop. DM Sans + Source Serif, navy/brass, simple cards.
+            Feels like a real local service business—not a design experiment.
+          </p>
+          <span class="badge new">New · recommended</span>
         </div>
       </a>
-      <a class="card" href="/versions/v2/index.html">
-        <div class="swatch s2"></div>
+      <a class="card" href="v6/index.html">
+        <div class="swatch s6"></div>
         <div class="body">
-          <div class="num">Variation 2</div>
-          <div class="title">Workshop Logbook</div>
-          <div class="desc">Warm paper, rust accents, mono labels — shop / logbook vibe.</div>
-        </div>
-      </a>
-      <a class="card" href="/versions/v3/index.html">
-        <div class="swatch s3"></div>
-        <div class="body">
-          <div class="num">Variation 3</div>
-          <div class="title">Local Shop Plain</div>
-          <div class="desc">Simple white/yellow mechanic site. Straight talk, easy to read.</div>
-        </div>
-      </a>
-      <a class="card" href="/versions/v4/index.html">
-        <div class="swatch s4"></div>
-        <div class="body">
-          <div class="num">Variation 4</div>
-          <div class="title">Chart Clinic</div>
-          <div class="desc">Unique “boat doctor” identity — chart cream, teal, coral, case tags.</div>
-          <span class="badge">Also the full Next.js app at /</span>
+          <div class="num">Version 06</div>
+          <div class="title">Salt Shop</div>
+          <p class="desc">
+            Industrial dockside workshop. Barlow Condensed headlines, safety yellow, high contrast.
+            More “wrench shop” energy—bold and human.
+          </p>
+          <span class="badge new">New</span>
         </div>
       </a>
     </div>
 
-    <div class="note">
-      <strong style="color:#d8e0de">Partner tip:</strong> On the same Wi‑Fi, open this page on their phone using your computer’s network address
-      (shown when you run <code>npm run dev</code>, e.g. <code>http://192.168.x.x:3000/versions/</code>).
-      Full multipage app (SEO + booking): <code><a href="/" style="color:#7ec8c9">http://localhost:3000/</a></code>
+    <h2>Earlier explorations</h2>
+    <div class="grid">
+      <a class="card" href="v1/index.html">
+        <div class="swatch s1"></div>
+        <div class="body">
+          <div class="num">Version 01</div>
+          <div class="title">Luxury Navy</div>
+          <p class="desc">High-end animated navy/brass yacht aesthetic.</p>
+        </div>
+      </a>
+      <a class="card" href="v2/index.html">
+        <div class="swatch s2"></div>
+        <div class="body">
+          <div class="num">Version 02</div>
+          <div class="title">Workshop Logbook</div>
+          <p class="desc">Warm paper + orange workshop logbook feel.</p>
+        </div>
+      </a>
+      <a class="card" href="v3/index.html">
+        <div class="swatch s3"></div>
+        <div class="body">
+          <div class="num">Version 03</div>
+          <div class="title">Local Shop</div>
+          <p class="desc">Plain, bright neighborhood shop UI.</p>
+        </div>
+      </a>
+      <a class="card" href="v4/index.html">
+        <div class="swatch s4"></div>
+        <div class="body">
+          <div class="num">Version 04</div>
+          <div class="title">Chart Clinic</div>
+          <p class="desc">Current live direction ancestor—mono stamps, coral, chart cream (can read “AI”).</p>
+        </div>
+      </a>
     </div>
+
+    <p class="note">
+      Mockups are <code>noindex</code>. Click around Home / Services / About / Book on V5 or V6.
+      When you pick a direction, we can restyle the full Next.js site to match.
+    </p>
   </div>
 </body>
 </html>
