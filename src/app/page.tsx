@@ -17,57 +17,70 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      {/* Split hero */}
-      <section className="border-b border-line">
-        <div className="grid lg:grid-cols-2">
-          <div className="flex flex-col justify-center bg-navy px-6 py-14 sm:px-10 sm:py-16 lg:min-h-[560px] lg:px-12 lg:py-20">
-            <div className="mx-auto w-full max-w-xl lg:mx-0">
-              <p className="eyebrow">South Florida boat & yacht mechanic</p>
-              <h1 className="font-display text-[2.35rem] font-semibold leading-[1.1] text-pearl sm:text-5xl">
-                Boat repair &amp; maintenance in{" "}
-                <span className="text-gold">Fort Lauderdale</span> &amp; Pompano Beach
+      {/* Full-bleed hero — clear next steps */}
+      <section className="hero-home">
+        <div className="hero-home__media">
+          <Image
+            src={images.homeHero.src}
+            alt={images.homeHero.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_35%]"
+          />
+        </div>
+        <div className="hero-home__shade" aria-hidden />
+
+        <div className="hero-home__content">
+          <div className="wrap">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Boat & yacht mechanic · South Florida</p>
+              <h1 className="font-display text-pearl">
+                Boat won&apos;t start? Overheating? Need service?
               </h1>
-              <p className="mt-5 text-base leading-relaxed text-steel sm:text-lg">
-                Independent marine mechanic for engines, electrical, cooling, and dockside service.
-                Free estimates. We diagnose first—then fix what matters.
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-steel sm:text-xl">
+                Book a visit or get a free estimate. Mobile dockside repair in Fort Lauderdale,
+                Pompano Beach &amp; Miami—diagnose first, then fix what matters.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/book" className="btn">
-                  Book repair
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link href="/book" className="btn text-center">
+                  Book a visit
                 </Link>
-                <Link href="/free-estimate" className="btn btn-ghost">
-                  Free estimate
+                <Link href="/free-estimate" className="btn btn-ghost text-center">
+                  Get a free estimate
                 </Link>
-                <a href={site.phoneHref} className="btn btn-ghost hidden sm:inline-flex">
-                  {site.phone}
+                <a href={site.phoneHref} className="btn btn-ghost text-center">
+                  Call {site.phone}
                 </a>
               </div>
-              <dl className="mt-8 grid grid-cols-2 gap-4 border-t border-line pt-6 sm:grid-cols-3">
-                <div>
-                  <dt className="text-xs text-muted">Hours</dt>
-                  <dd className="mt-1 text-sm font-medium text-pearl">{site.hours}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs text-muted">Service</dt>
-                  <dd className="mt-1 text-sm font-medium text-pearl">Mobile / dockside</dd>
-                </div>
-                <div className="col-span-2 sm:col-span-1">
-                  <dt className="text-xs text-muted">Area</dt>
-                  <dd className="mt-1 text-sm font-medium text-pearl">Broward · Miami-Dade · PBC</dd>
-                </div>
-              </dl>
+
+              <p className="mt-4 text-sm text-steel">
+                {site.hours} · Free estimates · Mobile when access allows
+              </p>
             </div>
-          </div>
-          <div className="relative min-h-[300px] sm:min-h-[380px] lg:min-h-[560px]">
-            <Image
-              src={images.homeHero.src}
-              alt={images.homeHero.alt}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-transparent lg:to-navy/30" />
+
+            <div className="mt-10 max-w-4xl">
+              <p className="mb-3 text-sm font-semibold text-pearl">What do you need?</p>
+              <div className="hero-path">
+                <Link href="/book?service=engine-repair">
+                  <strong>Won&apos;t start</strong>
+                  <span>No crank, click, dead quiet</span>
+                </Link>
+                <Link href="/book?service=cooling">
+                  <strong>Overheating</strong>
+                  <span>Hot engine, weak flow</span>
+                </Link>
+                <Link href="/book?service=electrical">
+                  <strong>Battery / power</strong>
+                  <span>Charging, shore power</span>
+                </Link>
+                <Link href="/book?service=maintenance">
+                  <strong>Service visit</strong>
+                  <span>Oil, impeller, check-up</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

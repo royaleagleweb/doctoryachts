@@ -2,7 +2,7 @@
 
 /*
   Doctor Yachts — Luxury service
-  Navy + gold · Playfair Display + Manrope
+  Navy + gold · Fraunces + Source Sans 3
 */
 :root {
   --navy: #0b1c2d;
@@ -42,10 +42,10 @@
   --color-line: var(--line);
   --color-muted: var(--muted);
   --color-steel: var(--steel);
-  --font-sans: var(--font-body), "Manrope", system-ui, sans-serif;
-  --font-display: var(--font-heading), "Playfair Display", Georgia, serif;
-  --font-serif: var(--font-heading), "Playfair Display", Georgia, serif;
-  --font-mono: var(--font-body), "Manrope", system-ui, sans-serif;
+  --font-sans: var(--font-body), "Source Sans 3", system-ui, sans-serif;
+  --font-display: var(--font-heading), Fraunces, Georgia, serif;
+  --font-serif: var(--font-heading), Fraunces, Georgia, serif;
+  --font-mono: var(--font-body), "Source Sans 3", system-ui, sans-serif;
 }
 
 html {
@@ -58,13 +58,13 @@ body {
   margin: 0;
   color: var(--pearl);
   background: var(--deep);
-  font-family: var(--font-body), "Manrope", system-ui, sans-serif;
-  font-size: 16.5px;
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.65;
 }
 
-/* Headlines */
+/* Headlines — Fraunces */
 h1,
 h2,
 h3,
@@ -73,30 +73,30 @@ h5,
 h6,
 .font-display,
 .font-serif {
-  font-family: var(--font-heading), "Playfair Display", Georgia, serif;
+  font-family: var(--font-heading), Fraunces, Georgia, serif;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
   color: inherit;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.25rem, 4.6vw, 3.5rem);
+  font-size: clamp(2.4rem, 5vw, 3.65rem);
 }
 h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.55rem);
 }
 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-size: clamp(1.3rem, 2.1vw, 1.6rem);
 }
 
 .font-sans {
-  font-family: var(--font-body), "Manrope", system-ui, sans-serif;
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
 }
 
 .font-mono {
-  font-family: var(--font-body), "Manrope", system-ui, sans-serif;
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
   font-weight: 600;
 }
 
@@ -126,10 +126,10 @@ h3 {
 .case-tag {
   margin: 0 0 0.7rem;
   color: var(--gold);
-  font-family: var(--font-body), "Manrope", system-ui, sans-serif;
-  font-size: 0.78rem;
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -139,14 +139,14 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  min-height: 48px;
-  padding: 0.85rem 1.45rem;
+  min-height: 50px;
+  padding: 0.9rem 1.5rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background: var(--gold);
   color: var(--navy-deep);
-  font-family: var(--font-body), "Manrope", system-ui, sans-serif;
-  font-size: 0.94rem;
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   text-decoration: none !important;
@@ -253,7 +253,7 @@ h3 {
   padding: 0.85rem 1rem;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: var(--font-body), "Manrope", system-ui, sans-serif;
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
   color: var(--pearl);
   outline: none;
   transition:
@@ -275,7 +275,7 @@ select.input-field option {
 .label-field {
   display: block;
   margin-bottom: 0.45rem;
-  font-family: var(--font-body), "Manrope", system-ui, sans-serif;
+  font-family: var(--font-body), "Source Sans 3", system-ui, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -368,6 +368,86 @@ textarea {
 .page-hero {
   background: linear-gradient(165deg, var(--navy) 0%, var(--paper) 100%);
   border-bottom: 1px solid var(--line);
+}
+
+/* Full-bleed home hero */
+.hero-home {
+  position: relative;
+  isolation: isolate;
+  min-height: min(88svh, 760px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.hero-home__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-home__media img {
+  object-fit: cover;
+  object-position: center 40%;
+}
+.hero-home__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(105deg, rgba(6, 16, 24, 0.92) 0%, rgba(6, 16, 24, 0.78) 42%, rgba(6, 16, 24, 0.35) 100%),
+    linear-gradient(to top, rgba(6, 16, 24, 0.88) 0%, rgba(6, 16, 24, 0.2) 45%, rgba(6, 16, 24, 0.35) 100%);
+}
+.hero-home__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 5.5rem 0 2.75rem;
+}
+@media (min-width: 900px) {
+  .hero-home__content {
+    padding: 6rem 0 3.5rem;
+  }
+}
+.hero-path {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1fr 1fr;
+}
+@media (min-width: 720px) {
+  .hero-path {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.hero-path a {
+  display: block;
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+  background: color-mix(in srgb, var(--navy-deep) 55%, transparent);
+  backdrop-filter: blur(10px);
+  color: var(--pearl);
+  text-decoration: none !important;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+.hero-path a:hover {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  transform: translateY(-2px);
+  color: var(--pearl);
+}
+.hero-path strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.hero-path span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--steel);
 }
 
 /* Mobile conversion bar */

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -9,21 +9,20 @@ import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
 
 /**
- * Luxury + service typography
- * Headlines: Playfair Display (classic luxury)
- * Body / UI: Manrope (clean professional service)
+ * Headlines: Fraunces — warm luxury, confident, readable
+ * Body / UI: Source Sans 3 — clear service typography
  */
-const manrope = Manrope({
+const sourceSans = Source_Sans_3({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const fraunces = Fraunces({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -43,13 +42,13 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     type: "website",
-    images: [{ url: "/images/home-hero.jpg", width: 1200, height: 630, alt: site.name }],
+    images: [{ url: "/images/home-hero-v2.jpg", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Boat Repair & Maintenance | Doctor Yachts",
     description: site.description,
-    images: ["/images/home-hero.jpg"],
+    images: ["/images/home-hero-v2.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -58,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${playfair.variable} h-full antialiased`}
+      className={`${sourceSans.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <JsonLd data={[localBusinessJsonLd(), webSiteJsonLd()]} />

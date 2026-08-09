@@ -45,7 +45,7 @@ export function Header() {
               DY
             </span>
             <span className="min-w-0 leading-tight">
-              <span className="font-display block truncate text-xl font-semibold text-pearl sm:text-[1.4rem]">
+              <span className="font-display block truncate text-[1.35rem] font-semibold text-pearl sm:text-[1.5rem]">
                 Doctor Yachts
               </span>
               <span className="block text-xs font-medium text-steel">
