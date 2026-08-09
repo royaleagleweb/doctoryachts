@@ -44,10 +44,10 @@ export default function FreeEstimatePage() {
         ]}
       />
 
-      <section className="border-b border-chart-line bg-chart-deep/50">
+      <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
           <CaseTag>Free estimates</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
             Free boat repair estimate — Fort Lauderdale, Pompano Beach & Miami
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted">
@@ -55,7 +55,7 @@ export default function FreeEstimatePage() {
             estimate for recommended work. Prefer to talk? Call{" "}
             <a href={site.phoneHref}>{site.phone}</a>.
           </p>
-          <ul className="mt-6 grid gap-2 text-sm text-ink sm:grid-cols-2">
+          <ul className="mt-6 grid gap-2 text-sm text-navy sm:grid-cols-2">
             {[
               "Mobile / dockside when access allows",
               "Marine engine & electrical focus",
@@ -63,7 +63,7 @@ export default function FreeEstimatePage() {
               "Clear findings before authorization",
             ].map((item) => (
               <li key={item} className="flex gap-2">
-                <span className="text-coral">▣</span>
+                <span className="text-gold">▣</span>
                 {item}
               </li>
             ))}
@@ -74,7 +74,7 @@ export default function FreeEstimatePage() {
       <section className="wrap grid gap-10 section-pad lg:grid-cols-2">
         <div className="space-y-8">
           <div>
-            <h2 className="font-display text-2xl font-semibold text-ink">What to include</h2>
+            <h2 className="font-display text-2xl font-semibold text-navy">What to include</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-muted">
               <li>Vessel type and approximate length</li>
               <li>Marina / city (Fort Lauderdale, Pompano, Miami…)</li>
@@ -83,7 +83,7 @@ export default function FreeEstimatePage() {
             </ol>
           </div>
           <div>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               What a free estimate covers
             </h2>
             <p className="mt-3 text-muted">
@@ -102,11 +102,11 @@ export default function FreeEstimatePage() {
             </p>
           </div>
           <div>
-            <h2 className="font-display text-xl font-semibold text-ink">Estimate FAQ</h2>
+            <h2 className="font-display text-xl font-semibold text-navy">Estimate FAQ</h2>
             <ul className="mt-3 space-y-3">
               {faqs.map((f) => (
                 <li key={f.question}>
-                  <p className="font-semibold text-ink">{f.question}</p>
+                  <p className="font-semibold text-navy">{f.question}</p>
                   <p className="mt-1 text-sm text-muted">{f.answer}</p>
                 </li>
               ))}
@@ -117,7 +117,7 @@ export default function FreeEstimatePage() {
           </p>
         </div>
         <div className="panel p-6">
-          <h2 className="font-display text-xl font-semibold text-ink">Request your free estimate</h2>
+          <h2 className="font-display text-xl font-semibold text-navy">Request your free estimate</h2>
           <div className="mt-5">
             <ContactForm />
           </div>

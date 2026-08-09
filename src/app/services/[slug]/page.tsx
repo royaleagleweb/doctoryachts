@@ -53,7 +53,7 @@ function MediaBand({
   children: ReactNode;
 }) {
   return (
-    <section className="border-b border-chart-line">
+    <section className="border-b border-line">
       <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
         <div className={`relative min-h-[260px] lg:min-h-[420px] ${reverse ? "lg:order-2" : ""}`}>
           <Image
@@ -63,7 +63,7 @@ function MediaBand({
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent p-4 pt-16">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 via-navy/25 to-transparent p-4 pt-16">
             <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-steel">
               {image.caption ?? "Marine service"}
             </p>
@@ -75,7 +75,7 @@ function MediaBand({
           }`}
         >
           {eyebrow && <CaseTag>{eyebrow}</CaseTag>}
-          <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+          <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-navy sm:text-3xl">
             {title}
           </h2>
           <div className="mt-4 space-y-3 text-base leading-relaxed text-muted">{children}</div>
@@ -116,7 +116,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       />
 
       {/* Full-bleed marine hero */}
-      <section className="relative min-h-[420px] overflow-hidden border-b border-chart-line bg-ink sm:min-h-[480px]">
+      <section className="relative min-h-[420px] overflow-hidden border-b border-line bg-navy sm:min-h-[480px]">
         <Image
           src={media.hero.src}
           alt={media.hero.alt}
@@ -125,33 +125,33 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           sizes="100vw"
           className="object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/30" />
 
         <div className="wrap relative flex min-h-[420px] flex-col justify-end py-12 sm:min-h-[480px] sm:py-16">
           <p className="font-mono text-xs text-steel">
-            <Link href="/" className="text-steel no-underline hover:text-coral">
+            <Link href="/" className="text-steel no-underline hover:text-gold">
               Home
             </Link>
             {" / "}
-            <Link href="/services" className="text-steel no-underline hover:text-coral">
+            <Link href="/services" className="text-steel no-underline hover:text-gold">
               Services
             </Link>
             {" / "}
-            <span className="text-chart/80">{service.title}</span>
+            <span className="text-paper/80">{service.title}</span>
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <CaseTag>Service · {String(idx + 1).padStart(2, "0")}</CaseTag>
             <CoordStamp label={service.duration} />
           </div>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-chart sm:text-5xl">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
             {service.title}
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-steel">
             {service.description}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/book?service=${service.id}`} className="btn">
+            <Link href={`/book?service=${service.id}`} className="btn btn-gold">
               Book this service
             </Link>
             <Link href="/free-estimate" className="btn btn-ghost-light">
@@ -171,7 +171,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       </section>
 
       {/* Quick answer */}
-      <section className="border-b border-chart-line bg-chart-deep/40">
+      <section className="border-b border-line bg-paper-deep/40">
         <div className="wrap py-10">
           <AnswerBox
             label="Quick answer · on the water"
@@ -204,14 +204,14 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           {service.symptoms.map((s) => (
             <li
               key={s}
-              className="flex gap-2 border border-chart-line bg-foam px-3 py-2.5 text-sm text-ink"
+              className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
             >
-              <span className="text-teal">·</span>
+              <span className="text-navy">·</span>
               {s}
             </li>
           ))}
         </ul>
-        <p className="mt-2 font-medium text-ink">{service.whenToCall}</p>
+        <p className="mt-2 font-medium text-navy">{service.whenToCall}</p>
       </MediaBand>
 
       {/* Included + image */}
@@ -224,9 +224,9 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           {service.features.map((f) => (
             <li
               key={f}
-              className="flex gap-2 border border-chart-line bg-foam px-3 py-2.5 text-sm text-ink"
+              className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
             >
-              <span className="text-coral">▣</span>
+              <span className="text-gold">▣</span>
               {f}
             </li>
           ))}
@@ -246,10 +246,10 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             <p key={p.slice(0, 56)}>{p}</p>
           ))}
           {section.list && (
-            <ul className="list-disc space-y-2 pl-5 marker:text-coral">
+            <ul className="list-disc space-y-2 pl-5 marker:text-gold">
               {section.list.map((item) => (
                 <li key={item}>
-                  <span className="text-ink">{item}</span>
+                  <span className="text-navy">{item}</span>
                 </li>
               ))}
             </ul>
@@ -272,9 +272,9 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           {service.whatWeCheck.map((item, i) => (
             <li
               key={item}
-              className="flex gap-3 border border-chart-line px-3 py-2.5 text-sm text-ink"
+              className="flex gap-3 border border-line px-3 py-2.5 text-sm text-navy"
             >
-              <span className="font-mono text-xs font-semibold text-coral">
+              <span className="font-mono text-xs font-semibold text-gold">
                 {String(i + 1).padStart(2, "0")}
               </span>
               {item}
@@ -284,7 +284,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       </MediaBand>
 
       {/* Process + image */}
-      <section className="border-b border-chart-line bg-ink text-chart">
+      <section className="border-b border-line bg-navy text-paper">
         <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
           <div className="relative min-h-[320px]">
             <Image
@@ -294,12 +294,12 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               sizes="50vw"
               className="object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-steel">
                 {media.process.caption ?? "Dockside process"}
               </p>
-              <p className="font-display mt-1 text-xl text-chart">
+              <p className="font-display mt-1 text-xl text-paper">
                 How a visit moves from symptom to discharge
               </p>
             </div>
@@ -312,11 +312,11 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             <ol className="mt-8 space-y-5">
               {service.process.map((step, i) => (
                 <li key={step.title} className="flex gap-4 border-b border-white/10 pb-5">
-                  <span className="font-display text-2xl font-semibold text-coral">
+                  <span className="font-display text-2xl font-semibold text-gold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-semibold text-chart">{step.title}</h3>
+                    <h3 className="font-semibold text-paper">{step.title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-steel">{step.detail}</p>
                   </div>
                 </li>
@@ -361,7 +361,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         eyebrow="Owners & captains"
         title="Who this service is for"
       >
-        <ul className="list-disc space-y-2 pl-5 marker:text-coral">
+        <ul className="list-disc space-y-2 pl-5 marker:text-gold">
           <li>Recreational boat and yacht owners in South Florida</li>
           <li>Captains needing dockside diagnosis without a tow first</li>
           <li>Owners tired of parts-swapping without a clear root cause</li>
@@ -371,7 +371,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       </MediaBand>
 
       {/* Diagnose first + mechanic image */}
-      <section className="border-b border-chart-line">
+      <section className="border-b border-line">
         <div className="wrap grid items-center gap-0 lg:grid-cols-2">
           <div className="relative min-h-[300px] lg:min-h-[400px]">
             <Image
@@ -382,7 +382,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               className="object-cover"
             />
           </div>
-          <div className="bg-ink px-6 py-12 text-chart sm:px-12 lg:min-h-[400px] lg:py-16">
+          <div className="bg-navy px-6 py-12 text-paper sm:px-12 lg:min-h-[400px] lg:py-16">
             <CoordStamp label="How we work" />
             <h2 className="font-display mt-4 text-2xl font-semibold sm:text-3xl">
               Why diagnose first?
@@ -395,21 +395,21 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             </p>
             <p className="mt-3 text-sm leading-relaxed text-steel">
               Read owner guides:{" "}
-              <Link href="/guides/boat-wont-start-checklist" className="text-coral">
+              <Link href="/guides/boat-wont-start-checklist" className="text-gold">
                 boat won&apos;t start
               </Link>
               ,{" "}
-              <Link href="/guides/why-is-my-boat-engine-overheating" className="text-coral">
+              <Link href="/guides/why-is-my-boat-engine-overheating" className="text-gold">
                 overheating
               </Link>
               ,{" "}
-              <Link href="/guides/mobile-boat-repair-vs-shop" className="text-coral">
+              <Link href="/guides/mobile-boat-repair-vs-shop" className="text-gold">
                 mobile vs shop
               </Link>
               .
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={`/book?service=${service.id}`} className="btn">
+              <Link href={`/book?service=${service.id}`} className="btn btn-gold">
                 Book {service.title.split(" ")[0]}
               </Link>
               <Link href="/free-estimate" className="btn btn-ghost-light">
@@ -421,12 +421,12 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       </section>
 
       {/* Full marine gallery — every image for this service page */}
-      <section className="border-b border-chart-line bg-chart-deep/40">
+      <section className="border-b border-line bg-paper-deep/40">
         <div className="wrap section-pad">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <CaseTag>Marine gallery</CaseTag>
-              <h2 className="font-display mt-3 text-2xl font-semibold text-ink sm:text-3xl">
+              <h2 className="font-display mt-3 text-2xl font-semibold text-navy sm:text-3xl">
                 {service.title} — waterside notes
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-muted">
@@ -448,7 +448,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="border-t border-chart-line px-3 py-2 font-mono text-[0.62rem] uppercase tracking-wider text-muted">
+                <figcaption className="border-t border-line px-3 py-2 font-mono text-[0.62rem] uppercase tracking-wider text-muted">
                   {img.caption ?? img.alt}
                 </figcaption>
               </figure>
@@ -458,13 +458,13 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       </section>
 
       {/* Sticky-style booking strip with marina image */}
-      <section className="border-b border-chart-line">
+      <section className="border-b border-line">
         <div className="wrap grid gap-6 section-pad lg:grid-cols-[1.2fr_0.8fr]">
           <div className="panel p-6 sm:p-8">
-            <p className="font-mono text-xs uppercase tracking-wider text-coral">
+            <p className="font-mono text-xs uppercase tracking-wider text-gold">
               Ready to get back on the water?
             </p>
-            <h2 className="font-display mt-2 text-2xl font-semibold text-ink">
+            <h2 className="font-display mt-2 text-2xl font-semibold text-navy">
               Book {service.title.toLowerCase()} · free estimates
             </h2>
             <p className="mt-3 text-muted">
@@ -493,7 +493,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                   <li key={loc.slug}>
                     <Link
                       href={`/services/${service.slug}/${loc.slug}`}
-                      className="text-sm text-ink no-underline hover:text-coral"
+                      className="text-sm text-navy no-underline hover:text-gold"
                     >
                       {service.title.replace(/\s+Fort Lauderdale$/i, "")} · {loc.name}
                     </Link>
@@ -502,7 +502,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               </ul>
               <Link
                 href="/locations"
-                className="mt-3 block text-xs font-semibold text-teal no-underline hover:text-coral"
+                className="mt-3 block text-xs font-semibold text-navy no-underline hover:text-gold"
               >
                 All service areas →
               </Link>
@@ -517,7 +517,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                     <li key={g.slug}>
                       <Link
                         href={`/guides/${g.slug}`}
-                        className="text-sm text-ink no-underline hover:text-teal"
+                        className="text-sm text-navy no-underline hover:text-gold"
                       >
                         {g.title}
                       </Link>

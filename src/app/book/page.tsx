@@ -49,10 +49,10 @@ export default function BookPage() {
         ]}
       />
 
-      <section className="border-b border-chart-line bg-chart-deep/50">
+      <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
           <CaseTag>Book online</CaseTag>
-          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-navy">
             Book boat repair
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted">
@@ -83,29 +83,29 @@ export default function BookPage() {
 
         <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
           <div className="panel p-5">
-            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-coral">
+            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-gold">
               How it works
             </p>
             <ol className="mt-3 space-y-3 text-sm text-muted">
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-coral">1</span>
+                <span className="font-mono font-semibold text-gold">1</span>
                 Choose the service that fits
               </li>
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-coral">2</span>
+                <span className="font-mono font-semibold text-gold">2</span>
                 Tell us about the boat
               </li>
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-coral">3</span>
+                <span className="font-mono font-semibold text-gold">3</span>
                 Preferred date, time & marina
               </li>
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-coral">4</span>
+                <span className="font-mono font-semibold text-gold">4</span>
                 Your contact + short description
               </li>
             </ol>
-            <p className="mt-4 border-t border-chart-line pt-3 text-xs leading-relaxed text-muted">
-              Submitting is a <strong className="text-ink">request</strong>, not an instant
+            <p className="mt-4 border-t border-line pt-3 text-xs leading-relaxed text-muted">
+              Submitting is a <strong className="text-navy">request</strong>, not an instant
               lock. We confirm before arriving.
             </p>
           </div>

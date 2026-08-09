@@ -9,14 +9,14 @@ export function AnswerBox({
   label?: string;
 }) {
   return (
-    <aside className="panel border-l-4 border-l-coral p-5 sm:p-6">
-      <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-coral">{label}</p>
+    <aside className="panel border-l-4 border-l-gold p-5 sm:p-6">
+      <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-gold">{label}</p>
       {question && (
-        <h2 className="font-display mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+        <h2 className="font-display mt-2 text-xl font-semibold tracking-tight text-navy sm:text-2xl">
           {question}
         </h2>
       )}
-      <p className="mt-3 text-base leading-relaxed text-ink/90">{answer}</p>
+      <p className="mt-3 text-base leading-relaxed text-navy/90">{answer}</p>
     </aside>
   );
 }

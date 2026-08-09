@@ -159,48 +159,48 @@ export function BookingForm() {
   if (status === "success") {
     return (
       <div className="panel overflow-hidden">
-        <div className="border-b border-chart-line bg-teal px-6 py-5 text-chart">
-          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-chart/80">
+        <div className="border-b border-line bg-navy px-6 py-5 text-paper">
+          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-paper/80">
             Request received
           </p>
           <h2 className="font-display mt-1 text-2xl font-semibold">
             Thanks — we got your booking request
           </h2>
-          <p className="mt-2 text-sm text-chart/85">
+          <p className="mt-2 text-sm text-paper/85">
             This is <strong>not</strong> a final confirmed appointment yet. We’ll review access and
             availability, then confirm by phone or email during shop hours ({site.hours}).
           </p>
         </div>
         <div className="space-y-5 p-6">
           <dl className="grid gap-3 sm:grid-cols-2">
-            <div className="border border-chart-line bg-foam p-3">
+            <div className="border border-line bg-white p-3">
               <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
                 Confirmation ID
               </dt>
-              <dd className="mt-1 font-mono text-lg font-semibold text-ink">{confirmation}</dd>
+              <dd className="mt-1 font-mono text-lg font-semibold text-navy">{confirmation}</dd>
             </div>
-            <div className="border border-chart-line bg-foam p-3">
+            <div className="border border-line bg-white p-3">
               <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
                 Service
               </dt>
-              <dd className="mt-1 font-semibold text-ink">
+              <dd className="mt-1 font-semibold text-navy">
                 {selectedService ? cleanServiceTitle(selectedService.title) : "—"}
               </dd>
             </div>
-            <div className="border border-chart-line bg-foam p-3">
+            <div className="border border-line bg-white p-3">
               <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
                 Preferred visit
               </dt>
-              <dd className="mt-1 text-ink">
+              <dd className="mt-1 text-navy">
                 {date} · {time}
                 {priority ? " · Urgent" : ""}
               </dd>
             </div>
-            <div className="border border-chart-line bg-foam p-3">
+            <div className="border border-line bg-white p-3">
               <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
                 Location
               </dt>
-              <dd className="mt-1 text-ink">
+              <dd className="mt-1 text-navy">
                 {city ? `${city} · ` : ""}
                 {location}
               </dd>
@@ -208,7 +208,7 @@ export function BookingForm() {
           </dl>
           <p className="text-sm text-muted">
             Urgent no-start or safety issue? Call now:{" "}
-            <a href={site.phoneHref} className="font-semibold text-coral">
+            <a href={site.phoneHref} className="font-semibold text-gold">
               {site.phone}
             </a>
           </p>
@@ -230,19 +230,19 @@ export function BookingForm() {
   return (
     <form onSubmit={onSubmit} className="panel overflow-hidden">
       {/* Progress header */}
-      <div className="border-b border-chart-line bg-foam px-4 py-4 sm:px-6">
+      <div className="border-b border-line bg-white px-4 py-4 sm:px-6">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-coral">
+            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-gold">
               Step {step + 1} of {steps.length}
             </p>
-            <p className="mt-0.5 text-sm font-semibold text-ink">{current.short}</p>
+            <p className="mt-0.5 text-sm font-semibold text-navy">{current.short}</p>
           </div>
           <p className="font-mono text-[0.65rem] text-muted">{Math.round(progressPct)}%</p>
         </div>
-        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-chart-line/60">
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-line/60">
           <div
-            className="h-full rounded-full bg-coral transition-all duration-300"
+            className="h-full rounded-full bg-gold transition-all duration-300"
             style={{ width: `${progressPct}%` }}
           />
         </div>
@@ -252,10 +252,10 @@ export function BookingForm() {
               key={s.id}
               className={`rounded border px-2 py-2 text-center ${
                 i === step
-                  ? "border-coral bg-white text-ink"
+                  ? "border-gold bg-white text-navy"
                   : i < step
-                    ? "border-teal/40 bg-white/60 text-teal"
-                    : "border-chart-line text-muted"
+                    ? "border-navy/40 bg-white/60 text-navy"
+                    : "border-line text-muted"
               }`}
             >
               <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider">
@@ -269,7 +269,7 @@ export function BookingForm() {
 
       <div className="space-y-5 p-5 sm:p-6">
         <div>
-          <h2 className="font-display m-0 text-xl font-semibold text-ink sm:text-2xl">
+          <h2 className="font-display m-0 text-xl font-semibold text-navy sm:text-2xl">
             {current.title}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted">{current.help}</p>
@@ -286,14 +286,14 @@ export function BookingForm() {
                   key={s.id}
                   className={`flex cursor-pointer items-start gap-3 rounded border p-3.5 transition ${
                     selected
-                      ? "border-coral bg-foam shadow-sm"
-                      : "border-chart-line hover:border-ink/25"
+                      ? "border-gold bg-white shadow-sm"
+                      : "border-line hover:border-navy/25"
                   }`}
                 >
                   <input
                     type="radio"
                     name="service"
-                    className="mt-1.5 accent-[var(--coral)]"
+                    className="mt-1.5 accent-[var(--gold)]"
                     checked={selected}
                     onChange={() => {
                       setServiceId(s.id);
@@ -302,9 +302,9 @@ export function BookingForm() {
                   />
                   <span className="min-w-0 flex-1">
                     <span className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="font-semibold text-ink">{cleanServiceTitle(s.title)}</span>
+                      <span className="font-semibold text-navy">{cleanServiceTitle(s.title)}</span>
                       {selected && (
-                        <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-coral">
+                        <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-gold">
                           Selected
                         </span>
                       )}
@@ -324,7 +324,7 @@ export function BookingForm() {
           <div className="space-y-4">
             <div>
               <label className="label-field" htmlFor="vesselType">
-                Vessel type <span className="text-coral">*</span>
+                Vessel type <span className="text-gold">*</span>
               </label>
               <select
                 id="vesselType"
@@ -380,7 +380,7 @@ export function BookingForm() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="label-field" htmlFor="date">
-                  Preferred date <span className="text-coral">*</span>
+                  Preferred date <span className="text-gold">*</span>
                 </label>
                 <input
                   id="date"
@@ -397,7 +397,7 @@ export function BookingForm() {
               </div>
               <div>
                 <label className="label-field" htmlFor="time">
-                  Preferred time <span className="text-coral">*</span>
+                  Preferred time <span className="text-gold">*</span>
                 </label>
                 <select
                   id="time"
@@ -440,7 +440,7 @@ export function BookingForm() {
             </div>
             <div>
               <label className="label-field" htmlFor="location">
-                Marina, slip, or dock address <span className="text-coral">*</span>
+                Marina, slip, or dock address <span className="text-gold">*</span>
               </label>
               <input
                 id="location"
@@ -460,20 +460,20 @@ export function BookingForm() {
             </div>
             <label
               className={`flex cursor-pointer items-start gap-3 rounded border p-3.5 text-sm ${
-                priority ? "border-coral bg-foam" : "border-chart-line"
+                priority ? "border-gold bg-white" : "border-line"
               }`}
             >
               <input
                 type="checkbox"
-                className="mt-0.5 accent-[var(--coral)]"
+                className="mt-0.5 accent-[var(--gold)]"
                 checked={priority}
                 onChange={(e) => setPriority(e.target.checked)}
               />
               <span>
-                <span className="font-semibold text-ink">This is urgent</span>
+                <span className="font-semibold text-navy">This is urgent</span>
                 <span className="mt-0.5 block text-muted">
                   No-start, overheating, bilge/flood risk, or safety issue. For emergencies call{" "}
-                  <a href={site.phoneHref} className="font-semibold text-coral">
+                  <a href={site.phoneHref} className="font-semibold text-gold">
                     {site.phone}
                   </a>
                   .
@@ -488,7 +488,7 @@ export function BookingForm() {
           <div className="space-y-4">
             <div>
               <label className="label-field" htmlFor="name">
-                Your name <span className="text-coral">*</span>
+                Your name <span className="text-gold">*</span>
               </label>
               <input
                 id="name"
@@ -506,7 +506,7 @@ export function BookingForm() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="label-field" htmlFor="email">
-                  Email <span className="text-coral">*</span>
+                  Email <span className="text-gold">*</span>
                 </label>
                 <input
                   id="email"
@@ -524,7 +524,7 @@ export function BookingForm() {
               </div>
               <div>
                 <label className="label-field" htmlFor="phone">
-                  Phone <span className="text-coral">*</span>
+                  Phone <span className="text-gold">*</span>
                 </label>
                 <input
                   id="phone"
@@ -557,44 +557,44 @@ export function BookingForm() {
             </div>
 
             {/* Clear review card */}
-            <div className="rounded border border-chart-line bg-foam p-4">
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-wider text-coral">
+            <div className="rounded border border-line bg-white p-4">
+              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-wider text-gold">
                 Review before submit
               </p>
               <dl className="mt-3 space-y-2 text-sm">
-                <div className="flex justify-between gap-4 border-b border-chart-line pb-2">
+                <div className="flex justify-between gap-4 border-b border-line pb-2">
                   <dt className="text-muted">Service</dt>
-                  <dd className="text-right font-medium text-ink">
+                  <dd className="text-right font-medium text-navy">
                     {selectedService ? cleanServiceTitle(selectedService.title) : "—"}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-4 border-b border-chart-line pb-2">
+                <div className="flex justify-between gap-4 border-b border-line pb-2">
                   <dt className="text-muted">Boat</dt>
-                  <dd className="text-right font-medium text-ink">
+                  <dd className="text-right font-medium text-navy">
                     {vesselType || "—"}
                     {vesselLength ? ` · ${vesselLength}` : ""}
                     {vesselName ? ` · “${vesselName}”` : ""}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-4 border-b border-chart-line pb-2">
+                <div className="flex justify-between gap-4 border-b border-line pb-2">
                   <dt className="text-muted">When</dt>
-                  <dd className="text-right font-medium text-ink">
+                  <dd className="text-right font-medium text-navy">
                     {date || "—"} {time ? `· ${time}` : ""}
                     {priority ? " · Urgent" : ""}
                   </dd>
                 </div>
                 <div className="flex justify-between gap-4">
                   <dt className="text-muted">Where</dt>
-                  <dd className="max-w-[60%] text-right font-medium text-ink">
+                  <dd className="max-w-[60%] text-right font-medium text-navy">
                     {city ? `${city} · ` : ""}
                     {location || "—"}
                   </dd>
                 </div>
               </dl>
               <p className="mt-3 text-xs leading-relaxed text-muted">
-                Submitting sends a <strong className="text-ink">service request</strong>. We confirm
+                Submitting sends a <strong className="text-navy">service request</strong>. We confirm
                 the visit before it is locked in. Prefer a quote first?{" "}
-                <Link href="/free-estimate" className="font-semibold text-teal">
+                <Link href="/free-estimate" className="font-semibold text-navy">
                   Free estimate form
                 </Link>
                 .
@@ -606,7 +606,7 @@ export function BookingForm() {
         {fieldHint && (
           <p
             role="alert"
-            className="m-0 rounded border border-coral/40 bg-coral/10 px-3 py-2 text-sm text-ink"
+            className="m-0 rounded border border-gold/40 bg-gold/10 px-3 py-2 text-sm text-navy"
           >
             {fieldHint}
           </p>
@@ -630,7 +630,7 @@ export function BookingForm() {
       </div>
 
       {/* Footer actions */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-chart-line bg-foam/50 px-5 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line bg-white/50 px-5 py-4">
         <button
           type="button"
           className="btn btn-ghost disabled:opacity-40"
@@ -642,7 +642,7 @@ export function BookingForm() {
         <div className="flex flex-wrap items-center gap-3">
           <a
             href={site.phoneHref}
-            className="hidden text-sm font-semibold text-muted no-underline hover:text-coral sm:inline"
+            className="hidden text-sm font-semibold text-muted no-underline hover:text-gold sm:inline"
           >
             Or call {site.phone}
           </a>

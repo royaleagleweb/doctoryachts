@@ -32,12 +32,12 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="border border-chart-line bg-foam p-4">
-        <p className="m-0 font-semibold text-ink">Message received</p>
+      <div className="border border-line bg-white p-4">
+        <p className="m-0 font-semibold text-navy">Message received</p>
         <p className="mt-2 mb-0 text-sm text-muted">We’ll reply during shop hours.</p>
         <button
           type="button"
-          className="mt-3 font-mono text-xs font-semibold uppercase tracking-wider text-coral"
+          className="mt-3 font-mono text-xs font-semibold uppercase tracking-wider text-gold"
           onClick={() => setStatus("idle")}
         >
           Send another

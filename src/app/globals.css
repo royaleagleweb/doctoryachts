@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
 /*
-  DOCTOR YACHTS — max 3 colors
-  Brand (2): Navy = marine · Gold = luxury
-  Ground (1): White (+ navy tints for paper/muted — same hue only)
+  DOCTOR YACHTS — whole-site palette (max 3)
+  1. Navy  — marine brand
+  2. Gold  — luxury accent
+  3. White — ground (+ navy-only tints for paper/line/muted)
 */
 :root {
-  /* === Brand (only these two hues) === */
   --navy: #0b1f33;
   --gold: #c4a35a;
 
-  /* === Tints of navy / gold only — no third hue === */
   --navy-deep: #061525;
   --navy-mid: #0b1f33;
   --gold-deep: #a88a45;
@@ -22,65 +21,25 @@
   --muted: color-mix(in srgb, var(--navy) 48%, var(--white));
   --steel: color-mix(in srgb, var(--navy) 38%, var(--white));
 
-  /* Legacy names → navy or gold (keeps old class names working) */
-  --ink: var(--navy);
-  --ink-soft: var(--navy);
-  --teal: var(--navy);
-  --teal-bright: var(--navy);
-  --coral: var(--gold);
-  --coral-deep: var(--gold-deep);
-  --chart: var(--paper);
-  --chart-deep: var(--paper-deep);
-  --chart-line: var(--line);
-  --foam: var(--white);
-  --brass: var(--gold);
-  --brass-light: var(--gold-light);
-  --brass-dark: var(--gold-deep);
-  --pearl: var(--paper);
-  --slate: var(--muted);
   --background: var(--paper);
   --foreground: var(--navy);
-  --chalk: var(--white);
-  --rust: var(--gold);
-  --rust-deep: var(--gold-deep);
-  --smoke: var(--muted);
-  --rule: var(--line);
-  --sea: var(--navy);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-chart: var(--chart);
-  --color-chart-deep: var(--chart-deep);
-  --color-chart-line: var(--chart-line);
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-teal: var(--teal);
-  --color-teal-bright: var(--teal-bright);
-  --color-coral: var(--coral);
-  --color-coral-deep: var(--coral-deep);
-  --color-foam: var(--foam);
-  --color-muted: var(--muted);
-  --color-white: var(--white);
-  --color-navy-deep: var(--navy-deep);
   --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
   --color-navy-mid: var(--navy-mid);
-  --color-brass: var(--brass);
-  --color-brass-light: var(--brass-light);
-  --color-brass-dark: var(--brass-dark);
-  --color-pearl: var(--pearl);
-  --color-steel: var(--steel);
-  --color-slate: var(--slate);
-  --color-line: var(--line);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-light: var(--gold-light);
+  --color-white: var(--white);
   --color-paper: var(--paper);
   --color-paper-deep: var(--paper-deep);
-  --color-chalk: var(--chalk);
-  --color-rust: var(--rust);
-  --color-rust-deep: var(--rust-deep);
-  --color-smoke: var(--smoke);
-  --color-rule: var(--rule);
-  --color-sea: var(--sea);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-steel: var(--steel);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
@@ -92,8 +51,8 @@ html {
 
 body {
   margin: 0;
-  color: var(--ink);
-  background-color: var(--chart);
+  color: var(--navy);
+  background-color: var(--paper);
   background-image: none;
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 16.5px;
@@ -137,7 +96,7 @@ body::before {
   margin-inline: auto;
 }
 
-/* Buttons — navy primary, gold on dark sections via utility */
+/* Buttons — navy primary, gold on dark sections */
 .btn {
   --btn-bg: var(--navy);
   --btn-fg: var(--white);
@@ -164,7 +123,7 @@ body::before {
   transform: translateY(-1px);
 }
 
-.btn-ink {
+.btn-navy {
   --btn-bg: var(--navy);
   --btn-fg: var(--white);
 }
@@ -197,6 +156,10 @@ body::before {
   color: var(--white);
 }
 
+.btn-ghost-light:hover {
+  background: color-mix(in srgb, var(--white) 10%, transparent);
+}
+
 /* Labels — navy + gold dot only */
 .case-tag {
   display: inline-flex;
@@ -221,6 +184,17 @@ body::before {
   background: var(--gold);
 }
 
+/* On navy sections: gold-outlined tag */
+.case-tag-on-dark {
+  border-color: color-mix(in srgb, var(--gold) 45%, transparent);
+  background: transparent;
+  color: var(--gold-light);
+}
+
+.case-tag-on-dark::before {
+  background: var(--gold);
+}
+
 .coord-stamp {
   font-family: var(--font-mono), monospace;
   font-size: 0.68rem;
@@ -238,18 +212,17 @@ body::before {
 
 .depth-ticks span {
   width: 1px;
-  background: var(--chart-line);
+  background: var(--line);
   display: block;
 }
 
-/* Photo treatment — polaroid / chart clip */
 .shot {
   position: relative;
-  background: var(--foam);
-  border: 1px solid var(--chart-line);
+  background: var(--white);
+  border: 1px solid var(--line);
   box-shadow:
-    3px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--ink) 4%, transparent);
+    3px 3px 0 color-mix(in srgb, var(--navy) 12%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--navy) 4%, transparent);
 }
 
 .shot::before {
@@ -281,31 +254,29 @@ body::before {
   overflow: hidden;
 }
 
-/* Panel / card */
 .panel {
-  background: var(--foam);
-  border: 1px solid var(--chart-line);
+  background: var(--white);
+  border: 1px solid var(--line);
 }
 
-.panel-ink {
+.panel-navy {
   background: var(--navy);
   color: var(--paper);
   border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
 }
 
-/* Section rhythm */
 .section-pad {
   padding-block: clamp(3rem, 6vw, 5rem);
 }
 
 .input-field {
   width: 100%;
-  border: 1.5px solid var(--chart-line);
-  background: var(--foam);
+  border: 1.5px solid var(--line);
+  background: var(--white);
   padding: 0.7rem 0.85rem;
   font-size: 0.95rem;
   font-family: var(--font-sans), system-ui, sans-serif;
-  color: var(--ink);
+  color: var(--navy);
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
@@ -338,17 +309,16 @@ body::before {
   border: 0;
 }
 
-/* wavy divider */
 .wave-rule {
   height: 12px;
   background:
-    radial-gradient(circle at 10px 0, transparent 8px, var(--chart-line) 8.5px, var(--chart-line) 9.5px, transparent 10px) repeat-x;
+    radial-gradient(circle at 10px 0, transparent 8px, var(--line) 8.5px, var(--line) 9.5px, transparent 10px) repeat-x;
   background-size: 20px 12px;
   opacity: 0.7;
 }
 
 .hero-mesh {
-  background: var(--ink);
+  background: var(--navy);
 }
 
 .card-grid-pattern {

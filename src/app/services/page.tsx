@@ -60,7 +60,7 @@ export default function ServicesPage() {
         ]}
       />
 
-      <section className="relative min-h-[300px] overflow-hidden border-b border-chart-line sm:min-h-[360px]">
+      <section className="relative min-h-[300px] overflow-hidden border-b border-line sm:min-h-[360px]">
         <Image
           src={yachts.dockPair.src}
           alt={yachts.dockPair.alt}
@@ -69,10 +69,10 @@ export default function ServicesPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/75 to-navy/30" />
         <div className="wrap relative flex min-h-[300px] flex-col justify-end py-12 sm:min-h-[360px]">
           <CaseTag>Services</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-chart sm:text-5xl">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
             Boat repair services in Fort Lauderdale, Pompano Beach &amp; South Florida
           </h1>
           <p className="mt-4 max-w-2xl text-steel">
@@ -107,15 +107,15 @@ export default function ServicesPage() {
                     sizes="280px"
                     className="object-cover"
                   />
-                  <span className="absolute left-3 top-3 bg-ink/90 px-2 py-1 font-mono text-[0.65rem] text-chart">
+                  <span className="absolute left-3 top-3 bg-navy/90 px-2 py-1 font-mono text-[0.65rem] text-paper">
                     DX-{String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <div className="p-6 sm:p-8">
-                  <h2 className="font-display text-2xl font-semibold text-ink">
+                  <h2 className="font-display text-2xl font-semibold text-navy">
                     <Link
                       href={`/services/${service.slug}`}
-                      className="text-ink no-underline hover:text-coral"
+                      className="text-navy no-underline hover:text-gold"
                     >
                       {service.title}
                     </Link>
@@ -127,9 +127,9 @@ export default function ServicesPage() {
                     {service.features.slice(0, 4).map((f) => (
                       <li
                         key={f}
-                        className="flex gap-2 border border-chart-line bg-foam px-3 py-2 text-sm text-ink"
+                        className="flex gap-2 border border-line bg-white px-3 py-2 text-sm text-navy"
                       >
-                        <span className="text-coral">·</span>
+                        <span className="text-gold">·</span>
                         {f}
                       </li>
                     ))}
@@ -149,7 +149,7 @@ export default function ServicesPage() {
         </div>
 
         <section className="space-y-4">
-          <h2 className="font-display text-2xl font-semibold text-ink">
+          <h2 className="font-display text-2xl font-semibold text-navy">
             How to choose the right boat repair service
           </h2>
           <p className="text-muted">
@@ -171,7 +171,7 @@ export default function ServicesPage() {
         </section>
 
         <section className="panel p-6">
-          <h2 className="font-display text-xl font-semibold text-ink">
+          <h2 className="font-display text-xl font-semibold text-navy">
             Service areas for these repairs
           </h2>
           <p className="mt-2 text-sm text-muted">
@@ -180,8 +180,8 @@ export default function ServicesPage() {
           </p>
           <ul className="mt-4 grid gap-2 sm:grid-cols-2">
             {hubFaqs.map((f) => (
-              <li key={f.question} className="border border-chart-line bg-foam p-3">
-                <p className="text-sm font-semibold text-ink">{f.question}</p>
+              <li key={f.question} className="border border-line bg-white p-3">
+                <p className="text-sm font-semibold text-navy">{f.question}</p>
                 <p className="mt-1 text-xs text-muted">{f.answer}</p>
               </li>
             ))}

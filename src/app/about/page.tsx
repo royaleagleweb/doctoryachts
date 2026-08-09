@@ -51,7 +51,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <section className="relative min-h-[300px] overflow-hidden border-b border-chart-line sm:min-h-[380px]">
+      <section className="relative min-h-[300px] overflow-hidden border-b border-line sm:min-h-[380px]">
         <Image
           src={images.aboutHero.src}
           alt={images.aboutHero.alt}
@@ -60,10 +60,10 @@ export default function AboutPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/25" />
         <div className="wrap relative flex min-h-[300px] flex-col justify-end py-12 sm:min-h-[380px]">
           <CaseTag>About</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-chart sm:text-5xl">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
             Independent boat &amp; yacht mechanic for South Florida
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-steel">
@@ -83,7 +83,7 @@ export default function AboutPage() {
 
           <div>
             <CoordStamp label="Method · DY-CORE" />
-            <h2 className="font-display mt-3 text-2xl font-semibold text-ink">
+            <h2 className="font-display mt-3 text-2xl font-semibold text-navy">
               How we work a job
             </h2>
             <p className="mt-4 text-muted">
@@ -99,7 +99,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl font-semibold text-ink">What we service</h2>
+            <h2 className="font-display text-2xl font-semibold text-navy">What we service</h2>
             <ul className="mt-4 space-y-3">
               {[
                 "Marine engine repair (inboard & outboard)",
@@ -112,9 +112,9 @@ export default function AboutPage() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 border-b border-chart-line pb-3 text-ink"
+                  className="flex items-center gap-3 border-b border-line pb-3 text-navy"
                 >
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   {item}
                 </li>
               ))}
@@ -122,7 +122,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Service areas
             </h2>
             <p className="mt-3 text-muted">
@@ -133,7 +133,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               What we are not
             </h2>
             <p className="mt-3 text-muted">
@@ -145,7 +145,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Free estimates &amp; how to start
             </h2>
             <p className="mt-3 text-muted">
@@ -181,18 +181,18 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <div className="border-t border-chart-line px-4 py-3 font-mono text-[0.65rem] uppercase tracking-wider text-muted">
+            <div className="border-t border-line px-4 py-3 font-mono text-[0.65rem] uppercase tracking-wider text-muted">
               Shop hours · {site.hours} · {site.phone}
             </div>
           </div>
           <div className="panel mt-5 p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-coral">Core services</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-gold">Core services</p>
             <ul className="mt-3 space-y-2">
               {services.slice(0, 6).map((s) => (
                 <li key={s.id}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="text-sm font-medium text-ink no-underline hover:text-coral"
+                    className="text-sm font-medium text-navy no-underline hover:text-gold"
                   >
                     {s.title}
                   </Link>

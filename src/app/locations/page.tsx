@@ -54,7 +54,7 @@ export default function LocationsPage() {
         ]}
       />
 
-      <section className="relative min-h-[300px] overflow-hidden border-b border-chart-line sm:min-h-[360px]">
+      <section className="relative min-h-[300px] overflow-hidden border-b border-line sm:min-h-[360px]">
         <Image
           src={yachts.intracoastal.src}
           alt={yachts.intracoastal.alt}
@@ -63,10 +63,10 @@ export default function LocationsPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/25" />
         <div className="wrap relative flex min-h-[300px] flex-col justify-end py-12 sm:min-h-[360px]">
           <CaseTag>Service areas</CaseTag>
-          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-chart sm:text-5xl">
+          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
             Boat repair service areas in South Florida
           </h1>
           <p className="mt-4 max-w-2xl text-steel">
@@ -94,14 +94,14 @@ export default function LocationsPage() {
                 <div className="shot-img relative aspect-[16/10]">
                   <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover" />
                 </div>
-                <div className="border-t border-chart-line p-5">
-                  <p className="font-mono text-[0.62rem] uppercase tracking-wider text-coral">
+                <div className="border-t border-line p-5">
+                  <p className="font-mono text-[0.62rem] uppercase tracking-wider text-gold">
                     {loc.region}
                   </p>
-                  <h2 className="font-display mt-1 text-2xl font-semibold text-ink">
+                  <h2 className="font-display mt-1 text-2xl font-semibold text-navy">
                     <Link
                       href={`/locations/${loc.slug}`}
-                      className="text-ink no-underline hover:text-teal"
+                      className="text-navy no-underline hover:text-gold"
                     >
                       Boat repair {loc.name}
                     </Link>
@@ -109,7 +109,7 @@ export default function LocationsPage() {
                   <p className="mt-2 text-sm text-muted">{loc.intro}</p>
                   <Link
                     href={`/locations/${loc.slug}`}
-                    className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wider text-coral no-underline"
+                    className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wider text-gold no-underline"
                   >
                     {loc.shortName} page →
                   </Link>
@@ -120,7 +120,7 @@ export default function LocationsPage() {
         </div>
 
         <section className="space-y-4">
-          <h2 className="font-display text-2xl font-semibold text-ink">
+          <h2 className="font-display text-2xl font-semibold text-navy">
             Mobile boat repair across South Florida
           </h2>
           <p className="text-muted">
@@ -133,7 +133,7 @@ export default function LocationsPage() {
           <div className="grid gap-3 sm:grid-cols-3">
             {hubFaqs.map((f) => (
               <div key={f.question} className="panel p-4">
-                <p className="text-sm font-semibold text-ink">{f.question}</p>
+                <p className="text-sm font-semibold text-navy">{f.question}</p>
                 <p className="mt-2 text-xs leading-relaxed text-muted">{f.answer}</p>
               </div>
             ))}

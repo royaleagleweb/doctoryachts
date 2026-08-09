@@ -65,10 +65,10 @@ export default async function LocationPage({ params }: PageProps) {
         ]}
       />
 
-      <section className="border-b border-chart-line bg-chart-deep/40">
+      <section className="border-b border-line bg-paper-deep/40">
         <div className="wrap section-pad">
           <CaseTag>{loc.region}</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
             {loc.h1}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted">{loc.intro}</p>
@@ -95,7 +95,7 @@ export default async function LocationPage({ params }: PageProps) {
           />
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Boat mechanic service in {loc.name}, {loc.state}
             </h2>
             {loc.content.map((p) => (
@@ -107,7 +107,7 @@ export default async function LocationPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Popular boat repair services in {loc.shortName}
             </h2>
             <p className="mt-3 text-muted">
@@ -118,9 +118,9 @@ export default async function LocationPage({ params }: PageProps) {
                 <Link
                   key={s.id}
                   href={`/services/${s.slug}/${loc.slug}`}
-                  className="panel block p-4 no-underline transition hover:border-coral/40"
+                  className="panel block p-4 no-underline transition hover:border-gold/40"
                 >
-                  <span className="font-semibold text-ink">
+                  <span className="font-semibold text-navy">
                     {s.title.replace(/\s+Fort Lauderdale$/i, "")} in {loc.shortName}
                   </span>
                   <span className="mt-1 block text-xs text-muted">{s.summary}</span>
@@ -134,31 +134,31 @@ export default async function LocationPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Why owners in {loc.shortName} call Doctor Yachts
             </h2>
             <ul className="mt-4 space-y-3 text-muted">
               <li className="flex gap-2">
-                <span className="text-coral">▣</span>
+                <span className="text-gold">▣</span>
                 Diagnose first—clear findings before parts pressure
               </li>
               <li className="flex gap-2">
-                <span className="text-coral">▣</span>
+                <span className="text-gold">▣</span>
                 Mobile and dockside when access allows (save the tow when possible)
               </li>
               <li className="flex gap-2">
-                <span className="text-coral">▣</span>
+                <span className="text-gold">▣</span>
                 Free estimates on recommended work
               </li>
               <li className="flex gap-2">
-                <span className="text-coral">▣</span>
+                <span className="text-gold">▣</span>
                 Engines, electrical, cooling, plumbing systems, and maintenance
               </li>
             </ul>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               How boat repair works in {loc.shortName}
             </h2>
             <ol className="mt-4 space-y-3">
@@ -169,7 +169,7 @@ export default async function LocationPage({ params }: PageProps) {
                 "You get a free estimate path for recommended work and clear notes for the next trip or survey.",
               ].map((step, i) => (
                 <li key={step} className="flex gap-3 text-muted">
-                  <span className="font-mono text-sm font-semibold text-coral">
+                  <span className="font-mono text-sm font-semibold text-gold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {step}
@@ -184,7 +184,7 @@ export default async function LocationPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Helpful guides for {loc.shortName} boaters
             </h2>
             <ul className="mt-4 space-y-2">
@@ -210,17 +210,17 @@ export default async function LocationPage({ params }: PageProps) {
             <CoordStamp label="Local corridors" />
             <ul className="mt-4 space-y-2">
               {loc.neighborhoods.map((n) => (
-                <li key={n} className="flex gap-2 border-b border-chart-line pb-2 text-sm text-ink">
-                  <span className="text-coral">·</span>
+                <li key={n} className="flex gap-2 border-b border-line pb-2 text-sm text-navy">
+                  <span className="text-gold">·</span>
                   {n}
                 </li>
               ))}
             </ul>
           </div>
           <div className="panel p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-coral">Contact</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-gold">Contact</p>
             <p className="mt-2 text-sm text-muted">{site.hours}</p>
-            <a href={site.phoneHref} className="mt-2 block font-semibold text-ink">
+            <a href={site.phoneHref} className="mt-2 block font-semibold text-navy">
               {site.phone}
             </a>
             <Link href="/book" className="btn mt-4 w-full">

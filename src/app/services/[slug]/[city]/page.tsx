@@ -101,7 +101,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="relative min-h-[380px] overflow-hidden border-b border-chart-line bg-ink sm:min-h-[440px]">
+      <section className="relative min-h-[380px] overflow-hidden border-b border-line bg-navy sm:min-h-[440px]">
         <Image
           src={hero.src}
           alt={`${name} in ${location.name}, FL — ${hero.alt}`}
@@ -110,27 +110,27 @@ export default async function ServiceCityPage({ params }: PageProps) {
           sizes="100vw"
           className="object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/30" />
 
         <div className="wrap relative flex min-h-[380px] flex-col justify-end py-12 sm:min-h-[440px] sm:py-16">
           <p className="font-mono text-xs text-steel">
-            <Link href="/" className="text-steel no-underline hover:text-coral">
+            <Link href="/" className="text-steel no-underline hover:text-gold">
               Home
             </Link>
             {" / "}
-            <Link href="/services" className="text-steel no-underline hover:text-coral">
+            <Link href="/services" className="text-steel no-underline hover:text-gold">
               Services
             </Link>
             {" / "}
             <Link
               href={`/services/${service.slug}`}
-              className="text-steel no-underline hover:text-coral"
+              className="text-steel no-underline hover:text-gold"
             >
               {name}
             </Link>
             {" / "}
-            <span className="text-chart/80">{location.name}</span>
+            <span className="text-paper/80">{location.name}</span>
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <CaseTag>
@@ -138,7 +138,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </CaseTag>
             <CoordStamp label={service.duration} />
           </div>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-chart sm:text-5xl">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
             {serviceCityH1(service, location)}
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-steel">
@@ -146,7 +146,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             {location.name}—diagnose first, free estimates, clear notes.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/book?service=${service.id}`} className="btn">
+            <Link href={`/book?service=${service.id}`} className="btn btn-gold">
               Book in {location.shortName}
             </Link>
             <Link href="/free-estimate" className="btn btn-ghost-light">
@@ -168,7 +168,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
           />
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               {name} for {location.name} boat owners
             </h2>
             {content.map((p) => (
@@ -179,16 +179,16 @@ export default async function ServiceCityPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Common symptoms we handle in {location.shortName}
             </h2>
             <ul className="mt-5 grid gap-2 sm:grid-cols-2">
               {service.symptoms.map((s) => (
                 <li
                   key={s}
-                  className="flex gap-2 border border-chart-line bg-foam px-3 py-2.5 text-sm text-ink"
+                  className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
                 >
-                  <span className="text-teal">·</span>
+                  <span className="text-navy">·</span>
                   {s}
                 </li>
               ))}
@@ -197,16 +197,16 @@ export default async function ServiceCityPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               What&apos;s typically included
             </h2>
             <ul className="mt-5 grid gap-2 sm:grid-cols-2">
               {service.features.map((f) => (
                 <li
                   key={f}
-                  className="flex gap-2 border border-chart-line bg-foam px-3 py-2.5 text-sm text-ink"
+                  className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
                 >
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   {f}
                 </li>
               ))}
@@ -224,14 +224,14 @@ export default async function ServiceCityPage({ params }: PageProps) {
               />
             </div>
             {secondary.caption && (
-              <div className="border-t border-chart-line px-4 py-3 font-mono text-[0.65rem] uppercase tracking-wider text-muted">
+              <div className="border-t border-line px-4 py-3 font-mono text-[0.65rem] uppercase tracking-wider text-muted">
                 {secondary.caption} · {location.name}
               </div>
             )}
           </div>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               Service corridors in {location.name}
             </h2>
             <p className="mt-3 text-muted">
@@ -242,9 +242,9 @@ export default async function ServiceCityPage({ params }: PageProps) {
               {location.neighborhoods.map((n) => (
                 <li
                   key={n}
-                  className="flex gap-2 border border-chart-line px-3 py-2 text-sm text-ink"
+                  className="flex gap-2 border border-line px-3 py-2 text-sm text-navy"
                 >
-                  <span className="text-coral">·</span>
+                  <span className="text-gold">·</span>
                   {n}
                 </li>
               ))}
@@ -253,17 +253,17 @@ export default async function ServiceCityPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-semibold text-ink">
+            <h2 className="font-display text-2xl font-semibold text-navy">
               How a visit works in {location.shortName}
             </h2>
             <ol className="mt-5 space-y-4">
               {service.process.map((step, i) => (
                 <li key={step.title} className="panel flex gap-4 p-4">
-                  <span className="font-display text-2xl font-semibold text-coral">
+                  <span className="font-display text-2xl font-semibold text-gold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-semibold text-ink">{step.title}</h3>
+                    <h3 className="font-semibold text-navy">{step.title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted">{step.detail}</p>
                   </div>
                 </li>
@@ -271,19 +271,19 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </ol>
           </section>
 
-          <section className="panel-ink p-6 sm:p-8">
-            <h2 className="font-display text-xl font-semibold text-chart sm:text-2xl">
+          <section className="panel-navy p-6 sm:p-8">
+            <h2 className="font-display text-xl font-semibold text-paper sm:text-2xl">
               Book {name.toLowerCase()} in {location.name}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-steel">
               Free estimates. Mobile/dockside when access allows. Call{" "}
-              <a href={site.phoneHref} className="text-coral">
+              <a href={site.phoneHref} className="text-gold">
                 {site.phone}
               </a>{" "}
               or book online with your marina and symptoms.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href={`/book?service=${service.id}`} className="btn">
+              <Link href={`/book?service=${service.id}`} className="btn btn-gold">
                 Book {location.shortName}
               </Link>
               <Link href="/free-estimate" className="btn btn-ghost-light">
@@ -301,7 +301,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
 
         <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
           <div className="panel p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-coral">Book</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-gold">Book</p>
             <p className="mt-2 text-sm text-muted">
               {location.name}, FL · {service.duration}
             </p>
@@ -310,7 +310,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </Link>
             <a
               href={site.phoneHref}
-              className="mt-3 block text-center text-sm font-semibold text-ink no-underline hover:text-coral"
+              className="mt-3 block text-center text-sm font-semibold text-navy no-underline hover:text-gold"
             >
               {site.phone}
             </a>
@@ -324,7 +324,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                 <li key={c.href}>
                   <Link
                     href={c.href}
-                    className="text-sm text-ink no-underline hover:text-coral"
+                    className="text-sm text-navy no-underline hover:text-gold"
                   >
                     {c.label}
                   </Link>
@@ -340,7 +340,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
               <li>
                 <Link
                   href={`/locations/${location.slug}`}
-                  className="text-sm font-semibold text-teal no-underline hover:text-coral"
+                  className="text-sm font-semibold text-navy no-underline hover:text-gold"
                 >
                   All boat repair · {location.name}
                 </Link>
@@ -349,7 +349,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                 <li key={s.href}>
                   <Link
                     href={s.href}
-                    className="text-sm text-ink no-underline hover:text-coral"
+                    className="text-sm text-navy no-underline hover:text-gold"
                   >
                     {s.label}
                   </Link>

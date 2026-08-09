@@ -45,10 +45,10 @@ export default function ContactPage() {
         ]}
       />
 
-      <section className="border-b border-chart-line bg-chart-deep/50">
+      <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
           <CaseTag>Contact</CaseTag>
-          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-navy">
             Contact a boat mechanic in Fort Lauderdale &amp; South Florida
           </h1>
           <p className="mt-4 max-w-2xl text-muted">
@@ -65,7 +65,7 @@ export default function ContactPage() {
             question="How do I reach Doctor Yachts?"
             answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message for free estimates and scheduling. We serve Fort Lauderdale, Pompano Beach, Miami, and nearby South Florida docks.`}
           />
-          <div className="panel-ink p-6 sm:p-8">
+          <div className="panel-navy p-6 sm:p-8">
             <p className="font-mono text-xs uppercase tracking-wider text-steel">Direct lines</p>
             <dl className="mt-6 space-y-5">
               <div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                   Phone
                 </dt>
                 <dd className="mt-1 font-display text-2xl">
-                  <a href={site.phoneHref} className="text-chart no-underline hover:text-coral">
+                  <a href={site.phoneHref} className="text-paper no-underline hover:text-gold">
                     {site.phone}
                   </a>
                 </dd>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 <dd className="mt-1">
                   <a
                     href={`mailto:${site.email}`}
-                    className="text-chart no-underline hover:text-coral"
+                    className="text-paper no-underline hover:text-gold"
                   >
                     {site.email}
                   </a>
@@ -95,25 +95,25 @@ export default function ContactPage() {
                 <dt className="font-mono text-[0.65rem] uppercase tracking-wider text-steel">
                   Hours
                 </dt>
-                <dd className="mt-1 text-chart/90">{site.hours}</dd>
+                <dd className="mt-1 text-paper/90">{site.hours}</dd>
               </div>
               <div>
                 <dt className="font-mono text-[0.65rem] uppercase tracking-wider text-steel">
                   Service area
                 </dt>
-                <dd className="mt-1 text-chart/90">{site.serviceArea}</dd>
+                <dd className="mt-1 text-paper/90">{site.serviceArea}</dd>
               </div>
             </dl>
             <p className="mt-6 text-sm text-steel">
-              Also: <Link href="/free-estimate" className="text-coral">free estimate page</Link> ·{" "}
-              <Link href="/faq" className="text-coral">
+              Also: <Link href="/free-estimate" className="text-gold">free estimate page</Link> ·{" "}
+              <Link href="/faq" className="text-gold">
                 FAQ
               </Link>
             </p>
           </div>
         </div>
         <div className="panel p-6 sm:p-8">
-          <h2 className="font-display text-2xl font-semibold text-ink">Send a message</h2>
+          <h2 className="font-display text-2xl font-semibold text-navy">Send a message</h2>
           <p className="mt-2 text-sm text-muted">
             Include city/marina and symptoms for a faster free estimate.
           </p>

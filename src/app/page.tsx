@@ -19,7 +19,7 @@ export default function HomePage() {
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
       {/* Hero — full-bleed image so the photo is always obvious */}
-      <section className="relative min-h-[520px] overflow-hidden border-b border-chart-line sm:min-h-[600px] lg:min-h-[640px]">
+      <section className="relative min-h-[520px] overflow-hidden border-b border-line sm:min-h-[600px] lg:min-h-[640px]">
         <Image
           src={images.homeHero.src}
           alt={images.homeHero.alt}
@@ -28,8 +28,8 @@ export default function HomePage() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/20" />
 
         <div className="wrap relative flex min-h-[520px] flex-col justify-end py-12 sm:min-h-[600px] sm:py-16 lg:min-h-[640px] lg:justify-center lg:py-20">
           <div className="max-w-xl">
@@ -38,10 +38,10 @@ export default function HomePage() {
               <CoordStamp label="Mobile · dockside" />
             </div>
 
-            <h1 className="font-display mt-6 text-[2.4rem] font-semibold leading-[1.05] tracking-tight text-chart sm:text-5xl lg:text-[3.15rem]">
+            <h1 className="font-display mt-6 text-[2.4rem] font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.15rem]">
               Boat repair &amp; maintenance in{" "}
-              <em className="not-italic text-teal">Fort Lauderdale</em>
-              <span className="text-coral"> &amp; </span>
+              <em className="not-italic text-gold">Fort Lauderdale</em>
+              <span className="text-gold-light"> &amp; </span>
               Pompano Beach, FL
             </h1>
 
@@ -52,7 +52,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/book" className="btn">
+              <Link href="/book" className="btn btn-gold">
                 Book repair
               </Link>
               <Link href="/free-estimate" className="btn btn-ghost-light">
@@ -70,10 +70,10 @@ export default function HomePage() {
                 { href: "/locations/miami", label: "Miami / Beach" },
               ].map((item) => (
                 <Link key={item.href} href={item.href} className="no-underline">
-                  <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-coral">
+                  <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-gold">
                     Area
                   </p>
-                  <p className="mt-1 text-xs font-medium text-chart sm:text-sm hover:text-coral">
+                  <p className="mt-1 text-xs font-medium text-paper sm:text-sm hover:text-gold">
                     {item.label}
                   </p>
                 </Link>
@@ -84,11 +84,11 @@ export default function HomePage() {
       </section>
 
       {/* Principle strip */}
-      <section className="border-b border-chart-line bg-ink text-chart">
+      <section className="border-b border-line bg-navy text-paper">
         <div className="wrap grid gap-6 py-8 md:grid-cols-12 md:items-center">
           <p className="font-display text-xl leading-snug md:col-span-8 md:text-2xl">
             “Most boats don’t need a miracle—they need someone who actually{" "}
-            <em className="text-coral">finds the fault</em> before swapping parts.”
+            <em className="text-gold">finds the fault</em> before swapping parts.”
           </p>
           <div className="md:col-span-4 md:text-right">
             <DepthTicks className="md:ml-auto" />
@@ -100,7 +100,7 @@ export default function HomePage() {
       </section>
 
       {/* Full-bleed yacht branding banner */}
-      <section className="relative min-h-[280px] overflow-hidden border-b border-chart-line sm:min-h-[360px]">
+      <section className="relative min-h-[280px] overflow-hidden border-b border-line sm:min-h-[360px]">
         <Image
           src={yachts.intracoastal.src}
           alt={yachts.intracoastal.alt}
@@ -108,13 +108,13 @@ export default function HomePage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
         <div className="wrap relative flex min-h-[280px] items-end py-10 sm:min-h-[360px]">
           <div>
-            <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-coral">
+            <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold">
               Fort Lauderdale · Intracoastal
             </p>
-            <p className="font-display mt-2 max-w-lg text-2xl font-semibold text-chart sm:text-3xl">
+            <p className="font-display mt-2 max-w-lg text-2xl font-semibold text-paper sm:text-3xl">
               Dockside mechanic service where the boats already live
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function HomePage() {
       </section>
 
       {/* SEO + intro with yacht photo */}
-      <section className="border-b border-chart-line">
+      <section className="border-b border-line">
         <div className="wrap section-pad space-y-10">
           <AnswerBox
             label="Quick answer"
@@ -131,7 +131,7 @@ export default function HomePage() {
           />
           <div className="grid items-start gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
+              <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl">
                 Boat mechanic service for Fort Lauderdale &amp; Pompano Beach
               </h2>
               <p className="mt-4 text-muted">
@@ -153,28 +153,28 @@ export default function HomePage() {
                 <a href={site.phoneHref}>{site.phone}</a> or{" "}
                 <Link href="/book">book online</Link>.
               </p>
-              <h3 className="font-display mt-8 text-xl font-semibold text-ink">
+              <h3 className="font-display mt-8 text-xl font-semibold text-navy">
                 What we fix most often
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-muted">
                 <li className="flex gap-2">
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   Boat won&apos;t start / weak cranking (battery, charging, safety circuits)
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   Overheating (impellers, strainers, heat exchangers)
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   Dead batteries and shore power trips
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   Bilge pumps, plumbing, and safety systems
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   Pre-season and interval boat maintenance
                 </li>
               </ul>
@@ -229,7 +229,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <CaseTag>How we work</CaseTag>
-              <h2 className="font-display mt-4 max-w-md text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <h2 className="font-display mt-4 max-w-md text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
                 From your call to back on the water
               </h2>
             </div>
@@ -262,8 +262,8 @@ export default function HomePage() {
               },
             ].map((step) => (
               <li key={step.n} className="panel relative p-5">
-                <span className="font-display text-3xl font-semibold text-coral/90">{step.n}</span>
-                <h3 className="mt-4 font-display text-xl font-semibold text-ink">{step.t}</h3>
+                <span className="font-display text-3xl font-semibold text-gold/90">{step.n}</span>
+                <h3 className="mt-4 font-display text-xl font-semibold text-navy">{step.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{step.d}</p>
               </li>
             ))}
@@ -272,20 +272,20 @@ export default function HomePage() {
       </section>
 
       {/* Yacht strip — branding gallery */}
-      <section className="border-y border-chart-line bg-ink">
+      <section className="border-y border-line bg-navy">
         <div className="wrap py-8">
           <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-coral">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-gold">
                 On the water
               </p>
-              <p className="font-display mt-1 text-xl text-chart sm:text-2xl">
+              <p className="font-display mt-1 text-xl text-paper sm:text-2xl">
                 Yachts &amp; boats we keep running
               </p>
             </div>
             <Link
               href="/gallery"
-              className="font-mono text-xs font-semibold uppercase tracking-wider text-steel no-underline hover:text-coral"
+              className="font-mono text-xs font-semibold uppercase tracking-wider text-steel no-underline hover:text-gold"
             >
               Full gallery →
             </Link>
@@ -300,7 +300,7 @@ export default function HomePage() {
                   sizes="25vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-3 pt-10">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 to-transparent p-3 pt-10">
                   <p className="font-mono text-[0.6rem] uppercase tracking-wider text-steel">
                     {img.caption}
                   </p>
@@ -312,18 +312,18 @@ export default function HomePage() {
       </section>
 
       {/* Services — equal cards for top 6 */}
-      <section className="border-y border-chart-line bg-chart-deep/40 section-pad">
+      <section className="border-y border-line bg-paper-deep/40 section-pad">
         <div className="wrap">
           <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <CaseTag>Services</CaseTag>
-              <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
                 What we repair on board
               </h2>
             </div>
             <Link
               href="/services"
-              className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-teal no-underline hover:text-coral"
+              className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy no-underline hover:text-gold"
             >
               All services →
             </Link>
@@ -341,15 +341,15 @@ export default function HomePage() {
                 <Link
                   key={s.id}
                   href={`/services/${s.slug}`}
-                  className="panel group flex items-center justify-between px-4 py-4 no-underline transition hover:border-teal/40"
+                  className="panel group flex items-center justify-between px-4 py-4 no-underline transition hover:border-navy/40"
                 >
                   <span>
-                    <span className="font-mono text-[0.65rem] text-coral">Also available</span>
-                    <span className="mt-1 block font-semibold text-ink group-hover:text-teal">
+                    <span className="font-mono text-[0.65rem] text-gold">Also available</span>
+                    <span className="mt-1 block font-semibold text-navy group-hover:text-gold">
                       {s.title.replace(" Fort Lauderdale", "")}
                     </span>
                   </span>
-                  <span className="text-coral">→</span>
+                  <span className="text-gold">→</span>
                 </Link>
               ))}
             </div>
@@ -358,7 +358,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Doctor Yachts */}
-      <section className="bg-ink text-chart">
+      <section className="bg-navy text-paper">
         <div className="wrap grid lg:grid-cols-2">
           <div className="shot relative min-h-[300px] border-0 shadow-none lg:min-h-[460px]">
             <Image
@@ -374,7 +374,7 @@ export default function HomePage() {
             <h2 className="font-display mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
               Not a sales yard.
               <br />
-              <span className="text-coral">A shop that listens.</span>
+              <span className="text-gold">A shop that listens.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-steel">
               The name is the method. We treat vessels like systems—power, propulsion, pumps,
@@ -389,9 +389,9 @@ export default function HomePage() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="flex gap-3 border-b border-white/10 pb-3 text-chart/90"
+                  className="flex gap-3 border-b border-white/10 pb-3 text-paper/90"
                 >
-                  <span className="text-coral">▣</span>
+                  <span className="text-gold">▣</span>
                   {item}
                 </li>
               ))}
@@ -404,7 +404,7 @@ export default function HomePage() {
       </section>
 
       {/* Cruising banner */}
-      <section className="relative min-h-[240px] overflow-hidden border-b border-chart-line sm:min-h-[300px]">
+      <section className="relative min-h-[240px] overflow-hidden border-b border-line sm:min-h-[300px]">
         <Image
           src={yachts.cruising.src}
           alt={yachts.cruising.alt}
@@ -412,12 +412,12 @@ export default function HomePage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-ink/50" />
+        <div className="absolute inset-0 bg-navy/50" />
         <div className="wrap relative flex min-h-[240px] flex-col items-start justify-center py-12 sm:min-h-[300px]">
-          <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-coral">
+          <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold">
             The goal
           </p>
-          <p className="font-display mt-2 max-w-xl text-2xl font-semibold text-chart sm:text-3xl">
+          <p className="font-display mt-2 max-w-xl text-2xl font-semibold text-paper sm:text-3xl">
             Get you back on the water—reliably
           </p>
           <Link href="/book" className="btn mt-6">
@@ -427,18 +427,18 @@ export default function HomePage() {
       </section>
 
       {/* More yacht mosaic */}
-      <section className="border-b border-chart-line bg-chart-deep/30">
+      <section className="border-b border-line bg-paper-deep/30">
         <div className="wrap section-pad">
           <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
             <div>
               <CaseTag>Brand gallery</CaseTag>
-              <h2 className="font-display mt-3 text-2xl font-semibold text-ink sm:text-3xl">
+              <h2 className="font-display mt-3 text-2xl font-semibold text-navy sm:text-3xl">
                 South Florida yachts &amp; waters
               </h2>
             </div>
             <Link
               href="/gallery"
-              className="font-mono text-xs font-semibold uppercase tracking-wider text-teal no-underline hover:text-coral"
+              className="font-mono text-xs font-semibold uppercase tracking-wider text-navy no-underline hover:text-gold"
             >
               View all photos →
             </Link>
@@ -455,7 +455,7 @@ export default function HomePage() {
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="border-t border-chart-line px-2 py-2 font-mono text-[0.6rem] uppercase tracking-wider text-muted">
+                <figcaption className="border-t border-line px-2 py-2 font-mono text-[0.6rem] uppercase tracking-wider text-muted">
                   {img.caption}
                 </figcaption>
               </figure>
@@ -470,7 +470,7 @@ export default function HomePage() {
           <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <CaseTag>Service areas</CaseTag>
-              <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-ink">
+              <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-navy">
                 South Florida waters we work
               </h2>
             </div>
@@ -496,16 +496,16 @@ export default function HomePage() {
                         className="object-cover transition duration-500 group-hover:scale-[1.03]"
                       />
                     </div>
-                    <div className="flex items-center justify-between border-t border-chart-line px-3 py-3">
+                    <div className="flex items-center justify-between border-t border-line px-3 py-3">
                       <div>
-                        <p className="font-display text-lg font-semibold text-ink group-hover:text-teal">
+                        <p className="font-display text-lg font-semibold text-navy group-hover:text-gold">
                           {loc.name}
                         </p>
                         <p className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
                           {loc.region}
                         </p>
                       </div>
-                      <span className="font-mono text-xs text-coral">→</span>
+                      <span className="font-mono text-xs text-gold">→</span>
                     </div>
                   </div>
                 </Link>
@@ -516,12 +516,12 @@ export default function HomePage() {
       </section>
 
       {/* Trust note — honest about sample */}
-      <section className="border-y border-chart-line bg-foam">
+      <section className="border-y border-line bg-white">
         <div className="wrap max-w-3xl py-14 text-center">
-          <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-coral">
+          <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold">
             What owners look for
           </p>
-          <blockquote className="font-display mt-4 text-2xl font-medium leading-snug text-ink sm:text-3xl">
+          <blockquote className="font-display mt-4 text-2xl font-medium leading-snug text-navy sm:text-3xl">
             “Clear diagnosis. Honest options. Dockside when it makes sense—not a mystery invoice.”
           </blockquote>
           <p className="mt-5 text-sm text-muted">

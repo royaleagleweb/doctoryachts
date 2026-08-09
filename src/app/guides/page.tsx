@@ -30,10 +30,10 @@ export default function GuidesHubPage() {
         ])}
       />
 
-      <section className="border-b border-chart-line bg-chart-deep/50">
+      <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
           <CaseTag>AEO guides</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
             Boat repair guides written for real searches—and AI answers
           </h1>
           <p className="mt-4 max-w-2xl text-muted">
@@ -54,14 +54,14 @@ export default function GuidesHubPage() {
         <ul className="grid gap-4 md:grid-cols-2">
           {guides.map((g) => (
             <li key={g.slug}>
-              <article className="panel h-full p-5 transition hover:border-ink/25">
-                <p className="font-mono text-[0.62rem] uppercase tracking-wider text-coral">
+              <article className="panel h-full p-5 transition hover:border-navy/25">
+                <p className="font-mono text-[0.62rem] uppercase tracking-wider text-gold">
                   {g.category} · {g.readTime}
                 </p>
-                <h2 className="font-display mt-2 text-xl font-semibold text-ink">
+                <h2 className="font-display mt-2 text-xl font-semibold text-navy">
                   <Link
                     href={`/guides/${g.slug}`}
-                    className="text-ink no-underline hover:text-coral"
+                    className="text-navy no-underline hover:text-gold"
                   >
                     {g.title}
                   </Link>
@@ -69,7 +69,7 @@ export default function GuidesHubPage() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">{g.quickAnswer}</p>
                 <Link
                   href={`/guides/${g.slug}`}
-                  className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wider text-teal no-underline hover:text-coral"
+                  className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wider text-navy no-underline hover:text-gold"
                 >
                   Read full guide →
                 </Link>

@@ -27,7 +27,7 @@ export function SectionHeading({
       )}
       <TitleTag
         className={`font-display mt-4 text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl ${
-          light ? "text-chart" : "text-ink"
+          light ? "text-paper" : "text-navy"
         }`}
       >
         {title}

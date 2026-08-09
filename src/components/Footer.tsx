@@ -16,11 +16,11 @@ function shortServiceTitle(title: string) {
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t-2 border-ink bg-ink text-chart">
+    <footer className="mt-auto border-t-2 border-navy bg-navy text-paper">
       <div className="wrap grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-4">
           <div className="flex items-center gap-3">
-            <BrandMark size={36} className="text-chart" />
+            <BrandMark size={36} className="text-paper" />
             <div>
               <p className="font-display text-xl font-semibold">Doctor Yachts</p>
               <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-steel">
@@ -46,7 +46,7 @@ export function Footer() {
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="text-chart/85 no-underline hover:text-coral"
+                  className="text-paper/85 no-underline hover:text-gold"
                 >
                   {shortServiceTitle(s.title)}
                 </Link>
@@ -64,7 +64,7 @@ export function Footer() {
               <li key={loc.slug}>
                 <Link
                   href={`/locations/${loc.slug}`}
-                  className="text-chart/85 no-underline hover:text-coral"
+                  className="text-paper/85 no-underline hover:text-gold"
                 >
                   {loc.name}
                 </Link>
@@ -76,27 +76,27 @@ export function Footer() {
           </p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link href="/guides" className="text-chart/85 no-underline hover:text-coral">
+              <Link href="/guides" className="text-paper/85 no-underline hover:text-gold">
                 Guides
               </Link>
             </li>
             <li>
-              <Link href="/faq" className="text-chart/85 no-underline hover:text-coral">
+              <Link href="/faq" className="text-paper/85 no-underline hover:text-gold">
                 FAQ
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-chart/85 no-underline hover:text-coral">
+              <Link href="/about" className="text-paper/85 no-underline hover:text-gold">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/reviews" className="text-chart/85 no-underline hover:text-coral">
+              <Link href="/reviews" className="text-paper/85 no-underline hover:text-gold">
                 Reviews
               </Link>
             </li>
             <li>
-              <Link href="/gallery" className="text-chart/85 no-underline hover:text-coral">
+              <Link href="/gallery" className="text-paper/85 no-underline hover:text-gold">
                 Gallery
               </Link>
             </li>
@@ -107,14 +107,14 @@ export function Footer() {
           <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-steel">
             Contact
           </p>
-          <ul className="mt-3 space-y-2 text-sm text-chart/85">
+          <ul className="mt-3 space-y-2 text-sm text-paper/85">
             <li>
-              <a href={site.phoneHref} className="no-underline hover:text-coral">
+              <a href={site.phoneHref} className="no-underline hover:text-gold">
                 {site.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} className="no-underline hover:text-coral">
+              <a href={`mailto:${site.email}`} className="no-underline hover:text-gold">
                 {site.email}
               </a>
             </li>
@@ -122,7 +122,7 @@ export function Footer() {
             <li className="text-steel">{site.address}</li>
           </ul>
           <div className="mt-5 flex flex-wrap gap-2">
-            <Link href="/book" className="btn">
+            <Link href="/book" className="btn btn-gold">
               Book repair
             </Link>
             <Link href="/free-estimate" className="btn btn-ghost-light">

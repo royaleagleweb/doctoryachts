@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export function CTA() {
   return (
-    <section className="relative overflow-hidden border-t border-chart-line bg-ink text-chart">
+    <section className="relative overflow-hidden border-t border-line bg-navy text-paper">
       <div className="wrap relative grid gap-8 py-12 md:grid-cols-12 md:items-center">
         <div className="md:col-span-7">
           <CaseTag>Ready to book</CaseTag>

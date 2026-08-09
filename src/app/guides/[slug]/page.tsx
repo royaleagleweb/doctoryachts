@@ -65,14 +65,14 @@ export default async function GuidePage({ params }: PageProps) {
       <JsonLd data={schema} />
 
       <article>
-        <header className="border-b border-chart-line bg-chart-deep/40">
+        <header className="border-b border-line bg-paper-deep/40">
           <div className="wrap section-pad">
             <p className="font-mono text-xs text-muted">
-              <Link href="/" className="no-underline hover:text-coral">
+              <Link href="/" className="no-underline hover:text-gold">
                 Home
               </Link>
               {" / "}
-              <Link href="/guides" className="no-underline hover:text-coral">
+              <Link href="/guides" className="no-underline hover:text-gold">
                 Guides
               </Link>
               {" / "}
@@ -84,7 +84,7 @@ export default async function GuidePage({ params }: PageProps) {
                 Updated {guide.updated} · {guide.readTime} read
               </span>
             </div>
-            <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink">
+            <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
               {guide.h1}
             </h1>
           </div>
@@ -96,17 +96,17 @@ export default async function GuidePage({ params }: PageProps) {
 
             {guide.howTo && (
               <section>
-                <h2 className="font-display text-2xl font-semibold text-ink">
+                <h2 className="font-display text-2xl font-semibold text-navy">
                   {guide.howTo.name}
                 </h2>
                 <ol className="mt-5 space-y-4">
                   {guide.howTo.steps.map((step, i) => (
                     <li key={step.name} className="panel flex gap-4 p-4">
-                      <span className="font-display text-2xl font-semibold text-coral">
+                      <span className="font-display text-2xl font-semibold text-gold">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <h3 className="font-semibold text-ink">{step.name}</h3>
+                        <h3 className="font-semibold text-navy">{step.name}</h3>
                         <p className="mt-1 text-sm leading-relaxed text-muted">{step.text}</p>
                       </div>
                     </li>
@@ -117,7 +117,7 @@ export default async function GuidePage({ params }: PageProps) {
 
             {guide.sections.map((section) => (
               <section key={section.heading}>
-                <h2 className="font-display text-2xl font-semibold text-ink">
+                <h2 className="font-display text-2xl font-semibold text-navy">
                   {section.heading}
                 </h2>
                 {section.body.map((p) => (
@@ -126,7 +126,7 @@ export default async function GuidePage({ params }: PageProps) {
                   </p>
                 ))}
                 {section.list && (
-                  <ul className="mt-4 list-disc space-y-2 pl-5 text-ink">
+                  <ul className="mt-4 list-disc space-y-2 pl-5 text-navy">
                     {section.list.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -135,19 +135,19 @@ export default async function GuidePage({ params }: PageProps) {
               </section>
             ))}
 
-            <section className="panel-ink p-6">
-              <h2 className="font-display text-xl font-semibold text-chart">
+            <section className="panel-navy p-6">
+              <h2 className="font-display text-xl font-semibold text-paper">
                 Need this fixed in South Florida?
               </h2>
               <p className="mt-2 text-sm text-steel">
                 Free estimates. Mobile and dockside when access allows. Book online or call{" "}
-                <a href={site.phoneHref} className="text-coral no-underline hover:underline">
+                <a href={site.phoneHref} className="text-gold no-underline hover:underline">
                   {site.phone}
                 </a>
                 .
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
-                <Link href="/book" className="btn">
+                <Link href="/book" className="btn btn-gold">
                   Book repair
                 </Link>
                 <Link href="/free-estimate" className="btn btn-ghost-light">
@@ -159,7 +159,7 @@ export default async function GuidePage({ params }: PageProps) {
 
           <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
             <div className="panel p-5">
-              <p className="font-mono text-xs uppercase tracking-wider text-coral">
+              <p className="font-mono text-xs uppercase tracking-wider text-gold">
                 Related services
               </p>
               <ul className="mt-3 space-y-2">
@@ -168,7 +168,7 @@ export default async function GuidePage({ params }: PageProps) {
                     <li key={s.id}>
                       <Link
                         href={`/services/${s.slug}`}
-                        className="text-sm font-medium text-ink no-underline hover:text-coral"
+                        className="text-sm font-medium text-navy no-underline hover:text-gold"
                       >
                         {s.title}
                       </Link>
@@ -187,7 +187,7 @@ export default async function GuidePage({ params }: PageProps) {
                     <li key={g.slug}>
                       <Link
                         href={`/guides/${g.slug}`}
-                        className="text-sm text-ink no-underline hover:text-teal"
+                        className="text-sm text-navy no-underline hover:text-gold"
                       >
                         {g.title}
                       </Link>

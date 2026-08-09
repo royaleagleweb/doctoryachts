@@ -11,20 +11,20 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-chart-line bg-chart/90 backdrop-blur-md">
-      <div className="border-b border-chart-line bg-ink text-chart">
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md">
+      <div className="border-b border-line bg-navy text-paper">
         <div className="wrap flex flex-wrap items-center justify-between gap-2 text-[0.7rem] font-medium tracking-wide text-steel">
           <span>Fort Lauderdale · Pompano Beach · Miami · free estimates</span>
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${site.email}`}
-              className="hidden text-steel no-underline hover:text-brass-light sm:inline"
+              className="hidden text-steel no-underline hover:text-gold-light sm:inline"
             >
               {site.email}
             </a>
             <a
               href={site.phoneHref}
-              className="font-semibold text-brass no-underline hover:text-white"
+              className="font-semibold text-gold no-underline hover:text-white"
             >
               {site.phone}
             </a>
@@ -38,9 +38,9 @@ export function Header() {
           className="group flex items-center gap-3 no-underline"
           onClick={() => setOpen(false)}
         >
-          <BrandMark size={42} className="text-ink transition group-hover:text-teal" />
+          <BrandMark size={42} className="text-navy transition group-hover:text-gold" />
           <span className="leading-none">
-            <span className="font-display block text-[1.35rem] font-semibold tracking-tight text-ink">
+            <span className="font-display block text-[1.35rem] font-semibold tracking-tight text-navy">
               Doctor Yachts
             </span>
             <span className="mt-1 block text-[0.7rem] font-medium tracking-wide text-muted">
@@ -61,12 +61,12 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-3 py-2 text-sm font-medium no-underline transition ${
-                    active ? "text-coral" : "text-ink-soft hover:text-teal"
+                    active ? "text-gold" : "text-navy hover:text-gold"
                   }`}
                 >
                   {link.label}
                   {active && (
-                    <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-coral" />
+                    <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-gold" />
                   )}
                 </Link>
               );
@@ -81,7 +81,7 @@ export function Header() {
 
         <button
           type="button"
-          className="border border-ink px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-ink lg:hidden"
+          className="border border-navy px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-navy lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
@@ -91,14 +91,14 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-chart-line bg-foam lg:hidden">
+        <div className="border-t border-line bg-white lg:hidden">
           <nav className="wrap flex flex-col py-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-chart-line py-3.5 text-ink no-underline"
+                className="border-b border-line py-3.5 text-navy no-underline"
               >
                 {link.label}
               </Link>
@@ -106,7 +106,7 @@ export function Header() {
             <Link
               href="/free-estimate"
               onClick={() => setOpen(false)}
-              className="border-b border-chart-line py-3.5 font-semibold text-teal no-underline"
+              className="border-b border-line py-3.5 font-semibold text-navy no-underline"
             >
               Free estimate
             </Link>

@@ -46,10 +46,10 @@ export default function ReviewsPage() {
         ])}
       />
 
-      <section className="border-b border-chart-line bg-chart-deep/50">
+      <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
           <CaseTag>Reviews</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
             Reviews &amp; reputation
           </h1>
           <p className="mt-4 max-w-2xl text-muted">
@@ -63,15 +63,15 @@ export default function ReviewsPage() {
         <div className="grid gap-5 md:grid-cols-3">
           {standards.map((s) => (
             <div key={s.title} className="panel flex h-full flex-col p-6">
-              <p className="font-mono text-xs uppercase tracking-wider text-coral">Standard</p>
-              <h2 className="font-display mt-3 text-xl font-semibold text-ink">{s.title}</h2>
+              <p className="font-mono text-xs uppercase tracking-wider text-gold">Standard</p>
+              <h2 className="font-display mt-3 text-xl font-semibold text-navy">{s.title}</h2>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{s.body}</p>
             </div>
           ))}
         </div>
 
         <div className="max-w-3xl">
-          <h2 className="font-display text-2xl font-semibold text-ink">
+          <h2 className="font-display text-2xl font-semibold text-navy">
             What boat owners in Fort Lauderdale usually care about
           </h2>
           <p className="mt-3 text-muted">

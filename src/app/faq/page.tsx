@@ -47,10 +47,10 @@ export default function FaqPage() {
         ]}
       />
 
-      <section className="border-b border-chart-line bg-chart-deep/50">
+      <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
           <CaseTag>FAQ · AEO</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
             Boat repair questions we answer every week
           </h1>
           <p className="mt-4 max-w-2xl text-muted">
@@ -62,37 +62,37 @@ export default function FaqPage() {
       </section>
 
       <section className="wrap section-pad">
-        <h2 className="font-display text-2xl font-semibold text-ink">General</h2>
-        <div className="mt-6 divide-y divide-chart-line border-y border-chart-line">
+        <h2 className="font-display text-2xl font-semibold text-navy">General</h2>
+        <div className="mt-6 divide-y divide-line border-y border-line">
           {homeFaqs.map((f, i) => (
             <details key={f.question} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-ink">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-navy">
                 <span className="flex gap-3">
-                  <span className="font-mono text-xs text-coral pt-1">
+                  <span className="font-mono text-xs text-gold pt-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {f.question}
                 </span>
-                <span className="font-mono text-teal group-open:rotate-45">+</span>
+                <span className="font-mono text-navy group-open:rotate-45">+</span>
               </summary>
               <p className="mt-3 pl-9 text-sm leading-relaxed text-muted">{f.answer}</p>
             </details>
           ))}
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-semibold text-ink">By service</h2>
+        <h2 className="font-display mt-14 text-2xl font-semibold text-navy">By service</h2>
         <div className="mt-6 space-y-8">
           {services.map((s) => (
             <div key={s.id} className="panel p-5">
               <h3 className="font-display text-xl font-semibold">
-                <Link href={`/services/${s.slug}`} className="text-ink no-underline hover:text-coral">
+                <Link href={`/services/${s.slug}`} className="text-navy no-underline hover:text-gold">
                   {s.title}
                 </Link>
               </h3>
               <ul className="mt-4 space-y-4">
                 {s.faqs.map((f) => (
                   <li key={f.question}>
-                    <p className="font-semibold text-ink">{f.question}</p>
+                    <p className="font-semibold text-navy">{f.question}</p>
                     <p className="mt-1 text-sm text-muted">{f.answer}</p>
                   </li>
                 ))}
@@ -101,7 +101,7 @@ export default function FaqPage() {
           ))}
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-semibold text-ink">
+        <h2 className="font-display mt-14 text-2xl font-semibold text-navy">
           Deep-dive guides
         </h2>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -109,7 +109,7 @@ export default function FaqPage() {
             <li key={g.slug}>
               <Link
                 href={`/guides/${g.slug}`}
-                className="panel block p-4 text-sm font-medium text-ink no-underline hover:border-coral/40"
+                className="panel block p-4 text-sm font-medium text-navy no-underline hover:border-gold/40"
               >
                 {g.title}
               </Link>
