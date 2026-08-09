@@ -32,6 +32,17 @@
 - Palm Beach County: /locations/palm-beach
 - All areas hub: /locations
 
+## Service × city matrix (indexable long-tail)
+Pattern: /services/{service-slug}/{city-slug}
+Examples:
+- /services/marine-engine-repair/fort-lauderdale
+- /services/mobile-boat-repair/pompano-beach
+- /services/electrical-repairs/miami
+- /services/outboard-motor-repair/fort-lauderdale
+- /services/cooling-system-repairs/dania-beach
+Cities: fort-lauderdale, pompano-beach, dania-beach, hollywood-fl, miami, palm-beach
+Services: marine-engine-repair, electrical-repairs, cooling-system-repairs, boat-diagnostics, boat-maintenance, plumbing-repairs, mobile-boat-repair, outboard-motor-repair
+
 ## Guides (AEO / question content)
 - Boat won't start checklist: /guides/boat-wont-start-checklist
 - Boat engine overheating: /guides/why-is-my-boat-engine-overheating

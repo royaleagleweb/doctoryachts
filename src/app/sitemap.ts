@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides";
 import { locations } from "@/lib/locations";
+import { getAllServiceCityPairs } from "@/lib/service-locations";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -36,6 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.92,
   }));
 
+  /** Service × city matrix for long-tail local SEO */
+  const serviceCityRoutes = getAllServiceCityPairs().map(({ path }) => ({
+    url: `${base}${path}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.86,
+  }));
+
   const guideRoutes = guides.map((g) => ({
     url: `${base}/guides/${g.slug}`,
     lastModified: new Date(g.updated),
@@ -43,5 +52,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.88,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...guideRoutes];
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...locationRoutes,
+    ...serviceCityRoutes,
+    ...guideRoutes,
+  ];
 }

@@ -486,20 +486,26 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           <aside className="space-y-4">
             <div className="panel p-5">
               <p className="font-mono text-xs uppercase tracking-wider text-muted">
-                Areas served
+                This service by city
               </p>
-              <ul className="mt-3 grid grid-cols-2 gap-2">
+              <ul className="mt-3 space-y-2">
                 {locations.map((loc) => (
                   <li key={loc.slug}>
                     <Link
-                      href={`/locations/${loc.slug}`}
+                      href={`/services/${service.slug}/${loc.slug}`}
                       className="text-sm text-ink no-underline hover:text-coral"
                     >
-                      {loc.name}
+                      {service.title.replace(/\s+Fort Lauderdale$/i, "")} · {loc.name}
                     </Link>
                   </li>
                 ))}
               </ul>
+              <Link
+                href="/locations"
+                className="mt-3 block text-xs font-semibold text-teal no-underline hover:text-coral"
+              >
+                All service areas →
+              </Link>
             </div>
             {relatedGuides.length > 0 && (
               <div className="panel p-5">

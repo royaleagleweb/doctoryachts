@@ -117,14 +117,20 @@ export default async function LocationPage({ params }: PageProps) {
               {services.map((s) => (
                 <Link
                   key={s.id}
-                  href={`/services/${s.slug}`}
+                  href={`/services/${s.slug}/${loc.slug}`}
                   className="panel block p-4 no-underline transition hover:border-coral/40"
                 >
-                  <span className="font-semibold text-ink">{s.title}</span>
+                  <span className="font-semibold text-ink">
+                    {s.title.replace(/\s+Fort Lauderdale$/i, "")} in {loc.shortName}
+                  </span>
                   <span className="mt-1 block text-xs text-muted">{s.summary}</span>
                 </Link>
               ))}
             </div>
+            <p className="mt-4 text-sm text-muted">
+              Prefer the full service overview? See{" "}
+              <Link href="/services">all boat repair services</Link>.
+            </p>
           </section>
 
           <section>
