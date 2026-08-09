@@ -3,11 +3,15 @@ import { NextResponse } from "next/server";
 type BookingBody = {
   serviceId?: string;
   serviceTitle?: string;
+  problemId?: string;
+  problemLabel?: string;
   vesselType?: string;
   vesselName?: string;
   vesselLength?: string;
   date?: string;
   time?: string;
+  timeWindow?: string;
+  city?: string;
   location?: string;
   name?: string;
   email?: string;
@@ -52,7 +56,6 @@ export async function POST(request: Request) {
 
   const confirmationId = `DY-${Date.now().toString(36).toUpperCase()}`;
 
-  // v1: log booking for local/dev. Wire to email (Resend), CRM, or calendar next.
   console.info("[Doctor Yachts booking]", {
     confirmationId,
     ...body,

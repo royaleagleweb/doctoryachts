@@ -3,100 +3,113 @@
 import { useMemo, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { locations } from "@/lib/locations";
-import { bookingServices, timeSlots, vesselTypes } from "@/lib/services";
+import {
+  boatTypeOptions,
+  cityOptions,
+  lengthOptions,
+  problemOptions,
+  timeWindowOptions,
+} from "@/lib/form-options";
+import { getServiceById } from "@/lib/services";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 const steps = [
   {
-    id: "service",
-    label: "Service",
-    short: "What you need",
-    title: "What do you need help with?",
-    help: "Pick the closest match. You can explain symptoms in more detail at the end.",
+    id: "problem",
+    label: "Problem",
+    title: "What's going on with the boat?",
+    help: "Tap the closest match. You can add details later.",
   },
   {
-    id: "vessel",
+    id: "where",
+    label: "Where & when",
+    title: "Where is the boat, and when works?",
+    help: "Preferred window only — we'll confirm the visit by phone or text.",
+  },
+  {
+    id: "boat",
     label: "Boat",
-    short: "Your boat",
-    title: "Tell us about the boat",
-    help: "Vessel type is required. Name and length help us plan tools and time.",
-  },
-  {
-    id: "when",
-    label: "When & where",
-    short: "Schedule",
-    title: "When and where should we come?",
-    help: "This is your preferred window. We’ll confirm the actual appointment by phone or email.",
+    title: "Quick boat details",
+    help: "Type and size help us bring the right tools. Name is optional.",
   },
   {
     id: "contact",
     label: "Contact",
-    short: "Your info",
     title: "How do we reach you?",
-    help: "We’ll confirm during shop hours. Urgent jobs: call us now.",
+    help: "Phone is best for dockside work. We confirm during shop hours.",
   },
 ] as const;
 
-function cleanServiceTitle(title: string) {
-  return title.replace(/\s+Fort Lauderdale$/i, "").trim();
+function chipClass(selected: boolean) {
+  return `cursor-pointer rounded-xl border px-3 py-3 text-left transition ${
+    selected
+      ? "border-gold bg-gold/10 shadow-[0_0_0_1px_rgba(196,163,90,0.35)]"
+      : "border-line bg-white/[0.02] hover:border-gold/40"
+  }`;
 }
 
 export function BookingForm() {
   const searchParams = useSearchParams();
-  const preselected = searchParams.get("service") || "";
+  const preselectedService = searchParams.get("service") || "";
+
+  const initialProblem =
+    problemOptions.find((p) => p.serviceId === preselectedService)?.id ?? "";
+
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const [fieldHint, setFieldHint] = useState("");
   const [confirmation, setConfirmation] = useState("");
-  const [serviceId, setServiceId] = useState(preselected);
-  const [vesselType, setVesselType] = useState("");
-  const [vesselName, setVesselName] = useState("");
-  const [vesselLength, setVesselLength] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [city, setCity] = useState("");
-  const [location, setLocation] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [notes, setNotes] = useState("");
-  const [priority, setPriority] = useState(false);
 
-  const selectedService = useMemo(
-    () => bookingServices.find((s) => s.id === serviceId),
-    [serviceId],
+  const [problemId, setProblemId] = useState(initialProblem);
+  const [problemDetail, setProblemDetail] = useState("");
+  const [urgent, setUrgent] = useState(false);
+
+  const [city, setCity] = useState("");
+  const [marina, setMarina] = useState("");
+  const [date, setDate] = useState("");
+  const [timeWindow, setTimeWindow] = useState("");
+
+  const [boatType, setBoatType] = useState("");
+  const [boatLength, setBoatLength] = useState("");
+  const [boatName, setBoatName] = useState("");
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
+  const selectedProblem = useMemo(
+    () => problemOptions.find((p) => p.id === problemId),
+    [problemId],
   );
+
+  const serviceId = selectedProblem?.serviceId || preselectedService || "diagnostics";
+  const selectedService = getServiceById(serviceId);
 
   const minDate = useMemo(() => {
     const d = new Date();
-    d.setDate(d.getDate() + 1);
     return d.toISOString().slice(0, 10);
   }, []);
 
   const progressPct = ((step + 1) / steps.length) * 100;
 
   function validateStep(s: number): string {
-    if (s === 0 && !serviceId) return "Please select a service to continue.";
-    if (s === 1 && !vesselType) return "Please select a vessel type.";
-    if (s === 2) {
-      if (!date) return "Please choose a preferred date.";
-      if (!time) return "Please choose a preferred time.";
-      if (!location.trim()) return "Please enter marina, slip, or dock location.";
+    if (s === 0 && !problemId) return "Pick what best describes the problem.";
+    if (s === 1) {
+      if (!city) return "Select the city or area.";
+      if (!marina.trim()) return "Add marina name, slip, or dock address.";
+      if (!date) return "Pick a preferred date.";
+      if (!timeWindow) return "Pick a time window (or Flexible).";
     }
+    if (s === 2 && !boatType) return "Select a boat type (or Other / not sure).";
     if (s === 3) {
-      if (!name.trim()) return "Please enter your name.";
-      if (!email.trim()) return "Please enter your email.";
-      if (!phone.trim()) return "Please enter your phone number.";
+      if (!name.trim()) return "Enter your name.";
+      if (!phone.trim()) return "Enter a phone number so we can confirm.";
+      if (!email.trim()) return "Enter an email for the confirmation.";
     }
     return "";
-  }
-
-  function canContinue() {
-    return validateStep(step) === "";
   }
 
   function goNext() {
@@ -125,25 +138,44 @@ export function BookingForm() {
     setStatus("loading");
     setError("");
     setFieldHint("");
+
+    const timeLabel =
+      timeWindowOptions.find((t) => t.id === timeWindow)?.label || timeWindow;
+    const timeHint =
+      timeWindowOptions.find((t) => t.id === timeWindow)?.hint || "";
+    const boatLabel =
+      boatTypeOptions.find((b) => b.id === boatType)?.label || boatType;
+
+    const notes = [
+      selectedProblem ? `Problem: ${selectedProblem.label}` : "",
+      problemDetail.trim() ? `Details: ${problemDetail.trim()}` : "",
+      urgent ? "URGENT flagged by client" : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
     try {
       const res = await fetch("/api/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           serviceId,
-          serviceTitle: selectedService?.title,
-          vesselType,
-          vesselName,
-          vesselLength,
+          serviceTitle: selectedService?.title || selectedProblem?.label,
+          problemId,
+          problemLabel: selectedProblem?.label,
+          vesselType: boatLabel,
+          vesselName: boatName,
+          vesselLength: boatLength,
           date,
-          time,
+          time: `${timeLabel}${timeHint ? ` (${timeHint})` : ""}`,
+          timeWindow,
           city,
-          location,
+          location: marina,
           name,
           email,
           phone,
           notes,
-          priority,
+          priority: urgent,
         }),
       });
       const json = await res.json();
@@ -159,55 +191,37 @@ export function BookingForm() {
   if (status === "success") {
     return (
       <div className="panel overflow-hidden">
-        <div className="border-b border-line bg-navy px-6 py-5 text-paper">
-          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-paper/80">
+        <div className="border-b border-line bg-navy px-6 py-6">
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-gold">
             Request received
           </p>
-          <h2 className="font-display mt-1 text-2xl font-semibold">
-            Thanks — we got your booking request
+          <h2 className="font-display mt-2 text-2xl font-semibold text-pearl">
+            Thanks — we got your request
           </h2>
-          <p className="mt-2 text-sm text-paper/85">
-            This is <strong>not</strong> a final confirmed appointment yet. We’ll review access and
-            availability, then confirm by phone or email during shop hours ({site.hours}).
+          <p className="mt-2 text-sm text-steel">
+            Not a locked appointment yet. We confirm access and timing during shop hours (
+            {site.hours}).
           </p>
         </div>
-        <div className="space-y-5 p-6">
+        <div className="space-y-4 p-6">
           <dl className="grid gap-3 sm:grid-cols-2">
-            <div className="border border-line bg-white p-3">
-              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
-                Confirmation ID
-              </dt>
-              <dd className="mt-1 font-mono text-lg font-semibold text-navy">{confirmation}</dd>
-            </div>
-            <div className="border border-line bg-white p-3">
-              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
-                Service
-              </dt>
-              <dd className="mt-1 font-semibold text-navy">
-                {selectedService ? cleanServiceTitle(selectedService.title) : "—"}
-              </dd>
-            </div>
-            <div className="border border-line bg-white p-3">
-              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
-                Preferred visit
-              </dt>
-              <dd className="mt-1 text-navy">
-                {date} · {time}
-                {priority ? " · Urgent" : ""}
-              </dd>
-            </div>
-            <div className="border border-line bg-white p-3">
-              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
-                Location
-              </dt>
-              <dd className="mt-1 text-navy">
-                {city ? `${city} · ` : ""}
-                {location}
-              </dd>
-            </div>
+            {[
+              { k: "Confirmation", v: confirmation },
+              { k: "Problem", v: selectedProblem?.label || "—" },
+              {
+                k: "Preferred visit",
+                v: `${date} · ${timeWindowOptions.find((t) => t.id === timeWindow)?.label || ""}${urgent ? " · Urgent" : ""}`,
+              },
+              { k: "Location", v: `${city} · ${marina}` },
+            ].map((row) => (
+              <div key={row.k} className="rounded-xl border border-line bg-white/[0.03] p-3">
+                <dt className="text-[0.62rem] uppercase tracking-wider text-muted">{row.k}</dt>
+                <dd className="mt-1 font-medium text-pearl">{row.v}</dd>
+              </div>
+            ))}
           </dl>
-          <p className="text-sm text-muted">
-            Urgent no-start or safety issue? Call now:{" "}
+          <p className="text-sm text-steel">
+            Stuck at the dock? Call now:{" "}
             <a href={site.phoneHref} className="font-semibold text-gold">
               {site.phone}
             </a>
@@ -217,7 +231,7 @@ export function BookingForm() {
               Back home
             </Link>
             <Link href="/free-estimate" className="btn btn-ghost">
-              Free estimate form
+              Free estimate instead
             </Link>
           </div>
         </div>
@@ -229,39 +243,36 @@ export function BookingForm() {
 
   return (
     <form onSubmit={onSubmit} className="panel overflow-hidden">
-      {/* Progress header */}
-      <div className="border-b border-line bg-white px-4 py-4 sm:px-6">
+      {/* Progress */}
+      <div className="border-b border-line px-4 py-4 sm:px-6">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-gold">
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
               Step {step + 1} of {steps.length}
             </p>
-            <p className="mt-0.5 text-sm font-semibold text-navy">{current.short}</p>
+            <p className="mt-0.5 text-sm font-semibold text-pearl">{current.label}</p>
           </div>
-          <p className="font-mono text-[0.65rem] text-muted">{Math.round(progressPct)}%</p>
+          <p className="text-[0.7rem] text-muted">{Math.round(progressPct)}%</p>
         </div>
-        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-line/60">
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
           <div
-            className="h-full rounded-full bg-gold transition-all duration-300"
+            className="h-full rounded-full bg-gradient-to-r from-gold-deep to-gold-light transition-all duration-300"
             style={{ width: `${progressPct}%` }}
           />
         </div>
-        <ol className="mt-4 hidden gap-2 sm:grid sm:grid-cols-4">
+        <ol className="mt-4 grid grid-cols-4 gap-1.5">
           {steps.map((s, i) => (
             <li
               key={s.id}
-              className={`rounded border px-2 py-2 text-center ${
+              className={`rounded-lg px-1 py-2 text-center text-[0.65rem] font-semibold uppercase tracking-wide ${
                 i === step
-                  ? "border-gold bg-white text-navy"
+                  ? "bg-gold/15 text-gold"
                   : i < step
-                    ? "border-navy/40 bg-white/60 text-navy"
-                    : "border-line text-muted"
+                    ? "text-pearl/80"
+                    : "text-muted"
               }`}
             >
-              <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="mt-0.5 block text-xs font-medium">{s.label}</span>
+              {s.label}
             </li>
           ))}
         </ol>
@@ -269,210 +280,66 @@ export function BookingForm() {
 
       <div className="space-y-5 p-5 sm:p-6">
         <div>
-          <h2 className="font-display m-0 text-xl font-semibold text-navy sm:text-2xl">
+          <h2 className="font-display m-0 text-xl font-semibold text-pearl sm:text-2xl">
             {current.title}
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted">{current.help}</p>
+          <p className="mt-2 text-sm leading-relaxed text-steel">{current.help}</p>
         </div>
 
-        {/* Step 1 — Service */}
+        {/* Step 1 — Problem */}
         {step === 0 && (
-          <fieldset className="m-0 space-y-2 border-0 p-0">
-            <legend className="sr-only">Choose a service</legend>
-            {bookingServices.map((s) => {
-              const selected = serviceId === s.id;
-              return (
-                <label
-                  key={s.id}
-                  className={`flex cursor-pointer items-start gap-3 rounded border p-3.5 transition ${
-                    selected
-                      ? "border-gold bg-white shadow-sm"
-                      : "border-line hover:border-navy/25"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="service"
-                    className="mt-1.5 accent-[var(--gold)]"
-                    checked={selected}
-                    onChange={() => {
-                      setServiceId(s.id);
-                      setFieldHint("");
-                    }}
-                  />
-                  <span className="min-w-0 flex-1">
-                    <span className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="font-semibold text-navy">{cleanServiceTitle(s.title)}</span>
-                      {selected && (
-                        <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-gold">
-                          Selected
-                        </span>
-                      )}
-                    </span>
-                    <span className="mt-1 block text-sm leading-relaxed text-muted">
-                      {s.summary}
-                    </span>
-                  </span>
-                </label>
-              );
-            })}
-          </fieldset>
-        )}
-
-        {/* Step 2 — Vessel */}
-        {step === 1 && (
           <div className="space-y-4">
-            <div>
-              <label className="label-field" htmlFor="vesselType">
-                Vessel type <span className="text-gold">*</span>
-              </label>
-              <select
-                id="vesselType"
-                className="input-field"
-                value={vesselType}
-                required
-                onChange={(e) => {
-                  setVesselType(e.target.value);
-                  setFieldHint("");
-                }}
-              >
-                <option value="">Select vessel type…</option>
-                {vesselTypes.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className="label-field" htmlFor="vesselName">
-                  Boat name <span className="font-normal normal-case tracking-normal">(optional)</span>
-                </label>
-                <input
-                  id="vesselName"
-                  className="input-field"
-                  value={vesselName}
-                  onChange={(e) => setVesselName(e.target.value)}
-                  placeholder="e.g. Sea Ya"
-                  autoComplete="off"
-                />
+            <fieldset className="m-0 border-0 p-0">
+              <legend className="sr-only">What&apos;s wrong</legend>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {problemOptions.map((p) => {
+                  const selected = problemId === p.id;
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      className={chipClass(selected)}
+                      onClick={() => {
+                        setProblemId(p.id);
+                        setFieldHint("");
+                      }}
+                    >
+                      <span className="block font-semibold text-pearl">{p.label}</span>
+                      <span className="mt-0.5 block text-xs text-steel">{p.hint}</span>
+                    </button>
+                  );
+                })}
               </div>
-              <div>
-                <label className="label-field" htmlFor="vesselLength">
-                  Length <span className="font-normal normal-case tracking-normal">(optional)</span>
-                </label>
-                <input
-                  id="vesselLength"
-                  className="input-field"
-                  value={vesselLength}
-                  onChange={(e) => setVesselLength(e.target.value)}
-                  placeholder="e.g. 32 ft"
-                />
-              </div>
-            </div>
-          </div>
-        )}
+            </fieldset>
 
-        {/* Step 3 — When & where */}
-        {step === 2 && (
-          <div className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className="label-field" htmlFor="date">
-                  Preferred date <span className="text-gold">*</span>
-                </label>
-                <input
-                  id="date"
-                  type="date"
-                  min={minDate}
-                  className="input-field"
-                  value={date}
-                  required
-                  onChange={(e) => {
-                    setDate(e.target.value);
-                    setFieldHint("");
-                  }}
-                />
-              </div>
-              <div>
-                <label className="label-field" htmlFor="time">
-                  Preferred time <span className="text-gold">*</span>
-                </label>
-                <select
-                  id="time"
-                  className="input-field"
-                  value={time}
-                  required
-                  onChange={(e) => {
-                    setTime(e.target.value);
-                    setFieldHint("");
-                  }}
-                >
-                  <option value="">Select time…</option>
-                  {timeSlots.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
             <div>
-              <label className="label-field" htmlFor="city">
-                City / area{" "}
-                <span className="font-normal normal-case tracking-normal">(recommended)</span>
+              <label className="label-field" htmlFor="problemDetail">
+                Anything else we should know?{" "}
+                <span className="font-normal normal-case tracking-normal text-muted">
+                  (optional)
+                </span>
               </label>
-              <select
-                id="city"
+              <textarea
+                id="problemDetail"
+                rows={3}
                 className="input-field"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              >
-                <option value="">Select area…</option>
-                {locations.map((l) => (
-                  <option key={l.slug} value={l.name}>
-                    {l.name}, {l.state}
-                  </option>
-                ))}
-                <option value="Other South Florida">Other South Florida</option>
-              </select>
-            </div>
-            <div>
-              <label className="label-field" htmlFor="location">
-                Marina, slip, or dock address <span className="text-gold">*</span>
-              </label>
-              <input
-                id="location"
-                className="input-field"
-                value={location}
-                required
-                onChange={(e) => {
-                  setLocation(e.target.value);
-                  setFieldHint("");
-                }}
-                placeholder="e.g. Bahia Mar, slip B-12 · gate code if needed"
-                autoComplete="street-address"
+                value={problemDetail}
+                onChange={(e) => setProblemDetail(e.target.value)}
+                placeholder="e.g. Battery is new, hear a click, sat for 5 days…"
               />
-              <p className="mt-1.5 text-xs text-muted">
-                Include gate codes, parking notes, or dock access details if you have them.
-              </p>
             </div>
-            <label
-              className={`flex cursor-pointer items-start gap-3 rounded border p-3.5 text-sm ${
-                priority ? "border-gold bg-white" : "border-line"
-              }`}
-            >
+
+            <label className={chipClass(urgent) + " flex items-start gap-3"}>
               <input
                 type="checkbox"
-                className="mt-0.5 accent-[var(--gold)]"
-                checked={priority}
-                onChange={(e) => setPriority(e.target.checked)}
+                className="mt-1 accent-[var(--gold)]"
+                checked={urgent}
+                onChange={(e) => setUrgent(e.target.checked)}
               />
               <span>
-                <span className="font-semibold text-navy">This is urgent</span>
-                <span className="mt-0.5 block text-muted">
-                  No-start, overheating, bilge/flood risk, or safety issue. For emergencies call{" "}
+                <span className="font-semibold text-pearl">This is urgent</span>
+                <span className="mt-0.5 block text-xs text-steel">
+                  No-start, overheating, bilge/flood risk. For emergencies call{" "}
                   <a href={site.phoneHref} className="font-semibold text-gold">
                     {site.phone}
                   </a>
@@ -483,18 +350,160 @@ export function BookingForm() {
           </div>
         )}
 
+        {/* Step 2 — Where & when */}
+        {step === 1 && (
+          <div className="space-y-5">
+            <div>
+              <p className="label-field">City / area *</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {cityOptions.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    className={`${chipClass(city === c)} text-sm font-medium text-pearl`}
+                    onClick={() => {
+                      setCity(c);
+                      setFieldHint("");
+                    }}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="label-field" htmlFor="marina">
+                Marina, slip, or dock address *
+              </label>
+              <input
+                id="marina"
+                className="input-field"
+                value={marina}
+                onChange={(e) => {
+                  setMarina(e.target.value);
+                  setFieldHint("");
+                }}
+                placeholder="e.g. Bahia Mar, slip B-12"
+                autoComplete="street-address"
+              />
+              <p className="mt-1.5 text-xs text-muted">
+                Gate code or parking tip? Add it here — saves time on arrival.
+              </p>
+            </div>
+
+            <div>
+              <label className="label-field" htmlFor="date">
+                Preferred date *
+              </label>
+              <input
+                id="date"
+                type="date"
+                min={minDate}
+                className="input-field"
+                value={date}
+                onChange={(e) => {
+                  setDate(e.target.value);
+                  setFieldHint("");
+                }}
+              />
+            </div>
+
+            <div>
+              <p className="label-field">Preferred time *</p>
+              <div className="grid grid-cols-2 gap-2">
+                {timeWindowOptions.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    className={chipClass(timeWindow === t.id)}
+                    onClick={() => {
+                      setTimeWindow(t.id);
+                      setFieldHint("");
+                    }}
+                  >
+                    <span className="block font-semibold text-pearl">{t.label}</span>
+                    <span className="mt-0.5 block text-xs text-steel">{t.hint}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Step 3 — Boat */}
+        {step === 2 && (
+          <div className="space-y-5">
+            <div>
+              <p className="label-field">Boat type *</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {boatTypeOptions.map((b) => (
+                  <button
+                    key={b.id}
+                    type="button"
+                    className={`${chipClass(boatType === b.id)} text-sm font-medium text-pearl`}
+                    onClick={() => {
+                      setBoatType(b.id);
+                      setFieldHint("");
+                    }}
+                  >
+                    {b.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="label-field">
+                Approx. length{" "}
+                <span className="font-normal normal-case tracking-normal text-muted">
+                  (optional)
+                </span>
+              </p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {lengthOptions.map((len) => (
+                  <button
+                    key={len}
+                    type="button"
+                    className={`${chipClass(boatLength === len)} text-sm text-pearl`}
+                    onClick={() => setBoatLength(len)}
+                  >
+                    {len}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="label-field" htmlFor="boatName">
+                Boat name{" "}
+                <span className="font-normal normal-case tracking-normal text-muted">
+                  (optional)
+                </span>
+              </label>
+              <input
+                id="boatName"
+                className="input-field"
+                value={boatName}
+                onChange={(e) => setBoatName(e.target.value)}
+                placeholder="e.g. Sea Ya"
+                autoComplete="off"
+              />
+            </div>
+          </div>
+        )}
+
         {/* Step 4 — Contact */}
         {step === 3 && (
           <div className="space-y-4">
             <div>
               <label className="label-field" htmlFor="name">
-                Your name <span className="text-gold">*</span>
+                Your name *
               </label>
               <input
                 id="name"
                 className="input-field"
                 value={name}
-                required
                 autoComplete="name"
                 onChange={(e) => {
                   setName(e.target.value);
@@ -503,99 +512,84 @@ export function BookingForm() {
                 placeholder="Full name"
               />
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className="label-field" htmlFor="email">
-                  Email <span className="text-gold">*</span>
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  className="input-field"
-                  value={email}
-                  required
-                  autoComplete="email"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    setFieldHint("");
-                  }}
-                  placeholder="you@email.com"
-                />
-              </div>
-              <div>
-                <label className="label-field" htmlFor="phone">
-                  Phone <span className="text-gold">*</span>
-                </label>
-                <input
-                  id="phone"
-                  type="tel"
-                  className="input-field"
-                  value={phone}
-                  required
-                  autoComplete="tel"
-                  onChange={(e) => {
-                    setPhone(e.target.value);
-                    setFieldHint("");
-                  }}
-                  placeholder="(###) ###-####"
-                />
-              </div>
+            <div>
+              <label className="label-field" htmlFor="phone">
+                Phone *{" "}
+                <span className="font-normal normal-case tracking-normal text-muted">
+                  (best way to confirm)
+                </span>
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                className="input-field"
+                value={phone}
+                autoComplete="tel"
+                inputMode="tel"
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                  setFieldHint("");
+                }}
+                placeholder="(###) ###-####"
+              />
             </div>
             <div>
-              <label className="label-field" htmlFor="notes">
-                What’s wrong?{" "}
-                <span className="font-normal normal-case tracking-normal">(recommended)</span>
+              <label className="label-field" htmlFor="email">
+                Email *
               </label>
-              <textarea
-                id="notes"
-                rows={4}
+              <input
+                id="email"
+                type="email"
                 className="input-field"
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                placeholder="e.g. Won’t start after sitting 4 days · battery is new · hear click but no crank…"
+                value={email}
+                autoComplete="email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setFieldHint("");
+                }}
+                placeholder="you@email.com"
               />
             </div>
 
-            {/* Clear review card */}
-            <div className="rounded border border-line bg-white p-4">
-              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-wider text-gold">
-                Review before submit
+            <div className="rounded-xl border border-line bg-white/[0.03] p-4">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
+                Quick review
               </p>
-              <dl className="mt-3 space-y-2 text-sm">
-                <div className="flex justify-between gap-4 border-b border-line pb-2">
-                  <dt className="text-muted">Service</dt>
-                  <dd className="text-right font-medium text-navy">
-                    {selectedService ? cleanServiceTitle(selectedService.title) : "—"}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-line pb-2">
-                  <dt className="text-muted">Boat</dt>
-                  <dd className="text-right font-medium text-navy">
-                    {vesselType || "—"}
-                    {vesselLength ? ` · ${vesselLength}` : ""}
-                    {vesselName ? ` · “${vesselName}”` : ""}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-line pb-2">
-                  <dt className="text-muted">When</dt>
-                  <dd className="text-right font-medium text-navy">
-                    {date || "—"} {time ? `· ${time}` : ""}
-                    {priority ? " · Urgent" : ""}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted">Where</dt>
-                  <dd className="max-w-[60%] text-right font-medium text-navy">
-                    {city ? `${city} · ` : ""}
-                    {location || "—"}
-                  </dd>
-                </div>
-              </dl>
-              <p className="mt-3 text-xs leading-relaxed text-muted">
-                Submitting sends a <strong className="text-navy">service request</strong>. We confirm
-                the visit before it is locked in. Prefer a quote first?{" "}
-                <Link href="/free-estimate" className="font-semibold text-navy">
-                  Free estimate form
+              <ul className="mt-3 space-y-2 text-sm text-steel">
+                <li>
+                  <span className="text-muted">Problem:</span>{" "}
+                  <span className="text-pearl">{selectedProblem?.label || "—"}</span>
+                </li>
+                <li>
+                  <span className="text-muted">Where:</span>{" "}
+                  <span className="text-pearl">
+                    {city || "—"}
+                    {marina ? ` · ${marina}` : ""}
+                  </span>
+                </li>
+                <li>
+                  <span className="text-muted">When:</span>{" "}
+                  <span className="text-pearl">
+                    {date || "—"}
+                    {timeWindow
+                      ? ` · ${timeWindowOptions.find((t) => t.id === timeWindow)?.label}`
+                      : ""}
+                    {urgent ? " · Urgent" : ""}
+                  </span>
+                </li>
+                <li>
+                  <span className="text-muted">Boat:</span>{" "}
+                  <span className="text-pearl">
+                    {boatTypeOptions.find((b) => b.id === boatType)?.label || "—"}
+                    {boatLength ? ` · ${boatLength}` : ""}
+                  </span>
+                </li>
+              </ul>
+              <p className="mt-3 text-xs text-muted">
+                Submitting is a <strong className="text-pearl">request</strong>, not a locked
+                appointment. Prefer a quote first?{" "}
+                <Link href="/free-estimate" className="font-semibold text-gold">
+                  Free estimate
                 </Link>
                 .
               </p>
@@ -606,7 +600,7 @@ export function BookingForm() {
         {fieldHint && (
           <p
             role="alert"
-            className="m-0 rounded border border-gold/40 bg-gold/10 px-3 py-2 text-sm text-navy"
+            className="m-0 rounded-xl border border-gold/40 bg-gold/10 px-3 py-2.5 text-sm text-pearl"
           >
             {fieldHint}
           </p>
@@ -615,12 +609,12 @@ export function BookingForm() {
         {status === "error" && (
           <p
             role="alert"
-            className="m-0 rounded border border-navy/25 bg-paper-deep p-3 text-sm text-navy"
+            className="m-0 rounded-xl border border-gold/30 bg-navy-deep p-3 text-sm text-pearl"
           >
             {error}{" "}
-            <span className="block mt-1">
-              You can also call{" "}
-              <a href={site.phoneHref} className="font-semibold underline">
+            <span className="mt-1 block">
+              Or call{" "}
+              <a href={site.phoneHref} className="font-semibold text-gold underline">
                 {site.phone}
               </a>
               .
@@ -629,8 +623,7 @@ export function BookingForm() {
         )}
       </div>
 
-      {/* Footer actions */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line bg-white/50 px-5 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-5 py-4">
         <button
           type="button"
           className="btn btn-ghost disabled:opacity-40"
@@ -642,21 +635,21 @@ export function BookingForm() {
         <div className="flex flex-wrap items-center gap-3">
           <a
             href={site.phoneHref}
-            className="hidden text-sm font-semibold text-muted no-underline hover:text-gold sm:inline"
+            className="hidden text-sm font-semibold text-steel no-underline hover:text-gold sm:inline"
           >
-            Or call {site.phone}
+            Call {site.phone}
           </a>
           {step < steps.length - 1 ? (
-            <button type="button" className="btn" onClick={goNext}>
+            <button type="button" className="btn min-w-[8.5rem]" onClick={goNext}>
               Continue →
             </button>
           ) : (
             <button
               type="submit"
-              className="btn disabled:opacity-40"
+              className="btn min-w-[8.5rem] disabled:opacity-40"
               disabled={status === "loading"}
             >
-              {status === "loading" ? "Sending…" : "Submit booking request"}
+              {status === "loading" ? "Sending…" : "Submit request"}
             </button>
           )}
         </div>

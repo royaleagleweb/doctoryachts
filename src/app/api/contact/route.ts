@@ -6,6 +6,11 @@ type ContactBody = {
   phone?: string;
   vessel?: string;
   message?: string;
+  city?: string;
+  marina?: string;
+  problemId?: string;
+  whenNeeded?: string;
+  formType?: string;
 };
 
 function isEmail(value: string) {
@@ -22,11 +27,22 @@ export async function POST(request: Request) {
   }
 
   if (!body.name?.trim() || !body.email?.trim() || !body.message?.trim()) {
-    return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Name, email, and a short description are required" },
+      { status: 400 },
+    );
   }
 
   if (!isEmail(body.email)) {
     return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
+  }
+
+  // Phone strongly preferred for estimates / dockside work
+  if (body.formType === "free-estimate" && !body.phone?.trim()) {
+    return NextResponse.json(
+      { error: "Phone number is required for free estimates" },
+      { status: 400 },
+    );
   }
 
   console.info("[Doctor Yachts contact]", {

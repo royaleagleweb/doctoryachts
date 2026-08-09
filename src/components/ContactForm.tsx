@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
+/** Simple contact form for /contact — free estimate uses EstimateForm */
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -18,7 +20,7 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, formType: "contact" }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "Something went wrong");
@@ -32,12 +34,15 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="panel p-4">
-        <p className="m-0 font-semibold text-pearl">Message received</p>
-        <p className="mt-2 mb-0 text-sm text-steel">We’ll reply during shop hours.</p>
+      <div className="panel p-5">
+        <p className="m-0 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
+          Message received
+        </p>
+        <p className="mt-2 font-semibold text-pearl">Thanks — we&apos;ll reply during shop hours.</p>
+        <p className="mt-1 text-sm text-steel">{site.hours}</p>
         <button
           type="button"
-          className="mt-3 font-mono text-xs font-semibold uppercase tracking-wider text-gold"
+          className="mt-4 text-sm font-semibold text-gold"
           onClick={() => setStatus("idle")}
         >
           Send another
@@ -51,43 +56,78 @@ export function ContactForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="label-field">
-            Name
+            Name *
           </label>
-          <input id="name" name="name" required className="input-field" />
+          <input
+            id="name"
+            name="name"
+            required
+            className="input-field"
+            autoComplete="name"
+            placeholder="Full name"
+          />
         </div>
-        <div>
-          <label htmlFor="email" className="label-field">
-            Email
-          </label>
-          <input id="email" name="email" type="email" required className="input-field" />
-        </div>
-      </div>
-      <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className="label-field">
-            Phone
+            Phone *
           </label>
-          <input id="phone" name="phone" className="input-field" />
-        </div>
-        <div>
-          <label htmlFor="vessel" className="label-field">
-            Vessel (optional)
-          </label>
-          <input id="vessel" name="vessel" className="input-field" />
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            className="input-field"
+            autoComplete="tel"
+            inputMode="tel"
+            placeholder="(###) ###-####"
+          />
         </div>
       </div>
       <div>
-        <label htmlFor="message" className="label-field">
-          Message
+        <label htmlFor="email" className="label-field">
+          Email *
         </label>
-        <textarea id="message" name="message" required rows={5} className="input-field" />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          className="input-field"
+          autoComplete="email"
+          placeholder="you@email.com"
+        />
+      </div>
+      <div>
+        <label htmlFor="vessel" className="label-field">
+          Boat / marina{" "}
+          <span className="font-normal normal-case tracking-normal text-muted">(optional)</span>
+        </label>
+        <input
+          id="vessel"
+          name="vessel"
+          className="input-field"
+          placeholder="e.g. 32′ center console · Las Olas Marina"
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="label-field">
+          How can we help? *
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={4}
+          className="input-field"
+          placeholder="What's wrong, where the boat is, and when you need it…"
+        />
       </div>
       {status === "error" && (
-        <p className="m-0 rounded-lg border border-gold/30 bg-navy-deep p-2 text-sm text-pearl">
+        <p className="m-0 rounded-xl border border-gold/30 bg-navy-deep p-2 text-sm text-pearl">
           {error}
         </p>
       )}
-      <button type="submit" className="btn" disabled={status === "loading"}>
+      <button type="submit" className="btn w-full sm:w-auto" disabled={status === "loading"}>
         {status === "loading" ? "Sending…" : "Send message"}
       </button>
     </form>

@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Book Boat Repair Online | Fort Lauderdale & Pompano Beach",
   description:
-    "Book boat repair online in Fort Lauderdale, Pompano Beach & Miami. Choose service, vessel, schedule, and location. Free estimates. Mobile dockside when available.",
+    "Book boat repair online in Fort Lauderdale, Pompano Beach & Miami. Tell us what's wrong, where the boat is, and when works. Free estimates. Mobile dockside when available.",
   path: "/book",
   keywords: [
     "book boat repair Fort Lauderdale",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "Can I get a free estimate before booking?",
     answer:
-      "Yes. Use the free estimate form or describe symptoms in the booking notes. We provide free estimates for recommended work after we understand the job.",
+      "Yes. Use the free estimate form if you only want pricing guidance first. Booking is better when you already know you want a visit.",
   },
   {
     question: "What if my boat won’t start and I need help today?",
@@ -49,22 +49,22 @@ export default function BookPage() {
         ]}
       />
 
-      <section className="border-b border-line bg-paper-deep/50">
-        <div className="wrap section-pad">
+      <section className="border-b border-line section-soft">
+        <div className="wrap section-pad pb-10">
           <CaseTag>Book online</CaseTag>
-          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-navy">
+          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-pearl">
             Book boat repair
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted">
-            Four short steps. We’ll confirm by phone or email during shop hours (
-            {site.hours}).
+          <p className="mt-4 max-w-2xl text-lg text-steel">
+            Four quick steps in plain English. Tap what&apos;s wrong, where the boat is, and how to
+            reach you — we confirm by phone during shop hours ({site.hours}).
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href={site.phoneHref} className="btn">
               Call {site.phone}
             </a>
             <Link href="/free-estimate" className="btn btn-ghost">
-              Prefer a free estimate first?
+              Just want a free estimate?
             </Link>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function BookPage() {
         <div className="min-w-0">
           <Suspense
             fallback={
-              <div className="panel p-8 text-center text-muted">Loading booking form…</div>
+              <div className="panel p-8 text-center text-steel">Loading booking form…</div>
             }
           >
             <BookingForm />
@@ -83,61 +83,55 @@ export default function BookPage() {
 
         <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
           <div className="panel p-5">
-            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-gold">
-              How it works
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
+              4 easy steps
             </p>
-            <ol className="mt-3 space-y-3 text-sm text-muted">
+            <ol className="mt-3 space-y-3 text-sm text-steel">
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-gold">1</span>
-                Choose the service that fits
+                <span className="font-semibold text-gold">1</span>
+                What&apos;s wrong (tap a problem)
               </li>
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-gold">2</span>
-                Tell us about the boat
+                <span className="font-semibold text-gold">2</span>
+                City, marina, preferred day &amp; time
               </li>
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-gold">3</span>
-                Preferred date, time & marina
+                <span className="font-semibold text-gold">3</span>
+                Boat type (and size if you know it)
               </li>
               <li className="flex gap-2">
-                <span className="font-mono font-semibold text-gold">4</span>
-                Your contact + short description
+                <span className="font-semibold text-gold">4</span>
+                Name, phone &amp; email
               </li>
             </ol>
             <p className="mt-4 border-t border-line pt-3 text-xs leading-relaxed text-muted">
-              Submitting is a <strong className="text-navy">request</strong>, not an instant
-              lock. We confirm before arriving.
+              Submitting is a <strong className="text-pearl">request</strong>, not an instant lock.
+              We confirm before arriving.
             </p>
           </div>
 
           <div className="panel p-5">
-            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-muted">
-              Have ready
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted">
+              Tips for a faster visit
             </p>
-            <ul className="mt-3 list-disc space-y-2 pl-4 text-sm text-muted">
-              <li>Marina name, slip, gate/parking notes</li>
-              <li>Symptoms (won&apos;t start, overheating…)</li>
-              <li>Vessel type & approximate length</li>
-              <li>Preferred day/time window</li>
+            <ul className="mt-3 space-y-2 text-sm text-steel">
+              <li>· Marina name + slip or gate notes</li>
+              <li>· What the boat does (or doesn&apos;t do)</li>
+              <li>· When you need it back on the water</li>
             </ul>
           </div>
 
           <div className="panel p-5">
-            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-muted">
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted">
               Need help now?
             </p>
-            <p className="mt-2 text-sm text-muted">
+            <p className="mt-2 text-sm text-steel">
               Urgent no-starts and safety issues: call the shop.
             </p>
             <a href={site.phoneHref} className="btn mt-4 w-full">
               {site.phone}
             </a>
             <p className="mt-3 text-xs text-muted">{site.hours}</p>
-            <p className="mt-3 text-xs text-muted">
-              <Link href="/locations">Service areas</Link>
-              {" · "}
-              <Link href="/faq">FAQ</Link>
-            </p>
           </div>
         </aside>
       </section>
