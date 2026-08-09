@@ -1,33 +1,32 @@
 @import "tailwindcss";
 
 /*
-  DOCTOR YACHTS — “Chart table + clinic” identity
-  Nautical chart cream, deep teal ink, coral triage accent.
-  Built to feel handcrafted, not template.
+  DOCTOR YACHTS — Navy marine identity
+  Deep navy, cool paper, brass highlight. Clean service-shop feel.
 */
 :root {
-  --chart: #f3ead7;
-  --chart-deep: #e7dcc4;
-  --chart-line: #c9b896;
-  --ink: #0e2a2c;
-  --ink-soft: #1a3f42;
-  --teal: #1f6a6e;
-  --teal-bright: #2a8a8f;
-  --coral: #e05a3c;
-  --coral-deep: #c4452b;
-  --foam: #faf6ec;
-  --muted: #5c6b66;
-  --white: #fffdf8;
+  --chart: #f3f6f9;
+  --chart-deep: #e6edf4;
+  --chart-line: #c5d2e0;
+  --ink: #0a1f33;
+  --ink-soft: #12324a;
+  --teal: #1a4d6d;
+  --teal-bright: #2a6a92;
+  --coral: #b8955a;
+  --coral-deep: #9a7b4a;
+  --foam: #fafcfe;
+  --muted: #5a6b7c;
+  --white: #ffffff;
 
-  /* legacy aliases for residual class names */
-  --navy-deep: var(--ink);
-  --navy: var(--ink-soft);
-  --navy-mid: #245457;
-  --brass: var(--coral);
-  --brass-light: #ef7a5f;
-  --brass-dark: var(--coral-deep);
+  /* navy system */
+  --navy-deep: #061525;
+  --navy: #0a1f33;
+  --navy-mid: #1a4d6d;
+  --brass: #b8955a;
+  --brass-light: #d4b57a;
+  --brass-dark: #9a7b4a;
   --pearl: var(--chart);
-  --steel: #8a9a94;
+  --steel: #7a8fa3;
   --slate: var(--muted);
   --line: var(--chart-line);
   --background: var(--chart);
@@ -35,8 +34,8 @@
   --paper: var(--chart);
   --paper-deep: var(--chart-deep);
   --chalk: var(--foam);
-  --rust: var(--coral);
-  --rust-deep: var(--coral-deep);
+  --rust: var(--brass);
+  --rust-deep: var(--brass-dark);
   --smoke: var(--muted);
   --rule: var(--chart-line);
   --sea: var(--teal);
@@ -88,31 +87,27 @@ body {
   margin: 0;
   color: var(--ink);
   background-color: var(--chart);
-  background-image:
-    linear-gradient(rgba(14, 42, 44, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 42, 44, 0.035) 1px, transparent 1px),
-    url("/textures/noise.svg");
-  background-size: 28px 28px, 28px 28px, 180px 180px;
+  background-image: none;
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 16.5px;
   line-height: 1.6;
 }
 
-/* Chart margin lines */
+/* Subtle navy edge accent */
 body::before {
   content: "";
   pointer-events: none;
   position: fixed;
   inset: 0 auto 0 0;
-  width: 18px;
+  width: 4px;
   z-index: 40;
-  border-right: 1px solid color-mix(in srgb, var(--coral) 55%, transparent);
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     to bottom,
-    transparent 0 22px,
-    color-mix(in srgb, var(--ink) 12%, transparent) 22px 23px
+    var(--navy-deep),
+    var(--navy-mid),
+    var(--brass)
   );
-  opacity: 0.55;
+  opacity: 0.9;
 }
 
 @media (max-width: 720px) {
@@ -141,38 +136,38 @@ body::before {
   margin-inline: auto;
 }
 
-/* Buttons — clipped corner “ticket” shape */
+/* Buttons — navy primary */
 .btn {
-  --btn-bg: var(--coral);
-  --btn-fg: #fff8f5;
-  --btn-edge: var(--coral-deep);
+  --btn-bg: var(--navy);
+  --btn-fg: #f5f8fb;
+  --btn-edge: var(--navy-deep);
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.78rem 1.2rem;
+  padding: 0.78rem 1.25rem;
   border: none;
+  border-radius: 3px;
   background: var(--btn-bg);
   color: var(--btn-fg);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 650;
   letter-spacing: 0.01em;
   text-decoration: none !important;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-  transition: transform 0.15s ease, filter 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .btn:hover {
-  filter: brightness(1.05);
+  background: var(--navy-mid);
   transform: translateY(-1px);
 }
 
 .btn-ink {
-  --btn-bg: var(--ink);
-  --btn-fg: var(--chart);
-  --btn-edge: #081c1e;
+  --btn-bg: var(--navy-deep);
+  --btn-fg: #e8eef4;
+  --btn-edge: #040d16;
 }
 
 .btn-ghost {
@@ -194,19 +189,19 @@ body::before {
   color: var(--chart);
 }
 
-/* Case file / chart labels */
+/* Small labels — navy, not mono-clinic */
 .case-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.28rem 0.55rem;
+  padding: 0.3rem 0.6rem;
   border: 1px solid var(--chart-line);
   background: var(--foam);
-  color: var(--teal);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  color: var(--navy-mid);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -215,7 +210,7 @@ body::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--coral);
+  background: var(--brass);
 }
 
 .coord-stamp {

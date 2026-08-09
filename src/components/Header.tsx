@@ -13,20 +13,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-chart-line bg-chart/90 backdrop-blur-md">
       <div className="border-b border-chart-line bg-ink text-chart">
-        <div className="wrap flex flex-wrap items-center justify-between gap-2 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.12em]">
-          <span className="text-steel">
-            Fort Lauderdale · Pompano Beach · Miami · free estimates
-          </span>
+        <div className="wrap flex flex-wrap items-center justify-between gap-2 text-[0.7rem] font-medium tracking-wide text-steel">
+          <span>Fort Lauderdale · Pompano Beach · Miami · free estimates</span>
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${site.email}`}
-              className="hidden text-steel no-underline hover:text-coral sm:inline"
+              className="hidden text-steel no-underline hover:text-brass-light sm:inline"
             >
               {site.email}
             </a>
             <a
               href={site.phoneHref}
-              className="font-semibold text-coral no-underline hover:text-brass-light"
+              className="font-semibold text-brass-light no-underline hover:text-white"
             >
               {site.phone}
             </a>
@@ -45,7 +43,7 @@ export function Header() {
             <span className="font-display block text-[1.35rem] font-semibold tracking-tight text-ink">
               Doctor Yachts
             </span>
-            <span className="mt-1 block font-mono text-[0.62rem] uppercase tracking-[0.14em] text-muted">
+            <span className="mt-1 block text-[0.7rem] font-medium tracking-wide text-muted">
               Boat & yacht mechanic
             </span>
           </span>

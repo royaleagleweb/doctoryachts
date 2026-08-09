@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Outfit, IBM_Plex_Mono } from "next/font/google";
+import { DM_Sans, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -7,19 +7,21 @@ import { absoluteUrl, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
 
-const outfit = Outfit({
+/** Clean commercial sans — less “AI template” than Outfit */
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const fraunces = Fraunces({
+/** Restrained serif for headlines */
+const sourceSerif = Source_Serif_4({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
+/** Mono only for small labels */
 const plexMono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -50,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${fraunces.variable} ${plexMono.variable} h-full`}
+      className={`${dmSans.variable} ${sourceSerif.variable} ${plexMono.variable} h-full`}
     >
       <body className="flex min-h-full flex-col">
         <JsonLd data={[localBusinessJsonLd(), webSiteJsonLd()]} />
