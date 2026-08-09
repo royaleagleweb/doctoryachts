@@ -64,8 +64,8 @@ export const yachtStrip: BrandImage[] = [
 
 export const images = {
   homeHero: {
-    src: "/images/home-hero.jpg",
-    alt: "Luxury motor yacht docked at a Fort Lauderdale marina at golden hour — Doctor Yachts boat repair",
+    src: "/images/home-hero-v2.jpg",
+    alt: "Luxury motor yacht at Fort Lauderdale Intracoastal marina — Doctor Yachts boat repair",
   },
   aboutHero: {
     src: "/images/yacht-cockpit.jpg",

@@ -18,23 +18,34 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-chart-line">
-        <div className="wrap grid items-stretch gap-0 lg:grid-cols-12">
-          <div className="flex flex-col justify-center py-12 lg:col-span-6 lg:py-16 lg:pr-10">
+      {/* Hero — full-bleed image so the photo is always obvious */}
+      <section className="relative min-h-[520px] overflow-hidden border-b border-chart-line sm:min-h-[600px] lg:min-h-[640px]">
+        <Image
+          src={images.homeHero.src}
+          alt={images.homeHero.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/20" />
+
+        <div className="wrap relative flex min-h-[520px] flex-col justify-end py-12 sm:min-h-[600px] sm:py-16 lg:min-h-[640px] lg:justify-center lg:py-20">
+          <div className="max-w-xl">
             <div className="flex flex-wrap items-center gap-3">
               <CaseTag>South Florida boat mechanic</CaseTag>
               <CoordStamp label="Mobile · dockside" />
             </div>
 
-            <h1 className="font-display mt-6 text-[2.4rem] font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.15rem]">
+            <h1 className="font-display mt-6 text-[2.4rem] font-semibold leading-[1.05] tracking-tight text-chart sm:text-5xl lg:text-[3.15rem]">
               Boat repair &amp; maintenance in{" "}
               <em className="not-italic text-teal">Fort Lauderdale</em>
               <span className="text-coral"> &amp; </span>
               Pompano Beach, FL
             </h1>
 
-            <p className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-steel sm:text-lg">
               Doctor Yachts is your independent boat mechanic for inboard and outboard engine
               repair, electrical systems, cooling, and mobile dockside service. Free estimates.
               Diagnose first—fix what matters.
@@ -44,15 +55,15 @@ export default function HomePage() {
               <Link href="/book" className="btn">
                 Book repair
               </Link>
-              <Link href="/free-estimate" className="btn btn-ghost">
+              <Link href="/free-estimate" className="btn btn-ghost-light">
                 Free estimate
               </Link>
-              <Link href="/services" className="btn btn-ghost">
+              <Link href="/services" className="btn btn-ghost-light">
                 View services
               </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-3 border-t border-chart-line pt-6">
+            <div className="mt-10 grid max-w-md grid-cols-3 gap-3 border-t border-white/15 pt-6">
               {[
                 { href: "/locations/fort-lauderdale", label: "Fort Lauderdale" },
                 { href: "/locations/pompano-beach", label: "Pompano Beach" },
@@ -62,34 +73,11 @@ export default function HomePage() {
                   <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-coral">
                     Area
                   </p>
-                  <p className="mt-1 text-xs font-medium text-ink sm:text-sm hover:text-teal">
+                  <p className="mt-1 text-xs font-medium text-chart sm:text-sm hover:text-coral">
                     {item.label}
                   </p>
                 </Link>
               ))}
-            </div>
-          </div>
-
-          <div className="relative lg:col-span-6">
-            <div className="shot relative min-h-[320px] lg:absolute lg:inset-y-0 lg:right-0 lg:left-4 lg:min-h-full">
-              <div className="relative h-full min-h-[320px] lg:min-h-full">
-                <Image
-                  src={images.homeHero.src}
-                  alt={images.homeHero.alt}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent p-5 pt-16">
-                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-steel">
-                    South Florida marinas
-                  </p>
-                  <p className="font-display mt-1 text-lg text-chart">
-                    Engines · electrical · dockside repair
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
