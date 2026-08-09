@@ -93,9 +93,9 @@ export default function HomePage() {
       <section className="bg-white">
         <div className="wrap section-pad">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-            <div className="space-y-8">
+            <div className="reveal-in space-y-8">
               <AnswerBox
-                label="Quick answer"
+                label="01 — Quick answer"
                 question="Who is Doctor Yachts?"
                 answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
               />
@@ -141,7 +141,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
+            <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
               <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
                 <Image
                   src={yachts.bow.src}
@@ -177,9 +177,9 @@ export default function HomePage() {
       {/* Services */}
       <section>
         <div className="wrap section-pad">
-          <div className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="reveal-in mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="eyebrow">Services</p>
+              <p className="eyebrow">02 — Services</p>
               <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
                 What we repair on board
               </h2>
@@ -195,7 +195,7 @@ export default function HomePage() {
               View all services →
             </Link>
           </div>
-          <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="reveal-in grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 6).map((service, i) => (
               <ServiceCard key={service.id} service={service} index={i} />
             ))}
@@ -227,13 +227,13 @@ export default function HomePage() {
       {/* Process */}
       <section className="section-soft">
         <div className="wrap section-pad">
-          <div className="max-w-2xl">
-            <p className="eyebrow">How it works</p>
+          <div className="reveal-in max-w-2xl">
+            <p className="eyebrow">03 — How it works</p>
             <h2 className="font-display text-3xl font-semibold text-navy">
               From your call to back on the water
             </h2>
           </div>
-          <ol className="process-open mt-12">
+          <ol className="process-open reveal-in mt-12">
             {[
               {
                 n: "01",
@@ -278,8 +278,8 @@ export default function HomePage() {
               className="object-cover"
             />
           </div>
-          <div className="flex flex-col justify-center py-2">
-            <p className="eyebrow">Why Doctor Yachts</p>
+          <div className="reveal-in flex flex-col justify-center py-2">
+            <p className="eyebrow">04 — Why Doctor Yachts</p>
             <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
               A shop that listens—not a sales yard
             </h2>
@@ -307,9 +307,9 @@ export default function HomePage() {
       {/* Areas */}
       <section>
         <div className="wrap section-pad">
-          <div className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div className="reveal-in mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="eyebrow">Service areas</p>
+              <p className="eyebrow">05 — Service areas</p>
               <h2 className="font-display text-3xl font-semibold text-navy">
                 South Florida waters we work
               </h2>

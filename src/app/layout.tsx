@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, Syne } from "next/font/google";
+import { AmbientMotes } from "@/components/AmbientMotes";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { MobileCta } from "@/components/MobileCta";
+import { PointerTrail } from "@/components/PointerTrail";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { absoluteUrl, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
@@ -57,10 +61,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${plex.variable} ${syne.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col font-sans">
+      <body className="relative flex min-h-full flex-col font-sans">
         <JsonLd data={[localBusinessJsonLd(), webSiteJsonLd()]} />
+        <ScrollProgress />
+        <AmbientMotes />
+        <PointerTrail />
+        <ScrollReveal />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="relative z-[2] flex-1">{children}</main>
         <Footer />
         <MobileCta />
       </body>
