@@ -64,7 +64,7 @@ function MediaBand({
             className="object-cover"
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 via-navy/25 to-transparent p-4 pt-16">
-            <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-steel">
+            <p className="text-xs  text-steel">
               {image.caption ?? "Marine service"}
             </p>
           </div>
@@ -129,7 +129,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/30" />
 
         <div className="wrap relative flex min-h-[420px] flex-col justify-end py-12 sm:min-h-[480px] sm:py-16">
-          <p className="font-mono text-xs text-steel">
+          <p className="text-xs text-steel">
             <Link href="/" className="text-steel no-underline hover:text-gold">
               Home
             </Link>
@@ -141,7 +141,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             <span className="text-paper/80">{service.title}</span>
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <CaseTag>Service · {String(idx + 1).padStart(2, "0")}</CaseTag>
+            <CaseTag>Service</CaseTag>
             <CoordStamp label={service.duration} />
           </div>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
@@ -163,7 +163,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
             <DepthTicks />
-            <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-steel">
+            <p className="text-xs  text-steel">
               Fort Lauderdale · Pompano Beach · Miami · Dockside first
             </p>
           </div>
@@ -206,7 +206,6 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               key={s}
               className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
             >
-              <span className="text-navy">·</span>
               {s}
             </li>
           ))}
@@ -220,15 +219,9 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         eyebrow="Scope"
         title="What's typically included"
       >
-        <ul className="grid gap-2">
+        <ul className="list-disc space-y-2 pl-5 text-sm text-steel">
           {service.features.map((f) => (
-            <li
-              key={f}
-              className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
-            >
-              <span className="text-gold">▣</span>
-              {f}
-            </li>
+            <li key={f}>{f}</li>
           ))}
         </ul>
       </MediaBand>
@@ -239,7 +232,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           key={section.heading}
           image={media.sections[sectionIdx] ?? media.about}
           reverse={sectionIdx % 2 === 1}
-          eyebrow={`Section ${String(sectionIdx + 1).padStart(2, "0")}`}
+          eyebrow="Details"
           title={section.heading}
         >
           {section.body.map((p) => (
@@ -274,7 +267,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               key={item}
               className="flex gap-3 border border-line px-3 py-2.5 text-sm text-navy"
             >
-              <span className="font-mono text-xs font-semibold text-gold">
+              <span className="text-xs font-semibold text-gold">
                 {String(i + 1).padStart(2, "0")}
               </span>
               {item}
@@ -296,7 +289,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
-              <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-steel">
+              <p className="text-xs  text-steel">
                 {media.process.caption ?? "Dockside process"}
               </p>
               <p className="font-display mt-1 text-xl text-paper">
@@ -448,7 +441,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="border-t border-line px-3 py-2 font-mono text-[0.62rem] uppercase tracking-wider text-muted">
+                <figcaption className="border-t border-line px-3 py-2 text-xs  text-muted">
                   {img.caption ?? img.alt}
                 </figcaption>
               </figure>
@@ -461,7 +454,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       <section className="border-b border-line">
         <div className="wrap grid gap-6 section-pad lg:grid-cols-[1.2fr_0.8fr]">
           <div className="panel p-6 sm:p-8">
-            <p className="font-mono text-xs uppercase tracking-wider text-gold">
+            <p className="text-xs  text-gold">
               Ready to get back on the water?
             </p>
             <h2 className="font-display mt-2 text-2xl font-semibold text-navy">
@@ -485,7 +478,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           </div>
           <aside className="space-y-4">
             <div className="panel p-5">
-              <p className="font-mono text-xs uppercase tracking-wider text-muted">
+              <p className="text-xs  text-muted">
                 This service by city
               </p>
               <ul className="mt-3 space-y-2">
@@ -509,7 +502,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             </div>
             {relatedGuides.length > 0 && (
               <div className="panel p-5">
-                <p className="font-mono text-xs uppercase tracking-wider text-muted">
+                <p className="text-xs  text-muted">
                   Related guides
                 </p>
                 <ul className="mt-3 space-y-2">

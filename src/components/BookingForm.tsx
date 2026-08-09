@@ -192,7 +192,7 @@ export function BookingForm() {
     return (
       <div className="panel overflow-hidden">
         <div className="border-b border-line bg-navy px-6 py-6">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-gold">
+          <p className="text-sm font-semibold  text-gold">
             Request received
           </p>
           <h2 className="font-display mt-2 text-2xl font-semibold text-pearl">
@@ -215,7 +215,7 @@ export function BookingForm() {
               { k: "Location", v: `${city} · ${marina}` },
             ].map((row) => (
               <div key={row.k} className="rounded-xl border border-line bg-white/[0.03] p-3">
-                <dt className="text-[0.62rem] uppercase tracking-wider text-muted">{row.k}</dt>
+                <dt className="text-xs  text-muted">{row.k}</dt>
                 <dd className="mt-1 font-medium text-pearl">{row.v}</dd>
               </div>
             ))}
@@ -247,7 +247,7 @@ export function BookingForm() {
       <div className="border-b border-line px-4 py-4 sm:px-6">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
+            <p className="text-sm font-semibold  text-gold">
               Step {step + 1} of {steps.length}
             </p>
             <p className="mt-0.5 text-sm font-semibold text-pearl">{current.label}</p>
@@ -264,7 +264,7 @@ export function BookingForm() {
           {steps.map((s, i) => (
             <li
               key={s.id}
-              className={`rounded-lg px-1 py-2 text-center text-[0.65rem] font-semibold uppercase tracking-wide ${
+              className={`rounded-lg px-1 py-2 text-center text-[0.65rem] font-semibold  ${
                 i === step
                   ? "bg-gold/15 text-gold"
                   : i < step
@@ -552,7 +552,7 @@ export function BookingForm() {
             </div>
 
             <div className="rounded-xl border border-line bg-white/[0.03] p-4">
-              <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
+              <p className="text-sm font-semibold  text-gold">
                 Quick review
               </p>
               <ul className="mt-3 space-y-2 text-sm text-steel">

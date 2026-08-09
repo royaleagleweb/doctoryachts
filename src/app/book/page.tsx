@@ -83,7 +83,7 @@ export default function BookPage() {
 
         <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
           <div className="panel p-5">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
+            <p className="text-sm font-semibold  text-gold">
               4 easy steps
             </p>
             <ol className="mt-3 space-y-3 text-sm text-steel">
@@ -111,7 +111,7 @@ export default function BookPage() {
           </div>
 
           <div className="panel p-5">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted">
+            <p className="text-sm font-semibold  text-muted">
               Tips for a faster visit
             </p>
             <ul className="mt-3 space-y-2 text-sm text-steel">
@@ -122,7 +122,7 @@ export default function BookPage() {
           </div>
 
           <div className="panel p-5">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted">
+            <p className="text-sm font-semibold  text-muted">
               Need help now?
             </p>
             <p className="mt-2 text-sm text-steel">

@@ -107,7 +107,7 @@ export default function ServicesPage() {
                     sizes="280px"
                     className="object-cover"
                   />
-                  <span className="absolute left-3 top-3 bg-navy/90 px-2 py-1 font-mono text-[0.65rem] text-paper">
+                  <span className="absolute left-3 top-3 bg-navy/90 px-2 py-1 text-[0.65rem] text-paper">
                     DX-{String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -120,7 +120,7 @@ export default function ServicesPage() {
                       {service.title}
                     </Link>
                   </h2>
-                  <p className="mt-1 font-mono text-xs text-muted">{service.duration}</p>
+                  <p className="mt-1 text-xs text-muted">{service.duration}</p>
                   <p className="mt-4 text-muted">{service.description}</p>
                   <p className="mt-3 text-sm text-muted">{service.quickAnswer}</p>
                   <ul className="mt-5 grid gap-2 sm:grid-cols-2">

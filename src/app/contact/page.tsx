@@ -66,10 +66,10 @@ export default function ContactPage() {
             answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message for free estimates and scheduling. We serve Fort Lauderdale, Pompano Beach, Miami, and nearby South Florida docks.`}
           />
           <div className="panel-navy p-6 sm:p-8">
-            <p className="font-mono text-xs uppercase tracking-wider text-steel">Direct lines</p>
+            <p className="text-xs  text-steel">Direct lines</p>
             <dl className="mt-6 space-y-5">
               <div>
-                <dt className="font-mono text-[0.65rem] uppercase tracking-wider text-steel">
+                <dt className="text-[0.65rem]  text-steel">
                   Phone
                 </dt>
                 <dd className="mt-1 font-display text-2xl">
@@ -79,7 +79,7 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[0.65rem] uppercase tracking-wider text-steel">
+                <dt className="text-[0.65rem]  text-steel">
                   Email
                 </dt>
                 <dd className="mt-1">
@@ -92,13 +92,13 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[0.65rem] uppercase tracking-wider text-steel">
+                <dt className="text-[0.65rem]  text-steel">
                   Hours
                 </dt>
                 <dd className="mt-1 text-paper/90">{site.hours}</dd>
               </div>
               <div>
-                <dt className="font-mono text-[0.65rem] uppercase tracking-wider text-steel">
+                <dt className="text-[0.65rem]  text-steel">
                   Service area
                 </dt>
                 <dd className="mt-1 text-paper/90">{site.serviceArea}</dd>

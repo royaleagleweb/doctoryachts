@@ -188,19 +188,7 @@ h3 {
   color: var(--steel);
 }
 
-/* Film grain */
-body::after {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain 0.9s steps(2) infinite;
-}
-
-/* Scroll progress */
+/* Scroll progress — thin, quiet */
 .progress {
   position: fixed;
   top: 0;
@@ -208,8 +196,7 @@ body::after {
   height: 2px;
   width: 0%;
   z-index: 70;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  box-shadow: 0 0 12px rgba(196, 163, 90, 0.55);
+  background: var(--gold);
   pointer-events: none;
 }
 
@@ -242,51 +229,8 @@ body::after {
   margin-inline: auto;
 }
 
-/* Reveal on scroll */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-delay-1 {
-  transition-delay: 0.12s;
-}
-.reveal-delay-2 {
-  transition-delay: 0.24s;
-}
-.reveal-delay-3 {
-  transition-delay: 0.36s;
-}
-.reveal-delay-4 {
-  transition-delay: 0.48s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  body::after {
-    animation: none;
-  }
-  .btn,
-  .hero-ken,
-  .marquee {
-    animation: none !important;
-  }
-}
-
-/* ---------- Buttons (V1 brass primary) ---------- */
+/* ---------- Buttons — solid brass, no shimmer gimmick ---------- */
 .btn {
-  --btn-bg: transparent;
-  --btn-fg: var(--navy-deep);
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -294,32 +238,23 @@ body::after {
   gap: 0.45rem;
   padding: 0.78rem 1.35rem;
   border: none;
-  border-radius: 999px;
-  background: linear-gradient(
-    120deg,
-    #9a7a3a,
-    var(--gold),
-    var(--gold-light),
-    var(--gold),
-    #9a7a3a
-  );
-  background-size: 200% auto;
+  border-radius: 6px;
+  background: var(--gold);
   color: var(--navy-deep);
   font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-decoration: none !important;
   cursor: pointer;
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-  animation: shimmer 4s linear infinite;
+    background 0.15s ease,
+    transform 0.15s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(196, 163, 90, 0.28);
+  background: var(--gold-light);
+  transform: translateY(-1px);
 }
 
 .btn-gold {
@@ -353,48 +288,19 @@ body::after {
 }
 
 /* Labels / chips */
+/* Simple section label */
+.eyebrow,
 .case-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
+  margin: 0;
   color: var(--gold);
   font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
   background: transparent;
   border: none;
   padding: 0;
-}
-.case-tag::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  border-radius: 0;
-  background: var(--gold);
-  animation: lineGrow 1.2s ease both;
-}
-
-.coord-stamp {
-  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.depth-ticks {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 16px;
-}
-.depth-ticks span {
-  width: 1px;
-  background: color-mix(in srgb, var(--gold) 40%, transparent);
-  display: block;
 }
 
 /* Cards / panels — glass luxury */
@@ -508,85 +414,10 @@ select.input-field option {
   animation: kenBurns 22s ease-in-out infinite;
 }
 
-.status-card {
-  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
-  background: rgba(11, 28, 45, 0.55);
-  backdrop-filter: blur(18px);
-  border-radius: 1.25rem;
-  padding: 1.6rem;
-  animation: floatY 6s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .status-card {
-    animation: none;
-  }
-}
-
-.marquee-wrap {
-  border-block: 1px solid color-mix(in srgb, var(--gold) 18%, transparent);
-  background: rgba(5, 12, 20, 0.85);
-  overflow: hidden;
-  padding: 0.85rem 0;
-}
-.marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-.marquee span {
-  padding: 0 1.75rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--steel);
-  white-space: nowrap;
-}
-.marquee span em {
-  font-style: normal;
-  color: var(--gold);
-}
-
-.banner-luxury {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(120deg, #0b1c2d, #123047 50%, #0b1c2d);
-}
-.banner-luxury::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(196, 163, 90, 0.18), transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(56, 120, 140, 0.12), transparent 35%);
-  animation: kenBurns 18s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-.logo-mark-ring {
-  width: 36px;
-  height: 36px;
-  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--gold);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  animation: pulseGlow 3.5s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .logo-mark-ring {
-    animation: none;
-  }
-}
-
 .stamp {
   font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--muted);
 }
 

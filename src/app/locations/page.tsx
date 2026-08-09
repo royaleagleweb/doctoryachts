@@ -95,7 +95,7 @@ export default function LocationsPage() {
                   <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover" />
                 </div>
                 <div className="border-t border-line p-5">
-                  <p className="font-mono text-[0.62rem] uppercase tracking-wider text-gold">
+                  <p className="text-xs  text-gold">
                     {loc.region}
                   </p>
                   <h2 className="font-display mt-1 text-2xl font-semibold text-navy">
@@ -109,7 +109,7 @@ export default function LocationsPage() {
                   <p className="mt-2 text-sm text-muted">{loc.intro}</p>
                   <Link
                     href={`/locations/${loc.slug}`}
-                    className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wider text-gold no-underline"
+                    className="mt-4 inline-block text-xs font-semibold  text-gold no-underline"
                   >
                     {loc.shortName} page →
                   </Link>

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
-import { CaseTag, CoordStamp } from "@/components/ChartDecor";
 import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
@@ -18,8 +17,8 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      {/* Hero — V1 cinematic luxury + full SEO H1 */}
-      <section className="relative flex min-h-[100svh] items-end overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32">
+      {/* Hero */}
+      <section className="relative flex min-h-[88svh] items-end overflow-hidden pb-14 pt-24 sm:min-h-[90svh] sm:pb-16 sm:pt-28">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src={images.homeHero.src}
@@ -27,71 +26,61 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="hero-ken object-cover object-center"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/75 to-navy-deep/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/95 via-transparent to-navy-deep/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/78 to-navy-deep/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-transparent to-navy-deep/20" />
         </div>
 
         <div className="wrap relative z-[2] w-full">
-          <div className="grid items-end gap-10 lg:grid-cols-[1.25fr_0.85fr]">
+          <div className="grid items-end gap-10 lg:grid-cols-[1.3fr_0.85fr]">
             <div>
-              <p className="case-tag reveal">South Florida · White-glove marine care</p>
-              <h1 className="font-display reveal reveal-delay-1 mt-5 text-[2.4rem] font-semibold leading-[1.05] tracking-tight text-pearl sm:text-5xl lg:text-[3.5rem]">
-                Boat repair &amp; maintenance in{" "}
-                <em className="not-italic text-gold">Fort Lauderdale</em>
-                <span className="text-gold-light"> &amp; </span>
-                Pompano Beach, FL
-              </h1>
-              <p className="reveal reveal-delay-2 mt-5 max-w-md text-base leading-relaxed text-steel sm:text-lg">
-                Doctor Yachts is your independent boat mechanic for inboard and outboard engine
-                repair, electrical systems, cooling, and mobile dockside service. Free estimates.
-                Diagnose first—fix what matters.
+              <p className="text-sm font-medium text-gold">
+                Fort Lauderdale · Pompano Beach · Miami
               </p>
-              <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3">
+              <h1 className="font-display mt-4 text-[2.35rem] font-semibold leading-[1.06] tracking-tight text-pearl sm:text-5xl lg:text-[3.25rem]">
+                Boat repair &amp; maintenance in{" "}
+                <span className="text-gold">Fort Lauderdale</span> &amp; Pompano Beach, FL
+              </h1>
+              <p className="mt-5 max-w-lg text-base leading-relaxed text-steel sm:text-lg">
+                Independent boat mechanic for engines, electrical, cooling, and mobile dockside
+                service. Free estimates. We diagnose first—then fix what matters.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/book" className="btn">
-                  Reserve a visit
+                  Book repair
                 </Link>
                 <Link href="/free-estimate" className="btn btn-ghost">
                   Free estimate
                 </Link>
-                <Link href="/services" className="btn btn-ghost">
-                  Explore services
-                </Link>
+                <a href={site.phoneHref} className="btn btn-ghost">
+                  {site.phone}
+                </a>
               </div>
             </div>
 
-            <aside className="status-card reveal reveal-delay-4">
-              <p className="case-tag">Concierge desk</p>
-              <p className="font-display mt-3 text-2xl font-semibold text-pearl">
-                Accepting private bookings
-              </p>
-              <dl className="mt-5 space-y-3">
+            <aside className="panel p-5 sm:p-6">
+              <p className="text-sm font-semibold text-pearl">Shop info</p>
+              <dl className="mt-4 space-y-3 text-sm">
                 <div>
-                  <dt className="text-[0.68rem] uppercase tracking-[0.16em] text-muted">Hours</dt>
-                  <dd className="mt-0.5 text-sm text-pearl">{site.hours}</dd>
+                  <dt className="text-muted">Hours</dt>
+                  <dd className="mt-0.5 text-pearl">{site.hours}</dd>
                 </div>
                 <div>
-                  <dt className="text-[0.68rem] uppercase tracking-[0.16em] text-muted">
-                    Coverage
-                  </dt>
-                  <dd className="mt-0.5 text-sm text-pearl">
-                    Fort Lauderdale · Pompano · Miami
-                  </dd>
+                  <dt className="text-muted">Service area</dt>
+                  <dd className="mt-0.5 text-pearl">Fort Lauderdale · Pompano · Miami</dd>
                 </div>
                 <div>
-                  <dt className="text-[0.68rem] uppercase tracking-[0.16em] text-muted">Line</dt>
-                  <dd className="mt-0.5 text-sm">
+                  <dt className="text-muted">Phone</dt>
+                  <dd className="mt-0.5">
                     <a href={site.phoneHref} className="font-semibold text-gold no-underline">
                       {site.phone}
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[0.68rem] uppercase tracking-[0.16em] text-muted">
-                    Promise
-                  </dt>
-                  <dd className="mt-0.5 text-sm text-pearl">Diagnose first · Free estimates</dd>
+                  <dt className="text-muted">How we work</dt>
+                  <dd className="mt-0.5 text-pearl">Diagnose first · free estimates</dd>
                 </div>
               </dl>
             </aside>
@@ -99,37 +88,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Marquee */}
-      <div className="marquee-wrap" aria-hidden="true">
-        <div className="marquee">
-          <span>
-            <em>Marine engine repair</em> · Inboard &amp; outboard · Mobile dockside · Electrical
-            systems · Cooling · Maintenance · Fort Lauderdale · Pompano Beach · Miami ·
-          </span>
-          <span>
-            <em>Marine engine repair</em> · Inboard &amp; outboard · Mobile dockside · Electrical
-            systems · Cooling · Maintenance · Fort Lauderdale · Pompano Beach · Miami ·
-          </span>
-        </div>
-      </div>
-
-      {/* Principle strip */}
-      <section className="border-b border-line section-dark">
-        <div className="wrap grid gap-6 py-10 md:grid-cols-12 md:items-center">
-          <p className="font-display reveal text-xl leading-snug text-pearl md:col-span-8 md:text-2xl">
-            “Most boats don’t need a miracle—they need someone who actually{" "}
-            <em className="not-italic text-gold">finds the fault</em> before swapping parts.”
+      {/* Quote strip */}
+      <section className="border-y border-line bg-navy">
+        <div className="wrap py-10">
+          <p className="font-display max-w-3xl text-xl leading-snug text-pearl md:text-2xl">
+            Most boats don’t need a miracle—they need someone who finds the fault before swapping
+            parts.
           </p>
-          <div className="md:col-span-4 md:text-right">
-            <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-steel">
-              How we work · Doctor Yachts
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* Full-bleed yacht branding banner */}
-      <section className="relative min-h-[280px] overflow-hidden border-b border-line sm:min-h-[360px]">
+      {/* Branding banner */}
+      <section className="relative min-h-[260px] overflow-hidden sm:min-h-[320px]">
         <Image
           src={yachts.intracoastal.src}
           alt={yachts.intracoastal.alt}
@@ -137,31 +107,27 @@ export default function HomePage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy-deep/45 to-transparent" />
-        <div className="wrap relative flex min-h-[280px] items-end py-10 sm:min-h-[360px]">
-          <div className="reveal">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-gold">
-              Fort Lauderdale · Intracoastal
-            </p>
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy-deep/50 to-transparent" />
+        <div className="wrap relative flex min-h-[260px] items-end py-10 sm:min-h-[320px]">
+          <div>
+            <p className="text-sm text-gold">Fort Lauderdale · Intracoastal</p>
             <p className="font-display mt-2 max-w-lg text-2xl font-semibold text-pearl sm:text-3xl">
-              Dockside mechanic service where the boats already live
+              Dockside service where the boats already live
             </p>
           </div>
         </div>
       </section>
 
-      {/* SEO + intro — all original content preserved */}
+      {/* SEO intro */}
       <section className="border-b border-line section-soft">
         <div className="wrap section-pad space-y-10">
-          <div className="reveal">
-            <AnswerBox
-              label="Quick answer"
-              question="Who is Doctor Yachts?"
-              answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
-            />
-          </div>
+          <AnswerBox
+            label="Quick answer"
+            question="Who is Doctor Yachts?"
+            answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
+          />
           <div className="grid items-start gap-10 lg:grid-cols-2">
-            <div className="reveal">
+            <div>
               <h2 className="font-display text-2xl font-semibold text-pearl sm:text-3xl">
                 Boat mechanic service for Fort Lauderdale &amp; Pompano Beach
               </h2>
@@ -186,27 +152,12 @@ export default function HomePage() {
               <h3 className="font-display mt-8 text-xl font-semibold text-pearl">
                 What we fix most often
               </h3>
-              <ul className="mt-4 space-y-3 text-sm text-steel">
-                <li className="flex gap-2">
-                  <span className="text-gold">▣</span>
-                  Boat won&apos;t start / weak cranking (battery, charging, safety circuits)
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-gold">▣</span>
-                  Overheating (impellers, strainers, heat exchangers)
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-gold">▣</span>
-                  Dead batteries and shore power trips
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-gold">▣</span>
-                  Bilge pumps, plumbing, and safety systems
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-gold">▣</span>
-                  Pre-season and interval boat maintenance
-                </li>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-steel">
+                <li>Boat won&apos;t start / weak cranking (battery, charging, safety circuits)</li>
+                <li>Overheating (impellers, strainers, heat exchangers)</li>
+                <li>Dead batteries and shore power trips</li>
+                <li>Bilge pumps, plumbing, and safety systems</li>
+                <li>Pre-season and interval boat maintenance</li>
               </ul>
               <p className="mt-4 text-sm text-steel">
                 Helpful guides:{" "}
@@ -253,50 +204,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How we work — process */}
+      {/* How we work */}
       <section className="section-pad section-dark">
         <div className="wrap">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <CaseTag>How we work</CaseTag>
-              <h2 className="font-display mt-4 max-w-md text-3xl font-semibold tracking-tight text-pearl sm:text-4xl">
+              <h2 className="font-display max-w-md text-3xl font-semibold tracking-tight text-pearl sm:text-4xl">
                 From your call to back on the water
               </h2>
             </div>
             <p className="max-w-xs text-sm text-steel md:text-right">
-              No mystery process. Four clear steps—diagnosis before parts.
+              Four clear steps—diagnosis before parts.
             </p>
           </div>
 
-          <ol className="mt-12 grid overflow-hidden rounded-[1.15rem] border border-line sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                n: "01",
+                n: "1",
                 t: "Symptoms",
                 d: "You tell us what the boat is doing—or not doing. No jargon required.",
               },
               {
-                n: "02",
+                n: "2",
                 t: "Plan the visit",
-                d: "Location, access, vessel type. We arrive prepared—not guessing on the dock.",
+                d: "Location, access, vessel type. We arrive prepared.",
               },
               {
-                n: "03",
+                n: "3",
                 t: "Diagnosis",
                 d: "We find the fault before we sell the fix. Options in plain language.",
               },
               {
-                n: "04",
+                n: "4",
                 t: "Repair & notes",
-                d: "Fix what matters, free estimate path, and notes you can keep for next time.",
+                d: "Fix what matters, free estimate path, and notes you can keep.",
               },
             ].map((step) => (
-              <li
-                key={step.n}
-                className="reveal border-line border-b bg-white/[0.02] p-6 sm:border-r sm:last:border-r-0 lg:border-b-0"
-              >
-                <span className="font-display text-3xl font-semibold text-gold">{step.n}</span>
-                <h3 className="font-display mt-4 text-xl font-semibold text-pearl">{step.t}</h3>
+              <li key={step.n} className="panel p-5">
+                <span className="text-sm font-semibold text-gold">{step.n}</span>
+                <h3 className="font-display mt-3 text-xl font-semibold text-pearl">{step.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{step.d}</p>
               </li>
             ))}
@@ -304,37 +251,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Yacht strip */}
+      {/* Photo strip */}
       <section className="border-y border-line bg-navy">
         <div className="wrap py-10">
           <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-gold">
-                On the water
-              </p>
-              <p className="font-display mt-1 text-xl text-pearl sm:text-2xl">
+              <h2 className="font-display text-xl text-pearl sm:text-2xl">
                 Yachts &amp; boats we keep running
-              </p>
+              </h2>
             </div>
             <Link
               href="/gallery"
-              className="text-xs font-semibold uppercase tracking-wider text-steel no-underline hover:text-gold"
+              className="text-sm font-semibold text-steel no-underline hover:text-gold"
             >
               Full gallery →
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
             {yachtStrip.slice(0, 4).map((img) => (
-              <div key={img.src} className="shot relative aspect-[4/3] border-0">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="25vw"
-                  className="object-cover"
-                />
+              <div key={img.src} className="shot relative aspect-[4/3]">
+                <Image src={img.src} alt={img.alt} fill sizes="25vw" className="object-cover" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep/90 to-transparent p-3 pt-10">
-                  <p className="text-[0.6rem] uppercase tracking-wider text-steel">{img.caption}</p>
+                  <p className="text-xs text-steel">{img.caption}</p>
                 </div>
               </div>
             ))}
@@ -342,19 +280,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services — SEO intact */}
+      {/* Services */}
       <section className="border-y border-line section-soft section-pad">
         <div className="wrap">
           <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <CaseTag>Signature services</CaseTag>
-              <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-pearl sm:text-4xl">
+              <h2 className="font-display text-3xl font-semibold tracking-tight text-pearl sm:text-4xl">
                 What we repair on board
               </h2>
             </div>
             <Link
               href="/services"
-              className="text-xs font-semibold uppercase tracking-[0.12em] text-gold no-underline hover:text-gold-light"
+              className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
             >
               All services →
             </Link>
@@ -375,9 +312,7 @@ export default function HomePage() {
                   className="panel group flex items-center justify-between px-4 py-4 no-underline transition hover:border-gold/40"
                 >
                   <span>
-                    <span className="text-[0.65rem] uppercase tracking-wider text-gold">
-                      Also available
-                    </span>
+                    <span className="text-xs text-gold">Also available</span>
                     <span className="mt-1 block font-semibold text-pearl group-hover:text-gold-light">
                       {s.title.replace(" Fort Lauderdale", "")}
                     </span>
@@ -393,41 +328,29 @@ export default function HomePage() {
       {/* Why Doctor Yachts */}
       <section className="bg-navy text-pearl">
         <div className="wrap grid lg:grid-cols-2">
-          <div className="shot relative min-h-[300px] border-0 shadow-none lg:min-h-[460px]">
+          <div className="relative min-h-[300px] lg:min-h-[460px]">
             <Image
               src={yachts.cockpit.src}
               alt={yachts.cockpit.alt}
               fill
               sizes="50vw"
-              className="object-cover opacity-95"
+              className="object-cover"
             />
           </div>
-          <div className="flex flex-col justify-center px-0 py-12 lg:px-12 lg:py-16">
-            <CaseTag>Why “Doctor”</CaseTag>
-            <h2 className="font-display mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
+          <div className="flex flex-col justify-center py-12 lg:px-12 lg:py-16">
+            <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">
               Not a sales yard.
               <br />
               <span className="text-gold">A shop that listens.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-steel">
-              The name is the method. We treat vessels like systems—power, propulsion, pumps,
-              wiring—not a parts catalog with a dock. That means fewer wild guesses and fewer
-              surprise invoices.
+              We treat vessels like systems—power, propulsion, pumps, wiring—not a parts catalog
+              with a dock. That means fewer wild guesses and fewer surprise invoices.
             </p>
-            <ul className="mt-8 space-y-3 text-sm">
-              {[
-                "Dockside first when access allows",
-                "Findings before parts",
-                "Notes you can keep for the next yard or survey",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 border-b border-white/10 pb-3 text-pearl/90"
-                >
-                  <span className="text-gold">▣</span>
-                  {item}
-                </li>
-              ))}
+            <ul className="mt-8 list-disc space-y-2 pl-5 text-sm text-pearl/90">
+              <li>Dockside first when access allows</li>
+              <li>Findings before parts</li>
+              <li>Notes you can keep for the next yard or survey</li>
             </ul>
             <Link href="/about" className="btn mt-8 w-fit">
               About Doctor Yachts
@@ -436,8 +359,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Cruising banner */}
-      <section className="relative min-h-[240px] overflow-hidden border-b border-line sm:min-h-[300px]">
+      {/* Goal banner */}
+      <section className="relative min-h-[220px] overflow-hidden sm:min-h-[280px]">
         <Image
           src={yachts.cruising.src}
           alt={yachts.cruising.alt}
@@ -446,9 +369,8 @@ export default function HomePage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-navy-deep/55" />
-        <div className="wrap relative flex min-h-[240px] flex-col items-start justify-center py-12 sm:min-h-[300px]">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-gold">The goal</p>
-          <p className="font-display mt-2 max-w-xl text-2xl font-semibold text-pearl sm:text-3xl">
+        <div className="wrap relative flex min-h-[220px] flex-col items-start justify-center py-12 sm:min-h-[280px]">
+          <p className="font-display max-w-xl text-2xl font-semibold text-pearl sm:text-3xl">
             Get you back on the water—reliably
           </p>
           <Link href="/book" className="btn mt-6">
@@ -457,19 +379,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brand gallery mosaic */}
+      {/* Gallery */}
       <section className="border-b border-line section-soft">
         <div className="wrap section-pad">
           <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <CaseTag>Brand gallery</CaseTag>
-              <h2 className="font-display mt-3 text-2xl font-semibold text-pearl sm:text-3xl">
-                South Florida yachts &amp; waters
-              </h2>
-            </div>
+            <h2 className="font-display text-2xl font-semibold text-pearl sm:text-3xl">
+              South Florida yachts &amp; waters
+            </h2>
             <Link
               href="/gallery"
-              className="text-xs font-semibold uppercase tracking-wider text-gold no-underline hover:text-gold-light"
+              className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
             >
               View all photos →
             </Link>
@@ -477,16 +396,10 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {yachtStrip.slice(4).map((img) => (
               <figure key={img.src} className="shot m-0">
-                <div className="shot-img relative aspect-[4/3]">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="25vw"
-                    className="object-cover"
-                  />
+                <div className="relative aspect-[4/3]">
+                  <Image src={img.src} alt={img.alt} fill sizes="25vw" className="object-cover" />
                 </div>
-                <figcaption className="border-t border-line px-2 py-2 text-[0.6rem] uppercase tracking-wider text-muted">
+                <figcaption className="border-t border-line px-2 py-2 text-xs text-muted">
                   {img.caption}
                 </figcaption>
               </figure>
@@ -498,14 +411,11 @@ export default function HomePage() {
       {/* Coverage */}
       <section className="section-pad section-dark">
         <div className="wrap">
-          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <CaseTag>Service areas</CaseTag>
-              <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-pearl">
-                South Florida waters we work
-              </h2>
-            </div>
-            <CoordStamp label="Broward · Miami-Dade · Palm Beach" />
+          <div className="mb-8">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-pearl">
+              South Florida waters we work
+            </h2>
+            <p className="mt-2 text-sm text-steel">Broward · Miami-Dade · Palm Beach</p>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -517,14 +427,14 @@ export default function HomePage() {
                   href={`/locations/${loc.slug}`}
                   className="group block no-underline"
                 >
-                  <div className="shot transition duration-500 group-hover:-translate-y-1">
-                    <div className="shot-img relative aspect-[5/4]">
+                  <div className="shot transition group-hover:border-gold/40">
+                    <div className="relative aspect-[5/4] overflow-hidden">
                       <Image
                         src={img.src}
                         alt={img.alt}
                         fill
                         sizes="33vw"
-                        className="object-cover transition duration-700 group-hover:scale-[1.05]"
+                        className="object-cover transition duration-500 group-hover:scale-[1.03]"
                       />
                     </div>
                     <div className="flex items-center justify-between border-t border-line px-3 py-3">
@@ -532,11 +442,9 @@ export default function HomePage() {
                         <p className="font-display text-lg font-semibold text-pearl group-hover:text-gold-light">
                           {loc.name}
                         </p>
-                        <p className="text-[0.62rem] uppercase tracking-wider text-muted">
-                          {loc.region}
-                        </p>
+                        <p className="text-xs text-muted">{loc.region}</p>
                       </div>
-                      <span className="text-xs text-gold">→</span>
+                      <span className="text-sm text-gold">→</span>
                     </div>
                   </div>
                 </Link>
@@ -546,13 +454,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust quote */}
+      {/* Trust */}
       <section className="border-y border-line section-soft">
-        <div className="wrap max-w-3xl py-16 text-center">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-gold">
-            Private client note
-          </p>
-          <blockquote className="font-display mt-4 text-2xl font-medium leading-snug text-pearl sm:text-3xl">
+        <div className="wrap max-w-3xl py-14 text-center">
+          <blockquote className="font-display text-2xl font-medium leading-snug text-pearl sm:text-3xl">
             “Clear diagnosis. Honest options. Dockside when it makes sense—not a mystery invoice.”
           </blockquote>
           <p className="mt-5 text-sm text-steel">

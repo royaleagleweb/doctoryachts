@@ -82,12 +82,12 @@ export default function GalleryPage() {
             <figure key={shot.src} className="shot m-0">
               <div className="shot-img relative aspect-[4/3]">
                 <Image src={shot.src} alt={shot.alt} fill sizes="25vw" className="object-cover" />
-                <span className="absolute left-2 top-2 bg-navy/85 px-2 py-0.5 font-mono text-[0.6rem] text-paper">
+                <span className="absolute left-2 top-2 bg-navy/85 px-2 py-0.5 text-[0.6rem] text-paper">
                   {shot.tag}
                 </span>
               </div>
               <figcaption className="border-t border-line px-3 py-2">
-                <p className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
+                <p className="text-xs  text-muted">
                   {shot.caption ?? shot.alt}
                 </p>
               </figcaption>
@@ -109,12 +109,12 @@ export default function GalleryPage() {
               <figure key={shot.src + shot.tag} className="shot m-0">
                 <div className="shot-img relative aspect-[4/3]">
                   <Image src={shot.src} alt={shot.alt} fill sizes="25vw" className="object-cover" />
-                  <span className="absolute left-2 top-2 bg-navy/85 px-2 py-0.5 font-mono text-[0.6rem] text-paper">
+                  <span className="absolute left-2 top-2 bg-navy/85 px-2 py-0.5 text-[0.6rem] text-paper">
                     {shot.tag}
                   </span>
                 </div>
                 <figcaption className="border-t border-line px-3 py-3">
-                  <p className="font-mono text-[0.62rem] text-muted">{shot.alt}</p>
+                  <p className="text-xs text-muted">{shot.alt}</p>
                   <Link
                     href={shot.href}
                     className="mt-1 inline-block text-xs font-semibold text-navy no-underline hover:text-gold"

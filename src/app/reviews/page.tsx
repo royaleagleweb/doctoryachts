@@ -63,7 +63,7 @@ export default function ReviewsPage() {
         <div className="grid gap-5 md:grid-cols-3">
           {standards.map((s) => (
             <div key={s.title} className="panel flex h-full flex-col p-6">
-              <p className="font-mono text-xs uppercase tracking-wider text-gold">Standard</p>
+              <p className="text-xs  text-gold">Standard</p>
               <h2 className="font-display mt-3 text-xl font-semibold text-navy">{s.title}</h2>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{s.body}</p>
             </div>

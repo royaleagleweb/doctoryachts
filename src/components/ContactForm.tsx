@@ -35,7 +35,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="panel p-5">
-        <p className="m-0 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold">
+        <p className="m-0 text-sm font-semibold  text-gold">
           Message received
         </p>
         <p className="mt-2 font-semibold text-pearl">Thanks — we&apos;ll reply during shop hours.</p>

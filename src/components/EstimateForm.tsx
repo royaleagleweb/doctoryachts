@@ -103,7 +103,7 @@ export function EstimateForm() {
     return (
       <div className="space-y-4">
         <div className="rounded-xl border border-gold/30 bg-gold/10 p-5">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-gold">
+          <p className="text-sm font-semibold  text-gold">
             Estimate request sent
           </p>
           <h3 className="font-display mt-2 text-xl font-semibold text-pearl">

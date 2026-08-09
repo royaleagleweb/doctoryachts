@@ -32,7 +32,7 @@ export default function GuidesHubPage() {
 
       <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
-          <CaseTag>AEO guides</CaseTag>
+          <CaseTag>Guides</CaseTag>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
             Boat repair guides written for real searches—and AI answers
           </h1>
@@ -55,7 +55,7 @@ export default function GuidesHubPage() {
           {guides.map((g) => (
             <li key={g.slug}>
               <article className="panel h-full p-5 transition hover:border-navy/25">
-                <p className="font-mono text-[0.62rem] uppercase tracking-wider text-gold">
+                <p className="text-xs  text-gold">
                   {g.category} · {g.readTime}
                 </p>
                 <h2 className="font-display mt-2 text-xl font-semibold text-navy">
@@ -69,7 +69,7 @@ export default function GuidesHubPage() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">{g.quickAnswer}</p>
                 <Link
                   href={`/guides/${g.slug}`}
-                  className="mt-4 inline-block font-mono text-xs font-semibold uppercase tracking-wider text-navy no-underline hover:text-gold"
+                  className="mt-4 inline-block text-xs font-semibold  text-navy no-underline hover:text-gold"
                 >
                   Read full guide →
                 </Link>

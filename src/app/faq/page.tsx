@@ -49,12 +49,12 @@ export default function FaqPage() {
 
       <section className="border-b border-line bg-paper-deep/50">
         <div className="wrap section-pad">
-          <CaseTag>FAQ · AEO</CaseTag>
+          <CaseTag>FAQ</CaseTag>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
             Boat repair questions we answer every week
           </h1>
           <p className="mt-4 max-w-2xl text-muted">
-            Short, direct answers for search and AI engines—and for owners deciding whether to book
+            Short, direct answers for boat owners deciding whether to book
             mobile service in Fort Lauderdale or Pompano Beach. Free estimates:{" "}
             <a href={site.phoneHref}>{site.phone}</a>.
           </p>
@@ -64,18 +64,15 @@ export default function FaqPage() {
       <section className="wrap section-pad">
         <h2 className="font-display text-2xl font-semibold text-navy">General</h2>
         <div className="mt-6 divide-y divide-line border-y border-line">
-          {homeFaqs.map((f, i) => (
+          {homeFaqs.map((f) => (
             <details key={f.question} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-navy">
-                <span className="flex gap-3">
-                  <span className="font-mono text-xs text-gold pt-1">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {f.question}
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-pearl">
+                <span>{f.question}</span>
+                <span className="text-gold transition group-open:rotate-45" aria-hidden>
+                  +
                 </span>
-                <span className="font-mono text-navy group-open:rotate-45">+</span>
               </summary>
-              <p className="mt-3 pl-9 text-sm leading-relaxed text-muted">{f.answer}</p>
+              <p className="mt-3 text-sm leading-relaxed text-steel">{f.answer}</p>
             </details>
           ))}
         </div>

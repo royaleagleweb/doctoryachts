@@ -114,7 +114,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/30" />
 
         <div className="wrap relative flex min-h-[380px] flex-col justify-end py-12 sm:min-h-[440px] sm:py-16">
-          <p className="font-mono text-xs text-steel">
+          <p className="text-xs text-steel">
             <Link href="/" className="text-steel no-underline hover:text-gold">
               Home
             </Link>
@@ -188,7 +188,6 @@ export default async function ServiceCityPage({ params }: PageProps) {
                   key={s}
                   className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
                 >
-                  <span className="text-navy">·</span>
                   {s}
                 </li>
               ))}
@@ -206,7 +205,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                   key={f}
                   className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
                 >
-                  <span className="text-gold">▣</span>
+                  
                   {f}
                 </li>
               ))}
@@ -224,7 +223,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
               />
             </div>
             {secondary.caption && (
-              <div className="border-t border-line px-4 py-3 font-mono text-[0.65rem] uppercase tracking-wider text-muted">
+              <div className="border-t border-line px-4 py-3 text-[0.65rem]  text-muted">
                 {secondary.caption} · {location.name}
               </div>
             )}
@@ -301,7 +300,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
 
         <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
           <div className="panel p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-gold">Book</p>
+            <p className="text-xs  text-gold">Book</p>
             <p className="mt-2 text-sm text-muted">
               {location.name}, FL · {service.duration}
             </p>
@@ -316,7 +315,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </a>
           </div>
           <div className="panel p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-muted">
+            <p className="text-xs  text-muted">
               This service · other cities
             </p>
             <ul className="mt-3 space-y-2">
@@ -333,7 +332,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </ul>
           </div>
           <div className="panel p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-muted">
+            <p className="text-xs  text-muted">
               More in {location.shortName}
             </p>
             <ul className="mt-3 space-y-2">

@@ -63,17 +63,14 @@ export default function FreeEstimatePage() {
             </a>
             .
           </p>
-          <ul className="mt-6 grid gap-2 text-sm text-pearl sm:grid-cols-2">
+          <ul className="mt-6 grid list-disc gap-2 pl-5 text-sm text-pearl sm:grid-cols-2">
             {[
               "Takes about 1–2 minutes",
               "Tap what's wrong — no jargon required",
               "Mobile / dockside when access allows",
               "Clear next steps before you authorize work",
             ].map((item) => (
-              <li key={item} className="flex gap-2">
-                <span className="text-gold">▣</span>
-                {item}
-              </li>
+              <li key={item}>{item}</li>
             ))}
           </ul>
         </div>

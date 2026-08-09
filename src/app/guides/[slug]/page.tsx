@@ -67,7 +67,7 @@ export default async function GuidePage({ params }: PageProps) {
       <article>
         <header className="border-b border-line bg-paper-deep/40">
           <div className="wrap section-pad">
-            <p className="font-mono text-xs text-muted">
+            <p className="text-xs text-muted">
               <Link href="/" className="no-underline hover:text-gold">
                 Home
               </Link>
@@ -80,7 +80,7 @@ export default async function GuidePage({ params }: PageProps) {
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <CaseTag>{guide.category}</CaseTag>
-              <span className="font-mono text-[0.65rem] uppercase tracking-wider text-muted">
+              <span className="text-[0.65rem]  text-muted">
                 Updated {guide.updated} · {guide.readTime} read
               </span>
             </div>
@@ -159,7 +159,7 @@ export default async function GuidePage({ params }: PageProps) {
 
           <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
             <div className="panel p-5">
-              <p className="font-mono text-xs uppercase tracking-wider text-gold">
+              <p className="text-xs  text-gold">
                 Related services
               </p>
               <ul className="mt-3 space-y-2">
@@ -178,7 +178,7 @@ export default async function GuidePage({ params }: PageProps) {
               </ul>
             </div>
             <div className="panel p-5">
-              <p className="font-mono text-xs uppercase tracking-wider text-muted">More guides</p>
+              <p className="text-xs  text-muted">More guides</p>
               <ul className="mt-3 space-y-2">
                 {guides
                   .filter((g) => g.slug !== guide.slug)

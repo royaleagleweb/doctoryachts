@@ -17,29 +17,16 @@ export function Footer() {
     <footer className="mt-auto border-t border-line bg-navy-deep text-steel">
       <div className="wrap grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-4">
-          <div className="flex items-center gap-3">
-            <span className="logo-mark-ring" aria-hidden>
-              DY
-            </span>
-            <div>
-              <p className="font-display text-xl font-semibold tracking-[0.04em] text-pearl">
-                Doctor Yachts
-              </p>
-              <p className="text-[0.68rem] uppercase tracking-[0.16em] text-gold">
-                The mechanic for boats & yachts
-              </p>
-            </div>
-          </div>
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-steel">
-            Independent marine diagnostics and repair across South Florida. We find the fault,
-            explain the options, and get the vessel ready for the water again.
+          <p className="font-display text-xl font-semibold text-pearl">Doctor Yachts</p>
+          <p className="mt-1 text-sm text-gold">Boat & yacht mechanic · South Florida</p>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-steel">
+            Independent marine diagnostics and repair. We find the fault, explain the options, and
+            get the vessel ready for the water again.
           </p>
         </div>
 
         <div className="md:col-span-3">
-          <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-gold">
-            Services
-          </p>
+          <p className="text-sm font-semibold text-pearl">Services</p>
           <ul className="mt-3 space-y-2 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
@@ -55,9 +42,7 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-2">
-          <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-gold">
-            Areas
-          </p>
+          <p className="text-sm font-semibold text-pearl">Areas</p>
           <ul className="mt-3 space-y-2 text-sm">
             {locations.map((loc) => (
               <li key={loc.slug}>
@@ -70,9 +55,7 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-gold">
-            More
-          </p>
+          <p className="mt-6 text-sm font-semibold text-pearl">More</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <Link href="/guides" className="text-steel no-underline hover:text-gold-light">
@@ -103,9 +86,7 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-3">
-          <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-gold">
-            Contact
-          </p>
+          <p className="text-sm font-semibold text-pearl">Contact</p>
           <ul className="mt-3 space-y-2 text-sm text-steel">
             <li>
               <a href={site.phoneHref} className="text-gold no-underline hover:text-gold-light">
@@ -113,10 +94,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a
-                href={`mailto:${site.email}`}
-                className="no-underline hover:text-gold-light"
-              >
+              <a href={`mailto:${site.email}`} className="no-underline hover:text-gold-light">
                 {site.email}
               </a>
             </li>
@@ -135,8 +113,8 @@ export function Footer() {
       </div>
 
       <div className="border-t border-line">
-        <div className="wrap flex flex-col gap-2 py-4 text-[0.72rem] uppercase tracking-[0.12em] text-muted sm:flex-row sm:justify-between">
-          <span>© {new Date().getFullYear()} Doctor Yachts · South Florida</span>
+        <div className="wrap flex flex-col gap-2 py-4 text-sm text-muted sm:flex-row sm:justify-between">
+          <span>© {new Date().getFullYear()} Doctor Yachts</span>
           <span>Diagnose first · free estimates</span>
         </div>
       </div>

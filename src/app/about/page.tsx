@@ -82,7 +82,7 @@ export default function AboutPage() {
           />
 
           <div>
-            <CoordStamp label="Method · DY-CORE" />
+            <CoordStamp label="How we work" />
             <h2 className="font-display mt-3 text-2xl font-semibold text-navy">
               How we work a job
             </h2>
@@ -100,7 +100,7 @@ export default function AboutPage() {
 
           <div>
             <h2 className="font-display text-2xl font-semibold text-navy">What we service</h2>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-steel">
               {[
                 "Marine engine repair (inboard & outboard)",
                 "Outboard motor repair & maintenance",
@@ -110,13 +110,7 @@ export default function AboutPage() {
                 "Mobile / dockside boat repair",
                 "Seasonal boat maintenance",
               ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-3 border-b border-line pb-3 text-navy"
-                >
-                  <span className="text-gold">▣</span>
-                  {item}
-                </li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
@@ -181,12 +175,12 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <div className="border-t border-line px-4 py-3 font-mono text-[0.65rem] uppercase tracking-wider text-muted">
+            <div className="border-t border-line px-4 py-3 text-[0.65rem]  text-muted">
               Shop hours · {site.hours} · {site.phone}
             </div>
           </div>
           <div className="panel mt-5 p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-gold">Core services</p>
+            <p className="text-xs  text-gold">Core services</p>
             <ul className="mt-3 space-y-2">
               {services.slice(0, 6).map((s) => (
                 <li key={s.id}>
@@ -209,7 +203,7 @@ export default function AboutPage() {
         title="Explore"
         links={[
           { href: "/services", label: "All services", note: "Engines, electrical, mobile…" },
-          { href: "/guides", label: "Repair guides", note: "Checklists & AEO articles" },
+          { href: "/guides", label: "Repair guides", note: "Repair checklists" },
           { href: "/faq", label: "Full FAQ", note: "Common owner questions" },
           { href: "/reviews", label: "Reviews", note: "Owner feedback" },
         ]}

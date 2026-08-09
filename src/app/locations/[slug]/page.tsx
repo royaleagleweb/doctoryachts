@@ -137,23 +137,11 @@ export default async function LocationPage({ params }: PageProps) {
             <h2 className="font-display text-2xl font-semibold text-navy">
               Why owners in {loc.shortName} call Doctor Yachts
             </h2>
-            <ul className="mt-4 space-y-3 text-muted">
-              <li className="flex gap-2">
-                <span className="text-gold">▣</span>
-                Diagnose first—clear findings before parts pressure
-              </li>
-              <li className="flex gap-2">
-                <span className="text-gold">▣</span>
-                Mobile and dockside when access allows (save the tow when possible)
-              </li>
-              <li className="flex gap-2">
-                <span className="text-gold">▣</span>
-                Free estimates on recommended work
-              </li>
-              <li className="flex gap-2">
-                <span className="text-gold">▣</span>
-                Engines, electrical, cooling, plumbing systems, and maintenance
-              </li>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-steel">
+              <li>Diagnose first—clear findings before parts pressure</li>
+              <li>Mobile and dockside when access allows (save the tow when possible)</li>
+              <li>Free estimates on recommended work</li>
+              <li>Engines, electrical, cooling, plumbing systems, and maintenance</li>
             </ul>
           </section>
 
@@ -169,9 +157,7 @@ export default async function LocationPage({ params }: PageProps) {
                 "You get a free estimate path for recommended work and clear notes for the next trip or survey.",
               ].map((step, i) => (
                 <li key={step} className="flex gap-3 text-muted">
-                  <span className="font-mono text-sm font-semibold text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <span className="text-sm font-semibold text-gold">{i + 1}.</span>
                   {step}
                 </li>
               ))}
@@ -218,7 +204,7 @@ export default async function LocationPage({ params }: PageProps) {
             </ul>
           </div>
           <div className="panel p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-gold">Contact</p>
+            <p className="text-xs  text-gold">Contact</p>
             <p className="mt-2 text-sm text-muted">{site.hours}</p>
             <a href={site.phoneHref} className="mt-2 block font-semibold text-navy">
               {site.phone}

@@ -1,5 +1,3 @@
-import { CaseTag } from "@/components/ChartDecor";
-
 type SectionHeadingProps = {
   eyebrow?: string;
   title: string;
@@ -14,32 +12,17 @@ export function SectionHeading({
   title,
   description,
   align = "left",
-  light = false,
   as = "h2",
 }: SectionHeadingProps) {
   const TitleTag = as;
   return (
     <div className={`${align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
-      {eyebrow && (
-        <div className={align === "center" ? "flex justify-center" : ""}>
-          <CaseTag>{eyebrow}</CaseTag>
-        </div>
-      )}
-      <TitleTag
-        className={`font-display mt-4 text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl ${
-          light ? "text-pearl" : "text-pearl"
-        }`}
-      >
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      <TitleTag className="font-display mt-3 text-3xl font-semibold leading-[1.12] tracking-tight text-pearl sm:text-4xl">
         {title}
       </TitleTag>
       {description && (
-        <p
-          className={`mt-4 text-base leading-relaxed sm:text-[1.05rem] ${
-            light ? "text-steel" : "text-steel"
-          }`}
-        >
-          {description}
-        </p>
+        <p className="mt-4 text-base leading-relaxed text-steel sm:text-[1.05rem]">{description}</p>
       )}
     </div>
   );
