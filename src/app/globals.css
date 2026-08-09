@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 /*
-  Doctor Yachts — sharp marine service
+  Doctor Yachts — open marine service
   Navy + brass · Syne + IBM Plex Sans
-  Intent: cutting-edge, not soft-AI template
+  Softer shapes — less rigid “box” layout
 */
 :root {
   --navy: #0a1624;
@@ -19,11 +19,13 @@
   --paper-deep: #08101a;
   --steel: #9aabba;
   --muted: #7a8c9c;
-  --line: rgba(196, 163, 90, 0.16);
+  --line: rgba(196, 163, 90, 0.14);
   --background: var(--deep);
   --foreground: var(--pearl);
-  --radius: 2px;
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-pill: 999px;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
 }
 
 @theme inline {
@@ -137,16 +139,16 @@ h3 {
   text-transform: none;
 }
 
-/* Hard-edged CTAs */
+/* Soft CTAs */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 52px;
-  padding: 0.9rem 1.6rem;
+  min-height: 50px;
+  padding: 0.85rem 1.55rem;
   border: none;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   background: var(--gold);
   color: var(--navy-deep);
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
@@ -156,19 +158,24 @@ h3 {
   text-decoration: none !important;
   cursor: pointer;
   transition:
-    background 0.12s ease,
-    color 0.12s ease,
-    border-color 0.12s ease;
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .btn:hover {
   background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(196, 163, 90, 0.2);
 }
 
 .btn:disabled,
 .btn[disabled] {
   opacity: 0.45;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .btn:focus-visible {
@@ -191,32 +198,35 @@ h3 {
 
 .btn-ghost,
 .btn-ghost-light {
-  background: transparent;
+  background: color-mix(in srgb, var(--pearl) 6%, transparent);
   color: var(--pearl);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pearl) 40%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pearl) 18%, transparent);
 }
 .btn-ghost:hover,
 .btn-ghost-light:hover {
-  background: transparent;
-  box-shadow: inset 0 0 0 1px var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent);
   color: var(--gold-light);
 }
 
-/* Sharp panels */
+/* Open panels — soft fill, light border */
 .panel {
-  background: var(--navy);
-  border: 1px solid color-mix(in srgb, var(--pearl) 10%, transparent);
+  background: color-mix(in srgb, var(--navy) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pearl) 7%, transparent);
   border-radius: var(--radius);
-  transition: border-color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
 .panel:hover {
-  border-color: color-mix(in srgb, var(--gold) 35%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 28%, transparent);
+  background: color-mix(in srgb, var(--navy) 92%, transparent);
 }
 
 .panel-navy {
-  background: var(--navy-deep);
+  background: color-mix(in srgb, var(--navy) 90%, var(--navy-deep));
   color: var(--pearl);
-  border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 16%, transparent);
   border-radius: var(--radius);
 }
 
@@ -224,8 +234,9 @@ h3 {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius);
-  border: 1px solid color-mix(in srgb, var(--pearl) 8%, transparent);
+  border: none;
   background: var(--navy);
+  box-shadow: var(--shadow);
 }
 .shot::before,
 .shot::after {
@@ -239,18 +250,19 @@ h3 {
 /* Forms */
 .input-field {
   width: 100%;
-  border: 1px solid color-mix(in srgb, var(--pearl) 14%, transparent);
-  background: var(--navy-deep);
-  padding: 0.85rem 1rem;
-  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--pearl) 12%, transparent);
+  background: color-mix(in srgb, var(--navy-deep) 90%, transparent);
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
   color: var(--pearl);
   outline: none;
-  transition: border-color 0.12s;
+  transition: border-color 0.12s, box-shadow 0.12s;
 }
 .input-field:focus {
-  border-color: var(--gold);
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 12%, transparent);
 }
 .input-field::placeholder {
   color: var(--muted);
@@ -272,21 +284,22 @@ select.input-field option {
 
 .chip {
   cursor: pointer;
-  border-radius: var(--radius);
-  border: 1px solid color-mix(in srgb, var(--pearl) 12%, transparent);
-  background: transparent;
-  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--pearl) 10%, transparent);
+  background: color-mix(in srgb, var(--pearl) 3%, transparent);
+  padding: 0.95rem 1.05rem;
   text-align: left;
   transition: border-color 0.12s ease, background 0.12s ease;
   color: var(--pearl);
   font: inherit;
 }
 .chip:hover {
-  border-color: color-mix(in srgb, var(--gold) 45%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+  background: color-mix(in srgb, var(--gold) 6%, transparent);
 }
 .chip.is-on {
-  border-color: var(--gold);
-  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
 }
 
 .sr-only {
@@ -349,81 +362,81 @@ textarea {
   border-bottom: 1px solid var(--line);
 }
 
-/* ——— Editorial home hero ——— */
+/* ——— Open hero (less rigid split) ——— */
 .hero-edge {
-  display: grid;
-  min-height: min(92svh, 820px);
+  position: relative;
+  min-height: min(88svh, 780px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
   background: var(--navy-deep);
   border-bottom: 1px solid var(--line);
 }
-@media (min-width: 960px) {
-  .hero-edge {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  }
+
+.hero-edge__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-edge__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(5, 12, 20, 0.9) 0%, rgba(5, 12, 20, 0.72) 38%, rgba(5, 12, 20, 0.28) 100%),
+    linear-gradient(to top, rgba(5, 12, 20, 0.75) 0%, transparent 48%);
+  pointer-events: none;
 }
 
 .hero-edge__copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 3rem 0 2.5rem;
-  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 5.5rem 0 2.5rem;
 }
-@media (min-width: 960px) {
+@media (min-width: 900px) {
   .hero-edge__copy {
-    justify-content: center;
-    padding: 4rem 0;
-    border-bottom: 0;
-    border-right: 1px solid var(--line);
+    padding: 6rem 0 3.25rem;
   }
 }
 
 .hero-edge__copy-inner {
-  width: min(520px, calc(100% - 2rem));
+  width: min(1400px, calc(100% - 2rem));
   margin-inline: auto;
-  padding-inline: 0;
-}
-@media (min-width: 960px) {
-  .hero-edge__copy-inner {
-    width: auto;
-    max-width: 34rem;
-    margin-left: max(1rem, calc((100vw - 1400px) / 2 + 1rem));
-    margin-right: 2.5rem;
-    padding-right: 0.5rem;
-  }
+  max-width: 38rem;
+  margin-left: max(1rem, calc((100vw - 1400px) / 2 + 1rem));
+  margin-right: auto;
 }
 
 .hero-edge__kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  margin: 0 0 1.25rem;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
   font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--steel);
+  font-weight: 600;
+  color: var(--gold-light);
 }
 .hero-edge__kicker::before {
-  content: "";
-  width: 1.5rem;
-  height: 1px;
-  background: var(--gold);
+  display: none;
 }
 
 .hero-edge__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.7rem;
   margin-top: 1.75rem;
 }
 
 .hero-edge__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
-  margin-top: 1.75rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid color-mix(in srgb, var(--pearl) 10%, transparent);
-  font-size: 0.875rem;
+  gap: 0.65rem 1.35rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
   color: var(--steel);
 }
 .hero-edge__meta b {
@@ -431,59 +444,36 @@ textarea {
   font-weight: 600;
 }
 
-.hero-edge__media {
-  position: relative;
-  min-height: 280px;
-}
-@media (min-width: 960px) {
-  .hero-edge__media {
-    min-height: 100%;
-  }
-}
-.hero-edge__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(5, 12, 20, 0.35), transparent 40%);
-  pointer-events: none;
-}
-@media (min-width: 960px) {
-  .hero-edge__media::after {
-    background: linear-gradient(to right, rgba(5, 12, 20, 0.25), transparent 30%);
-  }
-}
-
-/* Problem rail under hero */
+/* Problem chips under hero — open, not a boxed grid */
 .problem-rail {
-  display: grid;
-  border-bottom: 1px solid var(--line);
-  background: var(--navy);
-}
-@media (min-width: 720px) {
-  .problem-rail {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  width: min(1400px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.25rem 0 1.75rem;
 }
 .problem-rail a {
   display: block;
-  padding: 1.15rem 1.25rem;
-  border-bottom: 1px solid var(--line);
+  flex: 1 1 10.5rem;
+  min-width: 9.5rem;
+  max-width: 100%;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--pearl) 8%, transparent);
+  background: color-mix(in srgb, var(--navy) 70%, transparent);
   color: var(--pearl);
   text-decoration: none !important;
-  transition: background 0.12s ease;
-}
-@media (min-width: 720px) {
-  .problem-rail a {
-    border-bottom: 0;
-    border-right: 1px solid var(--line);
-  }
-  .problem-rail a:last-child {
-    border-right: 0;
-  }
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
 }
 .problem-rail a:hover {
-  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 35%, transparent);
   color: var(--pearl);
+  transform: translateY(-2px);
 }
 .problem-rail strong {
   display: block;
@@ -494,9 +484,14 @@ textarea {
 }
 .problem-rail span {
   display: block;
-  margin-top: 0.25rem;
+  margin-top: 0.3rem;
   font-size: 0.8125rem;
   color: var(--steel);
+}
+
+.problem-rail-wrap {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
 }
 
 /* Mobile conversion bar */

@@ -17,8 +17,18 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      {/* Editorial split hero — hard edge, not soft template overlay */}
+      {/* Open full-bleed hero */}
       <section className="hero-edge">
+        <div className="hero-edge__media">
+          <Image
+            src={images.homeHero.src}
+            alt={images.homeHero.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_30%]"
+          />
+        </div>
         <div className="hero-edge__copy">
           <div className="hero-edge__copy-inner">
             <p className="hero-edge__kicker">Fort Lauderdale · Pompano · Miami</p>
@@ -55,37 +65,29 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="hero-edge__media">
-          <Image
-            src={images.homeHero.src}
-            alt={images.homeHero.alt}
-            fill
-            priority
-            sizes="(max-width: 960px) 100vw, 55vw"
-            className="object-cover object-[center_30%]"
-          />
-        </div>
       </section>
 
-      {/* Problem rail — direct paths, no frosted cards */}
-      <nav className="problem-rail" aria-label="Common problems">
-        <Link href="/book?service=engine-repair">
-          <strong>Won&apos;t start</strong>
-          <span>No crank · click · dead quiet</span>
-        </Link>
-        <Link href="/book?service=cooling">
-          <strong>Overheating</strong>
-          <span>Hot · weak telltale · shut-down</span>
-        </Link>
-        <Link href="/book?service=electrical">
-          <strong>Battery / power</strong>
-          <span>Charging · shore power · trips</span>
-        </Link>
-        <Link href="/book?service=maintenance">
-          <strong>Service</strong>
-          <span>Oil · impeller · check-up</span>
-        </Link>
-      </nav>
+      {/* Soft problem chips */}
+      <div className="problem-rail-wrap">
+        <nav className="problem-rail" aria-label="Common problems">
+          <Link href="/book?service=engine-repair">
+            <strong>Won&apos;t start</strong>
+            <span>No crank · click · dead quiet</span>
+          </Link>
+          <Link href="/book?service=cooling">
+            <strong>Overheating</strong>
+            <span>Hot · weak telltale · shut-down</span>
+          </Link>
+          <Link href="/book?service=electrical">
+            <strong>Battery / power</strong>
+            <span>Charging · shore power · trips</span>
+          </Link>
+          <Link href="/book?service=maintenance">
+            <strong>Service</strong>
+            <span>Oil · impeller · check-up</span>
+          </Link>
+        </nav>
+      </div>
 
       {/* SEO intro */}
       <section className="section-soft">
@@ -204,7 +206,7 @@ export default function HomePage() {
                 <Link
                   key={s.id}
                   href={`/services/${s.slug}`}
-                  className="flex items-center justify-between rounded-[10px] border border-line bg-navy-deep px-4 py-4 no-underline transition hover:border-gold/40"
+                  className="panel flex items-center justify-between px-5 py-4 no-underline"
                 >
                   <span className="font-semibold text-pearl">
                     {s.title.replace(" Fort Lauderdale", "")}
@@ -329,7 +331,7 @@ export default function HomePage() {
                 <Link
                   key={loc.slug}
                   href={`/locations/${loc.slug}`}
-                  className="group overflow-hidden rounded-[10px] border border-line bg-navy no-underline transition hover:border-gold/40"
+                  className="group overflow-hidden rounded-2xl no-underline"
                 >
                   <div className="relative aspect-[16/10]">
                     <Image

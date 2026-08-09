@@ -56,13 +56,13 @@ export function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <a
             href={site.phoneHref}
-            className="border border-line px-3 py-2 text-sm font-semibold text-gold no-underline"
+            className="rounded-full bg-white/5 px-3.5 py-2 text-sm font-semibold text-gold no-underline"
           >
             Call
           </a>
           <button
             type="button"
-            className="border border-line px-3 py-2 text-sm font-semibold text-pearl"
+            className="rounded-full bg-white/5 px-3.5 py-2 text-sm font-semibold text-pearl"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
