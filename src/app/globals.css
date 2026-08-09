@@ -44,9 +44,11 @@
   --color-muted: var(--muted);
   --color-steel: var(--steel);
   --color-glass: var(--glass);
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
-  --font-mono: var(--font-mono);
+  /* Wired to next/font CSS vars on <html> */
+  --font-sans: var(--font-body), "DM Sans", system-ui, sans-serif;
+  --font-display: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  --font-serif: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  --font-mono: var(--font-body), "DM Sans", system-ui, sans-serif;
 }
 
 /* ---------- motion ---------- */
@@ -131,16 +133,59 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   margin: 0;
   color: var(--pearl);
   background-color: var(--deep);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
   font-size: 16.5px;
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
   overflow-x: hidden;
+}
+
+/* All headings — Cormorant Garamond sitewide (even without utility classes) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display,
+.font-serif {
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  color: inherit;
+}
+
+h1 {
+  font-size: clamp(2.35rem, 5vw, 3.65rem);
+  font-weight: 600;
+}
+h2 {
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+}
+h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+}
+
+/* Body copy rhythm */
+.prose-narrow,
+.lead {
+  max-width: 38rem;
+}
+.lead {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--steel);
 }
 
 /* Film grain */
@@ -168,14 +213,23 @@ body::after {
   pointer-events: none;
 }
 
+/* Utility aliases — same family as V1 (no code mono look) */
 .font-display {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-optical-sizing: auto;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
+.font-sans {
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
+}
+
+/* Old mono labels → refined luxury small-caps style in DM Sans */
 .font-mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
 }
 
 ::selection {
@@ -251,7 +305,7 @@ body::after {
   );
   background-size: 200% auto;
   color: var(--navy-deep);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -304,7 +358,7 @@ body::after {
   align-items: center;
   gap: 0.65rem;
   color: var(--gold);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -323,9 +377,10 @@ body::after {
 }
 
 .coord-stamp {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
   font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -397,7 +452,7 @@ body::after {
   padding: 0.75rem 0.9rem;
   border-radius: 0.65rem;
   font-size: 0.95rem;
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
   color: var(--pearl);
   outline: none;
   transition:
@@ -419,7 +474,7 @@ select.input-field option {
 .label-field {
   display: block;
   margin-bottom: 0.35rem;
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -527,12 +582,21 @@ select.input-field option {
 }
 
 .stamp {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), "DM Sans", system-ui, sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+/* Nav / links use body font */
+a,
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 a {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -8,24 +8,23 @@ import { absoluteUrl, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
 
-/** V1 Luxury Navy — DM Sans body */
+/**
+ * V1 Luxury Navy typography (sitewide)
+ * Body / UI: DM Sans
+ * Headlines: Cormorant Garamond
+ */
 const dmSans = DM_Sans({
-  variable: "--font-sans",
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-/** V1 Luxury Navy — Cormorant Garamond display */
 const cormorant = Cormorant_Garamond({
-  variable: "--font-display",
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -52,9 +51,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${cormorant.variable} ${plexMono.variable} h-full`}
+      className={`${dmSans.variable} ${cormorant.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col font-sans">
         <JsonLd data={[localBusinessJsonLd(), webSiteJsonLd()]} />
         <LuxuryEffects />
         <Header />
