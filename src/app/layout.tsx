@@ -3,6 +3,7 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { MobileCta } from "@/components/MobileCta";
 import { absoluteUrl, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MobileCta />
       </body>
     </html>
   );

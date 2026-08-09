@@ -43,11 +43,7 @@ const steps = [
 ] as const;
 
 function chipClass(selected: boolean) {
-  return `cursor-pointer rounded-xl border px-3 py-3 text-left transition ${
-    selected
-      ? "border-gold bg-gold/10 shadow-[0_0_0_1px_rgba(196,163,90,0.35)]"
-      : "border-line bg-white/[0.02] hover:border-gold/40"
-  }`;
+  return `chip w-full ${selected ? "is-on" : ""}`;
 }
 
 export function BookingForm() {

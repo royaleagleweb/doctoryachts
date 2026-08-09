@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 /*
-  Doctor Yachts — Luxury service layout
-  Colors: Navy (marine) + Gold (luxury) + pearl text
-  Fonts: Playfair Display (headlines) + Manrope (service UI)
+  Doctor Yachts — Luxury service
+  Navy + gold · Playfair Display + Manrope
 */
 :root {
   --navy: #0b1c2d;
@@ -22,6 +21,8 @@
   --line: color-mix(in srgb, var(--gold) 18%, transparent);
   --background: var(--deep);
   --foreground: var(--pearl);
+  --radius: 10px;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
 }
 
 @theme inline {
@@ -58,12 +59,12 @@ body {
   color: var(--pearl);
   background: var(--deep);
   font-family: var(--font-body), "Manrope", system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 16.5px;
   font-weight: 400;
   line-height: 1.65;
 }
 
-/* Headlines — Playfair Display (luxury) */
+/* Headlines */
 h1,
 h2,
 h3,
@@ -77,13 +78,14 @@ h6,
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: inherit;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-size: clamp(2.25rem, 4.6vw, 3.5rem);
 }
 h2 {
-  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
 }
 h3 {
   font-size: clamp(1.25rem, 2vw, 1.55rem);
@@ -109,7 +111,7 @@ h3 {
 }
 
 .section-pad {
-  padding-block: clamp(3.25rem, 6vw, 5rem);
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .section-soft {
@@ -120,41 +122,63 @@ h3 {
   background: var(--navy);
 }
 
-/* Eyebrow labels — service style, not AI chrome */
 .eyebrow,
 .case-tag {
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.7rem;
   color: var(--gold);
   font-family: var(--font-body), "Manrope", system-ui, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* Buttons — solid service CTAs */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.85rem 1.4rem;
+  min-height: 48px;
+  padding: 0.85rem 1.45rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   background: var(--gold);
   color: var(--navy-deep);
   font-family: var(--font-body), "Manrope", system-ui, sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   text-decoration: none !important;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
 }
 
 .btn:hover {
   background: var(--gold-light);
   transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(196, 163, 90, 0.22);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
 }
 
 .btn-gold {
@@ -168,40 +192,49 @@ h3 {
 }
 .btn-navy:hover {
   background: var(--navy-mid);
+  box-shadow: none;
 }
 
 .btn-ghost,
 .btn-ghost-light {
   background: transparent;
   color: var(--pearl);
-  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--pearl) 35%, transparent);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--pearl) 32%, transparent);
 }
 .btn-ghost:hover,
 .btn-ghost-light:hover {
-  background: color-mix(in srgb, var(--pearl) 8%, transparent);
+  background: color-mix(in srgb, var(--pearl) 7%, transparent);
   box-shadow: inset 0 0 0 1.5px var(--gold);
   color: var(--gold-light);
 }
 
 /* Cards */
 .panel {
-  background: color-mix(in srgb, var(--navy) 55%, transparent);
+  background: color-mix(in srgb, var(--navy) 70%, var(--navy-deep));
   border: 1px solid color-mix(in srgb, var(--gold) 16%, transparent);
-  border-radius: 8px;
+  border-radius: var(--radius);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
+.panel:hover {
+  border-color: color-mix(in srgb, var(--gold) 28%, transparent);
+}
+
 .panel-navy {
   background: var(--navy);
   color: var(--pearl);
   border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
-  border-radius: 8px;
+  border-radius: var(--radius);
 }
 
 .shot {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--radius);
   border: 1px solid color-mix(in srgb, var(--gold) 14%, transparent);
   background: var(--navy);
+  box-shadow: var(--shadow);
 }
 .shot::before,
 .shot::after {
@@ -217,17 +250,19 @@ h3 {
   width: 100%;
   border: 1px solid color-mix(in srgb, var(--pearl) 14%, transparent);
   background: var(--navy-deep);
-  padding: 0.8rem 0.95rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
   font-family: var(--font-body), "Manrope", system-ui, sans-serif;
   color: var(--pearl);
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 .input-field:focus {
   border-color: color-mix(in srgb, var(--gold) 55%, transparent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 12%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 14%, transparent);
 }
 .input-field::placeholder {
   color: var(--muted);
@@ -239,13 +274,37 @@ select.input-field option {
 
 .label-field {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
   font-family: var(--font-body), "Manrope", system-ui, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--gold);
+}
+
+/* Choice chips (book / estimate forms) */
+.chip {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--gold) 16%, transparent);
+  background: color-mix(in srgb, var(--pearl) 3%, transparent);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+  color: var(--pearl);
+  font: inherit;
+}
+.chip:hover {
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+}
+.chip.is-on {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
 }
 
 .sr-only {
@@ -270,11 +329,18 @@ select.input-field option {
   display: none;
 }
 
+/* Content links */
 a {
   color: var(--gold-light);
+  text-underline-offset: 0.15em;
 }
 a:hover {
   color: var(--gold);
+}
+a:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 a,
@@ -285,7 +351,7 @@ textarea {
   font-family: inherit;
 }
 
-/* Compatibility: text-navy on dark surfaces */
+/* Compatibility */
 .text-navy {
   color: var(--pearl);
 }
@@ -299,8 +365,34 @@ textarea {
   border-color: color-mix(in srgb, var(--gold) 30%, transparent);
 }
 
-/* Page hero band (inner pages) */
 .page-hero {
-  background: linear-gradient(180deg, var(--navy) 0%, var(--paper) 100%);
+  background: linear-gradient(165deg, var(--navy) 0%, var(--paper) 100%);
   border-bottom: 1px solid var(--line);
+}
+
+/* Mobile conversion bar */
+.mobile-cta {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 45;
+  display: none;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem calc(0.65rem + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--navy-deep) 94%, transparent);
+  border-top: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+@media (max-width: 1023px) {
+  .mobile-cta {
+    display: flex;
+  }
+  body {
+    padding-bottom: 4.75rem;
+  }
+}
+.mobile-cta .btn {
+  flex: 1;
+  min-height: 46px;
+  padding-inline: 0.75rem;
+  font-size: 0.88rem;
 }

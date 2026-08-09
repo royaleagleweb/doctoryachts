@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { AnswerBox } from "@/components/AnswerBox";
-import { CaseTag, CoordStamp, DepthTicks } from "@/components/ChartDecor";
+import { CaseTag } from "@/components/ChartDecor";
 import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
@@ -75,10 +75,10 @@ function MediaBand({
           }`}
         >
           {eyebrow && <CaseTag>{eyebrow}</CaseTag>}
-          <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-navy sm:text-3xl">
+          <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-pearl sm:text-3xl">
             {title}
           </h2>
-          <div className="mt-4 space-y-3 text-base leading-relaxed text-muted">{children}</div>
+          <div className="mt-4 space-y-3 text-base leading-relaxed text-steel">{children}</div>
         </div>
       </div>
     </section>
@@ -142,31 +142,32 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <CaseTag>Service</CaseTag>
-            <CoordStamp label={service.duration} />
+            {service.duration && (
+              <span className="rounded-full border border-line px-3 py-1 text-xs text-steel">
+                {service.duration}
+              </span>
+            )}
           </div>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
+          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-pearl sm:text-5xl">
             {service.title}
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-steel">
             {service.description}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/book?service=${service.id}`} className="btn btn-gold">
+            <Link href={`/book?service=${service.id}`} className="btn">
               Book this service
             </Link>
-            <Link href="/free-estimate" className="btn btn-ghost-light">
+            <Link href="/free-estimate" className="btn btn-ghost">
               Free estimate
             </Link>
-            <a href={site.phoneHref} className="btn btn-ghost-light">
+            <a href={site.phoneHref} className="btn btn-ghost">
               {site.phone}
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
-            <DepthTicks />
-            <p className="text-xs  text-steel">
-              Fort Lauderdale · Pompano Beach · Miami · Dockside first
-            </p>
-          </div>
+          <p className="mt-8 border-t border-white/10 pt-6 text-sm text-steel">
+            Fort Lauderdale · Pompano Beach · Miami · Dockside first
+          </p>
         </div>
       </section>
 
@@ -376,7 +377,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             />
           </div>
           <div className="bg-navy px-6 py-12 text-paper sm:px-12 lg:min-h-[400px] lg:py-16">
-            <CoordStamp label="How we work" />
+            <p className="eyebrow">How we work</p>
             <h2 className="font-display mt-4 text-2xl font-semibold sm:text-3xl">
               Why diagnose first?
             </h2>
@@ -427,7 +428,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                 water. Swap in real job photos anytime for stronger local proof.
               </p>
             </div>
-            <CoordStamp label="South Florida · salt water" />
+            <p className="text-sm text-steel">South Florida · salt water</p>
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {media.gallery.map((img, i) => (

@@ -13,13 +13,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Utility bar — service business style */}
       <div className="border-b border-line bg-navy-deep">
-        <div className="wrap flex flex-wrap items-center justify-between gap-2 py-2 text-sm">
-          <p className="text-steel">
-            Fort Lauderdale · Pompano Beach · Miami · Free estimates
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
+        <div className="wrap flex flex-wrap items-center justify-between gap-2 py-2 text-[0.82rem]">
+          <p className="text-steel">Fort Lauderdale · Pompano · Miami · Free estimates</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span className="hidden text-steel sm:inline">{site.hours}</span>
             <a
               href={`mailto:${site.email}`}
@@ -37,28 +34,27 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main nav */}
-      <div className="border-b border-line bg-navy">
-        <div className="wrap flex items-center justify-between gap-4 py-4">
+      <div className="border-b border-line bg-navy/95 backdrop-blur-md">
+        <div className="wrap flex items-center justify-between gap-4 py-3.5">
           <Link
             href="/"
-            className="flex items-center gap-3 no-underline"
+            className="flex min-w-0 items-center gap-3 no-underline"
             onClick={() => setOpen(false)}
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded bg-gold text-sm font-extrabold tracking-wide text-navy-deep">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-gold text-sm font-extrabold tracking-wide text-navy-deep">
               DY
             </span>
-            <span className="leading-tight">
-              <span className="font-display block text-xl font-semibold text-pearl sm:text-[1.4rem]">
+            <span className="min-w-0 leading-tight">
+              <span className="font-display block truncate text-xl font-semibold text-pearl sm:text-[1.4rem]">
                 Doctor Yachts
               </span>
-              <span className="block text-xs font-medium text-steel sm:text-[0.78rem]">
+              <span className="block text-xs font-medium text-steel">
                 Marine mechanic · South Florida
               </span>
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
             {mainLinks.map((link) => {
               const active =
                 pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -66,38 +62,46 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 text-[0.92rem] font-medium no-underline transition ${
+                  className={`rounded-md px-3 py-2 text-[0.9rem] font-medium no-underline transition ${
                     active
-                      ? "text-gold"
-                      : "text-pearl/80 hover:text-gold-light"
+                      ? "bg-gold/10 text-gold"
+                      : "text-pearl/80 hover:bg-white/[0.04] hover:text-gold-light"
                   }`}
                 >
                   {link.label}
                 </Link>
               );
             })}
-            <Link href="/free-estimate" className="btn btn-ghost ml-2 py-2.5 text-sm">
+            <Link href="/free-estimate" className="btn btn-ghost ml-2 !min-h-0 py-2.5 text-sm">
               Free estimate
             </Link>
-            <Link href="/book" className="btn ml-2 py-2.5 text-sm">
+            <Link href="/book" className="btn ml-2 !min-h-0 py-2.5 text-sm">
               Book repair
             </Link>
           </nav>
 
-          <button
-            type="button"
-            className="rounded border border-gold/40 px-3 py-2 text-sm font-semibold text-pearl lg:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-label={open ? "Close menu" : "Open menu"}
-          >
-            {open ? "Close" : "Menu"}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <a
+              href={site.phoneHref}
+              className="rounded-md border border-gold/40 px-3 py-2 text-sm font-semibold text-gold no-underline"
+            >
+              Call
+            </a>
+            <button
+              type="button"
+              className="rounded-md border border-gold/40 px-3 py-2 text-sm font-semibold text-pearl"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-label={open ? "Close menu" : "Open menu"}
+            >
+              {open ? "Close" : "Menu"}
+            </button>
+          </div>
         </div>
 
         {open && (
           <div className="border-t border-line bg-navy-deep lg:hidden">
-            <nav className="wrap flex flex-col py-2">
+            <nav className="wrap flex flex-col py-1" aria-label="Mobile">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -111,9 +115,16 @@ export function Header() {
               <Link
                 href="/free-estimate"
                 onClick={() => setOpen(false)}
-                className="py-3.5 font-semibold text-gold no-underline"
+                className="border-b border-line/40 py-3.5 font-semibold text-gold no-underline"
               >
                 Free estimate
+              </Link>
+              <Link
+                href="/book"
+                onClick={() => setOpen(false)}
+                className="py-3.5 font-semibold text-gold no-underline"
+              >
+                Book repair
               </Link>
             </nav>
           </div>
