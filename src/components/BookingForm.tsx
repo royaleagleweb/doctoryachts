@@ -1,11 +1,48 @@
 "use client";
 
 import { useMemo, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { locations } from "@/lib/locations";
 import { bookingServices, timeSlots, vesselTypes } from "@/lib/services";
+import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
-const steps = ["Service", "Vessel", "Schedule", "Contact"] as const;
+
+const steps = [
+  {
+    id: "service",
+    label: "Service",
+    short: "What you need",
+    title: "What do you need help with?",
+    help: "Pick the closest match. You can explain symptoms in more detail at the end.",
+  },
+  {
+    id: "vessel",
+    label: "Boat",
+    short: "Your boat",
+    title: "Tell us about the boat",
+    help: "Vessel type is required. Name and length help us plan tools and time.",
+  },
+  {
+    id: "when",
+    label: "When & where",
+    short: "Schedule",
+    title: "When and where should we come?",
+    help: "This is your preferred window. We’ll confirm the actual appointment by phone or email.",
+  },
+  {
+    id: "contact",
+    label: "Contact",
+    short: "Your info",
+    title: "How do we reach you?",
+    help: "We’ll confirm during shop hours. Urgent jobs: call us now.",
+  },
+] as const;
+
+function cleanServiceTitle(title: string) {
+  return title.replace(/\s+Fort Lauderdale$/i, "").trim();
+}
 
 export function BookingForm() {
   const searchParams = useSearchParams();
@@ -13,6 +50,7 @@ export function BookingForm() {
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [fieldHint, setFieldHint] = useState("");
   const [confirmation, setConfirmation] = useState("");
   const [serviceId, setServiceId] = useState(preselected);
   const [vesselType, setVesselType] = useState("");
@@ -20,6 +58,7 @@ export function BookingForm() {
   const [vesselLength, setVesselLength] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [city, setCity] = useState("");
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,25 +70,61 @@ export function BookingForm() {
     () => bookingServices.find((s) => s.id === serviceId),
     [serviceId],
   );
+
   const minDate = useMemo(() => {
     const d = new Date();
     d.setDate(d.getDate() + 1);
     return d.toISOString().slice(0, 10);
   }, []);
 
+  const progressPct = ((step + 1) / steps.length) * 100;
+
+  function validateStep(s: number): string {
+    if (s === 0 && !serviceId) return "Please select a service to continue.";
+    if (s === 1 && !vesselType) return "Please select a vessel type.";
+    if (s === 2) {
+      if (!date) return "Please choose a preferred date.";
+      if (!time) return "Please choose a preferred time.";
+      if (!location.trim()) return "Please enter marina, slip, or dock location.";
+    }
+    if (s === 3) {
+      if (!name.trim()) return "Please enter your name.";
+      if (!email.trim()) return "Please enter your email.";
+      if (!phone.trim()) return "Please enter your phone number.";
+    }
+    return "";
+  }
+
   function canContinue() {
-    if (step === 0) return Boolean(serviceId);
-    if (step === 1) return Boolean(vesselType);
-    if (step === 2) return Boolean(date && time && location.trim());
-    if (step === 3) return Boolean(name.trim() && email.trim() && phone.trim());
-    return false;
+    return validateStep(step) === "";
+  }
+
+  function goNext() {
+    const hint = validateStep(step);
+    if (hint) {
+      setFieldHint(hint);
+      return;
+    }
+    setFieldHint("");
+    setStep((s) => Math.min(steps.length - 1, s + 1));
+  }
+
+  function goBack() {
+    setFieldHint("");
+    setError("");
+    setStep((s) => Math.max(0, s - 1));
   }
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!canContinue()) return;
+    const hint = validateStep(3);
+    if (hint) {
+      setFieldHint(hint);
+      return;
+    }
     setStatus("loading");
     setError("");
+    setFieldHint("");
     try {
       const res = await fetch("/api/book", {
         method: "POST",
@@ -62,6 +137,7 @@ export function BookingForm() {
           vesselLength,
           date,
           time,
+          city,
           location,
           name,
           email,
@@ -82,96 +158,185 @@ export function BookingForm() {
 
   if (status === "success") {
     return (
-      <div className="panel p-8 text-center">
-        <p className="font-mono text-xs uppercase tracking-wider text-coral">Request received</p>
-        <h2 className="font-display mt-2 text-2xl font-semibold text-ink">Request received</h2>
-        <p className="mt-3 text-sm text-muted">
-          We’ll confirm during shop hours by phone or email.
-        </p>
-        <dl className="mx-auto mt-6 max-w-sm space-y-2 border border-chart-line bg-foam p-4 text-left text-sm">
-          <div className="flex justify-between gap-4">
-            <dt className="text-muted">ID</dt>
-            <dd className="font-mono font-semibold">{confirmation}</dd>
+      <div className="panel overflow-hidden">
+        <div className="border-b border-chart-line bg-teal px-6 py-5 text-chart">
+          <p className="font-mono text-[0.65rem] uppercase tracking-wider text-chart/80">
+            Request received
+          </p>
+          <h2 className="font-display mt-1 text-2xl font-semibold">
+            Thanks — we got your booking request
+          </h2>
+          <p className="mt-2 text-sm text-chart/85">
+            This is <strong>not</strong> a final confirmed appointment yet. We’ll review access and
+            availability, then confirm by phone or email during shop hours ({site.hours}).
+          </p>
+        </div>
+        <div className="space-y-5 p-6">
+          <dl className="grid gap-3 sm:grid-cols-2">
+            <div className="border border-chart-line bg-foam p-3">
+              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
+                Confirmation ID
+              </dt>
+              <dd className="mt-1 font-mono text-lg font-semibold text-ink">{confirmation}</dd>
+            </div>
+            <div className="border border-chart-line bg-foam p-3">
+              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
+                Service
+              </dt>
+              <dd className="mt-1 font-semibold text-ink">
+                {selectedService ? cleanServiceTitle(selectedService.title) : "—"}
+              </dd>
+            </div>
+            <div className="border border-chart-line bg-foam p-3">
+              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
+                Preferred visit
+              </dt>
+              <dd className="mt-1 text-ink">
+                {date} · {time}
+                {priority ? " · Urgent" : ""}
+              </dd>
+            </div>
+            <div className="border border-chart-line bg-foam p-3">
+              <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-muted">
+                Location
+              </dt>
+              <dd className="mt-1 text-ink">
+                {city ? `${city} · ` : ""}
+                {location}
+              </dd>
+            </div>
+          </dl>
+          <p className="text-sm text-muted">
+            Urgent no-start or safety issue? Call now:{" "}
+            <a href={site.phoneHref} className="font-semibold text-coral">
+              {site.phone}
+            </a>
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/" className="btn">
+              Back home
+            </Link>
+            <Link href="/free-estimate" className="btn btn-ghost">
+              Free estimate form
+            </Link>
           </div>
-          <div className="flex justify-between gap-4">
-            <dt className="text-muted">Service</dt>
-            <dd className="text-right">{selectedService?.title}</dd>
-          </div>
-          <div className="flex justify-between gap-4">
-            <dt className="text-muted">When</dt>
-            <dd>
-              {date} · {time}
-            </dd>
-          </div>
-        </dl>
-        <a href="/" className="btn mt-6">
-          Back home
-        </a>
+        </div>
       </div>
     );
   }
 
+  const current = steps[step];
+
   return (
     <form onSubmit={onSubmit} className="panel overflow-hidden">
-      <div className="flex flex-wrap gap-2 border-b border-chart-line bg-foam px-4 py-3">
-        {steps.map((label, i) => (
-          <span
-            key={label}
-            className={`font-mono text-[0.65rem] uppercase tracking-wider ${
-              i === step ? "font-bold text-coral" : i < step ? "text-teal" : "text-muted"
-            }`}
-          >
-            {String(i + 1).padStart(2, "0")} {label}
-            {i < steps.length - 1 ? " ·" : ""}
-          </span>
-        ))}
+      {/* Progress header */}
+      <div className="border-b border-chart-line bg-foam px-4 py-4 sm:px-6">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-mono text-[0.65rem] uppercase tracking-wider text-coral">
+              Step {step + 1} of {steps.length}
+            </p>
+            <p className="mt-0.5 text-sm font-semibold text-ink">{current.short}</p>
+          </div>
+          <p className="font-mono text-[0.65rem] text-muted">{Math.round(progressPct)}%</p>
+        </div>
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-chart-line/60">
+          <div
+            className="h-full rounded-full bg-coral transition-all duration-300"
+            style={{ width: `${progressPct}%` }}
+          />
+        </div>
+        <ol className="mt-4 hidden gap-2 sm:grid sm:grid-cols-4">
+          {steps.map((s, i) => (
+            <li
+              key={s.id}
+              className={`rounded border px-2 py-2 text-center ${
+                i === step
+                  ? "border-coral bg-white text-ink"
+                  : i < step
+                    ? "border-teal/40 bg-white/60 text-teal"
+                    : "border-chart-line text-muted"
+              }`}
+            >
+              <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="mt-0.5 block text-xs font-medium">{s.label}</span>
+            </li>
+          ))}
+        </ol>
       </div>
 
-      <div className="space-y-4 p-5 sm:p-6">
+      <div className="space-y-5 p-5 sm:p-6">
+        <div>
+          <h2 className="font-display m-0 text-xl font-semibold text-ink sm:text-2xl">
+            {current.title}
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted">{current.help}</p>
+        </div>
+
+        {/* Step 1 — Service */}
         {step === 0 && (
-          <>
-            <h2 className="font-display m-0 text-xl font-semibold">What’s the issue lane?</h2>
-            <div className="space-y-2">
-              {bookingServices.map((s) => (
+          <fieldset className="m-0 space-y-2 border-0 p-0">
+            <legend className="sr-only">Choose a service</legend>
+            {bookingServices.map((s) => {
+              const selected = serviceId === s.id;
+              return (
                 <label
                   key={s.id}
-                  className={`flex cursor-pointer gap-3 border p-3 transition ${
-                    serviceId === s.id
-                      ? "border-coral bg-foam"
-                      : "border-chart-line hover:border-ink/30"
+                  className={`flex cursor-pointer items-start gap-3 rounded border p-3.5 transition ${
+                    selected
+                      ? "border-coral bg-foam shadow-sm"
+                      : "border-chart-line hover:border-ink/25"
                   }`}
                 >
                   <input
                     type="radio"
                     name="service"
-                    className="mt-1"
-                    checked={serviceId === s.id}
-                    onChange={() => setServiceId(s.id)}
+                    className="mt-1.5 accent-[var(--coral)]"
+                    checked={selected}
+                    onChange={() => {
+                      setServiceId(s.id);
+                      setFieldHint("");
+                    }}
                   />
-                  <span>
-                    <span className="block font-semibold text-ink">{s.title}</span>
-                    <span className="text-sm text-muted">{s.summary}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="font-semibold text-ink">{cleanServiceTitle(s.title)}</span>
+                      {selected && (
+                        <span className="font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-coral">
+                          Selected
+                        </span>
+                      )}
+                    </span>
+                    <span className="mt-1 block text-sm leading-relaxed text-muted">
+                      {s.summary}
+                    </span>
                   </span>
                 </label>
-              ))}
-            </div>
-          </>
+              );
+            })}
+          </fieldset>
         )}
 
+        {/* Step 2 — Vessel */}
         {step === 1 && (
-          <>
-            <h2 className="font-display m-0 text-xl font-semibold">Patient (the vessel)</h2>
+          <div className="space-y-4">
             <div>
               <label className="label-field" htmlFor="vesselType">
-                Vessel type
+                Vessel type <span className="text-coral">*</span>
               </label>
               <select
                 id="vesselType"
                 className="input-field"
                 value={vesselType}
-                onChange={(e) => setVesselType(e.target.value)}
+                required
+                onChange={(e) => {
+                  setVesselType(e.target.value);
+                  setFieldHint("");
+                }}
               >
-                <option value="">Select…</option>
+                <option value="">Select vessel type…</option>
                 {vesselTypes.map((t) => (
                   <option key={t} value={t}>
                     {t}
@@ -182,38 +347,40 @@ export function BookingForm() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="label-field" htmlFor="vesselName">
-                  Name (optional)
+                  Boat name <span className="font-normal normal-case tracking-normal">(optional)</span>
                 </label>
                 <input
                   id="vesselName"
                   className="input-field"
                   value={vesselName}
                   onChange={(e) => setVesselName(e.target.value)}
+                  placeholder="e.g. Sea Ya"
+                  autoComplete="off"
                 />
               </div>
               <div>
                 <label className="label-field" htmlFor="vesselLength">
-                  Length (optional)
+                  Length <span className="font-normal normal-case tracking-normal">(optional)</span>
                 </label>
                 <input
                   id="vesselLength"
                   className="input-field"
                   value={vesselLength}
                   onChange={(e) => setVesselLength(e.target.value)}
-                  placeholder="e.g. 38 ft"
+                  placeholder="e.g. 32 ft"
                 />
               </div>
             </div>
-          </>
+          </div>
         )}
 
+        {/* Step 3 — When & where */}
         {step === 2 && (
-          <>
-            <h2 className="font-display m-0 text-xl font-semibold">When & where</h2>
+          <div className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="label-field" htmlFor="date">
-                  Preferred date
+                  Preferred date <span className="text-coral">*</span>
                 </label>
                 <input
                   id="date"
@@ -221,20 +388,28 @@ export function BookingForm() {
                   min={minDate}
                   className="input-field"
                   value={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  required
+                  onChange={(e) => {
+                    setDate(e.target.value);
+                    setFieldHint("");
+                  }}
                 />
               </div>
               <div>
                 <label className="label-field" htmlFor="time">
-                  Preferred time
+                  Preferred time <span className="text-coral">*</span>
                 </label>
                 <select
                   id="time"
                   className="input-field"
                   value={time}
-                  onChange={(e) => setTime(e.target.value)}
+                  required
+                  onChange={(e) => {
+                    setTime(e.target.value);
+                    setFieldHint("");
+                  }}
                 >
-                  <option value="">Select…</option>
+                  <option value="">Select time…</option>
                   {timeSlots.map((t) => (
                     <option key={t} value={t}>
                       {t}
@@ -244,71 +419,132 @@ export function BookingForm() {
               </div>
             </div>
             <div>
+              <label className="label-field" htmlFor="city">
+                City / area{" "}
+                <span className="font-normal normal-case tracking-normal">(recommended)</span>
+              </label>
+              <select
+                id="city"
+                className="input-field"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              >
+                <option value="">Select area…</option>
+                {locations.map((l) => (
+                  <option key={l.slug} value={l.name}>
+                    {l.name}, {l.state}
+                  </option>
+                ))}
+                <option value="Other South Florida">Other South Florida</option>
+              </select>
+            </div>
+            <div>
               <label className="label-field" htmlFor="location">
-                Marina / dock
+                Marina, slip, or dock address <span className="text-coral">*</span>
               </label>
               <input
                 id="location"
                 className="input-field"
                 value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                placeholder="Marina, slip, or address"
+                required
+                onChange={(e) => {
+                  setLocation(e.target.value);
+                  setFieldHint("");
+                }}
+                placeholder="e.g. Bahia Mar, slip B-12 · gate code if needed"
+                autoComplete="street-address"
               />
+              <p className="mt-1.5 text-xs text-muted">
+                Include gate codes, parking notes, or dock access details if you have them.
+              </p>
             </div>
-            <label className="flex cursor-pointer gap-2 text-sm text-ink">
+            <label
+              className={`flex cursor-pointer items-start gap-3 rounded border p-3.5 text-sm ${
+                priority ? "border-coral bg-foam" : "border-chart-line"
+              }`}
+            >
               <input
                 type="checkbox"
+                className="mt-0.5 accent-[var(--coral)]"
                 checked={priority}
                 onChange={(e) => setPriority(e.target.checked)}
               />
-              Mark as urgent (no-start, overheating, safety)
+              <span>
+                <span className="font-semibold text-ink">This is urgent</span>
+                <span className="mt-0.5 block text-muted">
+                  No-start, overheating, bilge/flood risk, or safety issue. For emergencies call{" "}
+                  <a href={site.phoneHref} className="font-semibold text-coral">
+                    {site.phone}
+                  </a>
+                  .
+                </span>
+              </span>
             </label>
-          </>
+          </div>
         )}
 
+        {/* Step 4 — Contact */}
         {step === 3 && (
-          <>
-            <h2 className="font-display m-0 text-xl font-semibold">Your contact</h2>
+          <div className="space-y-4">
             <div>
               <label className="label-field" htmlFor="name">
-                Name
+                Your name <span className="text-coral">*</span>
               </label>
               <input
                 id="name"
                 className="input-field"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                required
+                autoComplete="name"
+                onChange={(e) => {
+                  setName(e.target.value);
+                  setFieldHint("");
+                }}
+                placeholder="Full name"
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="label-field" htmlFor="email">
-                  Email
+                  Email <span className="text-coral">*</span>
                 </label>
                 <input
                   id="email"
                   type="email"
                   className="input-field"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setFieldHint("");
+                  }}
+                  placeholder="you@email.com"
                 />
               </div>
               <div>
                 <label className="label-field" htmlFor="phone">
-                  Phone
+                  Phone <span className="text-coral">*</span>
                 </label>
                 <input
                   id="phone"
                   type="tel"
                   className="input-field"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  autoComplete="tel"
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setFieldHint("");
+                  }}
+                  placeholder="(###) ###-####"
                 />
               </div>
             </div>
             <div>
               <label className="label-field" htmlFor="notes">
-                Symptoms / notes
+                What’s wrong?{" "}
+                <span className="font-normal normal-case tracking-normal">(recommended)</span>
               </label>
               <textarea
                 id="notes"
@@ -316,52 +552,114 @@ export function BookingForm() {
                 className="input-field"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="What you’re seeing, hearing, smelling…"
+                placeholder="e.g. Won’t start after sitting 4 days · battery is new · hear click but no crank…"
               />
             </div>
-            <div className="border border-chart-line bg-foam p-3 text-sm text-muted">
-              <strong className="text-ink">Summary</strong>
-              <br />
-              {selectedService?.title || "—"} · {vesselType || "—"}
-              <br />
-              {date || "—"} {time ? `· ${time}` : ""} · {location || "—"}
-              {priority ? " · Urgent" : ""}
+
+            {/* Clear review card */}
+            <div className="rounded border border-chart-line bg-foam p-4">
+              <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-wider text-coral">
+                Review before submit
+              </p>
+              <dl className="mt-3 space-y-2 text-sm">
+                <div className="flex justify-between gap-4 border-b border-chart-line pb-2">
+                  <dt className="text-muted">Service</dt>
+                  <dd className="text-right font-medium text-ink">
+                    {selectedService ? cleanServiceTitle(selectedService.title) : "—"}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-4 border-b border-chart-line pb-2">
+                  <dt className="text-muted">Boat</dt>
+                  <dd className="text-right font-medium text-ink">
+                    {vesselType || "—"}
+                    {vesselLength ? ` · ${vesselLength}` : ""}
+                    {vesselName ? ` · “${vesselName}”` : ""}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-4 border-b border-chart-line pb-2">
+                  <dt className="text-muted">When</dt>
+                  <dd className="text-right font-medium text-ink">
+                    {date || "—"} {time ? `· ${time}` : ""}
+                    {priority ? " · Urgent" : ""}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-muted">Where</dt>
+                  <dd className="max-w-[60%] text-right font-medium text-ink">
+                    {city ? `${city} · ` : ""}
+                    {location || "—"}
+                  </dd>
+                </div>
+              </dl>
+              <p className="mt-3 text-xs leading-relaxed text-muted">
+                Submitting sends a <strong className="text-ink">service request</strong>. We confirm
+                the visit before it is locked in. Prefer a quote first?{" "}
+                <Link href="/free-estimate" className="font-semibold text-teal">
+                  Free estimate form
+                </Link>
+                .
+              </p>
             </div>
-          </>
+          </div>
+        )}
+
+        {fieldHint && (
+          <p
+            role="alert"
+            className="m-0 rounded border border-coral/40 bg-coral/10 px-3 py-2 text-sm text-ink"
+          >
+            {fieldHint}
+          </p>
         )}
 
         {status === "error" && (
-          <p className="m-0 border border-red-300 bg-red-50 p-2 text-sm text-red-800">{error}</p>
+          <p
+            role="alert"
+            className="m-0 rounded border border-red-300 bg-red-50 p-3 text-sm text-red-800"
+          >
+            {error}{" "}
+            <span className="block mt-1">
+              You can also call{" "}
+              <a href={site.phoneHref} className="font-semibold underline">
+                {site.phone}
+              </a>
+              .
+            </span>
+          </p>
         )}
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-chart-line px-5 py-4">
+      {/* Footer actions */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-chart-line bg-foam/50 px-5 py-4">
         <button
           type="button"
-          className="font-mono text-xs font-semibold uppercase tracking-wider text-muted disabled:opacity-40"
-          onClick={() => setStep((s) => Math.max(0, s - 1))}
+          className="btn btn-ghost disabled:opacity-40"
+          onClick={goBack}
           disabled={step === 0 || status === "loading"}
         >
           ← Back
         </button>
-        {step < steps.length - 1 ? (
-          <button
-            type="button"
-            className="btn disabled:opacity-40"
-            onClick={() => canContinue() && setStep((s) => s + 1)}
-            disabled={!canContinue()}
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={site.phoneHref}
+            className="hidden text-sm font-semibold text-muted no-underline hover:text-coral sm:inline"
           >
-            Continue
-          </button>
-        ) : (
-          <button
-            type="submit"
-            className="btn disabled:opacity-40"
-            disabled={!canContinue() || status === "loading"}
-          >
-            {status === "loading" ? "Sending…" : "Submit request"}
-          </button>
-        )}
+            Or call {site.phone}
+          </a>
+          {step < steps.length - 1 ? (
+            <button type="button" className="btn" onClick={goNext}>
+              Continue →
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="btn disabled:opacity-40"
+              disabled={status === "loading"}
+            >
+              {status === "loading" ? "Sending…" : "Submit booking request"}
+            </button>
+          )}
+        </div>
       </div>
     </form>
   );
