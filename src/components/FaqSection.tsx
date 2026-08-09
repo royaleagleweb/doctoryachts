@@ -8,9 +8,9 @@ export function FaqSection({
   faqs: readonly Faq[] | Faq[];
 }) {
   return (
-    <section className="border-t border-line section-soft">
+    <section className="border-t border-line bg-navy">
       <div className="wrap section-pad">
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-pearl">{title}</h2>
+        <h2 className="font-display text-3xl font-semibold text-pearl">{title}</h2>
         <div className="mt-8 divide-y divide-[rgba(196,163,90,0.14)] border-y border-line">
           {faqs.map((faq) => (
             <details key={faq.question} className="group py-4">

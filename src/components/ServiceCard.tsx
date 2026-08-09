@@ -13,7 +13,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
   const img = service.images[0] ?? images.services[service.id as keyof typeof images.services];
 
   return (
-    <article className="group panel flex h-full flex-col overflow-hidden transition hover:border-gold/40">
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-navy transition hover:border-gold/40">
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image
           src={img.src}
@@ -24,7 +24,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         />
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-display text-xl font-semibold tracking-tight text-pearl">
+        <h3 className="font-display text-xl font-semibold text-pearl">
           <Link
             href={`/services/${service.slug}`}
             className="text-pearl no-underline hover:text-gold-light"
@@ -36,15 +36,15 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <div className="mt-5 flex items-center justify-between border-t border-line pt-4 text-sm">
           <Link
             href={`/services/${service.slug}`}
-            className="text-steel no-underline hover:text-gold-light"
+            className="font-medium text-steel no-underline hover:text-gold-light"
           >
-            Details
+            Learn more
           </Link>
           <Link
             href={`/book?service=${service.id}`}
             className="font-semibold text-gold no-underline hover:text-gold-light"
           >
-            Book
+            Book →
           </Link>
         </div>
       </div>
