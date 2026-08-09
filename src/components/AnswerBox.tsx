@@ -8,10 +8,10 @@ export function AnswerBox({
   label?: string;
 }) {
   return (
-    <aside className="max-w-3xl">
-      <p className="text-sm font-medium text-gold">{label}</p>
+    <aside className="max-w-3xl rounded-2xl bg-paper p-5 sm:p-6">
+      <p className="text-sm font-medium text-gold-deep">{label}</p>
       {question && (
-        <h2 className="font-display mt-2 text-xl font-bold tracking-tight text-pearl sm:text-2xl">
+        <h2 className="font-display mt-2 text-xl font-bold tracking-tight text-navy sm:text-2xl">
           {question}
         </h2>
       )}

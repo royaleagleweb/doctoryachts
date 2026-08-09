@@ -8,15 +8,15 @@ export function FaqSection({
   faqs: readonly Faq[] | Faq[];
 }) {
   return (
-    <section>
+    <section className="section-soft">
       <div className="wrap section-pad">
-        <h2 className="font-display text-3xl font-semibold text-pearl">{title}</h2>
+        <h2 className="font-display text-3xl font-semibold text-navy">{title}</h2>
         <div className="mt-10 space-y-1">
           {faqs.map((faq) => (
             <details key={faq.question} className="group py-4">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-pearl marker:content-none">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-navy marker:content-none">
                 <span>{faq.question}</span>
-                <span className="text-gold transition group-open:rotate-45" aria-hidden>
+                <span className="text-gold-deep transition group-open:rotate-45" aria-hidden>
                   +
                 </span>
               </summary>

@@ -14,7 +14,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
   return (
     <article className="group flex h-full flex-col">
-      <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] shadow-[0_12px_36px_rgba(10,22,36,0.08)]">
         <Image
           src={img.src}
           alt={img.alt}
@@ -24,10 +24,10 @@ export function ServiceCard({ service }: ServiceCardProps) {
         />
       </div>
       <div className="flex flex-1 flex-col pt-4">
-        <h3 className="font-display text-lg font-bold tracking-tight text-pearl">
+        <h3 className="font-display text-lg font-bold tracking-tight text-navy">
           <Link
             href={`/services/${service.slug}`}
-            className="text-pearl no-underline hover:text-gold"
+            className="text-navy no-underline hover:text-gold-deep"
           >
             {service.title}
           </Link>
@@ -36,13 +36,13 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <div className="mt-4 flex items-center justify-between text-sm">
           <Link
             href={`/services/${service.slug}`}
-            className="font-medium text-steel no-underline hover:text-pearl"
+            className="font-medium text-steel no-underline hover:text-navy"
           >
             Details
           </Link>
           <Link
             href={`/book?service=${service.id}`}
-            className="font-semibold text-gold no-underline hover:text-gold-light"
+            className="font-semibold text-gold-deep no-underline hover:text-navy"
           >
             Book →
           </Link>

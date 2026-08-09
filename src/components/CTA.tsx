@@ -3,16 +3,16 @@ import { site } from "@/lib/site";
 
 export function CTA() {
   return (
-    <section>
+    <section className="bg-white">
       <div className="wrap flex flex-col items-start justify-between gap-8 section-pad md:flex-row md:items-end">
         <div className="max-w-xl">
           <p className="eyebrow">Next step</p>
-          <h2 className="font-display text-3xl font-extrabold text-pearl sm:text-4xl">
+          <h2 className="font-display text-3xl font-extrabold text-navy sm:text-4xl">
             Book repair or get a free estimate
           </h2>
           <p className="mt-3 text-steel">
             {site.hours} ·{" "}
-            <a href={site.phoneHref} className="font-semibold text-pearl">
+            <a href={site.phoneHref} className="font-semibold text-navy">
               {site.phone}
             </a>
           </p>

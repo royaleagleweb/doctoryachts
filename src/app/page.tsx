@@ -32,7 +32,7 @@ export default function HomePage() {
         <div className="hero-edge__copy">
           <div className="hero-edge__copy-inner">
             <p className="hero-edge__kicker">Fort Lauderdale · Pompano · Miami</p>
-            <h1 className="font-display text-pearl">
+            <h1 className="font-display text-white">
               Marine repair.
               <br />
               <span className="text-gold">No guessing.</span>
@@ -52,7 +52,7 @@ export default function HomePage() {
             <div className="hero-edge__meta">
               <span>
                 <b>Call</b>{" "}
-                <a href={site.phoneHref} className="text-pearl no-underline hover:text-gold">
+                <a href={site.phoneHref} className="text-white no-underline hover:text-gold">
                   {site.phone}
                 </a>
               </span>
@@ -90,7 +90,7 @@ export default function HomePage() {
       </div>
 
       {/* SEO intro */}
-      <section className="section-soft">
+      <section className="bg-white">
         <div className="wrap section-pad">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
             <div className="space-y-8">
@@ -100,7 +100,7 @@ export default function HomePage() {
                 answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
               />
               <div>
-                <h2 className="font-display text-3xl font-semibold text-pearl">
+                <h2 className="font-display text-3xl font-semibold text-navy">
                   Boat mechanic service for Fort Lauderdale &amp; Pompano Beach
                 </h2>
                 <p className="mt-4 text-steel">
@@ -119,7 +119,7 @@ export default function HomePage() {
                   overheating jobs never need a tow first. Call{" "}
                   <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book online</Link>.
                 </p>
-                <h3 className="font-display mt-8 text-xl font-semibold text-pearl">
+                <h3 className="font-display mt-8 text-xl font-semibold text-navy">
                   What we fix most often
                 </h3>
                 <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-steel">
@@ -180,7 +180,7 @@ export default function HomePage() {
           <div className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow">Services</p>
-              <h2 className="font-display text-3xl font-semibold text-pearl sm:text-4xl">
+              <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
                 What we repair on board
               </h2>
               <p className="mt-2 max-w-xl text-sm text-steel">
@@ -206,7 +206,7 @@ export default function HomePage() {
                 <Link
                   key={s.id}
                   href={`/services/${s.slug}`}
-                  className="text-pearl no-underline hover:text-gold"
+                  className="text-navy no-underline hover:text-gold-deep"
                 >
                   {s.title.replace(" Fort Lauderdale", "")} →
                 </Link>
@@ -225,11 +225,11 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section>
+      <section className="section-soft">
         <div className="wrap section-pad">
           <div className="max-w-2xl">
             <p className="eyebrow">How it works</p>
-            <h2 className="font-display text-3xl font-semibold text-pearl">
+            <h2 className="font-display text-3xl font-semibold text-navy">
               From your call to back on the water
             </h2>
           </div>
@@ -258,7 +258,7 @@ export default function HomePage() {
             ].map((step) => (
               <li key={step.n}>
                 <span className="n">{step.n}</span>
-                <h3 className="font-display text-xl font-semibold text-pearl">{step.t}</h3>
+                <h3 className="font-display text-xl font-semibold text-navy">{step.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{step.d}</p>
               </li>
             ))}
@@ -280,14 +280,14 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col justify-center py-2">
             <p className="eyebrow">Why Doctor Yachts</p>
-            <h2 className="font-display text-3xl font-semibold text-pearl sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
               A shop that listens—not a sales yard
             </h2>
             <p className="mt-4 text-steel">
               We treat vessels like systems: power, propulsion, pumps, wiring. That means fewer
               wild guesses and fewer surprise invoices.
             </p>
-            <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-pearl/90">
+            <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-navy/80">
               <li>Dockside first when access allows</li>
               <li>Findings before parts</li>
               <li>Notes for the next trip, yard, or survey</li>
@@ -310,7 +310,7 @@ export default function HomePage() {
           <div className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow">Service areas</p>
-              <h2 className="font-display text-3xl font-semibold text-pearl">
+              <h2 className="font-display text-3xl font-semibold text-navy">
                 South Florida waters we work
               </h2>
             </div>
@@ -341,7 +341,7 @@ export default function HomePage() {
                   </div>
                   <div className="mt-3 flex items-baseline justify-between gap-3">
                     <div>
-                      <p className="font-display text-lg font-semibold text-pearl group-hover:text-gold-light">
+                      <p className="font-display text-lg font-semibold text-navy group-hover:text-gold-deep">
                         {loc.name}
                       </p>
                       <p className="text-sm text-muted">{loc.region}</p>
@@ -359,7 +359,7 @@ export default function HomePage() {
       <section>
         <div className="wrap section-pad">
           <div className="mb-8 flex items-end justify-between gap-3">
-            <h2 className="font-display text-2xl font-semibold text-pearl sm:text-3xl">
+            <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl">
               On the water
             </h2>
             <Link
@@ -382,7 +382,7 @@ export default function HomePage() {
       {/* Quote */}
       <section>
         <div className="wrap max-w-3xl py-16 text-center sm:py-20">
-          <blockquote className="font-display text-2xl font-medium leading-snug text-pearl sm:text-3xl">
+          <blockquote className="font-display text-2xl font-medium leading-snug text-navy sm:text-3xl">
             “Clear diagnosis. Honest options. Dockside when it makes sense—not a mystery invoice.”
           </blockquote>
           <p className="mt-6 text-sm text-steel">

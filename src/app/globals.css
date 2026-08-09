@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 /*
-  Doctor Yachts — fluid marine service
-  Navy + brass · Syne + IBM Plex Sans
-  Open layout: space over boxes
+  Doctor Yachts — light open marine
+  White surfaces + navy + gold
+  Hero / footer stay dark for contrast
 */
 :root {
   --navy: #0a1624;
-  --navy-deep: #050c14;
-  --navy-mid: #122636;
+  --navy-deep: #061018;
+  --navy-mid: #132a3d;
   --gold: #c4a35a;
   --gold-deep: #9a7d3f;
-  --gold-light: #d4b76e;
-  --pearl: #eef1f4;
+  --gold-light: #b8923f;
   --white: #ffffff;
-  --deep: #050c14;
-  --paper: #0b1520;
-  --paper-deep: #08101a;
-  --steel: #9aabba;
-  --muted: #7a8c9c;
-  --line: rgba(238, 241, 244, 0.08);
-  --background: var(--deep);
-  --foreground: var(--pearl);
+  --pearl: #0a1624; /* primary text on light (name kept for existing classes) */
+  --deep: #ffffff; /* page background */
+  --paper: #f5f7f9;
+  --paper-deep: #eef1f4;
+  --steel: #5a6b7c;
+  --muted: #738496;
+  --line: rgba(10, 22, 36, 0.1);
+  --background: #ffffff;
+  --foreground: #0a1624;
   --radius: 20px;
   --radius-sm: 14px;
   --radius-pill: 999px;
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  --shadow: 0 16px 40px rgba(10, 22, 36, 0.08);
 }
 
 @theme inline {
@@ -59,8 +59,8 @@ html {
 
 body {
   margin: 0;
-  color: var(--pearl);
-  background: var(--deep);
+  color: var(--navy);
+  background: var(--white);
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
   font-size: 16.5px;
   font-weight: 400;
@@ -105,8 +105,8 @@ h3 {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--navy-deep);
+  background: color-mix(in srgb, var(--gold) 45%, white);
+  color: var(--navy);
 }
 
 .wrap {
@@ -119,23 +119,24 @@ h3 {
 }
 
 .section-soft {
-  background: transparent;
+  background: var(--paper);
 }
 
 .section-dark {
-  background: transparent;
+  background: var(--navy);
+  color: var(--white);
 }
 
 .eyebrow,
 .case-tag {
   margin: 0 0 0.75rem;
-  color: var(--gold);
+  color: var(--gold-deep);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.01em;
 }
 
-/* Pill buttons — only “shape” we keep */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -162,7 +163,7 @@ h3 {
 .btn:hover {
   background: var(--gold-light);
   transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(196, 163, 90, 0.22);
+  box-shadow: 0 12px 30px rgba(196, 163, 90, 0.28);
 }
 
 .btn:disabled,
@@ -174,7 +175,7 @@ h3 {
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--pearl);
+  outline: 2px solid var(--navy);
   outline-offset: 3px;
 }
 
@@ -184,34 +185,48 @@ h3 {
 }
 
 .btn-navy {
-  background: var(--pearl);
-  color: var(--navy-deep);
+  background: var(--navy);
+  color: var(--white);
 }
 .btn-navy:hover {
-  background: var(--white);
+  background: var(--navy-mid);
 }
 
 .btn-ghost,
 .btn-ghost-light {
   background: transparent;
-  color: var(--pearl);
+  color: var(--navy);
   box-shadow: none;
   text-decoration: underline !important;
   text-underline-offset: 0.28em;
-  text-decoration-color: color-mix(in srgb, var(--pearl) 35%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--navy) 28%, transparent);
   min-height: auto;
   padding: 0.5rem 0.25rem;
 }
 .btn-ghost:hover,
 .btn-ghost-light:hover {
   background: transparent;
-  color: var(--gold-light);
+  color: var(--gold-deep);
   text-decoration-color: var(--gold);
   box-shadow: none;
   transform: none;
 }
 
-/* No-box “panel” — spacing only */
+/* On dark surfaces (hero), ghost = light underline */
+.hero-edge .btn-ghost,
+.hero-edge .btn-ghost-light,
+.site-footer .btn-ghost,
+.section-dark .btn-ghost {
+  color: var(--white);
+  text-decoration-color: color-mix(in srgb, var(--white) 40%, transparent);
+}
+.hero-edge .btn-ghost:hover,
+.section-dark .btn-ghost:hover {
+  color: var(--gold-light);
+  text-decoration-color: var(--gold);
+}
+
+/* Open panels — soft white, no heavy frame */
 .panel {
   background: transparent;
   border: none;
@@ -220,26 +235,24 @@ h3 {
 }
 .panel:hover {
   background: transparent;
-  border: none;
 }
 
 .panel-navy {
-  background: transparent;
-  color: var(--pearl);
+  background: var(--paper);
+  color: var(--navy);
   border: none;
-  border-radius: 0;
-  border-left: 2px solid var(--gold);
-  padding-left: 1.25rem;
+  border-radius: var(--radius);
+  border-left: 3px solid var(--gold);
+  padding: 1.25rem 1.35rem;
 }
 
-/* Images: soft crop, no frame */
 .shot {
   position: relative;
   overflow: hidden;
   border-radius: 1.5rem;
   border: none;
-  background: transparent;
-  box-shadow: none;
+  background: var(--paper);
+  box-shadow: var(--shadow);
 }
 .shot::before,
 .shot::after {
@@ -251,17 +264,17 @@ h3 {
   border-radius: 1.5rem;
 }
 
-/* Forms — underlines over boxes */
+/* Forms */
 .input-field {
   width: 100%;
   border: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--pearl) 18%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--navy) 18%, transparent);
   background: transparent;
   padding: 0.85rem 0.15rem;
   border-radius: 0;
   font-size: 1.05rem;
   font-family: inherit;
-  color: var(--pearl);
+  color: var(--navy);
   outline: none;
   transition: border-color 0.12s;
 }
@@ -272,42 +285,36 @@ h3 {
 .input-field::placeholder {
   color: var(--muted);
 }
-select.input-field {
-  border-radius: 0;
-  background: transparent;
-}
 select.input-field option {
-  background: var(--navy);
-  color: var(--pearl);
+  background: var(--white);
+  color: var(--navy);
 }
 
 .label-field {
   display: block;
   margin-bottom: 0.35rem;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--steel);
 }
 
-/* Choice chips — pill, no hard rect */
 .chip {
   cursor: pointer;
   border-radius: var(--radius-pill);
   border: none;
-  background: color-mix(in srgb, var(--pearl) 6%, transparent);
+  background: var(--paper);
   padding: 0.85rem 1.2rem;
   text-align: left;
-  transition: background 0.12s ease, color 0.12s ease;
-  color: var(--pearl);
+  transition: background 0.12s ease, box-shadow 0.12s ease;
+  color: var(--navy);
   font: inherit;
 }
 .chip:hover {
-  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  background: color-mix(in srgb, var(--gold) 14%, white);
 }
 .chip.is-on {
-  background: color-mix(in srgb, var(--gold) 18%, transparent);
-  color: var(--pearl);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 45%, transparent);
+  background: color-mix(in srgb, var(--gold) 22%, white);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 50%, transparent);
 }
 
 .sr-only {
@@ -333,11 +340,11 @@ select.input-field option {
 }
 
 a {
-  color: var(--gold-light);
+  color: var(--gold-deep);
   text-underline-offset: 0.18em;
 }
 a:hover {
-  color: var(--gold);
+  color: var(--navy);
 }
 a:focus-visible {
   outline: 2px solid var(--gold);
@@ -352,26 +359,36 @@ textarea {
   font-family: inherit;
 }
 
+/* text-pearl → navy on light site (existing class names) */
+.text-pearl {
+  color: var(--navy);
+}
+.text-pearl\/80,
+.text-pearl\/75,
+.text-pearl\/90 {
+  color: color-mix(in srgb, var(--navy) 80%, transparent);
+}
+
 .text-navy {
-  color: var(--pearl);
+  color: var(--navy);
 }
 .text-navy\/90 {
-  color: color-mix(in srgb, var(--pearl) 90%, transparent);
+  color: color-mix(in srgb, var(--navy) 90%, transparent);
 }
+
 .bg-white {
-  background-color: transparent;
+  background-color: var(--white);
 }
 .border-navy {
-  border-color: transparent;
+  border-color: color-mix(in srgb, var(--navy) 15%, transparent);
 }
 
 .page-hero {
-  background: transparent;
+  background: var(--white);
   border-bottom: none;
-  padding-bottom: 0.5rem;
 }
 
-/* ——— Fluid hero ——— */
+/* ——— Hero (dark photo band) ——— */
 .hero-edge {
   position: relative;
   min-height: min(90svh, 820px);
@@ -391,9 +408,9 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 70% at 20% 70%, rgba(5, 12, 20, 0.55), transparent 55%),
-    linear-gradient(to right, rgba(5, 12, 20, 0.88) 0%, rgba(5, 12, 20, 0.55) 45%, rgba(5, 12, 20, 0.2) 100%),
-    linear-gradient(to top, rgba(5, 12, 20, 0.7) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 70% at 20% 70%, rgba(5, 12, 20, 0.5), transparent 55%),
+    linear-gradient(to right, rgba(5, 12, 20, 0.88) 0%, rgba(5, 12, 20, 0.55) 45%, rgba(5, 12, 20, 0.22) 100%),
+    linear-gradient(to top, rgba(5, 12, 20, 0.72) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -402,6 +419,7 @@ textarea {
   z-index: 1;
   width: 100%;
   padding: 6rem 0 3rem;
+  color: #eef1f4;
 }
 @media (min-width: 900px) {
   .hero-edge__copy {
@@ -420,11 +438,8 @@ textarea {
 .hero-edge__kicker {
   margin: 0 0 1rem;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--gold-light);
-  padding: 0;
-  background: none;
-  border-radius: 0;
 }
 
 .hero-edge__actions {
@@ -441,18 +456,36 @@ textarea {
   gap: 0.5rem 1.5rem;
   margin-top: 1.75rem;
   font-size: 0.9rem;
-  color: var(--steel);
+  color: #a3b4c2;
 }
 .hero-edge__meta b {
-  color: var(--pearl);
+  color: #eef1f4;
   font-weight: 600;
 }
+.hero-edge__meta a {
+  color: #eef1f4;
+}
+.hero-edge__meta a:hover {
+  color: var(--gold-light);
+}
 
-/* Problem links — text row, not cards */
+.hero-edge h1,
+.hero-edge .text-pearl,
+.hero-edge .font-display {
+  color: #eef1f4;
+}
+.hero-edge .text-steel {
+  color: #a3b4c2;
+}
+.hero-edge .text-gold {
+  color: var(--gold);
+}
+
+/* Problem links */
 .problem-rail-wrap {
-  background: transparent;
+  background: var(--white);
   border: none;
-  padding: 0.25rem 0 0.5rem;
+  padding: 0;
 }
 
 .problem-rail {
@@ -463,44 +496,36 @@ textarea {
   width: min(1400px, calc(100% - 2.5rem));
   margin: 0 auto;
   padding: 1.5rem 0 2rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--pearl) 6%, transparent);
+  border-bottom: 1px solid var(--line);
 }
 .problem-rail a {
   display: inline;
-  flex: none;
-  min-width: 0;
-  max-width: none;
   padding: 0.35rem 0.85rem 0.35rem 0;
   border: none;
-  border-radius: 0;
   background: transparent;
-  color: var(--pearl);
+  color: var(--navy);
   text-decoration: none !important;
   transition: color 0.12s ease;
 }
 .problem-rail a:not(:last-child)::after {
   content: "·";
   margin-left: 0.85rem;
-  color: color-mix(in srgb, var(--pearl) 25%, transparent);
+  color: color-mix(in srgb, var(--navy) 25%, transparent);
   font-weight: 400;
 }
 .problem-rail a:hover {
-  background: transparent;
-  color: var(--gold-light);
-  transform: none;
+  color: var(--gold-deep);
 }
 .problem-rail strong {
   display: inline;
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0;
 }
 .problem-rail span {
   display: none;
 }
 
-/* Process: open columns, no cards */
 .process-open {
   display: grid;
   gap: 2rem 2.5rem;
@@ -519,15 +544,29 @@ textarea {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: none;
-  background: none;
 }
 .process-open .n {
   display: block;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 0.65rem;
+}
+
+/* Dark footer helpers */
+.site-footer,
+.site-footer a {
+  color: #a3b4c2;
+}
+.site-footer .text-pearl,
+.site-footer .font-display {
+  color: #eef1f4;
+}
+.site-footer a:hover {
+  color: var(--gold-light);
+}
+.site-footer .text-gold {
+  color: var(--gold);
 }
 
 /* Mobile bar */
@@ -540,10 +579,10 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
-  background: color-mix(in srgb, var(--navy-deep) 92%, transparent);
+  background: color-mix(in srgb, var(--white) 92%, transparent);
   backdrop-filter: blur(16px);
-  border: none;
-  border-top: 1px solid color-mix(in srgb, var(--pearl) 6%, transparent);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -8px 30px rgba(10, 22, 36, 0.06);
 }
 @media (max-width: 1023px) {
   .mobile-cta {
@@ -569,7 +608,6 @@ textarea {
   display: none;
 }
 
-/* Kill leftover box utility borders in components */
 .border-line {
-  border-color: color-mix(in srgb, var(--pearl) 6%, transparent) !important;
+  border-color: var(--line) !important;
 }
