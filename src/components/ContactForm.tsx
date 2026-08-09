@@ -32,9 +32,9 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="border border-line bg-white p-4">
-        <p className="m-0 font-semibold text-navy">Message received</p>
-        <p className="mt-2 mb-0 text-sm text-muted">We’ll reply during shop hours.</p>
+      <div className="panel p-4">
+        <p className="m-0 font-semibold text-pearl">Message received</p>
+        <p className="mt-2 mb-0 text-sm text-steel">We’ll reply during shop hours.</p>
         <button
           type="button"
           className="mt-3 font-mono text-xs font-semibold uppercase tracking-wider text-gold"
@@ -83,7 +83,9 @@ export function ContactForm() {
         <textarea id="message" name="message" required rows={5} className="input-field" />
       </div>
       {status === "error" && (
-        <p className="m-0 border border-navy/25 bg-paper-deep p-2 text-sm text-navy">{error}</p>
+        <p className="m-0 rounded-lg border border-gold/30 bg-navy-deep p-2 text-sm text-pearl">
+          {error}
+        </p>
       )}
       <button type="submit" className="btn" disabled={status === "loading"}>
         {status === "loading" ? "Sending…" : "Send message"}
