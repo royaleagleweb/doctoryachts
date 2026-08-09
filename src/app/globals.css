@@ -1,44 +1,51 @@
 @import "tailwindcss";
 
 /*
-  DOCTOR YACHTS — Navy marine identity
-  Deep navy, cool paper, brass highlight. Clean service-shop feel.
+  DOCTOR YACHTS — max 3 colors
+  Brand (2): Navy = marine · Gold = luxury
+  Ground (1): White (+ navy tints for paper/muted — same hue only)
 */
 :root {
-  --chart: #f3f6f9;
-  --chart-deep: #e6edf4;
-  --chart-line: #c5d2e0;
-  --ink: #0a1f33;
-  --ink-soft: #12324a;
-  --teal: #1a4d6d;
-  --teal-bright: #2a6a92;
-  --coral: #b8955a;
-  --coral-deep: #9a7b4a;
-  --foam: #fafcfe;
-  --muted: #5a6b7c;
-  --white: #ffffff;
+  /* === Brand (only these two hues) === */
+  --navy: #0b1f33;
+  --gold: #c4a35a;
 
-  /* navy system */
+  /* === Tints of navy / gold only — no third hue === */
   --navy-deep: #061525;
-  --navy: #0a1f33;
-  --navy-mid: #1a4d6d;
-  --brass: #b8955a;
-  --brass-light: #d4b57a;
-  --brass-dark: #9a7b4a;
-  --pearl: var(--chart);
-  --steel: #7a8fa3;
+  --navy-mid: #0b1f33;
+  --gold-deep: #a88a45;
+  --gold-light: #d4b87a;
+  --white: #ffffff;
+  --paper: #f7f8fa;
+  --paper-deep: #eef1f5;
+  --line: color-mix(in srgb, var(--navy) 14%, var(--white));
+  --muted: color-mix(in srgb, var(--navy) 48%, var(--white));
+  --steel: color-mix(in srgb, var(--navy) 38%, var(--white));
+
+  /* Legacy names → navy or gold (keeps old class names working) */
+  --ink: var(--navy);
+  --ink-soft: var(--navy);
+  --teal: var(--navy);
+  --teal-bright: var(--navy);
+  --coral: var(--gold);
+  --coral-deep: var(--gold-deep);
+  --chart: var(--paper);
+  --chart-deep: var(--paper-deep);
+  --chart-line: var(--line);
+  --foam: var(--white);
+  --brass: var(--gold);
+  --brass-light: var(--gold-light);
+  --brass-dark: var(--gold-deep);
+  --pearl: var(--paper);
   --slate: var(--muted);
-  --line: var(--chart-line);
-  --background: var(--chart);
-  --foreground: var(--ink);
-  --paper: var(--chart);
-  --paper-deep: var(--chart-deep);
-  --chalk: var(--foam);
-  --rust: var(--brass);
-  --rust-deep: var(--brass-dark);
+  --background: var(--paper);
+  --foreground: var(--navy);
+  --chalk: var(--white);
+  --rust: var(--gold);
+  --rust-deep: var(--gold-deep);
   --smoke: var(--muted);
-  --rule: var(--chart-line);
-  --sea: var(--teal);
+  --rule: var(--line);
+  --sea: var(--navy);
 }
 
 @theme inline {
@@ -93,21 +100,15 @@ body {
   line-height: 1.6;
 }
 
-/* Subtle navy edge accent */
+/* Thin navy edge only */
 body::before {
   content: "";
   pointer-events: none;
   position: fixed;
   inset: 0 auto 0 0;
-  width: 4px;
+  width: 3px;
   z-index: 40;
-  background: linear-gradient(
-    to bottom,
-    var(--navy-deep),
-    var(--navy-mid),
-    var(--brass)
-  );
-  opacity: 0.9;
+  background: var(--navy);
 }
 
 @media (max-width: 720px) {
@@ -127,8 +128,8 @@ body::before {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--coral) 40%, white);
-  color: var(--ink);
+  background: color-mix(in srgb, var(--gold) 45%, white);
+  color: var(--navy);
 }
 
 .wrap {
@@ -136,11 +137,10 @@ body::before {
   margin-inline: auto;
 }
 
-/* Buttons — navy primary */
+/* Buttons — navy primary, gold on dark sections via utility */
 .btn {
   --btn-bg: var(--navy);
-  --btn-fg: #f5f8fb;
-  --btn-edge: var(--navy-deep);
+  --btn-fg: var(--white);
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -148,7 +148,7 @@ body::before {
   gap: 0.5rem;
   padding: 0.78rem 1.25rem;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   background: var(--btn-bg);
   color: var(--btn-fg);
   font-family: var(--font-sans), system-ui, sans-serif;
@@ -156,48 +156,56 @@ body::before {
   font-weight: 650;
   letter-spacing: 0.01em;
   text-decoration: none !important;
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover {
-  background: var(--navy-mid);
+  background: color-mix(in srgb, var(--navy) 88%, var(--white));
   transform: translateY(-1px);
 }
 
 .btn-ink {
-  --btn-bg: var(--navy-deep);
-  --btn-fg: #e8eef4;
-  --btn-edge: #040d16;
+  --btn-bg: var(--navy);
+  --btn-fg: var(--white);
+}
+
+.btn-gold {
+  --btn-bg: var(--gold);
+  --btn-fg: var(--navy);
+}
+
+.btn-gold:hover {
+  background: var(--gold-deep);
 }
 
 .btn-ghost {
   --btn-bg: transparent;
-  --btn-fg: var(--ink);
-  box-shadow: inset 0 0 0 1.5px var(--ink);
-  color: var(--ink);
+  --btn-fg: var(--navy);
+  box-shadow: inset 0 0 0 1.5px var(--navy);
+  color: var(--navy);
 }
 
 .btn-ghost:hover {
-  background: color-mix(in srgb, var(--ink) 6%, transparent);
+  background: color-mix(in srgb, var(--navy) 6%, transparent);
   filter: none;
 }
 
 .btn-ghost-light {
   --btn-bg: transparent;
-  --btn-fg: var(--chart);
-  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--chart) 55%, transparent);
-  color: var(--chart);
+  --btn-fg: var(--white);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--white) 55%, transparent);
+  color: var(--white);
 }
 
-/* Small labels — navy, not mono-clinic */
+/* Labels — navy + gold dot only */
 .case-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   padding: 0.3rem 0.6rem;
-  border: 1px solid var(--chart-line);
-  background: var(--foam);
-  color: var(--navy-mid);
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 650;
@@ -210,7 +218,7 @@ body::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--brass);
+  background: var(--gold);
 }
 
 .coord-stamp {
@@ -251,8 +259,8 @@ body::before {
   inset: 8px auto auto 8px;
   width: 10px;
   height: 10px;
-  border-left: 1.5px solid color-mix(in srgb, var(--coral) 70%, transparent);
-  border-top: 1.5px solid color-mix(in srgb, var(--coral) 70%, transparent);
+  border-left: 1.5px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  border-top: 1.5px solid color-mix(in srgb, var(--gold) 70%, transparent);
   pointer-events: none;
 }
 
@@ -263,8 +271,8 @@ body::before {
   inset: auto 8px 8px auto;
   width: 10px;
   height: 10px;
-  border-right: 1.5px solid color-mix(in srgb, var(--teal) 70%, transparent);
-  border-bottom: 1.5px solid color-mix(in srgb, var(--teal) 70%, transparent);
+  border-right: 1.5px solid color-mix(in srgb, var(--navy) 55%, transparent);
+  border-bottom: 1.5px solid color-mix(in srgb, var(--navy) 55%, transparent);
   pointer-events: none;
 }
 
@@ -280,9 +288,9 @@ body::before {
 }
 
 .panel-ink {
-  background: var(--ink);
-  color: var(--chart);
-  border: 1px solid color-mix(in srgb, var(--teal-bright) 30%, transparent);
+  background: var(--navy);
+  color: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
 }
 
 /* Section rhythm */
@@ -303,8 +311,8 @@ body::before {
 }
 
 .input-field:focus {
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 18%, transparent);
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--navy) 16%, transparent);
 }
 
 .label-field {
@@ -357,9 +365,9 @@ body::before {
 }
 
 a {
-  color: var(--teal);
+  color: var(--navy);
 }
 
 a:hover {
-  color: var(--coral-deep);
+  color: var(--gold-deep);
 }

@@ -83,7 +83,7 @@ export function ContactForm() {
         <textarea id="message" name="message" required rows={5} className="input-field" />
       </div>
       {status === "error" && (
-        <p className="m-0 border border-red-300 bg-red-50 p-2 text-sm text-red-800">{error}</p>
+        <p className="m-0 border border-navy/25 bg-paper-deep p-2 text-sm text-navy">{error}</p>
       )}
       <button type="submit" className="btn" disabled={status === "loading"}>
         {status === "loading" ? "Sending…" : "Send message"}

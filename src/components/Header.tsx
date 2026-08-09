@@ -24,7 +24,7 @@ export function Header() {
             </a>
             <a
               href={site.phoneHref}
-              className="font-semibold text-brass-light no-underline hover:text-white"
+              className="font-semibold text-brass no-underline hover:text-white"
             >
               {site.phone}
             </a>

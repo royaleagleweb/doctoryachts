@@ -615,7 +615,7 @@ export function BookingForm() {
         {status === "error" && (
           <p
             role="alert"
-            className="m-0 rounded border border-red-300 bg-red-50 p-3 text-sm text-red-800"
+            className="m-0 rounded border border-navy/25 bg-paper-deep p-3 text-sm text-navy"
           >
             {error}{" "}
             <span className="block mt-1">
