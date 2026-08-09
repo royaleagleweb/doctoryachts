@@ -109,7 +109,7 @@ h3 {
 }
 
 .wrap {
-  width: min(1180px, calc(100% - 2rem));
+  width: min(1400px, calc(100% - 2rem));
   margin-inline: auto;
 }
 
@@ -387,7 +387,7 @@ textarea {
   .hero-edge__copy-inner {
     width: auto;
     max-width: 34rem;
-    margin-left: max(1rem, calc((100vw - 1180px) / 2 + 1rem));
+    margin-left: max(1rem, calc((100vw - 1400px) / 2 + 1rem));
     margin-right: 2.5rem;
     padding-right: 0.5rem;
   }
