@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { IBM_Plex_Sans, Syne } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -9,20 +9,21 @@ import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
 
 /**
- * Headlines: Fraunces — warm luxury, confident, readable
- * Body / UI: Source Sans 3 — clear service typography
+ * Cutting-edge, less template:
+ * Syne — geometric display (not soft serif luxury cliché)
+ * IBM Plex Sans — technical, human, service-real
  */
-const sourceSans = Source_Sans_3({
+const plex = IBM_Plex_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const syne = Syne({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -55,10 +56,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${sourceSans.variable} ${fraunces.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${plex.variable} ${syne.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
         <JsonLd data={[localBusinessJsonLd(), webSiteJsonLd()]} />
         <Header />

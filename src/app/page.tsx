@@ -17,98 +17,75 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      {/* Full-bleed hero — clear next steps */}
-      <section className="hero-home">
-        <div className="hero-home__media">
+      {/* Editorial split hero — hard edge, not soft template overlay */}
+      <section className="hero-edge">
+        <div className="hero-edge__copy">
+          <div className="hero-edge__copy-inner">
+            <p className="hero-edge__kicker">Fort Lauderdale · Pompano · Miami</p>
+            <h1 className="font-display text-pearl">
+              Marine repair.
+              <br />
+              <span className="text-gold">No guessing.</span>
+            </h1>
+            <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-steel">
+              Independent boat &amp; yacht mechanic. Engines, electrical, cooling, dockside
+              service. Free estimates.
+            </p>
+            <div className="hero-edge__actions">
+              <Link href="/book" className="btn">
+                Book a visit
+              </Link>
+              <Link href="/free-estimate" className="btn btn-ghost">
+                Free estimate
+              </Link>
+            </div>
+            <div className="hero-edge__meta">
+              <span>
+                <b>Call</b>{" "}
+                <a href={site.phoneHref} className="text-pearl no-underline hover:text-gold">
+                  {site.phone}
+                </a>
+              </span>
+              <span>
+                <b>Hours</b> {site.hours}
+              </span>
+              <span>
+                <b>Mobile</b> when access allows
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="hero-edge__media">
           <Image
             src={images.homeHero.src}
             alt={images.homeHero.alt}
             fill
             priority
-            sizes="100vw"
-            className="object-cover object-[center_35%]"
+            sizes="(max-width: 960px) 100vw, 55vw"
+            className="object-cover object-[center_30%]"
           />
         </div>
-        <div className="hero-home__shade" aria-hidden />
-
-        <div className="hero-home__content">
-          <div className="wrap">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Boat & yacht mechanic · South Florida</p>
-              <h1 className="font-display text-pearl">
-                Boat won&apos;t start? Overheating? Need service?
-              </h1>
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-steel sm:text-xl">
-                Book a visit or get a free estimate. Mobile dockside repair in Fort Lauderdale,
-                Pompano Beach &amp; Miami—diagnose first, then fix what matters.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href="/book" className="btn text-center">
-                  Book a visit
-                </Link>
-                <Link href="/free-estimate" className="btn btn-ghost text-center">
-                  Get a free estimate
-                </Link>
-                <a href={site.phoneHref} className="btn btn-ghost text-center">
-                  Call {site.phone}
-                </a>
-              </div>
-
-              <p className="mt-4 text-sm text-steel">
-                {site.hours} · Free estimates · Mobile when access allows
-              </p>
-            </div>
-
-            <div className="mt-10 max-w-4xl">
-              <p className="mb-3 text-sm font-semibold text-pearl">What do you need?</p>
-              <div className="hero-path">
-                <Link href="/book?service=engine-repair">
-                  <strong>Won&apos;t start</strong>
-                  <span>No crank, click, dead quiet</span>
-                </Link>
-                <Link href="/book?service=cooling">
-                  <strong>Overheating</strong>
-                  <span>Hot engine, weak flow</span>
-                </Link>
-                <Link href="/book?service=electrical">
-                  <strong>Battery / power</strong>
-                  <span>Charging, shore power</span>
-                </Link>
-                <Link href="/book?service=maintenance">
-                  <strong>Service visit</strong>
-                  <span>Oil, impeller, check-up</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* Trust strip */}
-      <section className="border-b border-line bg-navy-deep">
-        <div className="wrap grid gap-8 py-9 sm:grid-cols-3">
-          {[
-            {
-              t: "Diagnose first",
-              d: "Findings before parts—so you know what you’re paying for.",
-            },
-            {
-              t: "Mobile dockside",
-              d: "We come to the marina when access allows.",
-            },
-            {
-              t: "Free estimates",
-              d: "Clear next steps before you authorize repair work.",
-            },
-          ].map((item) => (
-            <div key={item.t} className="border-l-2 border-gold pl-4">
-              <p className="font-display text-lg font-semibold text-pearl">{item.t}</p>
-              <p className="mt-1.5 text-sm leading-relaxed text-steel">{item.d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Problem rail — direct paths, no frosted cards */}
+      <nav className="problem-rail" aria-label="Common problems">
+        <Link href="/book?service=engine-repair">
+          <strong>Won&apos;t start</strong>
+          <span>No crank · click · dead quiet</span>
+        </Link>
+        <Link href="/book?service=cooling">
+          <strong>Overheating</strong>
+          <span>Hot · weak telltale · shut-down</span>
+        </Link>
+        <Link href="/book?service=electrical">
+          <strong>Battery / power</strong>
+          <span>Charging · shore power · trips</span>
+        </Link>
+        <Link href="/book?service=maintenance">
+          <strong>Service</strong>
+          <span>Oil · impeller · check-up</span>
+        </Link>
+      </nav>
 
       {/* SEO intro */}
       <section className="section-soft">
