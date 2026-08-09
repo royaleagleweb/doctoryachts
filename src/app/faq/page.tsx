@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CaseTag } from "@/components/ChartDecor";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { guides } from "@/lib/guides";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
@@ -47,22 +47,19 @@ export default function FaqPage() {
         ]}
       />
 
-      <section className="border-b border-line bg-paper-deep/50">
-        <div className="wrap section-pad">
-          <CaseTag>FAQ</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
-            Boat repair questions we answer every week
-          </h1>
-          <p className="mt-4 max-w-2xl text-muted">
-            Short, direct answers for boat owners deciding whether to book
-            mobile service in Fort Lauderdale or Pompano Beach. Free estimates:{" "}
-            <a href={site.phoneHref}>{site.phone}</a>.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="FAQ"
+        title="Boat repair questions we answer every week"
+        description={
+          <>
+            Short, direct answers for boat owners in Fort Lauderdale and Pompano Beach. Free
+            estimates: <a href={site.phoneHref}>{site.phone}</a>.
+          </>
+        }
+      />
 
       <section className="wrap section-pad">
-        <h2 className="font-display text-2xl font-semibold text-navy">General</h2>
+        <h2 className="font-display text-2xl font-semibold text-pearl">General</h2>
         <div className="mt-6 divide-y divide-line border-y border-line">
           {homeFaqs.map((f) => (
             <details key={f.question} className="group py-5">

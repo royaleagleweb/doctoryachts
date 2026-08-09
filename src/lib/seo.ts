@@ -57,7 +57,8 @@ export function buildMetadata({
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "AutoRepair",
+    "@type": "LocalBusiness",
+    additionalType: "https://schema.org/AutoRepair",
     "@id": `${site.url}/#business`,
     name: site.name,
     alternateName: "Doctor Yachts Marine Mechanics",
@@ -67,6 +68,7 @@ export function localBusinessJsonLd() {
     email: site.email,
     priceRange: "$$",
     slogan: site.tagline,
+    image: absoluteUrl("/images/home-hero.jpg"),
     areaServed: locations.map((loc) => ({
       "@type": "City",
       name: loc.name,

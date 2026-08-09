@@ -3,7 +3,7 @@ import { cityListText, primaryMarket } from "./locations";
 export const site = {
   name: "Doctor Yachts",
   tagline: "The Mechanic for Boats & Yachts",
-  /** Primary domain for sitemap, canonicals, and structured data. Update when live. */
+  /** Primary domain for sitemap, canonicals, and structured data. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://doctoryachts.com",
   description:
     "Boat repair & boat maintenance in Fort Lauderdale, Pompano Beach & Miami, FL. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",

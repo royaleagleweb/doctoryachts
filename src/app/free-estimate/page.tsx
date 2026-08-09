@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CaseTag } from "@/components/ChartDecor";
 import { EstimateForm } from "@/components/EstimateForm";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -49,32 +49,20 @@ export default function FreeEstimatePage() {
         ]}
       />
 
-      <section className="border-b border-line section-soft">
-        <div className="wrap section-pad pb-10">
-          <CaseTag>Free estimates</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-pearl">
-            Free boat repair estimate
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-steel">
-            Answer a few practical questions — what&apos;s wrong, where the boat is, and how to
-            reach you. No long essays. Prefer to talk? Call{" "}
+      <PageHero
+        eyebrow="Free estimates"
+        title="Free boat repair estimate"
+        description={
+          <>
+            Answer a few practical questions—what&apos;s wrong, where the boat is, and how to reach
+            you. Prefer to talk? Call{" "}
             <a href={site.phoneHref} className="text-gold">
               {site.phone}
             </a>
             .
-          </p>
-          <ul className="mt-6 grid list-disc gap-2 pl-5 text-sm text-pearl sm:grid-cols-2">
-            {[
-              "Takes about 1–2 minutes",
-              "Tap what's wrong — no jargon required",
-              "Mobile / dockside when access allows",
-              "Clear next steps before you authorize work",
-            ].map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       <section className="wrap grid gap-10 section-pad lg:grid-cols-[minmax(0,1.1fr)_0.9fr]">
         <div className="panel p-5 sm:p-7">
@@ -91,38 +79,23 @@ export default function FreeEstimatePage() {
 
         <div className="space-y-6">
           <div className="panel p-5">
-            <h2 className="font-display text-xl font-semibold text-pearl">
-              What we need from you
-            </h2>
+            <h2 className="font-display text-xl font-semibold text-pearl">What we need</h2>
             <ol className="mt-4 space-y-3 text-sm text-steel">
-              <li className="flex gap-3">
-                <span className="font-semibold text-gold">1</span>
-                <span>
-                  <strong className="text-pearl">What&apos;s wrong</strong> — won&apos;t start,
-                  overheating, batteries, pumps, etc.
-                </span>
+              <li>
+                <strong className="text-pearl">1. What&apos;s wrong</strong> — won&apos;t start,
+                overheating, batteries, pumps, etc.
               </li>
-              <li className="flex gap-3">
-                <span className="font-semibold text-gold">2</span>
-                <span>
-                  <strong className="text-pearl">Where the boat is</strong> — city + marina or dock
-                  if you know it
-                </span>
+              <li>
+                <strong className="text-pearl">2. Where the boat is</strong> — city + marina or dock
               </li>
-              <li className="flex gap-3">
-                <span className="font-semibold text-gold">3</span>
-                <span>
-                  <strong className="text-pearl">Phone &amp; email</strong> — so we can reply with
-                  next steps
-                </span>
+              <li>
+                <strong className="text-pearl">3. Phone &amp; email</strong> — so we can reply
               </li>
             </ol>
           </div>
 
           <div className="panel p-5">
-            <h2 className="font-display text-xl font-semibold text-pearl">
-              What a free estimate covers
-            </h2>
+            <h2 className="font-display text-xl font-semibold text-pearl">What you get</h2>
             <p className="mt-3 text-sm text-steel">
               After we understand the symptom and location, we outline likely diagnostic steps and a
               free estimate path for recommended repair work—before you authorize major parts and
@@ -131,9 +104,9 @@ export default function FreeEstimatePage() {
             <p className="mt-3 text-sm text-steel">
               Common requests:{" "}
               <Link href="/services/marine-engine-repair">marine engine repair</Link>,{" "}
-              <Link href="/services/electrical-repairs">electrical repairs</Link>,{" "}
-              <Link href="/services/mobile-boat-repair">mobile boat repair</Link>, and{" "}
-              <Link href="/services/boat-maintenance">boat maintenance</Link>.
+              <Link href="/services/electrical-repairs">electrical</Link>,{" "}
+              <Link href="/services/mobile-boat-repair">mobile boat repair</Link>,{" "}
+              <Link href="/services/boat-maintenance">maintenance</Link>.
             </p>
           </div>
 
@@ -150,7 +123,7 @@ export default function FreeEstimatePage() {
           </div>
 
           <p className="text-sm text-steel">
-            Already know you want a visit?{" "}
+            Ready to schedule?{" "}
             <Link href="/book" className="font-semibold text-gold">
               Book online
             </Link>

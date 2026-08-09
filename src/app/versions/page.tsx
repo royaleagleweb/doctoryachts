@@ -3,12 +3,11 @@ import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Design versions",
-  description: "Compare Doctor Yachts design variations",
+  description: "Internal design comparisons",
   robots: { index: false, follow: false },
-  alternates: { canonical: "/versions" },
 };
 
-/** Hub lives as static HTML at /versions/index.html — redirect for clean /versions path. */
+/** Internal mockups only — not part of the public site. */
 export default function VersionsPage() {
-  redirect("/versions/index.html");
+  redirect("/");
 }

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { notifyShop } from "@/lib/notify";
 
 type ContactBody = {
   name?: string;
@@ -37,7 +38,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
   }
 
-  // Phone strongly preferred for estimates / dockside work
   if (body.formType === "free-estimate" && !body.phone?.trim()) {
     return NextResponse.json(
       { error: "Phone number is required for free estimates" },
@@ -45,9 +45,23 @@ export async function POST(request: Request) {
     );
   }
 
-  console.info("[Doctor Yachts contact]", {
-    ...body,
-    receivedAt: new Date().toISOString(),
+  const kind = body.formType === "free-estimate" ? "Free estimate" : "Contact message";
+
+  await notifyShop({
+    subject: `${kind} — Doctor Yachts — ${body.name}`,
+    replyTo: body.email,
+    fields: {
+      type: body.formType || "contact",
+      name: body.name,
+      phone: body.phone,
+      email: body.email,
+      vessel: body.vessel,
+      city: body.city,
+      marina: body.marina,
+      problemId: body.problemId,
+      whenNeeded: body.whenNeeded,
+      message: body.message,
+    },
   });
 
   return NextResponse.json({ ok: true, message: "Message received" });

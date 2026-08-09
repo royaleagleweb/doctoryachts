@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CaseTag } from "@/components/ChartDecor";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -46,18 +46,11 @@ export default function ReviewsPage() {
         ])}
       />
 
-      <section className="border-b border-line bg-paper-deep/50">
-        <div className="wrap section-pad">
-          <CaseTag>Reviews</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
-            Reviews &amp; reputation
-          </h1>
-          <p className="mt-4 max-w-2xl text-muted">
-            Google Business Profile reviews will live here when the listing is active. Until then,
-            here is what we stand for—and how to reach us after a visit.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Reviews"
+        title="Reviews & reputation"
+        description="Google Business Profile reviews will live here when the listing is active. Until then, here is what we stand for—and how to reach us after a visit."
+      />
 
       <section className="wrap section-pad space-y-10">
         <div className="grid gap-5 md:grid-cols-3">

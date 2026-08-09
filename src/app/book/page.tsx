@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { CaseTag } from "@/components/ChartDecor";
 import { BookingForm } from "@/components/BookingForm";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -49,26 +49,25 @@ export default function BookPage() {
         ]}
       />
 
-      <section className="border-b border-line section-soft">
-        <div className="wrap section-pad pb-10">
-          <CaseTag>Book online</CaseTag>
-          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-pearl">
-            Book boat repair
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-steel">
-            Four quick steps in plain English. Tap what&apos;s wrong, where the boat is, and how to
-            reach you — we confirm by phone during shop hours ({site.hours}).
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+      <PageHero
+        eyebrow="Book online"
+        title="Book boat repair"
+        description={
+          <>
+            Four quick steps. We confirm by phone or email during shop hours ({site.hours}).
+          </>
+        }
+        actions={
+          <>
             <a href={site.phoneHref} className="btn">
               Call {site.phone}
             </a>
             <Link href="/free-estimate" className="btn btn-ghost">
-              Just want a free estimate?
+              Free estimate first?
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       <section className="wrap grid gap-8 py-10 lg:grid-cols-[minmax(0,1fr)_280px]">
         <div className="min-w-0">
@@ -81,50 +80,30 @@ export default function BookPage() {
           </Suspense>
         </div>
 
-        <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
+        <aside className="space-y-4 lg:sticky lg:top-36 lg:self-start">
           <div className="panel p-5">
-            <p className="text-sm font-semibold  text-gold">
-              4 easy steps
-            </p>
+            <p className="text-sm font-bold text-gold">4 easy steps</p>
             <ol className="mt-3 space-y-3 text-sm text-steel">
-              <li className="flex gap-2">
-                <span className="font-semibold text-gold">1</span>
-                What&apos;s wrong (tap a problem)
+              <li>
+                <strong className="text-pearl">1.</strong> What&apos;s wrong
               </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-gold">2</span>
-                City, marina, preferred day &amp; time
+              <li>
+                <strong className="text-pearl">2.</strong> City, marina, day &amp; time
               </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-gold">3</span>
-                Boat type (and size if you know it)
+              <li>
+                <strong className="text-pearl">3.</strong> Boat type
               </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-gold">4</span>
-                Name, phone &amp; email
+              <li>
+                <strong className="text-pearl">4.</strong> Name, phone &amp; email
               </li>
             </ol>
             <p className="mt-4 border-t border-line pt-3 text-xs leading-relaxed text-muted">
               Submitting is a <strong className="text-pearl">request</strong>, not an instant lock.
-              We confirm before arriving.
             </p>
           </div>
 
           <div className="panel p-5">
-            <p className="text-sm font-semibold  text-muted">
-              Tips for a faster visit
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-steel">
-              <li>· Marina name + slip or gate notes</li>
-              <li>· What the boat does (or doesn&apos;t do)</li>
-              <li>· When you need it back on the water</li>
-            </ul>
-          </div>
-
-          <div className="panel p-5">
-            <p className="text-sm font-semibold  text-muted">
-              Need help now?
-            </p>
+            <p className="text-sm font-bold text-pearl">Need help now?</p>
             <p className="mt-2 text-sm text-steel">
               Urgent no-starts and safety issues: call the shop.
             </p>

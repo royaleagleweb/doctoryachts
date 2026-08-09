@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { notifyShop } from "@/lib/notify";
 
 type BookingBody = {
   serviceId?: string;
@@ -56,10 +57,28 @@ export async function POST(request: Request) {
 
   const confirmationId = `DY-${Date.now().toString(36).toUpperCase()}`;
 
-  console.info("[Doctor Yachts booking]", {
-    confirmationId,
-    ...body,
-    receivedAt: new Date().toISOString(),
+  await notifyShop({
+    subject: `${body.priority ? "[URGENT] " : ""}Booking request ${confirmationId} — Doctor Yachts`,
+    replyTo: String(body.email),
+    fields: {
+      confirmationId,
+      type: "booking",
+      priority: body.priority ? "YES" : "no",
+      name: body.name,
+      phone: body.phone,
+      email: body.email,
+      problem: body.problemLabel || body.serviceTitle,
+      serviceId: body.serviceId,
+      serviceTitle: body.serviceTitle,
+      vesselType: body.vesselType,
+      vesselName: body.vesselName,
+      vesselLength: body.vesselLength,
+      preferredDate: body.date,
+      preferredTime: body.time,
+      city: body.city,
+      location: body.location,
+      notes: body.notes,
+    },
   });
 
   return NextResponse.json({
