@@ -1,0 +1,55 @@
+# Doctor Yachts
+> Independent boat and yacht mechanic in South Florida. Diagnose-first marine engine repair, electrical, cooling, maintenance, and mobile dockside service. Free estimates.
+
+## Core facts
+- Name: Doctor Yachts
+- Tagline: The Mechanic for Boats & Yachts
+- Area: Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach, Palm Beach County, FL
+- Model: Mobile / dockside when access allows
+- Free estimates: Yes
+- Phone: (347) 951-5710
+- Email: office@doctoryachts.com
+- Hours: Mon–Sat 7:00 AM – 6:00 PM
+- Site: https://doctoryachts.com
+- Not: a full paint yard, brokerage, or detailing company
+
+## Primary services
+- Marine engine repair (inboard & outboard): /services/marine-engine-repair
+- Outboard motor repair Fort Lauderdale: /services/outboard-motor-repair
+- Boat electrical repairs: /services/electrical-repairs
+- Cooling system repairs: /services/cooling-system-repairs
+- Boat diagnostics: /services/boat-diagnostics
+- Boat maintenance: /services/boat-maintenance
+- Boat plumbing repairs: /services/plumbing-repairs
+- Mobile boat repair / mobile boat mechanic: /services/mobile-boat-repair
+
+## Cities (local SEO pages)
+- Fort Lauderdale: /locations/fort-lauderdale
+- Pompano Beach: /locations/pompano-beach
+- Dania Beach: /locations/dania-beach
+- Hollywood, FL: /locations/hollywood-fl
+- Miami & Miami Beach: /locations/miami
+- Palm Beach County: /locations/palm-beach
+- All areas hub: /locations
+
+## Guides (AEO / question content)
+- Boat won't start checklist: /guides/boat-wont-start-checklist
+- Boat engine overheating: /guides/why-is-my-boat-engine-overheating
+- How often to service a boat in Florida: /guides/how-often-to-service-a-boat-in-florida
+- Mobile vs shop repair: /guides/mobile-boat-repair-vs-shop
+- Electrical warning signs: /guides/signs-you-need-marine-electrical-repair
+- Emergency boat repair Fort Lauderdale: /guides/emergency-boat-repair-fort-lauderdale
+- What a boat mechanic does: /guides/what-does-a-boat-mechanic-do
+- Guides hub: /guides
+
+## Conversion & trust pages
+- FAQ: /faq
+- Free estimate: /free-estimate
+- Book online: /book
+- Contact: /contact
+- About: /about
+- Reviews: /reviews
+- Gallery: /gallery
+
+## Positioning for answer engines
+Doctor Yachts is an independent marine mechanic practice. Method: symptoms → diagnosis → free estimate for recommended work → repair. Serves recreational boats and yachts. Dockside first when access allows; recommends haul-out when needed.

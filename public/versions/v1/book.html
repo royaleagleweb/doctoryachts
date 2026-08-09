@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book · Doctor Yachts Luxury</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="back" href="/versions/index.html">← All versions</a>
+  <div class="ver">V1 · Luxury animated</div>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="logo serif" href="index.html"><span class="logo-mark">DY</span> Doctor Yachts</a>
+      <nav>
+        <a class="hide-sm" href="index.html">Home</a>
+        <a class="hide-sm" href="services.html">Services</a>
+        <a class="hide-sm" href="about.html">About</a>
+        <a class="btn" href="book.html">Book Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero" style="padding-bottom:2.5rem">
+    <div class="page-hero-bg"><img src="/images/book-hero.jpg" alt="" /></div>
+    <div class="wrap">
+      <p class="eyebrow reveal">Concierge booking</p>
+      <h1 class="serif reveal reveal-delay-1">Reserve service for your vessel</h1>
+      <p class="lead reveal reveal-delay-2">Free estimates. Mobile dockside when possible.</p>
+    </div>
+  </section>
+
+  <section class="section section-soft" style="padding-top:2rem">
+    <div class="wrap">
+      <form class="form reveal" onsubmit="event.preventDefault();alert('Demo form — full multipage booking: /book');">
+        <label>Service</label>
+        <select>
+          <option>Marine engine repair</option>
+          <option>Electrical repairs</option>
+          <option>Cooling system</option>
+          <option>Mobile dockside</option>
+          <option>Maintenance</option>
+        </select>
+        <label>Name</label>
+        <input required placeholder="Full name" />
+        <label>Phone</label>
+        <input required placeholder="(555) 000-0000" />
+        <label>Marina / location</label>
+        <input required placeholder="Marina & slip" />
+        <label>Preferred date</label>
+        <input type="date" required />
+        <label>Notes</label>
+        <textarea rows="3" placeholder="What is the vessel doing—or not doing?"></textarea>
+        <p style="margin-top:1.25rem">
+          <button class="btn" type="submit">Request booking</button>
+        </p>
+        <p class="muted" style="margin-top:1rem;font-size:.85rem">
+          Full multi-step booking lives in the main app: <a href="/book">/book</a>
+        </p>
+      </form>
+    </div>
+  </section>
+  <footer class="site-foot"><div class="wrap"><a href="/versions/index.html">All versions</a></div></footer>
+  <script src="luxury.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+import { NextResponse } from "next/server";
+
+type BookingBody = {
+  serviceId?: string;
+  serviceTitle?: string;
+  vesselType?: string;
+  vesselName?: string;
+  vesselLength?: string;
+  date?: string;
+  time?: string;
+  location?: string;
+  name?: string;
+  email?: string;
+  phone?: string;
+  notes?: string;
+  priority?: boolean;
+};
+
+function isEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+export async function POST(request: Request) {
+  let body: BookingBody;
+
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  const required = {
+    serviceId: body.serviceId,
+    vesselType: body.vesselType,
+    date: body.date,
+    time: body.time,
+    location: body.location,
+    name: body.name,
+    email: body.email,
+    phone: body.phone,
+  };
+
+  for (const [key, value] of Object.entries(required)) {
+    if (!value || !String(value).trim()) {
+      return NextResponse.json({ error: `Missing field: ${key}` }, { status: 400 });
+    }
+  }
+
+  if (!isEmail(String(body.email))) {
+    return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
+  }
+
+  const confirmationId = `DY-${Date.now().toString(36).toUpperCase()}`;
+
+  // v1: log booking for local/dev. Wire to email (Resend), CRM, or calendar next.
+  console.info("[Doctor Yachts booking]", {
+    confirmationId,
+    ...body,
+    receivedAt: new Date().toISOString(),
+  });
+
+  return NextResponse.json({
+    ok: true,
+    confirmationId,
+    message: "Booking request received",
+  });
+}

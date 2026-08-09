@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctor Yachts — Design versions</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: system-ui, sans-serif; background: #111; color: #f2f2f2; padding: 2rem 1.25rem 4rem; }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; margin-bottom: .35rem; }
+    p { color: #aaa; line-height: 1.5; margin-bottom: 1.5rem; }
+    .grid { display: grid; gap: 1rem; }
+    a.card {
+      display: block; padding: 1.25rem 1.35rem; border-radius: 10px; text-decoration: none; color: inherit;
+      border: 1px solid #333; background: #1a1a1a; transition: border-color .15s, transform .15s;
+    }
+    a.card:hover { border-color: #888; transform: translateY(-2px); }
+    .num { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #888; }
+    .title { font-size: 1.2rem; font-weight: 700; margin: .35rem 0; }
+    .desc { font-size: .9rem; color: #999; line-height: 1.45; }
+    .current { border-color: #2a8a8f !important; box-shadow: 0 0 0 1px #2a8a8f; }
+    .badge { display: inline-block; background: #2a8a8f; color: #fff; font-size: .65rem; font-weight: 700; padding: .2rem .45rem; border-radius: 4px; margin-left: .35rem; vertical-align: middle; }
+    code { background: #222; padding: .15rem .4rem; border-radius: 4px; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Doctor Yachts — last 4 designs</h1>
+    <p>
+      Click any version to open a homepage-style preview. The full multipage Next.js app at
+      <code>http://localhost:3000</code> is <strong>v4</strong>.
+    </p>
+    <div class="grid">
+      <a class="card" href="v1-luxury-navy.html">
+        <div class="num">Version 1</div>
+        <div class="title">Luxury navy + gold</div>
+        <div class="desc">High-end marketing site. Pill buttons, Cormorant serif, brass accents, status card hero. You said this felt AI / template.</div>
+      </a>
+      <a class="card" href="v2-workshop-logbook.html">
+        <div class="num">Version 2</div>
+        <div class="title">Workshop logbook</div>
+        <div class="desc">Warm paper, rust orange, mono “job ticket” labels, full-bleed photo hero with left rule. Still a bit design-system-y.</div>
+      </a>
+      <a class="card" href="v3-local-shop.html">
+        <div class="num">Version 3</div>
+        <div class="title">Plain local shop</div>
+        <div class="desc">White/gray/yellow, Georgia + system fonts, service list rows, yellow CTA. Simple small-business mechanic site.</div>
+      </a>
+      <a class="card current" href="v4-chart-clinic.html">
+        <div class="num">Version 4 <span class="badge">CURRENT APP</span></div>
+        <div class="title">Chart table + clinic</div>
+        <div class="desc">Chart cream grid, teal + coral, Fraunces type, case tags (DX-01), ticket buttons, “Open a case” language. What’s live in Next.js now.</div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

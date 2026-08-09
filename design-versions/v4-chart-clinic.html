@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>v4 — Chart Clinic (current) | Doctor Yachts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --chart: #f3ead7; --chart-deep: #e7dcc4; --line: #c9b896;
+      --ink: #0e2a2c; --teal: #1f6a6e; --coral: #e05a3c; --muted: #5c6b66; --foam: #faf6ec;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: Outfit, system-ui, sans-serif;
+      background-color: var(--chart);
+      background-image:
+        linear-gradient(rgba(14,42,44,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,42,44,.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      color: var(--ink);
+      font-size: 16.5px;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ""; position: fixed; left: 0; top: 0; bottom: 0; width: 16px;
+      border-right: 1px solid color-mix(in srgb, var(--coral) 55%, transparent);
+      background: repeating-linear-gradient(to bottom, transparent 0 22px, rgba(14,42,44,.12) 22px 23px);
+      opacity: .55; pointer-events: none;
+    }
+    .display { font-family: Fraunces, Georgia, serif; letter-spacing: -.02em; }
+    .mono { font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+    .wrap { width: min(1120px, calc(100% - 2.5rem)); margin-inline: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--chart) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .top { background: var(--ink); color: #c9b896; }
+    .top .wrap { display: flex; justify-content: space-between; padding: .4rem 0; gap: .5rem; flex-wrap: wrap; }
+    .top a { color: var(--coral); font-weight: 600; text-decoration: none; }
+    .bar { display: flex; justify-content: space-between; align-items: center; padding: .85rem 0; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--ink); }
+    .mark { width: 42px; height: 42px; border: 1.5px solid var(--ink); border-radius: 3px; display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
+    nav a { color: var(--ink); text-decoration: none; margin-left: .35rem; padding: .5rem .7rem; font-size: .9rem; font-weight: 500; }
+    .btn {
+      display: inline-flex; align-items: center; background: var(--coral); color: #fff8f5;
+      padding: .78rem 1.2rem; font-weight: 700; text-decoration: none; font-size: .9rem;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+    .tag { display: inline-flex; align-items: center; gap: .4rem; padding: .28rem .55rem; border: 1px solid var(--line); background: var(--foam); color: var(--teal); font-family: "IBM Plex Mono", monospace; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); }
+    .hero { border-bottom: 1px solid var(--line); }
+    .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 70vh; }
+    @media (max-width: 900px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      body::before { display: none; }
+    }
+    .hero-copy { display: flex; flex-direction: column; justify-content: center; padding: 3rem 0; padding-right: 2rem; }
+    h1 { font-size: clamp(2.2rem, 4.5vw, 3.1rem); line-height: 1.05; font-weight: 600; margin: 1.25rem 0; }
+    h1 em { font-style: normal; color: var(--teal); }
+    h1 .dash { color: var(--coral); }
+    .shot { background: var(--foam); border: 1px solid var(--line); box-shadow: 3px 3px 0 rgba(14,42,44,.12); position: relative; min-height: 320px; }
+    .shot-img { position: absolute; inset: 0; background: center/cover url("../public/images/home-hero.jpg"); }
+    .shot::before, .shot::after { content: ""; position: absolute; z-index: 2; width: 10px; height: 10px; pointer-events: none; }
+    .shot::before { left: 8px; top: 8px; border-left: 1.5px solid color-mix(in srgb, var(--coral) 70%, transparent); border-top: 1.5px solid color-mix(in srgb, var(--coral) 70%, transparent); }
+    .shot::after { right: 8px; bottom: 8px; border-right: 1.5px solid color-mix(in srgb, var(--teal) 70%, transparent); border-bottom: 1.5px solid color-mix(in srgb, var(--teal) 70%, transparent); }
+    .manifesto { background: var(--ink); color: var(--chart); padding: 1.75rem 0; }
+    .manifesto p { font-size: clamp(1.15rem, 2.5vw, 1.5rem); line-height: 1.35; max-width: 40rem; }
+    .manifesto em { color: var(--coral); font-style: normal; }
+    .section { padding: 3.5rem 0; }
+    .proto { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2rem; }
+    .proto li { list-style: none; background: var(--foam); border: 1px solid var(--line); padding: 1.15rem; }
+    .proto li:nth-child(2) { transform: translateY(1rem); }
+    .proto li:nth-child(4) { transform: translateY(-.5rem); }
+    .proto .n { font-family: Fraunces, serif; font-size: 1.75rem; color: color-mix(in srgb, var(--coral) 90%, #fff); }
+    @media (max-width: 800px) { .proto { grid-template-columns: 1fr 1fr; } .proto li { transform: none !important; } }
+    .panel { background: var(--foam); border: 1px solid var(--line); }
+    .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.15rem; margin-top: 1.75rem; }
+    @media (max-width: 800px) { .svc-grid { grid-template-columns: 1fr; } }
+    .svc { overflow: hidden; }
+    .svc .ph { aspect-ratio: 16/10; background: center/cover #ccc; position: relative; }
+    .s1 { background-image: url("../public/images/service-engine.jpg"); }
+    .s2 { background-image: url("../public/images/service-electrical.jpg"); }
+    .s3 { background-image: url("../public/images/service-diagnostics.jpg"); }
+    .dx { position: absolute; left: .65rem; top: .65rem; background: rgba(14,42,44,.85); color: var(--chart); padding: .2rem .45rem; font-family: "IBM Plex Mono", monospace; font-size: .65rem; }
+    .svc .body { padding: 1.1rem; border-top: 1px solid var(--line); }
+    .cta { background: var(--teal); color: #fff; padding: 2.5rem 0; position: relative; overflow: hidden; }
+    .cta::before { content: ""; position: absolute; inset: 0; opacity: .2; background: radial-gradient(circle at 20% 50%, #fff 0, transparent 40%), radial-gradient(circle at 80% 20%, #e05a3c 0, transparent 35%); }
+    .cta .wrap { position: relative; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+    .ver { position: fixed; bottom: 1rem; right: 1rem; background: #fff; border: 2px solid var(--ink); padding: .5rem .75rem; font-size: .75rem; font-weight: 700; z-index: 20; box-shadow: 4px 4px 0 var(--ink); font-family: Outfit, system-ui, sans-serif; }
+    .coord { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ver">VERSION 4 · Chart clinic (CURRENT APP)</div>
+  <header>
+    <div class="top"><div class="wrap mono"><span>Case intake open · Fort Lauderdale · Miami · Palm Beach</span><a href="tel:+15550149224">(555) 014-YACHT</a></div></div>
+    <div class="wrap bar">
+      <a class="brand" href="#">
+        <span class="mark">DY+</span>
+        <span>
+          <span class="display" style="display:block;font-size:1.3rem;font-weight:600">Doctor Yachts</span>
+          <span class="mono" style="color:var(--muted)">Marine diagnostics & repair</span>
+        </span>
+      </a>
+      <nav>
+        <a href="#">Home</a><a href="#">Services</a><a href="#">Locations</a><a href="#">About</a>
+        <a class="btn" href="#" style="margin-left:.5rem">Open a case</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:center">
+          <span class="tag">South Florida practice</span>
+          <span class="mono coord">26.12°N · 80.14°W</span>
+        </div>
+        <h1 class="display">The doctor is <em>in</em><span class="dash">—</span>for boats &amp; yachts.</h1>
+        <p style="color:var(--muted);max-width:26rem">Independent marine mechanic work with a clinic mindset: listen to the symptoms, diagnose cleanly, fix what matters.</p>
+        <div style="margin-top:1.5rem;display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="btn" href="#">Open a case</a>
+          <a class="btn btn-ghost" href="#">See the practice</a>
+        </div>
+        <div style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem">
+          <div><p class="mono" style="color:var(--coral)">FTL</p><p style="font-size:.85rem;color:var(--muted);margin-top:.25rem">Fort Lauderdale</p></div>
+          <div><p class="mono" style="color:var(--coral)">MIA</p><p style="font-size:.85rem;color:var(--muted);margin-top:.25rem">Miami / Beach</p></div>
+          <div><p class="mono" style="color:var(--coral)">PBI</p><p style="font-size:.85rem;color:var(--muted);margin-top:.25rem">Palm Beach</p></div>
+        </div>
+      </div>
+      <div style="position:relative;padding:1.5rem 0 1.5rem 1rem">
+        <div class="shot" style="height:100%;min-height:380px">
+          <div class="shot-img"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="wrap">
+      <p class="display">“Most boats don’t need a miracle—they need someone who actually <em>reads the chart</em> before swapping parts.”</p>
+      <p class="mono" style="margin-top:.75rem;color:#8a9a94">Shop principle · DY-01</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="tag">Protocol</span>
+      <h2 class="display" style="font-size:2rem;margin-top:1rem;max-width:22rem">How a case moves through the shop</h2>
+      <ol class="proto">
+        <li><div class="n">01</div><h3 class="display" style="margin:.75rem 0 .35rem">Symptoms</h3><p style="font-size:.9rem;color:var(--muted)">What the boat is doing—or not doing.</p></li>
+        <li><div class="n">02</div><h3 class="display" style="margin:.75rem 0 .35rem">Chart the job</h3><p style="font-size:.9rem;color:var(--muted)">Location, access, vessel type.</p></li>
+        <li><div class="n">03</div><h3 class="display" style="margin:.75rem 0 .35rem">Diagnosis</h3><p style="font-size:.9rem;color:var(--muted)">Find the fault before the fix.</p></li>
+        <li><div class="n">04</div><h3 class="display" style="margin:.75rem 0 .35rem">Discharge</h3><p style="font-size:.9rem;color:var(--muted)">Repair, notes, what to watch.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" style="background:color-mix(in srgb, var(--chart-deep) 40%, transparent);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <span class="tag">Practice areas</span>
+      <h2 class="display" style="font-size:2rem;margin-top:1rem">What we treat on board</h2>
+      <div class="svc-grid">
+        <article class="panel svc">
+          <div class="ph s1"><span class="dx">DX-01</span></div>
+          <div class="body">
+            <h3 class="display" style="font-size:1.2rem">Engine repair</h3>
+            <p style="font-size:.9rem;color:var(--muted);margin-top:.35rem">Inboards, outboards, generators.</p>
+          </div>
+        </article>
+        <article class="panel svc">
+          <div class="ph s2"><span class="dx">DX-02</span></div>
+          <div class="body">
+            <h3 class="display" style="font-size:1.2rem">Marine electrical</h3>
+            <p style="font-size:.9rem;color:var(--muted);margin-top:.35rem">Charging, wiring, shore power.</p>
+          </div>
+        </article>
+        <article class="panel svc">
+          <div class="ph s3"><span class="dx">DX-03</span></div>
+          <div class="body">
+            <h3 class="display" style="font-size:1.2rem">Diagnostics</h3>
+            <p style="font-size:.9rem;color:var(--muted);margin-top:.35rem">Full vessel health checks.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <div>
+        <span class="tag" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff">Triage open</span>
+        <h2 class="display" style="font-size:2rem;margin-top:1rem">Boat acting sick?<br/><span style="opacity:.8">We’ll take a look.</span></h2>
+      </div>
+      <a class="btn" href="#">Open a case</a>
+    </div>
+  </section>
+</body>
+</html>

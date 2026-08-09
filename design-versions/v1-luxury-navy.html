@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>v1 — Luxury Navy | Doctor Yachts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#0b1c2d; --deep:#061018; --brass:#c4a35a; --pearl:#f4f1ea; --steel:#9eb0bf; }
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: "DM Sans", system-ui, sans-serif; background: #f7f5f0; color: var(--navy); }
+    .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+    header { background: rgba(11,28,45,.94); color: var(--pearl); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .bar { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    nav a { color: rgba(244,241,234,.8); text-decoration: none; margin-left: 1rem; font-size: .9rem; }
+    .btn { display: inline-block; background: var(--brass); color: var(--deep); padding: .75rem 1.4rem; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: .9rem; }
+    .btn-outline { border: 1px solid rgba(244,241,234,.3); color: var(--pearl); background: transparent; border-radius: 999px; padding: .75rem 1.4rem; text-decoration: none; font-size: .9rem; }
+    .hero { background: linear-gradient(165deg, #061018, #0b1c2d 45%, #123047); color: var(--pearl); padding: 5rem 1.25rem 4rem; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; gap: 2rem; grid-template-columns: 1.2fr .8fr; }
+    @media (max-width: 800px) { .hero-inner { grid-template-columns: 1fr; } }
+    .eyebrow { color: var(--brass); font-size: .7rem; letter-spacing: .28em; text-transform: uppercase; font-weight: 700; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.08; margin: 1rem 0; font-weight: 600; }
+    .card { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); border-radius: 1.25rem; padding: 1.5rem; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem; }
+    .grid3 { display: grid; gap: 1.25rem; grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 800px) { .grid3 { grid-template-columns: 1fr; } }
+    .svc { background: #fff; border: 1px solid #d7e0e7; border-radius: 1rem; padding: 1.25rem; }
+    .svc h3 { font-size: 1.35rem; margin-bottom: .4rem; }
+    .muted { color: #4a5d6c; font-size: .95rem; line-height: 1.6; }
+    .banner { background: var(--navy); color: var(--pearl); padding: 3rem 1.25rem; }
+    .banner-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+    .tag { display: inline-block; background: #eef3f6; color: var(--navy); padding: .2rem .5rem; border-radius: 999px; font-size: .7rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    footer { background: var(--deep); color: var(--steel); padding: 2rem 1.25rem; font-size: .8rem; text-align: center; }
+    .ver { position: fixed; bottom: 1rem; right: 1rem; background: #fff; border: 2px solid var(--navy); padding: .5rem .75rem; font-size: .75rem; font-weight: 700; z-index: 20; box-shadow: 4px 4px 0 var(--navy); }
+  </style>
+</head>
+<body>
+  <div class="ver">VERSION 1 · Luxury navy/gold</div>
+  <header>
+    <div class="bar">
+      <div class="serif" style="font-size:1.35rem;letter-spacing:.04em">Doctor Yachts</div>
+      <nav>
+        <a href="#">Home</a><a href="#">Services</a><a href="#">About</a><a href="#">Contact</a>
+        <a class="btn" href="#" style="margin-left:1rem">Book Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">The Mechanic for Boats & Yachts</p>
+        <h1 class="serif">Yacht & boat mechanic for engine repair, electrical & maintenance</h1>
+        <p style="color:var(--steel);max-width:32rem;line-height:1.7;margin:1rem 0 1.5rem">
+          Precision marine mechanics for boats and yachts—diagnostics, repairs, and maintenance with white-glove professionalism.
+        </p>
+        <a class="btn" href="#">Book a Service</a>
+        <a class="btn-outline" href="#" style="margin-left:.5rem">View Services</a>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Shop status</p>
+        <p class="serif" style="font-size:1.5rem;margin:.75rem 0">Accepting new service bookings</p>
+        <p style="color:var(--steel);font-size:.9rem;line-height:1.8">Hours: Mon–Sat 7–6<br/>Coverage: South Florida<br/>Phone: (555) 014-YACHT</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="tag">What we fix</p>
+    <h2 class="serif" style="font-size:2.2rem;margin-bottom:.5rem">Specialist services for boats & yachts</h2>
+    <p class="muted" style="margin-bottom:1.75rem">From seasonal maintenance to complex diagnostics.</p>
+    <div class="grid3">
+      <article class="svc" style="background:var(--navy);color:var(--pearl);border-color:rgba(196,163,90,.3)">
+        <h3 class="serif">Engine Diagnostics & Repair</h3>
+        <p style="color:var(--steel);font-size:.9rem">Inboards, outboards, generators.</p>
+      </article>
+      <article class="svc">
+        <h3 class="serif">Marine Electrical</h3>
+        <p class="muted">Batteries, chargers, shore power.</p>
+      </article>
+      <article class="svc">
+        <h3 class="serif">Scheduled Maintenance</h3>
+        <p class="muted">Oil, filters, zincs, commissioning.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div class="banner-inner">
+      <div>
+        <p class="eyebrow">Ready when you are</p>
+        <h2 class="serif" style="font-size:2rem;margin-top:.5rem">Book a service slot—or call the shop.</h2>
+      </div>
+      <a class="btn" href="#">Book Online</a>
+    </div>
+  </section>
+  <footer>v1 · Doctor Yachts · Template-style luxury marketing look</footer>
+</body>
+</html>

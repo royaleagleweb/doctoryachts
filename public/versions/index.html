@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctor Yachts — Pick a design to review</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #0c1214;
+      color: #f3f0ea;
+      padding: 2rem 1.25rem 4rem;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.4rem); letter-spacing: -0.02em; }
+    .lead { margin: .75rem 0 2rem; color: #a8b0ad; line-height: 1.55; max-width: 36rem; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #2a3536;
+      background: #141c1e;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .15s, border-color .15s;
+    }
+    a.card:hover { transform: translateY(-3px); border-color: #5a7a7c; }
+    .swatch { height: 92px; }
+    .s1 { background: linear-gradient(135deg, #061018, #0b1c2d 50%, #c4a35a); }
+    .s2 { background: linear-gradient(135deg, #f4efe6, #c24e1d 70%, #161411); }
+    .s3 { background: linear-gradient(135deg, #fff, #e8a317 55%, #1c1c1c); }
+    .s4 { background: linear-gradient(135deg, #f3ead7, #1f6a6e 55%, #e05a3c); }
+    .body { padding: 1.1rem 1.2rem 1.25rem; }
+    .num { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #7d8a87; }
+    .title { font-size: 1.2rem; font-weight: 700; margin: .35rem 0; }
+    .desc { font-size: .9rem; color: #9aa3a0; line-height: 1.45; }
+    .badge {
+      display: inline-block; margin-top: .75rem; font-size: .68rem; font-weight: 700;
+      background: #e05a3c; color: #fff; padding: .25rem .5rem; border-radius: 999px;
+    }
+    .note {
+      margin-top: 2rem; padding: 1rem 1.15rem; border: 1px dashed #334042; border-radius: 10px;
+      color: #8f9a97; font-size: .9rem; line-height: 1.5;
+    }
+    code { background: #1c2628; padding: .1rem .35rem; border-radius: 4px; color: #d8e0de; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Doctor Yachts — design review</h1>
+    <p class="lead">
+      Four live variations for you and your partner. Click one, click around (Home / Services / About / Book),
+      then come back here to compare the next.
+    </p>
+
+    <div class="grid">
+      <a class="card" href="/versions/v1/index.html">
+        <div class="swatch s1"></div>
+        <div class="body">
+          <div class="num">Variation 1 · UPDATED</div>
+          <div class="title">Luxury Navy + Gold · Animated</div>
+          <div class="desc">Cinematic Ken Burns hero, scroll reveals, gold shimmer CTAs, floating glass card, marquee, film grain—high-end motion.</div>
+        </div>
+      </a>
+      <a class="card" href="/versions/v2/index.html">
+        <div class="swatch s2"></div>
+        <div class="body">
+          <div class="num">Variation 2</div>
+          <div class="title">Workshop Logbook</div>
+          <div class="desc">Warm paper, rust accents, mono labels — shop / logbook vibe.</div>
+        </div>
+      </a>
+      <a class="card" href="/versions/v3/index.html">
+        <div class="swatch s3"></div>
+        <div class="body">
+          <div class="num">Variation 3</div>
+          <div class="title">Local Shop Plain</div>
+          <div class="desc">Simple white/yellow mechanic site. Straight talk, easy to read.</div>
+        </div>
+      </a>
+      <a class="card" href="/versions/v4/index.html">
+        <div class="swatch s4"></div>
+        <div class="body">
+          <div class="num">Variation 4</div>
+          <div class="title">Chart Clinic</div>
+          <div class="desc">Unique “boat doctor” identity — chart cream, teal, coral, case tags.</div>
+          <span class="badge">Also the full Next.js app at /</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="note">
+      <strong style="color:#d8e0de">Partner tip:</strong> On the same Wi‑Fi, open this page on their phone using your computer’s network address
+      (shown when you run <code>npm run dev</code>, e.g. <code>http://192.168.x.x:3000/versions/</code>).
+      Full multipage app (SEO + booking): <code><a href="/" style="color:#7ec8c9">http://localhost:3000/</a></code>
+    </div>
+  </div>
+</body>
+</html>

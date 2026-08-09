@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>v3 — Local Shop | Doctor Yachts</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: Georgia, "Times New Roman", Times, serif; background: #fff; color: #1c1c1c; font-size: 18px; line-height: 1.55; }
+    .ui, nav, .btn, header, footer { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    a { color: #0b5cab; }
+    .wrap { width: min(1080px, calc(100% - 2rem)); margin-inline: auto; }
+    header { border-bottom: 1px solid #dcdcdc; background: #fff; }
+    .top { background: #1c1c1c; color: #fff; font-size: .875rem; }
+    .top .wrap { display: flex; justify-content: space-between; gap: .5rem; flex-wrap: wrap; padding: .5rem 0; }
+    .top a { color: #e8a317; font-weight: 700; text-decoration: none; }
+    .bar { display: flex; justify-content: space-between; align-items: center; padding: .85rem 0; gap: 1rem; }
+    .logo strong { display: block; font-size: 1.35rem; }
+    .logo span { font-size: .75rem; color: #5a5a5a; font-weight: 400; }
+    nav a { color: #333; text-decoration: none; margin-left: 1.1rem; font-size: .95rem; }
+    .btn { display: inline-block; padding: .7rem 1.15rem; border: 2px solid #1c1c1c; background: #e8a317; color: #1c1c1c; font-weight: 700; text-decoration: none; border-radius: 4px; font-size: .95rem; }
+    .btn-outline { background: #fff; }
+    .hero { background: #f6f6f4; border-bottom: 1px solid #dcdcdc; }
+    .hero .wrap { display: grid; gap: 2rem; grid-template-columns: 1.1fr .9fr; align-items: center; padding: 2.5rem 0; }
+    @media (max-width: 800px) { .hero .wrap { grid-template-columns: 1fr; } }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.15; font-weight: 700; margin: .5rem 0 1rem; }
+    .photo { aspect-ratio: 4/3; border: 1px solid #ccc; box-shadow: 4px 4px 0 #1c1c1c; background: #ddd center/cover url("../public/images/service-engine.jpg"); }
+    .section { padding: 2.5rem 0; }
+    .two { display: grid; gap: 2rem; grid-template-columns: 1.2fr .8fr; }
+    @media (max-width: 800px) { .two { grid-template-columns: 1fr; } }
+    .box { border: 1px solid #dcdcdc; background: #f6f6f4; padding: 1.15rem; }
+    .box ul { margin: .75rem 0 0 1.1rem; font-size: .9rem; }
+    .list-row { display: grid; grid-template-columns: 140px 1fr auto; gap: 1rem; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid #e5e5e5; font-size: 1rem; }
+    .thumb { width: 140px; height: 90px; background: #ddd center/cover; border: 1px solid #ddd; }
+    .t1 { background-image: url("../public/images/service-engine.jpg"); }
+    .t2 { background-image: url("../public/images/service-electrical.jpg"); }
+    .t3 { background-image: url("../public/images/service-maintenance.jpg"); }
+    blockquote { border-left: 4px solid #e8a317; padding-left: 1.15rem; font-size: 1.25rem; margin: 0; }
+    .cta { background: #fff8e6; border-top: 1px solid #dcdcdc; }
+    .cta .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; padding: 2rem 0; }
+    footer { border-top: 4px solid #1c1c1c; background: #f6f6f4; padding: 2rem 0; font-size: .85rem; color: #5a5a5a; }
+    .ver { position: fixed; bottom: 1rem; right: 1rem; background: #fff; border: 2px solid #1c1c1c; padding: .5rem .75rem; font-size: .75rem; font-weight: 700; z-index: 20; box-shadow: 4px 4px 0 #1c1c1c; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="ver">VERSION 3 · Local shop plain</div>
+  <header>
+    <div class="top"><div class="wrap"><span>Boat & yacht mechanic · Fort Lauderdale, Miami, Palm Beach</span><a href="tel:+15550149224">Call (555) 014-YACHT</a></div></div>
+    <div class="wrap bar ui">
+      <a class="logo" href="#" style="text-decoration:none;color:#1c1c1c"><strong>Doctor Yachts</strong><span>Marine mechanic</span></a>
+      <nav>
+        <a href="#">Home</a><a href="#">Services</a><a href="#">About</a><a href="#">Contact</a>
+        <a class="btn" href="#" style="margin-left:1rem">Book service</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="ui" style="font-size:.875rem;font-weight:700;color:#5a5a5a">South Florida boat & yacht mechanic</p>
+        <h1>Doctor Yachts fixes boats and yachts—engines, electrical, and the stuff that keeps you from leaving the dock.</h1>
+        <p>We work dockside when we can: Fort Lauderdale, Miami, and Palm Beach. If something sounds wrong, smells wrong, or won’t start, that’s the kind of call we take.</p>
+        <div class="ui" style="margin-top:1.25rem;display:flex;gap:.5rem;flex-wrap:wrap">
+          <a class="btn" href="#">Book a service visit</a>
+          <a class="btn btn-outline" href="#">Call (555) 014-YACHT</a>
+        </div>
+        <p class="ui" style="margin-top:1rem;font-size:.875rem;color:#5a5a5a">Hours: Mon–Sat · 7:00 AM – 6:00 PM</p>
+      </div>
+      <div class="photo" role="img" aria-label="Engine bay"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two">
+      <div>
+        <h2 style="font-size:1.5rem">What we actually do</h2>
+        <p style="margin-top:.75rem;color:#333">Most of our week is engine problems, charging and electrical faults, pumps and bilge issues, seasonal maintenance, and “it only does it sometimes” diagnostics.</p>
+        <p style="margin-top:.75rem;color:#333">You’ll get a straight answer on what failed, what it costs to fix, and what can wait. That’s the whole pitch.</p>
+      </div>
+      <aside class="box ui">
+        <p style="font-weight:700;font-size:.875rem">Quick links</p>
+        <ul>
+          <li><a href="#">Engine repair</a></li>
+          <li><a href="#">Marine electrical</a></li>
+          <li><a href="#">Maintenance</a></li>
+          <li><a href="#">Dockside / priority</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc">
+    <div class="wrap">
+      <h2 style="font-size:1.5rem">Services</h2>
+      <div class="list-row">
+        <div class="thumb t1 ui"></div>
+        <div><strong>Yacht & Boat Engine Repair</strong><br/><span style="color:#5a5a5a;font-size:.95rem">Inboards, outboards, generators.</span></div>
+        <div class="ui"><a href="#"><strong>Book</strong></a></div>
+      </div>
+      <div class="list-row">
+        <div class="thumb t2 ui"></div>
+        <div><strong>Marine Electrical Repair</strong><br/><span style="color:#5a5a5a;font-size:.95rem">Batteries, chargers, shore power.</span></div>
+        <div class="ui"><a href="#"><strong>Book</strong></a></div>
+      </div>
+      <div class="list-row">
+        <div class="thumb t3 ui"></div>
+        <div><strong>Boat & Yacht Maintenance</strong><br/><span style="color:#5a5a5a;font-size:.95rem">Seasonal service and checklists.</span></div>
+        <div class="ui"><a href="#"><strong>Book</strong></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <blockquote>
+        They found a charging problem two other places missed. Showed up on time, explained it without talking down to me, fixed it.
+        <footer class="ui" style="margin-top:.75rem;font-size:.875rem;color:#5a5a5a">— Boat owner, Fort Lauderdale</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap ui">
+      <div>
+        <h2 style="font-size:1.4rem;font-family:system-ui,sans-serif">Need the boat looked at?</h2>
+        <p style="color:#5a5a5a;font-size:.9rem;margin-top:.35rem">Tell us what’s going on and where the boat is.</p>
+      </div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <a class="btn" href="#">Book online</a>
+        <a class="btn btn-outline" href="#">(555) 014-YACHT</a>
+      </div>
+    </div>
+  </section>
+  <footer><div class="wrap">v3 · Doctor Yachts · Simple local-shop website style</div></footer>
+</body>
+</html>
