@@ -80,9 +80,20 @@ export function Footer() {
       </div>
 
       <div>
-        <div className="wrap flex flex-col gap-2 py-6 text-sm text-[#7a8c9c] sm:flex-row sm:justify-between">
+        <div className="wrap flex flex-col gap-2 py-6 text-sm text-[#7a8c9c] sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Doctor Yachts</span>
-          <span>Diagnose first · free estimates</span>
+          <span className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/privacy" className="no-underline hover:text-white">
+              Privacy
+            </Link>
+            <Link href="/terms" className="no-underline hover:text-white">
+              Terms
+            </Link>
+            <Link href="/reviews" className="no-underline hover:text-white">
+              Reviews
+            </Link>
+            <span>Diagnose first · free estimates</span>
+          </span>
         </div>
       </div>
     </footer>

@@ -12,6 +12,7 @@ import { locations } from "@/lib/locations";
 import {
   getAllServiceCityPairs,
   getServiceCityPair,
+  isServiceCityIndexable,
   serviceCityContent,
   serviceCityFaqs,
   serviceCityH1,
@@ -49,6 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: serviceCitySeoDescription(service, location),
     path,
     keywords: serviceCityKeywords(service, location),
+    noIndex: !isServiceCityIndexable(slug, city),
   });
 }
 

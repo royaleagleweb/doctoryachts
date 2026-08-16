@@ -430,7 +430,7 @@ textarea {
 .hero-edge__copy-inner {
   width: min(1400px, calc(100% - 2.5rem));
   margin-inline: auto;
-  max-width: 40rem;
+  max-width: 46rem;
   margin-left: max(1.25rem, calc((100vw - 1400px) / 2 + 1.25rem));
   margin-right: auto;
 }

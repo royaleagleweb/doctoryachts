@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { locations } from "./locations";
+import { services } from "./services";
 import { site, seoKeywords } from "./site";
 
 type BuildMetaInput = {
@@ -9,6 +10,14 @@ type BuildMetaInput = {
   keywords?: string[];
   noIndex?: boolean;
 };
+
+/** Default social/share image — keep in sync with LocalBusiness schema + layout OG */
+export const defaultOgImage = {
+  url: "/images/home-hero-v2.jpg",
+  width: 1200,
+  height: 630,
+  alt: `${site.name} — mobile boat mechanic in Fort Lauderdale`,
+} as const;
 
 export function absoluteUrl(path = "/") {
   const base = site.url.replace(/\/$/, "");
@@ -36,7 +45,7 @@ export function buildMetadata({
       canonical: url,
     },
     robots: noIndex
-      ? { index: false, follow: false }
+      ? { index: false, follow: true }
       : { index: true, follow: true },
     openGraph: {
       title,
@@ -45,11 +54,13 @@ export function buildMetadata({
       siteName: site.name,
       type: "website",
       locale: "en_US",
+      images: [defaultOgImage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [defaultOgImage.url],
     },
   };
 }
@@ -58,7 +69,6 @@ export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    additionalType: "https://schema.org/AutoRepair",
     "@id": `${site.url}/#business`,
     name: site.name,
     alternateName: "Doctor Yachts Marine Mechanics",
@@ -68,7 +78,14 @@ export function localBusinessJsonLd() {
     email: site.email,
     priceRange: "$$",
     slogan: site.tagline,
-    image: absoluteUrl("/images/home-hero.jpg"),
+    image: absoluteUrl(defaultOgImage.url),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: site.addressLocality,
+      addressRegion: site.addressRegion,
+      addressCountry: site.addressCountry,
+    },
+    sameAs: [site.profiles.yelp, site.profiles.google],
     areaServed: locations.map((loc) => ({
       "@type": "City",
       name: loc.name,
@@ -96,14 +113,15 @@ export function localBusinessJsonLd() {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "South Florida marine mechanic services",
-      itemListElement: [
-        "Yacht engine repair",
-        "Boat engine repair",
-        "Marine electrical repair",
-        "Boat maintenance",
-        "Yacht diagnostics",
-        "Dockside boat repair",
-      ],
+      itemListElement: services.map((service, index) => ({
+        "@type": "Offer",
+        position: index + 1,
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          url: absoluteUrl(`/services/${service.slug}`),
+        },
+      })),
     },
   };
 }
@@ -120,7 +138,7 @@ export function serviceJsonLd(input: {
     description: input.description,
     url: absoluteUrl(input.path),
     provider: {
-      "@type": "AutoRepair",
+      "@type": "LocalBusiness",
       name: site.name,
       url: site.url,
       telephone: site.phone,
@@ -217,10 +235,5 @@ export function webSiteJsonLd() {
     "@type": "WebSite",
     name: site.name,
     url: site.url,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${site.url}/guides?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }

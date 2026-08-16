@@ -64,8 +64,8 @@ export default function GalleryPage() {
             Yachts, marinas &amp; marine service
           </h1>
           <p className="mt-4 max-w-xl text-steel">
-            Branding and field visuals for Doctor Yachts—South Florida waters, dockside life, and
-            the systems we repair. Replace with your own job photos anytime.
+            South Florida waters, dockside life, and the systems we repair—engines, electrical,
+            and mobile marina work.
           </p>
         </div>
       </section>

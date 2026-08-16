@@ -27,7 +27,7 @@ export const locations: Location[] = [
     seoTitle: "Boat Repair | Doctor Yachts | Fort Lauderdale, FL",
     seoDescription:
       "Get expert mobile boat repair & maintenance in Fort Lauderdale, FL. Engines, electrical, plumbing & cooling system repairs. Free estimates — Doctor Yachts.",
-    h1: "Don't wait to get boat repairs in the Fort Lauderdale, FL area",
+    h1: "Boat repair in Fort Lauderdale — dockside, diagnose first",
     intro:
       "Doctor Yachts provides boat repair and boat maintenance for Fort Lauderdale and Broward—mobile and dockside marine engine repair, electrical, and systems service.",
     content: [
