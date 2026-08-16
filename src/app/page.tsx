@@ -7,11 +7,12 @@ import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
+import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { guides } from "@/lib/guides";
-import { images, yachtStrip, yachts } from "@/lib/images";
+import { images, yachtStrip } from "@/lib/images";
 import { locations } from "@/lib/locations";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
@@ -28,53 +29,30 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      <section className="hero-edge">
-        <div className="hero-edge__media">
-          <Image
-            src={images.homeHero.src}
-            alt={images.homeHero.alt}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[center_30%]"
-          />
-        </div>
-        <div className="hero-edge__copy">
-          <div className="hero-edge__copy-inner">
-            <p className="hero-edge__kicker">Fort Lauderdale · Pompano · Miami</p>
-            <h1 className="font-display text-white">
-              Mobile boat mechanic in Fort Lauderdale &amp; Pompano Beach
-            </h1>
-            <p className="font-display mt-3 text-2xl font-semibold text-gold sm:text-3xl">
-              Marine repair. No guessing.
-            </p>
-            <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-steel">
-              Independent boat &amp; yacht mechanic. Engines, electrical, cooling, dockside
-              service. Free estimates.
-            </p>
-            <div className="hero-edge__actions">
-              <Button href="/book">Book a visit</Button>
-              <Button href="/free-estimate" variant="ghost">
-                Free estimate
-              </Button>
-            </div>
-            <div className="hero-edge__meta">
-              <span>
-                <b>Call</b>{" "}
-                <a href={site.phoneHref} className="text-white no-underline hover:text-gold">
-                  {site.phone}
-                </a>
-              </span>
-              <span>
-                <b>Hours</b> {site.hours}
-              </span>
-              <span>
-                <b>Mobile</b> when access allows
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Fort Lauderdale · Pompano · Miami"
+        title="Mobile boat mechanic in Fort Lauderdale & Pompano Beach"
+        subhead="Marine repair. No guessing."
+        description="Independent boat & yacht mechanic. Engines, electrical, cooling, dockside service. Free estimates."
+        image={images.gallery.engine}
+        actions={
+          <>
+            <Button href="/book">Book a visit</Button>
+            <Button href="/free-estimate" variant="ghost">
+              Free estimate
+            </Button>
+          </>
+        }
+        meta={
+          <p className="page-hero__crumb">
+            <b>Call</b> <a href={site.phoneHref}>{site.phone}</a>
+            <span className="mx-2 text-muted">·</span>
+            {site.hours}
+            <span className="mx-2 text-muted">·</span>
+            Mobile when access allows
+          </p>
+        }
+      />
 
       <div className="problem-rail-wrap">
         <nav className="problem-rail" aria-label="Common problems">
@@ -101,7 +79,7 @@ export default function HomePage() {
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div className="reveal-in space-y-8">
             <AnswerBox
-              label="01 — Quick answer"
+              label="Quick answer"
               question="Who is Doctor Yachts?"
               answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
             />
@@ -148,8 +126,8 @@ export default function HomePage() {
           <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
             <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
               <Image
-                src={yachts.bow.src}
-                alt={yachts.bow.alt}
+                src={images.gallery.electrical.src}
+                alt={images.gallery.electrical.alt}
                 fill
                 sizes="40vw"
                 className="object-cover"
@@ -157,8 +135,8 @@ export default function HomePage() {
             </div>
             <div className="shot relative aspect-[4/3]">
               <Image
-                src={yachts.dockPair.src}
-                alt={yachts.dockPair.alt}
+                src={images.gallery.systems.src}
+                alt={images.gallery.systems.alt}
                 fill
                 sizes="25vw"
                 className="object-cover"
@@ -166,8 +144,8 @@ export default function HomePage() {
             </div>
             <div className="shot relative aspect-[4/3]">
               <Image
-                src={yachts.swimPlatform.src}
-                alt={yachts.swimPlatform.alt}
+                src={images.gallery.dockside.src}
+                alt={images.gallery.dockside.alt}
                 fill
                 sizes="25vw"
                 className="object-cover"
@@ -180,13 +158,13 @@ export default function HomePage() {
       <Section>
         <div className="reveal-in mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
-            eyebrow="02 — Services"
+            eyebrow="Services"
             title="What we repair on board"
             description="Engines, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair."
           />
           <Link
             href="/services"
-            className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
+            className="text-sm font-semibold text-navy no-underline hover:text-gold-deep"
           >
             View all services →
           </Link>
@@ -219,30 +197,27 @@ export default function HomePage() {
 
       <Section tone="soft">
         <div className="reveal-in">
-          <SectionHeading
-            eyebrow="03 — How it works"
-            title="From your call to back on the water"
-          />
+          <SectionHeading eyebrow="How it works" title="From your call to back on the water" />
         </div>
         <ol className="process-open reveal-in mt-12">
           {[
             {
-              n: "01",
+              n: "1",
               t: "Tell us the symptom",
               d: "What the boat is doing—or not doing. No jargon required.",
             },
             {
-              n: "02",
+              n: "2",
               t: "Plan the visit",
               d: "Marina, slip, access, and a time that works for you.",
             },
             {
-              n: "03",
+              n: "3",
               t: "Diagnose on site",
               d: "We find the fault before recommending parts or labor.",
             },
             {
-              n: "04",
+              n: "4",
               t: "Repair with a plan",
               d: "Free estimate path, clear options, notes you can keep.",
             },
@@ -258,18 +233,20 @@ export default function HomePage() {
 
       <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative min-h-[280px] overflow-hidden rounded-[1.75rem] lg:min-h-[420px]">
-            <Image
-              src={yachts.cockpit.src}
-              alt={yachts.cockpit.alt}
-              fill
-              sizes="50vw"
-              className="object-cover"
-            />
+          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
+            <div className="shot absolute inset-0">
+              <Image
+                src={images.gallery.maintenance.src}
+                alt={images.gallery.maintenance.alt}
+                fill
+                sizes="50vw"
+                className="object-cover"
+              />
+            </div>
           </div>
           <div className="reveal-in flex flex-col justify-center py-2">
             <SectionHeading
-              eyebrow="04 — Why Doctor Yachts"
+              eyebrow="Why Doctor Yachts"
               title="A shop that listens—not a sales yard"
               description="We treat vessels like systems: power, propulsion, pumps, wiring. That means fewer wild guesses and fewer surprise invoices."
             />
@@ -290,13 +267,10 @@ export default function HomePage() {
 
       <Section>
         <div className="reveal-in mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading
-            eyebrow="05 — Service areas"
-            title="South Florida waters we work"
-          />
+          <SectionHeading eyebrow="Service areas" title="South Florida waters we work" />
           <Link
             href="/locations"
-            className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
+            className="text-sm font-semibold text-navy no-underline hover:text-gold-deep"
           >
             All areas →
           </Link>
@@ -319,10 +293,10 @@ export default function HomePage() {
 
       <Section>
         <div className="mb-8 flex items-end justify-between gap-3">
-          <h2 className="font-display text-navy">On the water</h2>
+          <SectionHeading eyebrow="Gallery" title="On the water" />
           <Link
             href="/gallery"
-            className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
+            className="text-sm font-semibold text-navy no-underline hover:text-gold-deep"
           >
             Gallery →
           </Link>
@@ -336,7 +310,7 @@ export default function HomePage() {
 
       <Section>
         <div className="mx-auto max-w-3xl text-center">
-          <blockquote className="font-display text-2xl font-medium leading-snug text-navy sm:text-3xl">
+          <blockquote className="font-display text-xl font-medium leading-snug text-navy sm:text-2xl">
             “Clear diagnosis. Honest options. Dockside when it makes sense—not a mystery invoice.”
           </blockquote>
           <p className="mt-6 text-sm text-steel">

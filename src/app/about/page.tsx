@@ -57,8 +57,9 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Independent boat & yacht mechanic for South Florida"
+        subhead="Diagnose first. Fix what matters."
         description="Doctor Yachts is a diagnose-first marine mechanic shop—engines, electrical, cooling, and dockside service for owners in Fort Lauderdale, Pompano Beach, Miami, and beyond."
-        image={images.aboutHero}
+        image={images.gallery.dockside}
       />
 
       <Section>
@@ -147,8 +148,8 @@ export default function AboutPage() {
             <div className="shot">
               <div className="shot-img relative aspect-[4/3]">
                 <Image
-                  src={images.aboutHero.src}
-                  alt={images.aboutHero.alt}
+                  src={images.gallery.maintenance.src}
+                  alt={images.gallery.maintenance.alt}
                   fill
                   sizes="50vw"
                   className="object-cover"

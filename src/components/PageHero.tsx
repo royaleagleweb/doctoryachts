@@ -9,6 +9,7 @@ export type PageHeroImage = {
 type PageHeroProps = {
   eyebrow?: string;
   title: string;
+  subhead?: ReactNode;
   description?: ReactNode;
   actions?: ReactNode;
   image?: PageHeroImage;
@@ -16,10 +17,11 @@ type PageHeroProps = {
   priority?: boolean;
 };
 
-/** Inner-page hero — light or photo. Home keeps the marketing `hero-edge` stack. */
+/** Shop-ticket hero: paper ground, navy type, optional contained photo. Not a full-bleed brochure. */
 export function PageHero({
   eyebrow,
   title,
+  subhead,
   description,
   actions,
   image,
@@ -28,40 +30,29 @@ export function PageHero({
 }: PageHeroProps) {
   const eager = priority ?? Boolean(image);
 
-  if (image) {
-    return (
-      <section className="page-hero page-hero--photo">
-        <div className="page-hero__media">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            priority={eager}
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-        <div className="page-hero__copy">
-          <div className="wrap">
-            {meta}
-            {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-            <h1 className="font-display">{title}</h1>
-            {description && <div className="page-hero__desc">{description}</div>}
-            {actions && <div className="page-hero__actions">{actions}</div>}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section className="page-hero">
-      <div className="wrap section-pad">
-        {meta}
-        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h1 className="font-display">{title}</h1>
-        {description && <div className="page-hero__desc">{description}</div>}
-        {actions && <div className="page-hero__actions">{actions}</div>}
+    <section className={image ? "page-hero page-hero--split" : "page-hero"}>
+      <div className="wrap page-hero__grid">
+        <div className="page-hero__copy">
+          {meta}
+          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+          <h1 className="font-display">{title}</h1>
+          {subhead && <p className="page-hero__subhead">{subhead}</p>}
+          {description && <div className="page-hero__desc">{description}</div>}
+          {actions && <div className="page-hero__actions">{actions}</div>}
+        </div>
+        {image && (
+          <div className="page-hero__media">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              priority={eager}
+              sizes="(max-width: 900px) 100vw, 46vw"
+              className="object-cover"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

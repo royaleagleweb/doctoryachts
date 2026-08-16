@@ -6,6 +6,7 @@ import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -52,7 +53,9 @@ export default function ReviewsPage() {
       <PageHero
         eyebrow="Reviews"
         title="Reviews & reputation"
+        subhead="What we stand for on every visit."
         description="Read or leave a review for Doctor Yachts on Google or Yelp. Below is what we stand for on every visit."
+        image={images.gallery.diagnostics}
       />
 
       <Section>

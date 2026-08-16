@@ -17,7 +17,7 @@ export function Footer() {
     <footer className="site-footer mt-auto bg-navy-deep text-[#a3b4c2]">
       <div className="wrap grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-4">
-          <p className="font-display text-2xl font-extrabold tracking-tight text-white">
+          <p className="font-display text-2xl font-semibold tracking-tight text-white">
             Doctor Yachts
           </p>
           <p className="mt-2 max-w-sm text-sm leading-relaxed">

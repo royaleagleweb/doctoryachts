@@ -15,7 +15,7 @@ export function Section({
   id,
 }: SectionProps) {
   const toneClass =
-    tone === "soft" ? "section-soft" : tone === "dark" ? "section-dark" : "";
+    tone === "soft" ? "section-soft" : tone === "dark" ? "section-dark" : "bg-white";
   return (
     <section id={id} className={[toneClass, className].filter(Boolean).join(" ")}>
       <div className="wrap section-pad">{children}</div>

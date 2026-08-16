@@ -11,14 +11,10 @@ export function Header() {
   const mainLinks = navLinks.filter((l) => l.href !== "/book" && l.href !== "/");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur-xl">
-      <div className="wrap flex items-center justify-between gap-4 py-3.5">
-        <Link
-          href="/"
-          className="min-w-0 no-underline"
-          onClick={() => setOpen(false)}
-        >
-          <span className="font-display block text-[1.35rem] font-extrabold tracking-tight text-navy sm:text-[1.55rem]">
+    <header className="site-header sticky top-0 z-50 bg-white">
+      <div className="wrap flex items-center justify-between gap-4 py-3">
+        <Link href="/" className="min-w-0 no-underline" onClick={() => setOpen(false)}>
+          <span className="block text-[1.15rem] font-semibold tracking-tight text-navy sm:text-[1.25rem]">
             Doctor Yachts
           </span>
           <span className="mt-0.5 block text-[0.75rem] font-medium text-steel">
@@ -28,14 +24,13 @@ export function Header() {
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
           {mainLinks.map((link) => {
-            const active =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
+            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 text-[0.9rem] font-medium no-underline transition ${
-                  active ? "text-gold-deep" : "text-navy/70 hover:text-navy"
+                className={`px-3 py-2 text-[0.9rem] font-medium no-underline ${
+                  active ? "text-navy" : "text-steel hover:text-navy"
                 }`}
               >
                 {link.label}
@@ -44,11 +39,11 @@ export function Header() {
           })}
           <a
             href={site.phoneHref}
-            className="ml-3 text-[0.9rem] font-semibold text-gold-deep no-underline hover:text-navy"
+            className="ml-3 text-[0.9rem] font-semibold text-navy no-underline hover:text-gold-deep"
           >
             {site.phone}
           </a>
-          <Link href="/book" className="btn ml-3 !min-h-0 py-2.5 text-sm">
+          <Link href="/book" className="btn ml-3 !min-h-0 py-2 text-sm">
             Book
           </Link>
         </nav>
@@ -56,13 +51,13 @@ export function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <a
             href={site.phoneHref}
-            className="rounded-full bg-paper px-3.5 py-2 text-sm font-semibold text-gold-deep no-underline"
+            className="bg-paper px-3.5 py-2 text-sm font-semibold text-navy no-underline"
           >
             Call
           </a>
           <button
             type="button"
-            className="rounded-full bg-paper px-3.5 py-2 text-sm font-semibold text-navy"
+            className="bg-paper px-3.5 py-2 text-sm font-semibold text-navy"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -88,7 +83,7 @@ export function Header() {
             <Link
               href="/book"
               onClick={() => setOpen(false)}
-              className="py-3.5 font-semibold text-gold-deep no-underline"
+              className="py-3.5 font-semibold text-navy no-underline"
             >
               Book repair
             </Link>

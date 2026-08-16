@@ -46,8 +46,9 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Gallery"
         title="Yachts, marinas & marine service"
+        subhead="Systems, docks, and the work we do."
         description="South Florida waters, dockside life, and the systems we repair—engines, electrical, and mobile marina work."
-        image={images.gallery.intracoastal}
+        image={images.gallery.systems}
       />
 
       <Section>
