@@ -1,6 +1,6 @@
 /**
  * Keyword bank adapted from Drew's Marine Service SEO patterns
- * (Fort Lauderdale / Pompano Beach mobile boat repair competitor).
+ * (Fort Lauderdale / South Florida mobile boat repair competitor).
  * Use for titles, metas, and page copy—do not copy their brand language.
  */
 export const drewStyleKeywords = {
@@ -28,7 +28,7 @@ export const drewStyleKeywords = {
   ],
   local: [
     "Fort Lauderdale, FL",
-    "Pompano Beach, FL",
+    "South Florida, FL",
     "Miami, FL",
     "Palm Beach, FL",
     "South Florida",
@@ -44,5 +44,5 @@ export function titleWithGeo(primary: string, secondary?: string) {
 
 /** Meta formula from Drew: Get expert X in City. Handle A, B & C. Free estimate. */
 export function metaWithCta(service: string, extras: string) {
-  return `Get expert ${service} in Fort Lauderdale, Pompano Beach & Miami, FL. ${extras} Free estimates. Book Doctor Yachts or call.`;
+  return `Get expert ${service} in Fort Lauderdale & South Florida, FL. ${extras} Free estimates. Book Doctor Yachts or call.`;
 }

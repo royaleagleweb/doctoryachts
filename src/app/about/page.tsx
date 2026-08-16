@@ -19,7 +19,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "About Doctor Yachts | Boat & Yacht Mechanic South Florida",
   description:
-    "About Doctor Yachts—independent boat and yacht mechanic in Fort Lauderdale, Pompano Beach & Miami. Diagnose-first mobile and dockside marine repair. Free estimates.",
+    "About Doctor Yachts—independent boat and yacht mechanic in Fort Lauderdale, Miami & South Florida. Diagnose-first mobile and dockside marine repair. Free estimates.",
   path: "/about",
   keywords: [
     "about Doctor Yachts",
@@ -38,7 +38,7 @@ const aboutFaqs = [
   {
     question: "What areas do you cover?",
     answer:
-      "Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami, Palm Beach County, and nearby South Florida docks when access allows.",
+      "Fort Lauderdale, Dania Beach, Hollywood, Miami, Palm Beach County, and nearby South Florida docks when access allows.",
   },
 ];
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
             <div>
               <h2 className="font-display text-navy">Service areas</h2>
               <p className="mt-3 text-steel">
-                Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach, and Palm
+                Fort Lauderdale, Dania Beach, Hollywood, Miami / Miami Beach, and Palm
                 Beach County—dockside and mobile when access allows. See{" "}
                 <Link href="/locations">all service areas</Link>.
               </p>

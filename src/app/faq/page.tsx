@@ -11,9 +11,9 @@ import { services } from "@/lib/services";
 import { homeFaqs, site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Boat Repair FAQ | Fort Lauderdale & Pompano Beach",
+  title: "Boat Repair FAQ | Fort Lauderdale & South Florida",
   description:
-    "FAQ for boat repair, mobile service, free estimates, overheating, no-starts, and maintenance in Fort Lauderdale, Pompano Beach, and Miami, FL.",
+    "FAQ for boat repair, mobile service, free estimates, overheating, no-starts, and maintenance in Fort Lauderdale and South Florida.",
   path: "/faq",
   keywords: [
     "boat repair FAQ",
@@ -54,7 +54,7 @@ export default function FaqPage() {
         title="Boat repair questions we answer every week"
         description={
           <>
-            Short, direct answers for boat owners in Fort Lauderdale and Pompano Beach. Free
+            Short, direct answers for boat owners in Fort Lauderdale and South Florida. Free
             estimates: <a href={site.phoneHref}>{site.phone}</a>.
           </>
         }

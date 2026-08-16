@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -7,16 +6,19 @@ import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
+import { SectionHeading } from "@/components/SectionHeading";
+import { ServiceCard } from "@/components/ServiceCard";
 import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Boat Repair Services | Fort Lauderdale & Pompano Beach, FL",
+  title: "Boat Repair Services | Fort Lauderdale & South Florida",
   description:
-    "Boat repair services in Fort Lauderdale & Pompano Beach: marine engine repair, outboard service, electrical, cooling, mobile dockside repair, and maintenance. Free estimates.",
+    "Boat repair services in Fort Lauderdale and South Florida: marine engine repair, outboard service, electrical, cooling, mobile dockside repair, and maintenance. Free estimates.",
   path: "/services",
   keywords: [
     "boat repair services Fort Lauderdale",
@@ -44,11 +46,41 @@ const hubFaqs = [
       "We specialize in mobile and dockside boat repair when access allows. Many no-starts, electrical, cooling, and maintenance jobs are completed where the boat already sits.",
   },
   {
-    question: "Which cities do you cover?",
+    question: "Which areas do you cover?",
     answer:
-      "Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach, Palm Beach County, and nearby South Florida docks. See our locations pages for local details.",
+      "Fort Lauderdale, Dania Beach, Hollywood, Miami / Miami Beach, Palm Beach County, and nearby South Florida docks. See our locations pages for local details.",
   },
 ];
+
+const youGet = [
+  {
+    title: "Diagnose first",
+    body: "Findings before parts. You know what’s urgent versus what can wait.",
+  },
+  {
+    title: "Free estimates",
+    body: "Recommended work is estimated before you authorize major parts and labor.",
+  },
+  {
+    title: "Dockside when it helps",
+    body: "Mobile marina and private-dock visits when access allows—often without a tow.",
+  },
+];
+
+const serviceOrder = [
+  "engine-repair",
+  "outboard",
+  "electrical",
+  "cooling",
+  "diagnostics",
+  "maintenance",
+  "systems",
+  "emergency",
+] as const;
+
+const hubServices = serviceOrder
+  .map((id) => services.find((s) => s.id === id))
+  .filter((s): s is (typeof services)[number] => Boolean(s));
 
 export default function ServicesPage() {
   return (
@@ -65,9 +97,9 @@ export default function ServicesPage() {
 
       <PageHero
         eyebrow="Services"
-        title="Boat repair services in Fort Lauderdale, Pompano Beach & South Florida"
-        subhead="Engines, electrical, cooling, dockside."
-        description="Full marine mechanic services—engines, electrical, cooling, diagnostics, maintenance, plumbing systems, and mobile dockside repair. Pick a service for details, free estimates, and booking."
+        title="Boat repair services in South Florida"
+        subhead="Eight services. Diagnose first."
+        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair. Pick a service, book a visit, or call."
         image={images.gallery.electrical}
         actions={
           <>
@@ -75,104 +107,79 @@ export default function ServicesPage() {
             <Button href="/free-estimate" variant="ghost">
               Free estimate
             </Button>
+            <Button href={site.phoneHref} variant="ghost">
+              {site.phone}
+            </Button>
+            <ReviewLinks />
           </>
         }
       />
 
       <Section>
-        <div className="space-y-10">
-          <AnswerBox
-            label="Quick answer"
-            question="What does Doctor Yachts repair?"
-            answer="Doctor Yachts repairs boats and yachts across South Florida: marine engines (inboard/outboard), electrical systems, cooling, bilge/plumbing, diagnostics, and scheduled maintenance—often mobile at Fort Lauderdale and Pompano Beach docks. Free estimates after diagnosis."
+        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeading
+            eyebrow="All services"
+            title="What we repair"
+            description="Every card is a real service page—short on brochure, long on the actual job."
           />
-
-          <div className="space-y-8">
-            {services.map((service) => {
-              const img = service.images[0];
-              return (
-                <Card
-                  key={service.id}
-                  as="article"
-                  className="grid overflow-hidden md:grid-cols-[280px_1fr]"
-                >
-                  <div className="relative min-h-[200px]">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      sizes="280px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6 sm:p-8">
-                    <h2 className="font-display text-navy">
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="text-navy no-underline hover:text-gold-deep"
-                      >
-                        {service.title}
-                      </Link>
-                    </h2>
-                    <p className="mt-1 text-sm text-steel">{service.duration}</p>
-                    <p className="mt-4 text-steel">{service.description}</p>
-                    <p className="mt-3 text-sm text-steel">{service.quickAnswer}</p>
-                    <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                      {service.features.slice(0, 4).map((f) => (
-                        <li key={f} className="list-tile flex gap-2">
-                          <span className="text-gold">·</span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      <Button href={`/book?service=${service.id}`}>Book</Button>
-                      <Button href={`/services/${service.slug}`} variant="ghost">
-                        Full service page
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
+          <div className="flex flex-wrap gap-3">
+            <Button href="/book">Book</Button>
+            <Button href="/free-estimate" variant="ghost">
+              Free estimate
+            </Button>
           </div>
-
-          <section className="space-y-4">
-            <h2 className="font-display text-navy">How to choose the right boat repair service</h2>
-            <p className="text-steel">
-              Start with the symptom, not the part. Won&apos;t start or weak cranking often points to{" "}
-              <Link href="/services/electrical-repairs">electrical</Link> or{" "}
-              <Link href="/services/marine-engine-repair">engine diagnosis</Link>. Overheating is{" "}
-              <Link href="/services/cooling-system-repairs">cooling system repairs</Link>. Constant
-              bilge running is usually <Link href="/services/plumbing-repairs">plumbing/systems</Link>
-              . Intermittent multi-system issues may need{" "}
-              <Link href="/services/boat-diagnostics">full diagnostics</Link>. For dockside visits
-              without a tow, start with{" "}
-              <Link href="/services/mobile-boat-repair">mobile boat repair</Link>.
-            </p>
-            <p className="text-steel">
-              Not sure? Call <a href={site.phoneHref}>{site.phone}</a>, request a{" "}
-              <Link href="/free-estimate">free estimate</Link>, or browse our{" "}
-              <Link href="/faq">FAQ</Link> and <Link href="/guides">repair guides</Link>.
-            </p>
-          </section>
-
-          <Card className="p-6">
-            <h2 className="font-display text-navy">Service areas for these repairs</h2>
-            <p className="mt-2 text-sm text-steel">
-              Fort Lauderdale · Pompano Beach · Dania Beach · Hollywood · Miami · Palm Beach County.
-              See <Link href="/locations">all locations</Link> or call {site.phone}.
-            </p>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {hubFaqs.map((f) => (
-                <li key={f.question} className="list-tile">
-                  <p className="text-sm font-semibold text-navy">{f.question}</p>
-                  <p className="mt-1 text-sm text-steel">{f.answer}</p>
-                </li>
-              ))}
-            </ul>
-          </Card>
         </div>
+        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {hubServices.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading eyebrow="What you get" title="How a visit works" />
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {youGet.map((item) => (
+            <Card key={item.title} className="p-6">
+              <h2 className="font-display text-navy">{item.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-steel">{item.body}</p>
+            </Card>
+          ))}
+        </div>
+        <p className="mt-8 text-steel">
+          Not sure which service? Call <a href={site.phoneHref}>{site.phone}</a> or start with{" "}
+          <Link href="/services/boat-diagnostics">diagnostics</Link> /{" "}
+          <Link href="/services/mobile-boat-repair">mobile boat repair</Link>.
+        </p>
+      </Section>
+
+      <Section>
+        <AnswerBox
+          label="Quick answer"
+          question="What does Doctor Yachts repair?"
+          answer="Doctor Yachts repairs boats and yachts across South Florida: marine engines (inboard/outboard), electrical systems, cooling, bilge/plumbing, diagnostics, and scheduled maintenance—often mobile at Fort Lauderdale and nearby docks. Free estimates after diagnosis."
+        />
+        <div className="mt-10 space-y-4">
+          <h2 className="font-display text-navy">How to choose the right service</h2>
+          <p className="text-steel">
+            Start with the symptom. Won&apos;t start or weak cranking often points to{" "}
+            <Link href="/services/electrical-repairs">electrical</Link> or{" "}
+            <Link href="/services/marine-engine-repair">engine diagnosis</Link>. Overheating is{" "}
+            <Link href="/services/cooling-system-repairs">cooling</Link>. Constant bilge running is
+            usually <Link href="/services/plumbing-repairs">plumbing/systems</Link>. Intermittent
+            multi-system issues may need <Link href="/services/boat-diagnostics">diagnostics</Link>.
+            For a dockside visit without a tow, start with{" "}
+            <Link href="/services/mobile-boat-repair">mobile boat repair</Link>.
+          </p>
+        </div>
+        <Card className="mt-10 p-6">
+          <h2 className="font-display text-navy">Service areas</h2>
+          <p className="mt-2 text-sm text-steel">
+            Fort Lauderdale · Miami · Dania Beach · Hollywood · Palm Beach County · South Florida
+            docks. See <Link href="/locations">all locations</Link> or call{" "}
+            <a href={site.phoneHref}>{site.phone}</a>.
+          </p>
+        </Card>
       </Section>
 
       <CTA />

@@ -6,14 +6,15 @@ import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Book Boat Repair Online | Fort Lauderdale & Pompano Beach",
+  title: "Book Boat Repair Online | Fort Lauderdale & South Florida",
   description:
-    "Book boat repair online in Fort Lauderdale, Pompano Beach & Miami. Tell us what's wrong, where the boat is, and when works. Free estimates. Mobile dockside when available.",
+    "Book boat repair online in Fort Lauderdale and South Florida. Tell us what's wrong, where the boat is, and when works. Free estimates. Mobile dockside when available.",
   path: "/book",
   keywords: [
     "book boat repair Fort Lauderdale",
@@ -62,6 +63,7 @@ export default function BookPage() {
             <Button href="/free-estimate" variant="ghost">
               Free estimate first?
             </Button>
+            <ReviewLinks />
           </>
         }
       />

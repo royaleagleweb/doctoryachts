@@ -121,7 +121,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           <>
             {service.description}
             <span className="mt-3 block text-sm">
-              Fort Lauderdale · Pompano Beach · Miami · Dockside first
+              Fort Lauderdale · South Florida · Dockside first
             </span>
           </>
         }
@@ -296,10 +296,10 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         image={media.local}
         reverse
         eyebrow="Service area"
-        title={`${service.title} in Fort Lauderdale, Pompano Beach & Miami, FL`}
+        title={`${service.title} in Fort Lauderdale & South Florida`}
       >
         <p>
-          Owners searching for {service.title.toLowerCase()} near Fort Lauderdale, Pompano Beach,
+          Owners searching for {service.title.toLowerCase()} near Fort Lauderdale,
           Dania Beach, Hollywood, Miami, and Palm Beach County book Doctor Yachts for
           diagnostic-first mobile and dockside work. We confirm marina access, review symptoms
           before arrival, and give free estimates before authorizing major parts.
@@ -307,7 +307,6 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         <p>
           Local pages:{" "}
           <Link href="/locations/fort-lauderdale">Fort Lauderdale boat repair</Link>,{" "}
-          <Link href="/locations/pompano-beach">Pompano Beach</Link>,{" "}
           <Link href="/locations/miami">Miami</Link>,{" "}
           <Link href="/locations/dania-beach">Dania Beach</Link>,{" "}
           <Link href="/locations/hollywood-fl">Hollywood</Link>, and{" "}
@@ -429,7 +428,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               Book {service.title.toLowerCase()} · free estimates
             </h2>
             <p className="mt-3 text-muted">
-              Mobile and dockside when access allows across Fort Lauderdale, Pompano Beach, and
+              Mobile and dockside when access allows across Fort Lauderdale and
               nearby South Florida. Share marina, slip, and symptoms for the fastest confirmation.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">

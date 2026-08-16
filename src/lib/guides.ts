@@ -30,7 +30,7 @@ export const guides: Guide[] = [
     title: "Boat Won’t Start? A Practical Checklist",
     seoTitle: "Boat Won’t Start Checklist | Fort Lauderdale Boat Mechanic Tips",
     seoDescription:
-      "Boat won’t start? Follow this free checklist for battery, fuel, safety cutoffs, and when to call a mobile boat mechanic in Fort Lauderdale or Pompano Beach.",
+      "Boat won’t start? Follow this free checklist for battery, fuel, safety cutoffs, and when to call a mobile boat mechanic in Fort Lauderdale or South Florida.",
     quickAnswer:
       "If your boat won’t start, check the battery charge and connections first, then kill switches and safety lanyards, fuel supply, and any engine alarms. If cranking is weak or silent, it’s often electrical. If it cranks strong but won’t fire, suspect fuel or sensors. Call a mobile boat mechanic when basic checks fail.",
     h1: "Boat won’t start? Free checklist before you call a mechanic",
@@ -75,7 +75,7 @@ export const guides: Guide[] = [
       {
         heading: "Why boats fail to start in South Florida",
         body: [
-          "Heat, humidity, and salt accelerate battery and connection failures. Boats that sit between weekends often show parasitic draws, sulfated batteries, or sticky fuel issues—especially in Fort Lauderdale and Pompano Beach marinas.",
+          "Heat, humidity, and salt accelerate battery and connection failures. Boats that sit between weekends often show parasitic draws, sulfated batteries, or sticky fuel issues—especially in Fort Lauderdale and South Florida marinas.",
           "A clean diagnosis separates “weak battery” from “starter,” “no fuel,” and “safety interlock.” Guessing parts costs more than a proper mobile diagnostic.",
         ],
       },
@@ -95,7 +95,7 @@ export const guides: Guide[] = [
       {
         heading: "When to book mobile boat repair vs haul-out",
         body: [
-          "Most no-start jobs can start dockside. Haul-out is rarely the first step unless the boat is sinking, has a major leak, or the fault requires out-of-water access. If you’re in Fort Lauderdale or Pompano Beach, mobile boat repair often gets you running faster.",
+          "Most no-start jobs can start dockside. Haul-out is rarely the first step unless the boat is sinking, has a major leak, or the fault requires out-of-water access. If you’re in Fort Lauderdale or South Florida, mobile boat repair often gets you running faster.",
         ],
       },
     ],
@@ -169,7 +169,7 @@ export const guides: Guide[] = [
       {
         heading: "Can I keep running if it’s only a little hot?",
         body: [
-          "Don’t gamble. “A little hot” can become a warped head or seized engine. Idle to the nearest safe dock if temperatures are elevated, then schedule cooling system repairs in Fort Lauderdale or Pompano Beach.",
+          "Don’t gamble. “A little hot” can become a warped head or seized engine. Idle to the nearest safe dock if temperatures are elevated, then schedule cooling system repairs in Fort Lauderdale or South Florida.",
         ],
       },
     ],
@@ -239,7 +239,7 @@ export const guides: Guide[] = [
       {
         question: "Do you offer seasonal packages?",
         answer:
-          "Yes. We can schedule pre-season commissioning and interval maintenance for boats kept in Fort Lauderdale, Pompano Beach, Miami, and Palm Beach County.",
+          "Yes. We can schedule pre-season commissioning and interval maintenance for boats kept in Fort Lauderdale, Miami, and Palm Beach County.",
       },
     ],
   },
@@ -283,7 +283,7 @@ export const guides: Guide[] = [
       {
         heading: "Cost and time reality in Broward",
         body: [
-          "Towing and yard minimums add cost. Mobile boat repair in Fort Lauderdale or Pompano Beach often solves the problem where the boat already sits—especially for electrical and no-start cases.",
+          "Towing and yard minimums add cost. Mobile boat repair in Fort Lauderdale or South Florida often solves the problem where the boat already sits—especially for electrical and no-start cases.",
         ],
       },
     ],

@@ -7,18 +7,19 @@ import { ContactForm } from "@/components/ContactForm";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Boat Mechanic | Fort Lauderdale & Pompano Beach",
+  title: "Contact Boat Mechanic | Fort Lauderdale & South Florida",
   description:
-    "Contact Doctor Yachts for boat repair in Fort Lauderdale, Pompano Beach & Miami. Call for emergencies or send a message for free estimates and scheduling.",
+    "Contact Doctor Yachts for boat repair in Fort Lauderdale and South Florida. Call for emergencies or send a message for free estimates and scheduling.",
   path: "/contact",
   keywords: [
     "contact boat mechanic Fort Lauderdale",
-    "boat repair phone Pompano Beach",
+    "boat repair phone South Florida",
     "schedule boat repair South Florida",
   ],
 });
@@ -58,7 +59,15 @@ export default function ContactPage() {
             <Link href="/book">book online</Link>.
           </>
         }
-        actions={<Button href={site.phoneHref}>Call {site.phone}</Button>}
+        actions={
+          <>
+            <Button href={site.phoneHref}>Call {site.phone}</Button>
+            <Button href="/book" variant="ghost">
+              Book a visit
+            </Button>
+            <ReviewLinks />
+          </>
+        }
       />
 
       <Section>
@@ -67,7 +76,7 @@ export default function ContactPage() {
             <AnswerBox
               label="Quick answer"
               question="How do I reach Doctor Yachts?"
-              answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message for free estimates and scheduling. We serve Fort Lauderdale, Pompano Beach, Miami, and nearby South Florida docks.`}
+              answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message for free estimates and scheduling. We serve Fort Lauderdale, Miami, and nearby South Florida docks.`}
             />
             <Card className="card-accent p-6 sm:p-8">
               <p className="eyebrow">Direct lines</p>

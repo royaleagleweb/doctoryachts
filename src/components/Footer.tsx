@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ReviewLinks } from "@/components/ReviewLinks";
-import { locations } from "@/lib/locations";
+import { publicLocations } from "@/lib/locations";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -52,7 +52,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <p className="text-sm font-semibold text-white">Areas</p>
           <ul className="mt-3 space-y-2 text-sm">
-            {locations.map((loc) => (
+            {publicLocations.map((loc) => (
               <li key={loc.slug}>
                 <Link href={`/locations/${loc.slug}`} className="no-underline hover:text-white">
                   {loc.name}

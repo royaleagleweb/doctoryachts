@@ -76,7 +76,7 @@ export default function GalleryPage() {
       <Section tone="soft">
         <SectionHeading
           title="Docks we work around"
-          description="Fort Lauderdale, Pompano Beach, and nearby South Florida water. Captions describe the photo, not a specific job."
+          description="Fort Lauderdale and nearby South Florida water. Captions describe the photo, not a specific job."
         />
         <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {yachtStrip.map((shot) => (
