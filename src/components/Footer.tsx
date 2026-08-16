@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ReviewLinks } from "@/components/ReviewLinks";
 import { locations } from "@/lib/locations";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -76,6 +77,9 @@ export function Footer() {
               Estimate
             </Link>
           </div>
+          <p className="mt-4 text-sm">
+            Reviews: <ReviewLinks />
+          </p>
         </div>
       </div>
 

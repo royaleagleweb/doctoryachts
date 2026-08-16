@@ -56,6 +56,16 @@ export default function ReviewsPage() {
         subhead="What we stand for on every visit."
         description="Read or leave a review for Doctor Yachts on Google or Yelp. Below is what we stand for on every visit."
         image={images.gallery.diagnostics}
+        actions={
+          <>
+            <Button href={site.profiles.google} target="_blank" rel="noopener noreferrer">
+              Google
+            </Button>
+            <Button href={site.profiles.yelp} variant="ghost" target="_blank" rel="noopener noreferrer">
+              Yelp
+            </Button>
+          </>
+        }
       />
 
       <Section>
@@ -86,14 +96,14 @@ export default function ReviewsPage() {
               </a>{" "}
               or{" "}
               <a href={site.profiles.yelp} rel="noopener noreferrer" target="_blank">
-                Yelp (Fort Lauderdale)
+                Yelp
               </a>
               . Questions: call <a href={site.phoneHref}>{site.phone}</a> or email{" "}
               <a href={`mailto:${site.email}`}>{site.email}</a>.
             </p>
             <p className="mt-4 flex flex-wrap gap-3">
               <Button href={site.profiles.google} target="_blank" rel="noopener noreferrer">
-                Google reviews
+                Google
               </Button>
               <Button
                 href={site.profiles.yelp}
@@ -101,7 +111,7 @@ export default function ReviewsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Yelp Fort Lauderdale
+                Yelp
               </Button>
             </p>
             <p className="mt-3 text-steel">

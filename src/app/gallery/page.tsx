@@ -45,34 +45,16 @@ export default function GalleryPage() {
 
       <PageHero
         eyebrow="Gallery"
-        title="Yachts, marinas & marine service"
-        subhead="Systems, docks, and the work we do."
-        description="South Florida waters, dockside life, and the systems we repair—engines, electrical, and mobile marina work."
+        title="Marine service work in South Florida"
+        subhead="Engines, electrical, cooling, dockside."
+        description="Service-category photos for the work we do—engines, electrical, diagnostics, maintenance, plumbing systems, and mobile marina repair. Captions describe the photo, not a specific job."
         image={images.gallery.systems}
       />
 
       <Section>
         <SectionHeading
-          title="Yacht & marina branding"
-          description="Waterside imagery for Fort Lauderdale, Pompano Beach, and nearby South Florida. Captions describe the photo, not a specific job."
-        />
-        <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {yachtStrip.map((shot) => (
-            <MediaCard
-              key={shot.src}
-              href="/locations"
-              image={shot}
-              kicker={shot.caption}
-              description={shot.alt}
-            />
-          ))}
-        </div>
-      </Section>
-
-      <Section tone="soft">
-        <SectionHeading
           title="Systems & service work"
-          description="Service-category photos for engines, electrical, diagnostics, maintenance, and dockside repair. These are context shots, not claimed job photos."
+          description="Context shots for engines, electrical, diagnostics, maintenance, and dockside repair—not claimed job photos."
         />
         <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {workShots.map((shot) => (
@@ -89,6 +71,24 @@ export default function GalleryPage() {
           Looking for service? See <Link href="/services">all boat repair services</Link>,{" "}
           <Link href="/locations">service areas</Link>, or <Link href="/book">book a visit</Link>.
         </p>
+      </Section>
+
+      <Section tone="soft">
+        <SectionHeading
+          title="Docks we work around"
+          description="Fort Lauderdale, Pompano Beach, and nearby South Florida water. Captions describe the photo, not a specific job."
+        />
+        <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {yachtStrip.map((shot) => (
+            <MediaCard
+              key={shot.src}
+              href="/locations"
+              image={shot}
+              kicker={shot.caption}
+              description={shot.alt}
+            />
+          ))}
+        </div>
       </Section>
 
       <CTA />

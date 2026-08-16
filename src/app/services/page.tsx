@@ -69,6 +69,14 @@ export default function ServicesPage() {
         subhead="Engines, electrical, cooling, dockside."
         description="Full marine mechanic services—engines, electrical, cooling, diagnostics, maintenance, plumbing systems, and mobile dockside repair. Pick a service for details, free estimates, and booking."
         image={images.gallery.electrical}
+        actions={
+          <>
+            <Button href="/book">Book a visit</Button>
+            <Button href="/free-estimate" variant="ghost">
+              Free estimate
+            </Button>
+          </>
+        }
       />
 
       <Section>

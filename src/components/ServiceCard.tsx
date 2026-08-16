@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { MediaCard } from "@/components/MediaCard";
 import { images } from "@/lib/images";
 import type { Service } from "@/lib/services";
@@ -14,31 +13,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
   return (
     <MediaCard
+      href={`/services/${service.slug}`}
       image={img}
-      title={
-        <Link
-          href={`/services/${service.slug}`}
-          className="text-navy no-underline hover:text-gold-deep"
-        >
-          {service.title}
-        </Link>
-      }
+      title={service.title}
       description={service.summary}
       footer={
-        <div className="mt-4 flex items-center justify-between text-sm">
-          <Link
-            href={`/services/${service.slug}`}
-            className="font-medium text-steel no-underline hover:text-navy"
-          >
-            Details
-          </Link>
-          <Link
-            href={`/book?service=${service.id}`}
-            className="font-semibold text-gold-deep no-underline hover:text-navy"
-          >
-            Book →
-          </Link>
-        </div>
+        <p className="mt-4 text-sm font-semibold text-gold-deep">Service details →</p>
       }
     />
   );

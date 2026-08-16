@@ -17,7 +17,7 @@ type PageHeroProps = {
   priority?: boolean;
 };
 
-/** Shop-ticket hero: paper ground, navy type, optional contained photo. Not a full-bleed brochure. */
+/** Shop hero: navy surface, cream H1, gold accent, contained photo. Not a full-bleed brochure. */
 export function PageHero({
   eyebrow,
   title,
