@@ -1,28 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Host canonicalization. Next.js permanent redirects are 308 (method-preserving).
-  // Trailing-slash 308 to the non-slash apex path is left to Next.js defaults.
-  // www may 522 if DNS is not proxied to this Worker — rule applies when www reaches the app.
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.doctoryachts.com" }],
-        destination: "https://doctoryachts.com/:path*",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [
-          { type: "host", value: "doctoryachts.com" },
-          { type: "header", key: "x-forwarded-proto", value: "http" },
-        ],
-        destination: "https://doctoryachts.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // Do not put www/http host redirects here.
+  // OpenNext applies next.config redirects at the Worker layer; catch-all /:path*
+  // + host/proto rules are unsafe on this runtime (www never hits a Custom Domain
+  // Worker, and x-forwarded-proto can loop). Trailing-slash 308 stays Next.js default.
+  // www → apex and http → https belong on the Cloudflare zone (Redirect Rule +
+  // Always Use HTTPS), not in this app.
 };
 
 export default nextConfig;
