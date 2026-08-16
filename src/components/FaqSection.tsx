@@ -1,3 +1,6 @@
+import { Section } from "@/components/Section";
+import { SectionHeading } from "@/components/SectionHeading";
+
 type Faq = { question: string; answer: string };
 
 export function FaqSection({
@@ -8,23 +11,21 @@ export function FaqSection({
   faqs: readonly Faq[] | Faq[];
 }) {
   return (
-    <section className="section-soft">
-      <div className="wrap section-pad">
-        <h2 className="font-display text-3xl font-semibold text-navy">{title}</h2>
-        <div className="mt-10 space-y-1">
-          {faqs.map((faq) => (
-            <details key={faq.question} className="group py-4">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-navy marker:content-none">
-                <span>{faq.question}</span>
-                <span className="text-gold-deep transition group-open:rotate-45" aria-hidden>
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-steel">{faq.answer}</p>
-            </details>
-          ))}
-        </div>
+    <Section tone="soft">
+      <SectionHeading title={title} />
+      <div className="faq-list mt-10">
+        {faqs.map((faq) => (
+          <details key={faq.question} className="faq-item group">
+            <summary className="faq-item__q">
+              <span>{faq.question}</span>
+              <span className="faq-item__icon" aria-hidden>
+                +
+              </span>
+            </summary>
+            <p className="faq-item__a">{faq.answer}</p>
+          </details>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

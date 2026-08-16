@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Card } from "@/components/Card";
+import { CTA } from "@/components/CTA";
 import { EstimateForm } from "@/components/EstimateForm";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -55,82 +58,80 @@ export default function FreeEstimatePage() {
         description={
           <>
             Answer a few practical questions—what&apos;s wrong, where the boat is, and how to reach
-            you. Prefer to talk? Call{" "}
-            <a href={site.phoneHref} className="text-gold">
-              {site.phone}
-            </a>
-            .
+            you. Prefer to talk? Call <a href={site.phoneHref}>{site.phone}</a>.
           </>
         }
       />
 
-      <section className="wrap grid gap-10 section-pad lg:grid-cols-[minmax(0,1.1fr)_0.9fr]">
-        <div className="panel p-5 sm:p-7">
-          <h2 className="font-display text-xl font-semibold text-pearl sm:text-2xl">
-            Request your free estimate
-          </h2>
-          <p className="mt-2 text-sm text-steel">
-            Fields marked * are required. Everything else is optional but helps us quote faster.
-          </p>
-          <div className="mt-6">
-            <EstimateForm />
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          <div className="panel p-5">
-            <h2 className="font-display text-xl font-semibold text-pearl">What we need</h2>
-            <ol className="mt-4 space-y-3 text-sm text-steel">
-              <li>
-                <strong className="text-pearl">1. What&apos;s wrong</strong> — won&apos;t start,
-                overheating, batteries, pumps, etc.
-              </li>
-              <li>
-                <strong className="text-pearl">2. Where the boat is</strong> — city + marina or dock
-              </li>
-              <li>
-                <strong className="text-pearl">3. Phone &amp; email</strong> — so we can reply
-              </li>
-            </ol>
-          </div>
-
-          <div className="panel p-5">
-            <h2 className="font-display text-xl font-semibold text-pearl">What you get</h2>
-            <p className="mt-3 text-sm text-steel">
-              After we understand the symptom and location, we outline likely diagnostic steps and a
-              free estimate path for recommended repair work—before you authorize major parts and
-              labor.
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_0.9fr]">
+          <Card className="p-5 sm:p-7">
+            <h2 className="font-display text-navy">Request your free estimate</h2>
+            <p className="mt-2 text-sm text-steel">
+              Fields marked * are required. Everything else is optional but helps us quote faster.
             </p>
-            <p className="mt-3 text-sm text-steel">
-              Common requests:{" "}
-              <Link href="/services/marine-engine-repair">marine engine repair</Link>,{" "}
-              <Link href="/services/electrical-repairs">electrical</Link>,{" "}
-              <Link href="/services/mobile-boat-repair">mobile boat repair</Link>,{" "}
-              <Link href="/services/boat-maintenance">maintenance</Link>.
-            </p>
-          </div>
+            <div className="mt-6">
+              <EstimateForm />
+            </div>
+          </Card>
 
-          <div className="panel p-5">
-            <h2 className="font-display text-lg font-semibold text-pearl">Estimate FAQ</h2>
-            <ul className="mt-3 space-y-3">
-              {faqs.map((f) => (
-                <li key={f.question}>
-                  <p className="font-semibold text-pearl">{f.question}</p>
-                  <p className="mt-1 text-sm text-steel">{f.answer}</p>
+          <div className="space-y-6">
+            <Card className="p-5">
+              <h2 className="font-display text-navy">What we need</h2>
+              <ol className="mt-4 space-y-3 text-sm text-steel">
+                <li>
+                  <strong className="text-navy">1. What&apos;s wrong</strong> — won&apos;t start,
+                  overheating, batteries, pumps, etc.
                 </li>
-              ))}
-            </ul>
-          </div>
+                <li>
+                  <strong className="text-navy">2. Where the boat is</strong> — city + marina or dock
+                </li>
+                <li>
+                  <strong className="text-navy">3. Phone &amp; email</strong> — so we can reply
+                </li>
+              </ol>
+            </Card>
 
-          <p className="text-sm text-steel">
-            Ready to schedule?{" "}
-            <Link href="/book" className="font-semibold text-gold">
-              Book online
-            </Link>
-            .
-          </p>
+            <Card className="p-5">
+              <h2 className="font-display text-navy">What you get</h2>
+              <p className="mt-3 text-sm text-steel">
+                After we understand the symptom and location, we outline likely diagnostic steps and a
+                free estimate path for recommended repair work—before you authorize major parts and
+                labor.
+              </p>
+              <p className="mt-3 text-sm text-steel">
+                Common requests:{" "}
+                <Link href="/services/marine-engine-repair">marine engine repair</Link>,{" "}
+                <Link href="/services/electrical-repairs">electrical</Link>,{" "}
+                <Link href="/services/mobile-boat-repair">mobile boat repair</Link>,{" "}
+                <Link href="/services/boat-maintenance">maintenance</Link>.
+              </p>
+            </Card>
+
+            <Card className="p-5">
+              <h2 className="font-display text-navy">Estimate FAQ</h2>
+              <ul className="mt-3 space-y-3">
+                {faqs.map((f) => (
+                  <li key={f.question}>
+                    <p className="font-semibold text-navy">{f.question}</p>
+                    <p className="mt-1 text-sm text-steel">{f.answer}</p>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <p className="text-sm text-steel">
+              Ready to schedule?{" "}
+              <Link href="/book" className="font-semibold">
+                Book online
+              </Link>
+              .
+            </p>
+          </div>
         </div>
-      </section>
+      </Section>
+
+      <CTA />
     </>
   );
 }

@@ -95,6 +95,17 @@ h3 {
   letter-spacing: -0.02em;
 }
 
+/* Inner-page H1 — same size on light and photo heroes (home keeps the larger marketing H1) */
+.page-hero h1 {
+  font-size: clamp(2rem, 4.8vw, 3.25rem);
+  font-weight: 800;
+  max-width: 18em;
+}
+.answer-box h2,
+.card h2 {
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+}
+
 .font-sans {
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
 }
@@ -215,35 +226,44 @@ h3 {
 /* On dark surfaces (hero), ghost = light underline */
 .hero-edge .btn-ghost,
 .hero-edge .btn-ghost-light,
+.page-hero--photo .btn-ghost,
+.page-hero--photo .btn-ghost-light,
 .site-footer .btn-ghost,
 .section-dark .btn-ghost {
   color: var(--white);
   text-decoration-color: color-mix(in srgb, var(--white) 40%, transparent);
 }
 .hero-edge .btn-ghost:hover,
+.page-hero--photo .btn-ghost:hover,
 .section-dark .btn-ghost:hover {
   color: var(--gold-light);
   text-decoration-color: var(--gold);
 }
 
-/* Open panels — soft white, no heavy frame */
-.panel {
-  background: transparent;
+/* Shared card / panel — paper tile used sitewide */
+.panel,
+.card {
+  background: var(--paper);
   border: none;
-  border-radius: 0;
-  padding: 0;
-}
-.panel:hover {
-  background: transparent;
+  border-radius: var(--radius);
 }
 
-.panel-navy {
+.panel-navy,
+.card-accent {
   background: var(--paper);
   color: var(--navy);
   border: none;
   border-radius: var(--radius);
   border-left: 3px solid var(--gold);
-  padding: 1.25rem 1.35rem;
+}
+
+.list-tile {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  color: var(--navy);
 }
 
 .shot {
@@ -385,7 +405,141 @@ textarea {
 
 .page-hero {
   background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero__desc {
+  margin-top: 1rem;
+  max-width: 40rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--steel);
+}
+
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.page-hero__crumb {
+  margin: 0 0 0.85rem;
+  font-size: 0.8rem;
+  color: var(--steel);
+}
+.page-hero__crumb a {
+  color: inherit;
+  text-decoration: none;
+}
+.page-hero__crumb a:hover {
+  color: var(--gold-deep);
+}
+
+.page-hero--photo {
+  position: relative;
+  min-height: min(52svh, 420px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--navy-deep);
   border-bottom: none;
+  color: #eef1f4;
+}
+
+.page-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.page-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(5, 12, 20, 0.88) 0%, rgba(5, 12, 20, 0.55) 50%, rgba(5, 12, 20, 0.28) 100%),
+    linear-gradient(to top, rgba(5, 12, 20, 0.7) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.page-hero--photo .page-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 5.5rem 0 2.75rem;
+}
+
+.page-hero--photo .eyebrow {
+  color: var(--gold-light);
+}
+.page-hero--photo h1,
+.page-hero--photo .font-display {
+  color: #eef1f4;
+}
+.page-hero--photo .page-hero__desc {
+  color: #c5d0d8;
+}
+.page-hero--photo .page-hero__crumb,
+.page-hero--photo .page-hero__crumb a {
+  color: #a3b4c2;
+}
+.page-hero--photo .page-hero__crumb a:hover {
+  color: var(--gold-light);
+}
+
+.cta-band {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.media-card__shot {
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  background: var(--paper);
+}
+
+.media-card-link:hover .media-card h3 {
+  color: var(--gold-deep);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+.faq-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--line);
+}
+.faq-item__q {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+.faq-item__q::-webkit-details-marker {
+  display: none;
+}
+.faq-item__icon {
+  color: var(--gold-deep);
+  transition: transform 0.15s ease;
+}
+.faq-item[open] .faq-item__icon {
+  transform: rotate(45deg);
+}
+.faq-item__a {
+  margin: 0.75rem 0 0;
+  max-width: 48rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--steel);
 }
 
 /* ——— Hero (dark photo band) ——— */

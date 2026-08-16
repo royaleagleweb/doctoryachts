@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
 import { guides } from "@/lib/guides";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
@@ -58,28 +60,31 @@ export default function FaqPage() {
         }
       />
 
-      <section className="wrap section-pad">
-        <h2 className="font-display text-2xl font-semibold text-pearl">General</h2>
-        <div className="mt-6 divide-y divide-line border-y border-line">
+      <Section>
+        <h2 className="font-display text-navy">General</h2>
+        <div className="faq-list mt-6">
           {homeFaqs.map((f) => (
-            <details key={f.question} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-pearl">
+            <details key={f.question} className="faq-item group">
+              <summary className="faq-item__q">
                 <span>{f.question}</span>
-                <span className="text-gold transition group-open:rotate-45" aria-hidden>
+                <span className="faq-item__icon" aria-hidden>
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-steel">{f.answer}</p>
+              <p className="faq-item__a">{f.answer}</p>
             </details>
           ))}
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-semibold text-navy">By service</h2>
-        <div className="mt-6 space-y-8">
+        <h2 className="font-display mt-14 text-navy">By service</h2>
+        <div className="mt-6 space-y-4">
           {services.map((s) => (
-            <div key={s.id} className="panel p-5">
-              <h3 className="font-display text-xl font-semibold">
-                <Link href={`/services/${s.slug}`} className="text-navy no-underline hover:text-gold">
+            <Card key={s.id} className="p-5">
+              <h3 className="font-display text-navy">
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="text-navy no-underline hover:text-gold-deep"
+                >
                   {s.title}
                 </Link>
               </h3>
@@ -87,30 +92,30 @@ export default function FaqPage() {
                 {s.faqs.map((f) => (
                   <li key={f.question}>
                     <p className="font-semibold text-navy">{f.question}</p>
-                    <p className="mt-1 text-sm text-muted">{f.answer}</p>
+                    <p className="mt-1 text-sm text-steel">{f.answer}</p>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-semibold text-navy">
-          Deep-dive guides
-        </h2>
-        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        <h2 className="font-display mt-14 text-navy">Deep-dive guides</h2>
+        <ul className="mt-4 grid gap-4 sm:grid-cols-2">
           {guides.map((g) => (
             <li key={g.slug}>
-              <Link
-                href={`/guides/${g.slug}`}
-                className="panel block p-4 text-sm font-medium text-navy no-underline hover:border-gold/40"
-              >
-                {g.title}
-              </Link>
+              <Card>
+                <Link
+                  href={`/guides/${g.slug}`}
+                  className="block p-4 text-sm font-medium text-navy no-underline hover:text-gold-deep"
+                >
+                  {g.title}
+                </Link>
+              </Card>
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
       <CTA />
     </>

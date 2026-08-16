@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { CaseTag } from "@/components/ChartDecor";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
+import { MediaCard } from "@/components/MediaCard";
+import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
+import { SectionHeading } from "@/components/SectionHeading";
 import { images, yachtStrip } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
@@ -21,21 +23,15 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const workShots = [
-  { ...images.gallery.engine, tag: "Engine", href: "/services/marine-engine-repair" },
-  { ...images.gallery.electrical, tag: "Electrical", href: "/services/electrical-repairs" },
-  { ...images.gallery.diagnostics, tag: "Diagnostics", href: "/services/boat-diagnostics" },
-  { ...images.gallery.maintenance, tag: "Maintenance", href: "/services/boat-maintenance" },
-  { ...images.gallery.systems, tag: "Systems", href: "/services/plumbing-repairs" },
-  { ...images.gallery.dockside, tag: "Mobile", href: "/services/mobile-boat-repair" },
-  { ...images.gallery.hull, tag: "Hull", href: "/services" },
-  { ...images.gallery.teak, tag: "Deck", href: "/about" },
+  { ...images.gallery.engine, kicker: "Engine", href: "/services/marine-engine-repair" },
+  { ...images.gallery.electrical, kicker: "Electrical", href: "/services/electrical-repairs" },
+  { ...images.gallery.diagnostics, kicker: "Diagnostics", href: "/services/boat-diagnostics" },
+  { ...images.gallery.maintenance, kicker: "Maintenance", href: "/services/boat-maintenance" },
+  { ...images.gallery.systems, kicker: "Systems", href: "/services/plumbing-repairs" },
+  { ...images.gallery.dockside, kicker: "Mobile", href: "/services/mobile-boat-repair" },
+  { ...images.gallery.hull, kicker: "Hull", href: "/services" },
+  { ...images.gallery.teak, kicker: "Deck", href: "/about" },
 ];
-
-const yachtShots = yachtStrip.map((img) => ({
-  ...img,
-  tag: "Yacht",
-  href: "/locations",
-}));
 
 export default function GalleryPage() {
   return (
@@ -47,90 +43,52 @@ export default function GalleryPage() {
         ])}
       />
 
-      {/* Hero */}
-      <section className="relative min-h-[320px] overflow-hidden border-b border-line sm:min-h-[400px]">
-        <Image
-          src={images.gallery.intracoastal.src}
-          alt={images.gallery.intracoastal.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/20" />
-        <div className="wrap relative flex min-h-[320px] flex-col justify-end py-12 sm:min-h-[400px]">
-          <CaseTag>Gallery</CaseTag>
-          <h1 className="font-display mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
-            Yachts, marinas &amp; marine service
-          </h1>
-          <p className="mt-4 max-w-xl text-steel">
-            South Florida waters, dockside life, and the systems we repair—engines, electrical,
-            and mobile marina work.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Gallery"
+        title="Yachts, marinas & marine service"
+        description="South Florida waters, dockside life, and the systems we repair—engines, electrical, and mobile marina work."
+        image={images.gallery.intracoastal}
+      />
 
-      <section className="wrap section-pad">
-        <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl">
-          Yacht &amp; marina branding
-        </h2>
-        <p className="mt-2 max-w-2xl text-muted">
-          Premium waterside imagery for Fort Lauderdale, Pompano Beach, and nearby South Florida.
-        </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {yachtShots.map((shot) => (
-            <figure key={shot.src} className="shot m-0">
-              <div className="shot-img relative aspect-[4/3]">
-                <Image src={shot.src} alt={shot.alt} fill sizes="25vw" className="object-cover" />
-                <span className="absolute left-2 top-2 bg-navy/85 px-2 py-0.5 text-[0.6rem] text-paper">
-                  {shot.tag}
-                </span>
-              </div>
-              <figcaption className="border-t border-line px-3 py-2">
-                <p className="text-xs  text-muted">
-                  {shot.caption ?? shot.alt}
-                </p>
-              </figcaption>
-            </figure>
+      <Section>
+        <SectionHeading
+          title="Yacht & marina branding"
+          description="Waterside imagery for Fort Lauderdale, Pompano Beach, and nearby South Florida. Captions describe the photo, not a specific job."
+        />
+        <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {yachtStrip.map((shot) => (
+            <MediaCard
+              key={shot.src}
+              href="/locations"
+              image={shot}
+              kicker={shot.caption}
+              description={shot.alt}
+            />
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="border-t border-line bg-paper-deep/30">
-        <div className="wrap section-pad">
-          <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl">
-            Systems &amp; service work
-          </h2>
-          <p className="mt-2 max-w-2xl text-muted">
-            Engines, electrical, diagnostics, maintenance, and dockside repair contexts.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {workShots.map((shot) => (
-              <figure key={shot.src + shot.tag} className="shot m-0">
-                <div className="shot-img relative aspect-[4/3]">
-                  <Image src={shot.src} alt={shot.alt} fill sizes="25vw" className="object-cover" />
-                  <span className="absolute left-2 top-2 bg-navy/85 px-2 py-0.5 text-[0.6rem] text-paper">
-                    {shot.tag}
-                  </span>
-                </div>
-                <figcaption className="border-t border-line px-3 py-3">
-                  <p className="text-xs text-muted">{shot.alt}</p>
-                  <Link
-                    href={shot.href}
-                    className="mt-1 inline-block text-xs font-semibold text-navy no-underline hover:text-gold"
-                  >
-                    Related page →
-                  </Link>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          <p className="mt-10 text-sm text-muted">
-            Looking for service? See <Link href="/services">all boat repair services</Link>,{" "}
-            <Link href="/locations">service areas</Link>, or <Link href="/book">book a visit</Link>.
-          </p>
+      <Section tone="soft">
+        <SectionHeading
+          title="Systems & service work"
+          description="Service-category photos for engines, electrical, diagnostics, maintenance, and dockside repair. These are context shots, not claimed job photos."
+        />
+        <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {workShots.map((shot) => (
+            <MediaCard
+              key={shot.src + shot.kicker}
+              href={shot.href}
+              image={shot}
+              kicker={shot.kicker}
+              description={shot.alt}
+            />
+          ))}
         </div>
-      </section>
+        <p className="mt-10 text-sm text-steel">
+          Looking for service? See <Link href="/services">all boat repair services</Link>,{" "}
+          <Link href="/locations">service areas</Link>, or <Link href="/book">book a visit</Link>.
+        </p>
+      </Section>
 
       <CTA />
     </>
