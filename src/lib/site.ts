@@ -7,7 +7,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://doctoryachts.com",
   description:
     "Boat repair & boat maintenance in Fort Lauderdale and South Florida. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",
-  email: "office@doctoryachts.com",
+  email: "info@doctoryachts.com",
   phone: "(347) 951-5710",
   phoneHref: "tel:+13479515710",
   address: "Serving marinas & private docks across South Florida",

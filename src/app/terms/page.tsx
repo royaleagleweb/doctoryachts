@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Terms | Doctor Yachts",
   description:
-    "Terms for using the Doctor Yachts website and requesting boat repair in Fort Lauderdale, FL. Contact office@doctoryachts.com.",
+    `Terms for using the Doctor Yachts website and requesting boat repair in Fort Lauderdale, FL. Contact ${site.email}.`,
   path: "/terms",
   keywords: ["Doctor Yachts terms", "boat mechanic terms Fort Lauderdale"],
 });

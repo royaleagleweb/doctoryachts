@@ -57,7 +57,7 @@ export async function POST(request: Request) {
 
   const confirmationId = `DY-${Date.now().toString(36).toUpperCase()}`;
 
-  await notifyShop({
+  const notify = await notifyShop({
     subject: `${body.priority ? "[URGENT] " : ""}Booking request ${confirmationId} — Doctor Yachts`,
     replyTo: String(body.email),
     fields: {
@@ -85,5 +85,6 @@ export async function POST(request: Request) {
     ok: true,
     confirmationId,
     message: "Booking request received",
+    notify,
   });
 }

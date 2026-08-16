@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
   const kind = body.formType === "free-estimate" ? "Free estimate" : "Contact message";
 
-  await notifyShop({
+  const notify = await notifyShop({
     subject: `${kind} — Doctor Yachts — ${body.name}`,
     replyTo: body.email,
     fields: {
@@ -64,5 +64,5 @@ export async function POST(request: Request) {
     },
   });
 
-  return NextResponse.json({ ok: true, message: "Message received" });
+  return NextResponse.json({ ok: true, message: "Message received", notify });
 }

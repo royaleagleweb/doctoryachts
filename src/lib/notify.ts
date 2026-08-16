@@ -1,19 +1,31 @@
-import { site } from "@/lib/site";
-
 /**
- * Deliver lead notifications to the shop inbox.
- * Uses FormSubmit (no API key) → office email. Falls back to console log if delivery fails.
+ * Shop lead notifications via FormSubmit (no API key).
+ * Recipients are server-only — do not reuse this list on the public site.
+ * Each inbox is a separate POST so FormSubmit can activate them independently.
  */
-export async function notifyShop(payload: {
+const SHOP_NOTIFY_EMAILS = [
+  "roy@royaleagleweb.com",
+  "info@doctoryachts.com",
+] as const;
+
+export type NotifyResult = {
+  delivered: number;
+  failed: number;
+  deliveredAll: boolean;
+};
+
+type NotifyPayload = {
   subject: string;
   replyTo?: string;
   fields: Record<string, string | number | boolean | undefined | null>;
-}) {
+};
+
+function buildBody(payload: NotifyPayload) {
   const lines = Object.entries(payload.fields)
     .filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== "")
     .map(([k, v]) => `${k}: ${v}`);
 
-  const body = {
+  return {
     _subject: payload.subject,
     _template: "table",
     _captcha: "false",
@@ -23,8 +35,13 @@ export async function notifyShop(payload: {
       Object.entries(payload.fields).map(([k, v]) => [k, v == null ? "" : String(v)]),
     ),
   };
+}
 
-  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(site.email)}`;
+async function deliverTo(
+  email: string,
+  body: ReturnType<typeof buildBody>,
+): Promise<{ email: string; delivered: boolean; status?: number; error?: string }> {
+  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(email)}`;
 
   try {
     const res = await fetch(endpoint, {
@@ -38,17 +55,38 @@ export async function notifyShop(payload: {
 
     if (!res.ok) {
       const text = await res.text().catch(() => "");
-      console.error("[notifyShop] delivery failed", res.status, text);
-      // Still accept the lead in-app; log full payload for recovery
-      console.info("[Doctor Yachts lead — undelivered copy]", payload);
-      return { delivered: false as const };
+      console.error("[notifyShop] delivery failed", email, res.status, text);
+      return { email, delivered: false, status: res.status, error: text.slice(0, 300) };
     }
 
-    console.info("[Doctor Yachts lead delivered]", payload.subject);
-    return { delivered: true as const };
+    console.info("[notifyShop] delivered", email);
+    return { email, delivered: true, status: res.status };
   } catch (err) {
-    console.error("[notifyShop] error", err);
-    console.info("[Doctor Yachts lead — undelivered copy]", payload);
-    return { delivered: false as const };
+    console.error("[notifyShop] error", email, err);
+    return {
+      email,
+      delivered: false,
+      error: err instanceof Error ? err.message : "network error",
+    };
   }
+}
+
+export async function notifyShop(payload: NotifyPayload): Promise<NotifyResult> {
+  const body = buildBody(payload);
+  const results = await Promise.all(SHOP_NOTIFY_EMAILS.map((email) => deliverTo(email, body)));
+
+  const delivered = results.filter((r) => r.delivered).length;
+  const failed = results.length - delivered;
+
+  if (failed === results.length) {
+    console.error("[notifyShop] all deliveries failed", results);
+    console.info("[Doctor Yachts lead — undelivered copy]", payload);
+  } else if (failed > 0) {
+    console.error("[notifyShop] partial delivery — some inboxes failed", results);
+    console.info("[Doctor Yachts lead — recovery copy]", payload);
+  } else {
+    console.info("[notifyShop] delivered to all shop inboxes", payload.subject);
+  }
+
+  return { delivered, failed, deliveredAll: failed === 0 };
 }
