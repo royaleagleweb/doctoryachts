@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Privacy | Doctor Yachts",
   description:
-    "How Doctor Yachts handles contact, estimate, and booking information. Fort Lauderdale, FL. Questions: office@doctoryachts.com.",
+    `How Doctor Yachts handles contact, estimate, and booking information. Fort Lauderdale, FL. Questions: ${site.email}.`,
   path: "/privacy",
   keywords: ["Doctor Yachts privacy", "boat mechanic privacy Fort Lauderdale"],
 });

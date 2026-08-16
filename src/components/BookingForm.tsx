@@ -212,7 +212,7 @@ export function BookingForm() {
             ].map((row) => (
               <div key={row.k} className="rounded-xl border border-line bg-white/[0.03] p-3">
                 <dt className="text-xs  text-muted">{row.k}</dt>
-                <dd className="mt-1 font-medium text-white">{row.v}</dd>
+                <dd className="mt-1 font-medium text-navy">{row.v}</dd>
               </div>
             ))}
           </dl>
