@@ -11,6 +11,10 @@ export const site = {
   phone: "(347) 951-5710",
   phoneHref: "tel:+13479515710",
   address: "Serving marinas & private docks across South Florida",
+  /** City-level NAP only — no street address on file */
+  addressLocality: "Fort Lauderdale",
+  addressRegion: "FL",
+  addressCountry: "US",
   serviceArea: `${primaryMarket} — ${cityListText}`,
   region: primaryMarket,
   hours: "Mon–Sat · 7:00 AM – 6:00 PM",
@@ -20,6 +24,11 @@ export const site = {
   social: {
     instagram: "",
     facebook: "",
+  },
+  /** Public profiles used for sameAs + reviews links (do not invent extras) */
+  profiles: {
+    yelp: "https://www.yelp.com/biz/doctor-yachts-fort-lauderdale",
+    google: "https://share.google/5bc4JtNqYSnIQCtRW",
   },
 } as const;
 

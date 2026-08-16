@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Boat Mechanic Reviews | Fort Lauderdale Clients",
   description:
-    "What boat owners look for in a Fort Lauderdale boat mechanic—and how to leave a review for Doctor Yachts. Free estimates. Call " +
+    "Leave a Doctor Yachts review on Google or Yelp Fort Lauderdale. Diagnose-first boat mechanic. Free estimates. Call " +
     site.phone +
     ".",
   path: "/reviews",
@@ -49,7 +49,7 @@ export default function ReviewsPage() {
       <PageHero
         eyebrow="Reviews"
         title="Reviews & reputation"
-        description="Google Business Profile reviews will live here when the listing is active. Until then, here is what we stand for—and how to reach us after a visit."
+        description="Read or leave a review for Doctor Yachts on Google or Yelp. Below is what we stand for on every visit."
       />
 
       <section className="wrap section-pad space-y-10">
@@ -74,10 +74,34 @@ export default function ReviewsPage() {
             across South Florida.
           </p>
           <p className="mt-3 text-muted">
-            Worked with us already? Call{" "}
-            <a href={site.phoneHref}>{site.phone}</a> or email{" "}
-            <a href={`mailto:${site.email}`}>{site.email}</a> and we can point you to the live
-            review link once Google Business Profile is connected.
+            Worked with us already? Leave a review on{" "}
+            <a href={site.profiles.google} rel="noopener noreferrer" target="_blank">
+              Google
+            </a>{" "}
+            or{" "}
+            <a href={site.profiles.yelp} rel="noopener noreferrer" target="_blank">
+              Yelp (Fort Lauderdale)
+            </a>
+            . Questions: call <a href={site.phoneHref}>{site.phone}</a> or email{" "}
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
+          </p>
+          <p className="mt-4 flex flex-wrap gap-3">
+            <a
+              href={site.profiles.google}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="btn"
+            >
+              Google reviews
+            </a>
+            <a
+              href={site.profiles.yelp}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="btn btn-ghost"
+            >
+              Yelp Fort Lauderdale
+            </a>
           </p>
           <p className="mt-3 text-muted">
             Exploring service? See{" "}

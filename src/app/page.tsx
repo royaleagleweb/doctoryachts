@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
@@ -8,9 +9,15 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { guides } from "@/lib/guides";
 import { images, yachtStrip, yachts } from "@/lib/images";
 import { locations } from "@/lib/locations";
-import { faqJsonLd } from "@/lib/seo";
+import { buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { homeFaqs, site } from "@/lib/site";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
+  description: site.description,
+  path: "/",
+});
 
 export default function HomePage() {
   return (
@@ -33,10 +40,11 @@ export default function HomePage() {
           <div className="hero-edge__copy-inner">
             <p className="hero-edge__kicker">Fort Lauderdale · Pompano · Miami</p>
             <h1 className="font-display text-white">
-              Marine repair.
-              <br />
-              <span className="text-gold">No guessing.</span>
+              Mobile boat mechanic in Fort Lauderdale &amp; Pompano Beach
             </h1>
+            <p className="font-display mt-3 text-2xl font-semibold text-gold sm:text-3xl">
+              Marine repair. No guessing.
+            </p>
             <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-steel">
               Independent boat &amp; yacht mechanic. Engines, electrical, cooling, dockside
               service. Free estimates.

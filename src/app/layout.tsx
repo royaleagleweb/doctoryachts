@@ -8,7 +8,7 @@ import { MobileCta } from "@/components/MobileCta";
 import { PointerTrail } from "@/components/PointerTrail";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { absoluteUrl, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
+import { absoluteUrl, defaultOgImage, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
 
@@ -34,26 +34,25 @@ const syne = Syne({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default:
-      "Boat Repair, Boat Maintenance | Doctor Yachts | Fort Lauderdale & Pompano Beach, FL",
+    default: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
     template: `%s | Doctor Yachts`,
   },
   description: site.description,
   keywords: [...seoKeywords],
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
-    title: "Boat Repair & Maintenance | Doctor Yachts | Fort Lauderdale, FL",
+    title: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
     description: site.description,
     url: site.url,
     siteName: site.name,
     type: "website",
-    images: [{ url: "/images/home-hero-v2.jpg", width: 1200, height: 630, alt: site.name }],
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Boat Repair & Maintenance | Doctor Yachts",
+    title: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
     description: site.description,
-    images: ["/images/home-hero-v2.jpg"],
+    images: [defaultOgImage.url],
   },
   robots: { index: true, follow: true },
 };

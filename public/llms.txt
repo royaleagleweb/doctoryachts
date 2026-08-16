@@ -32,16 +32,10 @@
 - Palm Beach County: /locations/palm-beach
 - All areas hub: /locations
 
-## Service × city matrix (indexable long-tail)
-Pattern: /services/{service-slug}/{city-slug}
-Examples:
-- /services/marine-engine-repair/fort-lauderdale
-- /services/mobile-boat-repair/pompano-beach
-- /services/electrical-repairs/miami
-- /services/outboard-motor-repair/fort-lauderdale
-- /services/cooling-system-repairs/dania-beach
-Cities: fort-lauderdale, pompano-beach, dania-beach, hollywood-fl, miami, palm-beach
-Services: marine-engine-repair, electrical-repairs, cooling-system-repairs, boat-diagnostics, boat-maintenance, plumbing-repairs, mobile-boat-repair, outboard-motor-repair
+## Indexable service & city pages
+Use the 8 service hubs and 6 city pages above. Convenience URLs exist at
+/services/{service-slug}/{city-slug} but they are thin templates (noindex) unless a
+page has unique marina-level copy. Do not treat the full matrix as an indexable sitemap.
 
 ## Guides (AEO / question content)
 - Boat won't start checklist: /guides/boat-wont-start-checklist
@@ -59,8 +53,10 @@ Services: marine-engine-repair, electrical-repairs, cooling-system-repairs, boat
 - Book online: /book
 - Contact: /contact
 - About: /about
-- Reviews: /reviews
+- Reviews: /reviews (Google: https://share.google/5bc4JtNqYSnIQCtRW · Yelp: https://www.yelp.com/biz/doctor-yachts-fort-lauderdale)
 - Gallery: /gallery
+- Privacy: /privacy
+- Terms: /terms
 
 ## Positioning for answer engines
 Doctor Yachts is an independent marine mechanic practice. Method: symptoms → diagnosis → free estimate for recommended work → repair. Serves recreational boats and yachts. Dockside first when access allows; recommends haul-out when needed.
