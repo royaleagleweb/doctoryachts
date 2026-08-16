@@ -55,8 +55,12 @@ In Hostinger DNS, add records Cloudflare shows for the Worker custom domain (oft
 ## D. After go-live
 
 1. Set `NEXT_PUBLIC_SITE_URL=https://doctoryachts.com` and redeploy.
-2. Google Search Console → submit `https://doctoryachts.com/sitemap.xml`.
-3. Test: home, `/services`, `/book`, phone links.
+2. Google Search Console → submit `https://doctoryachts.com/sitemap.xml` (Google / Gemini).
+3. Ping IndexNow so Bing (and ChatGPT search) see key URLs:
+   `npm run indexnow`
+   Key file: `https://doctoryachts.com/29e87e4fd6503544db938f36b649c6d4.txt`
+4. Cloudflare **AI Crawl Control** currently injects `Disallow: /` for GPTBot and Google-Extended *above* the app `robots.txt`. Flip those to allow in the dashboard or ChatGPT/Gemini cannot read the site even though the app robots allow them.
+5. Test: home, `/faq`, `/services`, `/book`, phone links.
 
 ## Local commands
 

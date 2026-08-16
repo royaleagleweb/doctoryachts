@@ -56,12 +56,17 @@ export default function BookPage() {
       <PageHero
         eyebrow="Book online"
         title="Book boat repair"
-        description={<>Four quick steps. We confirm by phone or email during shop hours ({site.hours}).</>}
+        description={
+          <>
+            Four quick steps. We confirm by phone during {site.hours}. Submitting is a request—not
+            an instant lock. Prefer to talk first? Call {site.phone}.
+          </>
+        }
         actions={
           <>
             <Button href={site.phoneHref}>Call {site.phone}</Button>
             <Button href="/free-estimate" variant="ghost">
-              Free estimate first?
+              Get a free estimate
             </Button>
             <ReviewLinks />
           </>

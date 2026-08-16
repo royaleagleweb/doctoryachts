@@ -99,16 +99,16 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Boat repair services in South Florida"
         subhead="Eight services. Diagnose first."
-        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair. Pick a service, book a visit, or call."
+        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair. Book a visit—we confirm by phone during Mon–Sat 7–6. Pick a service or call."
         image={images.gallery.electrical}
         actions={
           <>
             <Button href="/book">Book a visit</Button>
             <Button href="/free-estimate" variant="ghost">
-              Free estimate
+              Get a free estimate
             </Button>
             <Button href={site.phoneHref} variant="ghost">
-              {site.phone}
+              Call {site.phone}
             </Button>
             <ReviewLinks />
           </>
@@ -123,9 +123,9 @@ export default function ServicesPage() {
             description="Every card is a real service page—short on brochure, long on the actual job."
           />
           <div className="flex flex-wrap gap-3">
-            <Button href="/book">Book</Button>
+            <Button href="/book">Book this week</Button>
             <Button href="/free-estimate" variant="ghost">
-              Free estimate
+              Get a free estimate
             </Button>
           </div>
         </div>

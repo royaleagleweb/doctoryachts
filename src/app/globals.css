@@ -641,6 +641,51 @@ textarea {
   line-height: 1.65;
   color: var(--steel);
 }
+.faq-item__next {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.faq-item__next a {
+  color: var(--navy);
+  text-decoration: none;
+}
+.faq-item__next a:hover {
+  color: var(--gold-deep);
+}
+.faq-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.faq-jump a {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 0.35rem 0.75rem;
+  color: var(--navy);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.faq-jump a:hover {
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+  color: var(--gold-deep);
+}
+.faq-group-path {
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--steel);
+}
+.faq-group-path a {
+  color: var(--navy);
+  text-decoration: none;
+}
+.faq-group-path a:hover {
+  color: var(--gold-deep);
+}
 
 /* Problem links */
 .problem-rail-wrap {

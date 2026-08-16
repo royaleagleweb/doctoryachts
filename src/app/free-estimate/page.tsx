@@ -60,7 +60,8 @@ export default function FreeEstimatePage() {
         description={
           <>
             Answer a few practical questions—what&apos;s wrong, where the boat is, and how to reach
-            you. Prefer to talk? Call <a href={site.phoneHref}>{site.phone}</a>.
+            you. We reply during {site.hours}. Prefer to talk? Call{" "}
+            <a href={site.phoneHref}>{site.phone}</a>.
           </>
         }
         actions={

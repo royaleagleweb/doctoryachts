@@ -128,12 +128,12 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         image={media.hero}
         actions={
           <>
-            <Button href={`/book?service=${service.id}`}>Book this service</Button>
+            <Button href={`/book?service=${service.id}`}>Book a visit</Button>
             <Button href="/free-estimate" variant="ghost">
-              Free estimate
+              Get a free estimate
             </Button>
             <Button href={site.phoneHref} variant="ghost">
-              {site.phone}
+              Call {site.phone}
             </Button>
           </>
         }
@@ -371,11 +371,9 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               .
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href={`/book?service=${service.id}`}>
-                Book {service.title.split(" ")[0]}
-              </Button>
+              <Button href={`/book?service=${service.id}`}>Book a visit</Button>
               <Button href="/free-estimate" variant="ghost">
-                Free estimate
+                Get a free estimate
               </Button>
             </div>
           </div>
@@ -423,21 +421,21 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       <section className="border-b border-line">
         <div className="wrap grid gap-6 section-pad lg:grid-cols-[1.2fr_0.8fr]">
           <Card className="p-6 sm:p-8">
-            <p className="eyebrow">Ready to get back on the water?</p>
+            <p className="eyebrow">Book this week</p>
             <h2 className="font-display mt-2 text-navy">
-              Book {service.title.toLowerCase()} · free estimates
+              Book {service.title.toLowerCase()} — we confirm by phone
             </h2>
             <p className="mt-3 text-muted">
-              Mobile and dockside when access allows across Fort Lauderdale and
-              nearby South Florida. Share marina, slip, and symptoms for the fastest confirmation.
+              Mobile and dockside when access allows across Fort Lauderdale and nearby South
+              Florida. Share marina, slip, and symptoms. We confirm during {site.hours}.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button href={`/book?service=${service.id}`}>Book online</Button>
+              <Button href={`/book?service=${service.id}`}>Book a visit</Button>
               <Button href="/free-estimate" variant="ghost">
-                Free estimate
+                Get a free estimate
               </Button>
               <Button href={site.phoneHref} variant="ghost">
-                {site.phone}
+                Call {site.phone}
               </Button>
             </div>
           </Card>

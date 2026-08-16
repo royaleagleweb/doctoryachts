@@ -145,9 +145,9 @@ export default function AboutPage() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button href="/book">Book service</Button>
+              <Button href="/book">Book a visit</Button>
               <Button href="/free-estimate" variant="ghost">
-                Free estimate
+                Get a free estimate
               </Button>
               <Button href="/contact" variant="ghost">
                 Contact

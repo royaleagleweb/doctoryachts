@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
+import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
@@ -59,8 +60,19 @@ export default function LocationsPage() {
       <PageHero
         eyebrow="Service areas"
         title="Boat repair service areas in South Florida"
-        description="Mobile and dockside boat mechanic coverage across Broward, Miami-Dade, and Palm Beach County. Pick a city for local keywords, neighborhoods, and booking."
+        description="Mobile and dockside boat mechanic coverage across Broward, Miami-Dade, and Palm Beach County. Book a visit—we confirm by phone during Mon–Sat 7–6."
         image={images.gallery.dockside}
+        actions={
+          <>
+            <Button href="/book">Book a visit</Button>
+            <Button href="/free-estimate" variant="ghost">
+              Get a free estimate
+            </Button>
+            <Button href={site.phoneHref} variant="ghost">
+              Call {site.phone}
+            </Button>
+          </>
+        }
       />
 
       <Section>

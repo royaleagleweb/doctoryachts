@@ -15,10 +15,10 @@ export default function NotFound() {
             Services
           </Button>
           <Button href="/book" variant="ghost">
-            Book repair
+            Book a visit
           </Button>
           <Button href={site.phoneHref} variant="ghost">
-            {site.phone}
+            Call {site.phone}
           </Button>
         </>
       }
