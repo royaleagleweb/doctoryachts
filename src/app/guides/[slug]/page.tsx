@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnswerBox } from "@/components/AnswerBox";
-import { CaseTag } from "@/components/ChartDecor";
+import { Button } from "@/components/Button";
+import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
 import { getGuideBySlug, guides } from "@/lib/guides";
 import {
   articleJsonLd,
@@ -65,138 +68,119 @@ export default async function GuidePage({ params }: PageProps) {
       <JsonLd data={schema} />
 
       <article>
-        <header className="border-b border-line bg-paper-deep/40">
-          <div className="wrap section-pad">
-            <p className="text-xs text-muted">
-              <Link href="/" className="no-underline hover:text-gold">
-                Home
-              </Link>
+        <PageHero
+          eyebrow={guide.category}
+          title={guide.h1}
+          description={`Updated ${guide.updated} · ${guide.readTime} read`}
+          meta={
+            <p className="page-hero__crumb">
+              <Link href="/">Home</Link>
               {" / "}
-              <Link href="/guides" className="no-underline hover:text-gold">
-                Guides
-              </Link>
+              <Link href="/guides">Guides</Link>
               {" / "}
               {guide.title}
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <CaseTag>{guide.category}</CaseTag>
-              <span className="text-[0.65rem]  text-muted">
-                Updated {guide.updated} · {guide.readTime} read
-              </span>
-            </div>
-            <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
-              {guide.h1}
-            </h1>
-          </div>
-        </header>
+          }
+        />
 
-        <div className="wrap grid gap-10 section-pad lg:grid-cols-[1fr_280px]">
-          <div className="space-y-10">
-            <AnswerBox question={guide.h1} answer={guide.quickAnswer} label="Direct answer" />
+        <Section>
+          <div className="grid gap-10 lg:grid-cols-[1fr_280px]">
+            <div className="space-y-10">
+              <AnswerBox question={guide.h1} answer={guide.quickAnswer} label="Direct answer" />
 
-            {guide.howTo && (
-              <section>
-                <h2 className="font-display text-2xl font-semibold text-navy">
-                  {guide.howTo.name}
-                </h2>
-                <ol className="mt-5 space-y-4">
-                  {guide.howTo.steps.map((step, i) => (
-                    <li key={step.name} className="panel flex gap-4 p-4">
-                      <span className="font-display text-2xl font-semibold text-gold">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <h3 className="font-semibold text-navy">{step.name}</h3>
-                        <p className="mt-1 text-sm leading-relaxed text-muted">{step.text}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            )}
-
-            {guide.sections.map((section) => (
-              <section key={section.heading}>
-                <h2 className="font-display text-2xl font-semibold text-navy">
-                  {section.heading}
-                </h2>
-                {section.body.map((p) => (
-                  <p key={p.slice(0, 48)} className="mt-3 text-muted">
-                    {p}
-                  </p>
-                ))}
-                {section.list && (
-                  <ul className="mt-4 list-disc space-y-2 pl-5 text-navy">
-                    {section.list.map((item) => (
-                      <li key={item}>{item}</li>
+              {guide.howTo && (
+                <section>
+                  <h2 className="font-display text-navy">{guide.howTo.name}</h2>
+                  <ol className="mt-5 space-y-4">
+                    {guide.howTo.steps.map((step, i) => (
+                      <li key={step.name}>
+                        <Card className="flex gap-4 p-4">
+                          <span className="font-display text-2xl font-semibold text-gold-deep">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <div>
+                            <h3 className="font-semibold text-navy">{step.name}</h3>
+                            <p className="mt-1 text-sm leading-relaxed text-steel">{step.text}</p>
+                          </div>
+                        </Card>
+                      </li>
                     ))}
-                  </ul>
-                )}
-              </section>
-            ))}
+                  </ol>
+                </section>
+              )}
 
-            <section className="panel-navy p-6">
-              <h2 className="font-display text-xl font-semibold text-paper">
-                Need this fixed in South Florida?
-              </h2>
-              <p className="mt-2 text-sm text-steel">
-                Free estimates. Mobile and dockside when access allows. Book online or call{" "}
-                <a href={site.phoneHref} className="text-gold no-underline hover:underline">
-                  {site.phone}
-                </a>
-                .
-              </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <Link href="/book" className="btn btn-gold">
-                  Book repair
-                </Link>
-                <Link href="/free-estimate" className="btn btn-ghost-light">
-                  Free estimate
-                </Link>
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-            <div className="panel p-5">
-              <p className="text-xs  text-gold">
-                Related services
-              </p>
-              <ul className="mt-3 space-y-2">
-                {related.map((s) =>
-                  s ? (
-                    <li key={s.id}>
-                      <Link
-                        href={`/services/${s.slug}`}
-                        className="text-sm font-medium text-navy no-underline hover:text-gold"
-                      >
-                        {s.title}
-                      </Link>
-                    </li>
-                  ) : null,
-                )}
-              </ul>
-            </div>
-            <div className="panel p-5">
-              <p className="text-xs  text-muted">More guides</p>
-              <ul className="mt-3 space-y-2">
-                {guides
-                  .filter((g) => g.slug !== guide.slug)
-                  .slice(0, 4)
-                  .map((g) => (
-                    <li key={g.slug}>
-                      <Link
-                        href={`/guides/${g.slug}`}
-                        className="text-sm text-navy no-underline hover:text-gold"
-                      >
-                        {g.title}
-                      </Link>
-                    </li>
+              {guide.sections.map((section) => (
+                <section key={section.heading}>
+                  <h2 className="font-display text-navy">{section.heading}</h2>
+                  {section.body.map((p) => (
+                    <p key={p.slice(0, 48)} className="mt-3 text-steel">
+                      {p}
+                    </p>
                   ))}
-              </ul>
+                  {section.list && (
+                    <ul className="mt-4 list-disc space-y-2 pl-5 text-navy">
+                      {section.list.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              ))}
+
+              <Card className="card-accent p-6">
+                <h2 className="font-display text-navy">Need this fixed in South Florida?</h2>
+                <p className="mt-2 text-sm text-steel">
+                  Free estimates. Mobile and dockside when access allows. Book online or call{" "}
+                  <a href={site.phoneHref}>{site.phone}</a>.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Button href="/book">Book repair</Button>
+                  <Button href="/free-estimate" variant="ghost">
+                    Free estimate
+                  </Button>
+                </div>
+              </Card>
             </div>
-          </aside>
-        </div>
+
+            <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
+              <Card className="p-5">
+                <p className="eyebrow">Related services</p>
+                <ul className="mt-3 space-y-2">
+                  {related.map((s) =>
+                    s ? (
+                      <li key={s.id}>
+                        <Link
+                          href={`/services/${s.slug}`}
+                          className="text-sm font-medium text-navy no-underline hover:text-gold-deep"
+                        >
+                          {s.title}
+                        </Link>
+                      </li>
+                    ) : null,
+                  )}
+                </ul>
+              </Card>
+              <Card className="p-5">
+                <p className="eyebrow">More guides</p>
+                <ul className="mt-3 space-y-2">
+                  {guides
+                    .filter((g) => g.slug !== guide.slug)
+                    .slice(0, 4)
+                    .map((g) => (
+                      <li key={g.slug}>
+                        <Link
+                          href={`/guides/${g.slug}`}
+                          className="text-sm text-navy no-underline hover:text-gold-deep"
+                        >
+                          {g.title}
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+              </Card>
+            </aside>
+          </div>
+        </Section>
 
         {guide.faqs.length > 0 && (
           <FaqSection title="Questions this guide answers" faqs={guide.faqs} />

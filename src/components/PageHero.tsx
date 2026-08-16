@@ -1,28 +1,67 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
-/** Consistent inner-page hero for the luxury service layout */
+export type PageHeroImage = {
+  src: string;
+  alt: string;
+};
+
+type PageHeroProps = {
+  eyebrow?: string;
+  title: string;
+  description?: ReactNode;
+  actions?: ReactNode;
+  image?: PageHeroImage;
+  meta?: ReactNode;
+  priority?: boolean;
+};
+
+/** Inner-page hero — light or photo. Home keeps the marketing `hero-edge` stack. */
 export function PageHero({
   eyebrow,
   title,
   description,
   actions,
-}: {
-  eyebrow?: string;
-  title: string;
-  description?: ReactNode;
-  actions?: ReactNode;
-}) {
+  image,
+  meta,
+  priority,
+}: PageHeroProps) {
+  const eager = priority ?? Boolean(image);
+
+  if (image) {
+    return (
+      <section className="page-hero page-hero--photo">
+        <div className="page-hero__media">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            priority={eager}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="page-hero__copy">
+          <div className="wrap">
+            {meta}
+            {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+            <h1 className="font-display">{title}</h1>
+            {description && <div className="page-hero__desc">{description}</div>}
+            {actions && <div className="page-hero__actions">{actions}</div>}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="page-hero border-b border-line">
-      <div className="wrap section-pad pb-10">
+    <section className="page-hero">
+      <div className="wrap section-pad">
+        {meta}
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h1 className="font-display max-w-3xl text-4xl font-semibold tracking-tight text-pearl sm:text-5xl">
-          {title}
-        </h1>
-        {description && (
-          <div className="mt-4 max-w-2xl text-lg leading-relaxed text-steel">{description}</div>
-        )}
-        {actions && <div className="mt-6 flex flex-wrap items-center gap-3">{actions}</div>}
+        <h1 className="font-display">{title}</h1>
+        {description && <div className="page-hero__desc">{description}</div>}
+        {actions && <div className="page-hero__actions">{actions}</div>}
       </div>
     </section>
   );

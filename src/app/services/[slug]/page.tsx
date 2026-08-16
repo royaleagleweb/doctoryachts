@@ -4,10 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { AnswerBox } from "@/components/AnswerBox";
-import { CaseTag } from "@/components/ChartDecor";
+import { Button } from "@/components/Button";
+import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { guides } from "@/lib/guides";
 import { getServicePageMedia, type ServicePageMedia } from "@/lib/marine-media";
@@ -74,10 +76,8 @@ function MediaBand({
             reverse ? "lg:order-1 lg:pr-12" : "lg:pl-12"
           }`}
         >
-          {eyebrow && <CaseTag>{eyebrow}</CaseTag>}
-          <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-pearl sm:text-3xl">
-            {title}
-          </h2>
+          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+          <h2 className="font-display mt-3 text-navy">{title}</h2>
           <div className="mt-4 space-y-3 text-base leading-relaxed text-steel">{children}</div>
         </div>
       </div>
@@ -90,7 +90,6 @@ export default async function ServiceLandingPage({ params }: PageProps) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
-  const idx = services.findIndex((s) => s.id === service.id);
   const media: ServicePageMedia = getServicePageMedia(service);
   const related = services.filter((s) => s.id !== service.id).slice(0, 4);
   const relatedGuides = guides
@@ -115,61 +114,39 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         ]}
       />
 
-      {/* Full-bleed marine hero */}
-      <section className="relative min-h-[420px] overflow-hidden border-b border-line bg-navy sm:min-h-[480px]">
-        <Image
-          src={media.hero.src}
-          alt={media.hero.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-80"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/30" />
-
-        <div className="wrap relative flex min-h-[420px] flex-col justify-end py-12 sm:min-h-[480px] sm:py-16">
-          <p className="text-xs text-steel">
-            <Link href="/" className="text-steel no-underline hover:text-gold">
-              Home
-            </Link>
-            {" / "}
-            <Link href="/services" className="text-steel no-underline hover:text-gold">
-              Services
-            </Link>
-            {" / "}
-            <span className="text-paper/80">{service.title}</span>
-          </p>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <CaseTag>Service</CaseTag>
-            {service.duration && (
-              <span className="rounded-full border border-line px-3 py-1 text-xs text-steel">
-                {service.duration}
-              </span>
-            )}
-          </div>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-pearl sm:text-5xl">
-            {service.title}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-steel">
+      <PageHero
+        eyebrow={service.duration ? `Service · ${service.duration}` : "Service"}
+        title={service.title}
+        description={
+          <>
             {service.description}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/book?service=${service.id}`} className="btn">
-              Book this service
-            </Link>
-            <Link href="/free-estimate" className="btn btn-ghost">
+            <span className="mt-3 block text-sm">
+              Fort Lauderdale · Pompano Beach · Miami · Dockside first
+            </span>
+          </>
+        }
+        image={media.hero}
+        actions={
+          <>
+            <Button href={`/book?service=${service.id}`}>Book this service</Button>
+            <Button href="/free-estimate" variant="ghost">
               Free estimate
-            </Link>
-            <a href={site.phoneHref} className="btn btn-ghost">
+            </Button>
+            <Button href={site.phoneHref} variant="ghost">
               {site.phone}
-            </a>
-          </div>
-          <p className="mt-8 border-t border-white/10 pt-6 text-sm text-steel">
-            Fort Lauderdale · Pompano Beach · Miami · Dockside first
+            </Button>
+          </>
+        }
+        meta={
+          <p className="page-hero__crumb">
+            <Link href="/">Home</Link>
+            {" / "}
+            <Link href="/services">Services</Link>
+            {" / "}
+            {service.title}
           </p>
-        </div>
-      </section>
+        }
+      />
 
       {/* Quick answer */}
       <section className="border-b border-line bg-paper-deep/40">
@@ -203,10 +180,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         <p>If any of these sound familiar, this service is usually the right place to start:</p>
         <ul className="mt-2 grid gap-2 sm:grid-cols-1">
           {service.symptoms.map((s) => (
-            <li
-              key={s}
-              className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
-            >
+            <li key={s} className="list-tile">
               {s}
             </li>
           ))}
@@ -264,11 +238,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         </p>
         <ol className="mt-2 grid gap-2">
           {service.whatWeCheck.map((item, i) => (
-            <li
-              key={item}
-              className="flex gap-3 border border-line px-3 py-2.5 text-sm text-navy"
-            >
-              <span className="text-xs font-semibold text-gold">
+            <li key={item} className="list-tile flex gap-3">
+              <span className="text-xs font-semibold text-gold-deep">
                 {String(i + 1).padStart(2, "0")}
               </span>
               {item}
@@ -299,8 +270,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
             </div>
           </div>
           <div className="flex flex-col justify-center px-0 py-12 lg:px-12">
-            <CaseTag>How we work</CaseTag>
-            <h2 className="font-display mt-3 text-2xl font-semibold sm:text-3xl">
+            <p className="eyebrow">How we work</p>
+            <h2 className="font-display mt-3">
               How a {service.title.toLowerCase()} visit works
             </h2>
             <ol className="mt-8 space-y-5">
@@ -378,9 +349,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
           </div>
           <div className="bg-navy px-6 py-12 text-paper sm:px-12 lg:min-h-[400px] lg:py-16">
             <p className="eyebrow">How we work</p>
-            <h2 className="font-display mt-4 text-2xl font-semibold sm:text-3xl">
-              Why diagnose first?
-            </h2>
+            <h2 className="font-display mt-4">Why diagnose first?</h2>
             <p className="mt-4 text-sm leading-relaxed text-steel">
               Guessing parts on marine systems is expensive—especially batteries, impellers,
               sensors, and chargers that get replaced without fixing the real fault. Doctor Yachts
@@ -403,12 +372,12 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               .
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={`/book?service=${service.id}`} className="btn btn-gold">
+              <Button href={`/book?service=${service.id}`}>
                 Book {service.title.split(" ")[0]}
-              </Link>
-              <Link href="/free-estimate" className="btn btn-ghost-light">
+              </Button>
+              <Button href="/free-estimate" variant="ghost">
                 Free estimate
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -419,8 +388,8 @@ export default async function ServiceLandingPage({ params }: PageProps) {
         <div className="wrap section-pad">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <CaseTag>Marine gallery</CaseTag>
-              <h2 className="font-display mt-3 text-2xl font-semibold text-navy sm:text-3xl">
+              <p className="eyebrow">Marine gallery</p>
+              <h2 className="font-display mt-3 text-navy">
                 {service.title} — waterside notes
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-muted">
@@ -454,11 +423,9 @@ export default async function ServiceLandingPage({ params }: PageProps) {
       {/* Sticky-style booking strip with marina image */}
       <section className="border-b border-line">
         <div className="wrap grid gap-6 section-pad lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="panel p-6 sm:p-8">
-            <p className="text-xs  text-gold">
-              Ready to get back on the water?
-            </p>
-            <h2 className="font-display mt-2 text-2xl font-semibold text-navy">
+          <Card className="p-6 sm:p-8">
+            <p className="eyebrow">Ready to get back on the water?</p>
+            <h2 className="font-display mt-2 text-navy">
               Book {service.title.toLowerCase()} · free estimates
             </h2>
             <p className="mt-3 text-muted">
@@ -466,22 +433,18 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               nearby South Florida. Share marina, slip, and symptoms for the fastest confirmation.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href={`/book?service=${service.id}`} className="btn">
-                Book online
-              </Link>
-              <Link href="/free-estimate" className="btn btn-ghost">
+              <Button href={`/book?service=${service.id}`}>Book online</Button>
+              <Button href="/free-estimate" variant="ghost">
                 Free estimate
-              </Link>
-              <a href={site.phoneHref} className="btn btn-ghost">
+              </Button>
+              <Button href={site.phoneHref} variant="ghost">
                 {site.phone}
-              </a>
+              </Button>
             </div>
-          </div>
+          </Card>
           <aside className="space-y-4">
-            <div className="panel p-5">
-              <p className="text-xs  text-muted">
-                This service by city
-              </p>
+            <Card className="p-5">
+              <p className="eyebrow">This service by city</p>
               <ul className="mt-3 space-y-2">
                 {locations.map((loc) => (
                   <li key={loc.slug}>
@@ -496,16 +459,14 @@ export default async function ServiceLandingPage({ params }: PageProps) {
               </ul>
               <Link
                 href="/locations"
-                className="mt-3 block text-xs font-semibold text-navy no-underline hover:text-gold"
+                className="mt-3 block text-sm font-semibold text-navy no-underline hover:text-gold-deep"
               >
                 All service areas →
               </Link>
-            </div>
+            </Card>
             {relatedGuides.length > 0 && (
-              <div className="panel p-5">
-                <p className="text-xs  text-muted">
-                  Related guides
-                </p>
+              <Card className="p-5">
+                <p className="eyebrow">Related guides</p>
                 <ul className="mt-3 space-y-2">
                   {relatedGuides.map((g) => (
                     <li key={g.slug}>
@@ -518,7 +479,7 @@ export default async function ServiceLandingPage({ params }: PageProps) {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             )}
           </aside>
         </div>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CaseTag } from "@/components/ChartDecor";
+import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
 import { guides } from "@/lib/guides";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
@@ -30,54 +32,47 @@ export default function GuidesHubPage() {
         ])}
       />
 
-      <section className="border-b border-line bg-paper-deep/50">
-        <div className="wrap section-pad">
-          <CaseTag>Guides</CaseTag>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-navy">
-            Boat repair guides written for real searches—and AI answers
-          </h1>
-          <p className="mt-4 max-w-2xl text-muted">
-            Direct answers first, then steps and FAQs. Built so Google, AI overviews, and owners can
-            extract clear guidance about boat repair in Fort Lauderdale and South Florida.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Guides"
+        title="Boat repair guides written for real searches—and AI answers"
+        description="Direct answers first, then steps and FAQs. Built so Google, AI overviews, and owners can extract clear guidance about boat repair in Fort Lauderdale and South Florida."
+      />
 
-      <section className="wrap section-pad space-y-10">
-        <p className="max-w-3xl text-muted">
+      <Section>
+        <p className="max-w-3xl text-steel">
           These guides answer the searches South Florida boat owners actually type—and the
           questions AI overviews summarize. Each article opens with a direct answer, then steps,
           local context for Fort Lauderdale and nearby docks, and FAQs. For hands-on help,{" "}
           <Link href="/free-estimate">request a free estimate</Link> or{" "}
           <Link href="/book">book boat repair</Link>.
         </p>
-        <ul className="grid gap-4 md:grid-cols-2">
+        <ul className="mt-10 grid gap-4 md:grid-cols-2">
           {guides.map((g) => (
             <li key={g.slug}>
-              <article className="panel h-full p-5 transition hover:border-navy/25">
-                <p className="text-xs  text-gold">
+              <Card as="article" className="h-full p-5">
+                <p className="eyebrow">
                   {g.category} · {g.readTime}
                 </p>
-                <h2 className="font-display mt-2 text-xl font-semibold text-navy">
+                <h2 className="font-display mt-2 text-navy">
                   <Link
                     href={`/guides/${g.slug}`}
-                    className="text-navy no-underline hover:text-gold"
+                    className="text-navy no-underline hover:text-gold-deep"
                   >
                     {g.title}
                   </Link>
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{g.quickAnswer}</p>
+                <p className="mt-2 text-sm leading-relaxed text-steel">{g.quickAnswer}</p>
                 <Link
                   href={`/guides/${g.slug}`}
-                  className="mt-4 inline-block text-xs font-semibold  text-navy no-underline hover:text-gold"
+                  className="mt-4 inline-block text-sm font-semibold text-navy no-underline hover:text-gold-deep"
                 >
                   Read full guide →
                 </Link>
-              </article>
+              </Card>
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
       <CTA />
     </>

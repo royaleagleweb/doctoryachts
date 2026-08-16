@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
+import { Button } from "@/components/Button";
 import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
+import { MediaCard } from "@/components/MediaCard";
+import { Section } from "@/components/Section";
+import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { guides } from "@/lib/guides";
 import { images, yachtStrip, yachts } from "@/lib/images";
@@ -24,7 +28,6 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      {/* Open full-bleed hero */}
       <section className="hero-edge">
         <div className="hero-edge__media">
           <Image
@@ -50,12 +53,10 @@ export default function HomePage() {
               service. Free estimates.
             </p>
             <div className="hero-edge__actions">
-              <Link href="/book" className="btn">
-                Book a visit
-              </Link>
-              <Link href="/free-estimate" className="btn btn-ghost">
+              <Button href="/book">Book a visit</Button>
+              <Button href="/free-estimate" variant="ghost">
                 Free estimate
-              </Link>
+              </Button>
             </div>
             <div className="hero-edge__meta">
               <span>
@@ -75,7 +76,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Soft problem chips */}
       <div className="problem-rail-wrap">
         <nav className="problem-rail" aria-label="Common problems">
           <Link href="/book?service=engine-repair">
@@ -97,186 +97,167 @@ export default function HomePage() {
         </nav>
       </div>
 
-      {/* SEO intro */}
-      <section className="bg-white">
-        <div className="wrap section-pad">
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-            <div className="reveal-in space-y-8">
-              <AnswerBox
-                label="01 — Quick answer"
-                question="Who is Doctor Yachts?"
-                answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
-              />
-              <div>
-                <h2 className="font-display text-3xl font-semibold text-navy">
-                  Boat mechanic service for Fort Lauderdale &amp; Pompano Beach
-                </h2>
-                <p className="mt-4 text-steel">
-                  Looking for{" "}
-                  <Link href="/locations/fort-lauderdale">boat repair in Fort Lauderdale</Link> or a{" "}
-                  <Link href="/services/mobile-boat-repair">mobile boat mechanic</Link>? We handle{" "}
-                  <Link href="/services/marine-engine-repair">marine engine repair</Link>,{" "}
-                  <Link href="/services/outboard-motor-repair">outboard motor repair</Link>,{" "}
-                  <Link href="/services/electrical-repairs">boat electrical repairs</Link>,{" "}
-                  <Link href="/services/cooling-system-repairs">cooling system repairs</Link>, and{" "}
-                  <Link href="/services/boat-maintenance">boat maintenance</Link> across Broward and
-                  nearby South Florida waters.
-                </p>
-                <p className="mt-3 text-steel">
-                  Free estimates on recommended work. Many no-starts, charging faults, and
-                  overheating jobs never need a tow first. Call{" "}
-                  <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book online</Link>.
-                </p>
-                <h3 className="font-display mt-8 text-xl font-semibold text-navy">
-                  What we fix most often
-                </h3>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-steel">
-                  <li>Boat won&apos;t start / weak cranking</li>
-                  <li>Overheating (impellers, strainers, heat exchangers)</li>
-                  <li>Dead batteries and shore power trips</li>
-                  <li>Bilge pumps, plumbing, and safety systems</li>
-                  <li>Pre-season and interval maintenance</li>
-                </ul>
-                <p className="mt-4 text-sm text-steel">
-                  Guides:{" "}
-                  {guides.slice(0, 3).map((g, i) => (
-                    <span key={g.slug}>
-                      {i > 0 && " · "}
-                      <Link href={`/guides/${g.slug}`}>{g.title}</Link>
-                    </span>
-                  ))}
-                  . See all <Link href="/guides">guides</Link> and <Link href="/faq">FAQ</Link>.
-                </p>
-              </div>
-            </div>
-            <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
-              <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
-                <Image
-                  src={yachts.bow.src}
-                  alt={yachts.bow.alt}
-                  fill
-                  sizes="40vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="shot relative aspect-[4/3]">
-                <Image
-                  src={yachts.dockPair.src}
-                  alt={yachts.dockPair.alt}
-                  fill
-                  sizes="25vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="shot relative aspect-[4/3]">
-                <Image
-                  src={yachts.swimPlatform.src}
-                  alt={yachts.swimPlatform.alt}
-                  fill
-                  sizes="25vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section>
-        <div className="wrap section-pad">
-          <div className="reveal-in mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <div className="reveal-in space-y-8">
+            <AnswerBox
+              label="01 — Quick answer"
+              question="Who is Doctor Yachts?"
+              answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
+            />
             <div>
-              <p className="eyebrow">02 — Services</p>
-              <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
-                What we repair on board
+              <h2 className="font-display text-navy">
+                Boat mechanic service for Fort Lauderdale &amp; Pompano Beach
               </h2>
-              <p className="mt-2 max-w-xl text-sm text-steel">
-                Engines, electrical, cooling, diagnostics, maintenance, plumbing, and mobile
-                dockside repair.
+              <p className="mt-4 text-steel">
+                Looking for{" "}
+                <Link href="/locations/fort-lauderdale">boat repair in Fort Lauderdale</Link> or a{" "}
+                <Link href="/services/mobile-boat-repair">mobile boat mechanic</Link>? We handle{" "}
+                <Link href="/services/marine-engine-repair">marine engine repair</Link>,{" "}
+                <Link href="/services/outboard-motor-repair">outboard motor repair</Link>,{" "}
+                <Link href="/services/electrical-repairs">boat electrical repairs</Link>,{" "}
+                <Link href="/services/cooling-system-repairs">cooling system repairs</Link>, and{" "}
+                <Link href="/services/boat-maintenance">boat maintenance</Link> across Broward and
+                nearby South Florida waters.
+              </p>
+              <p className="mt-3 text-steel">
+                Free estimates on recommended work. Many no-starts, charging faults, and
+                overheating jobs never need a tow first. Call{" "}
+                <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book online</Link>.
+              </p>
+              <h3 className="font-display mt-8 text-navy">What we fix most often</h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-steel">
+                <li>Boat won&apos;t start / weak cranking</li>
+                <li>Overheating (impellers, strainers, heat exchangers)</li>
+                <li>Dead batteries and shore power trips</li>
+                <li>Bilge pumps, plumbing, and safety systems</li>
+                <li>Pre-season and interval maintenance</li>
+              </ul>
+              <p className="mt-4 text-sm text-steel">
+                Guides:{" "}
+                {guides.slice(0, 3).map((g, i) => (
+                  <span key={g.slug}>
+                    {i > 0 && " · "}
+                    <Link href={`/guides/${g.slug}`}>{g.title}</Link>
+                  </span>
+                ))}
+                . See all <Link href="/guides">guides</Link> and <Link href="/faq">FAQ</Link>.
               </p>
             </div>
-            <Link
-              href="/services"
-              className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
-            >
-              View all services →
-            </Link>
           </div>
-          <div className="reveal-in grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 6).map((service, i) => (
-              <ServiceCard key={service.id} service={service} index={i} />
-            ))}
-          </div>
-          {services.length > 6 && (
-            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
-              {services.slice(6).map((s) => (
-                <Link
-                  key={s.id}
-                  href={`/services/${s.slug}`}
-                  className="text-navy no-underline hover:text-gold-deep"
-                >
-                  {s.title.replace(" Fort Lauderdale", "")} →
-                </Link>
-              ))}
+          <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
+            <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
+              <Image
+                src={yachts.bow.src}
+                alt={yachts.bow.alt}
+                fill
+                sizes="40vw"
+                className="object-cover"
+              />
             </div>
-          )}
-          <div className="mt-12 flex flex-wrap items-center gap-4">
-            <Link href="/book" className="btn">
-              Book repair
-            </Link>
-            <Link href="/free-estimate" className="btn btn-ghost">
-              Free estimate
-            </Link>
+            <div className="shot relative aspect-[4/3]">
+              <Image
+                src={yachts.dockPair.src}
+                alt={yachts.dockPair.alt}
+                fill
+                sizes="25vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="shot relative aspect-[4/3]">
+              <Image
+                src={yachts.swimPlatform.src}
+                alt={yachts.swimPlatform.alt}
+                fill
+                sizes="25vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Process */}
-      <section className="section-soft">
-        <div className="wrap section-pad">
-          <div className="reveal-in max-w-2xl">
-            <p className="eyebrow">03 — How it works</p>
-            <h2 className="font-display text-3xl font-semibold text-navy">
-              From your call to back on the water
-            </h2>
-          </div>
-          <ol className="process-open reveal-in mt-12">
-            {[
-              {
-                n: "01",
-                t: "Tell us the symptom",
-                d: "What the boat is doing—or not doing. No jargon required.",
-              },
-              {
-                n: "02",
-                t: "Plan the visit",
-                d: "Marina, slip, access, and a time that works for you.",
-              },
-              {
-                n: "03",
-                t: "Diagnose on site",
-                d: "We find the fault before recommending parts or labor.",
-              },
-              {
-                n: "04",
-                t: "Repair with a plan",
-                d: "Free estimate path, clear options, notes you can keep.",
-              },
-            ].map((step) => (
-              <li key={step.n}>
-                <span className="n">{step.n}</span>
-                <h3 className="font-display text-xl font-semibold text-navy">{step.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-steel">{step.d}</p>
-              </li>
+      <Section>
+        <div className="reveal-in mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeading
+            eyebrow="02 — Services"
+            title="What we repair on board"
+            description="Engines, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair."
+          />
+          <Link
+            href="/services"
+            className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
+          >
+            View all services →
+          </Link>
+        </div>
+        <div className="reveal-in grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {services.slice(0, 6).map((service, i) => (
+            <ServiceCard key={service.id} service={service} index={i} />
+          ))}
+        </div>
+        {services.length > 6 && (
+          <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
+            {services.slice(6).map((s) => (
+              <Link
+                key={s.id}
+                href={`/services/${s.slug}`}
+                className="text-navy no-underline hover:text-gold-deep"
+              >
+                {s.title.replace(" Fort Lauderdale", "")} →
+              </Link>
             ))}
-          </ol>
+          </div>
+        )}
+        <div className="mt-12 flex flex-wrap items-center gap-4">
+          <Button href="/book">Book repair</Button>
+          <Button href="/free-estimate" variant="ghost">
+            Free estimate
+          </Button>
         </div>
-      </section>
+      </Section>
 
-      {/* Why us */}
-      <section>
-        <div className="wrap grid items-center gap-10 section-pad lg:grid-cols-2 lg:gap-16">
+      <Section tone="soft">
+        <div className="reveal-in">
+          <SectionHeading
+            eyebrow="03 — How it works"
+            title="From your call to back on the water"
+          />
+        </div>
+        <ol className="process-open reveal-in mt-12">
+          {[
+            {
+              n: "01",
+              t: "Tell us the symptom",
+              d: "What the boat is doing—or not doing. No jargon required.",
+            },
+            {
+              n: "02",
+              t: "Plan the visit",
+              d: "Marina, slip, access, and a time that works for you.",
+            },
+            {
+              n: "03",
+              t: "Diagnose on site",
+              d: "We find the fault before recommending parts or labor.",
+            },
+            {
+              n: "04",
+              t: "Repair with a plan",
+              d: "Free estimate path, clear options, notes you can keep.",
+            },
+          ].map((step) => (
+            <li key={step.n}>
+              <span className="n">{step.n}</span>
+              <h3 className="font-display text-navy">{step.t}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-steel">{step.d}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="relative min-h-[280px] overflow-hidden rounded-[1.75rem] lg:min-h-[420px]">
             <Image
               src={yachts.cockpit.src}
@@ -287,109 +268,74 @@ export default function HomePage() {
             />
           </div>
           <div className="reveal-in flex flex-col justify-center py-2">
-            <p className="eyebrow">04 — Why Doctor Yachts</p>
-            <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">
-              A shop that listens—not a sales yard
-            </h2>
-            <p className="mt-4 text-steel">
-              We treat vessels like systems: power, propulsion, pumps, wiring. That means fewer
-              wild guesses and fewer surprise invoices.
-            </p>
+            <SectionHeading
+              eyebrow="04 — Why Doctor Yachts"
+              title="A shop that listens—not a sales yard"
+              description="We treat vessels like systems: power, propulsion, pumps, wiring. That means fewer wild guesses and fewer surprise invoices."
+            />
             <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-navy/80">
               <li>Dockside first when access allows</li>
               <li>Findings before parts</li>
               <li>Notes for the next trip, yard, or survey</li>
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/about" className="btn">
-                About the shop
-              </Link>
-              <Link href="/book" className="btn btn-ghost">
+              <Button href="/about">About the shop</Button>
+              <Button href="/book" variant="ghost">
                 Book a visit
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Areas */}
-      <section>
-        <div className="wrap section-pad">
-          <div className="reveal-in mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="eyebrow">05 — Service areas</p>
-              <h2 className="font-display text-3xl font-semibold text-navy">
-                South Florida waters we work
-              </h2>
-            </div>
-            <Link
-              href="/locations"
-              className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
-            >
-              All areas →
-            </Link>
-          </div>
-          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {locations.map((loc) => {
-              const img = images.locations[loc.slug as keyof typeof images.locations];
-              return (
-                <Link
-                  key={loc.slug}
-                  href={`/locations/${loc.slug}`}
-                  className="group no-underline"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      sizes="33vw"
-                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="mt-3 flex items-baseline justify-between gap-3">
-                    <div>
-                      <p className="font-display text-lg font-semibold text-navy group-hover:text-gold-deep">
-                        {loc.name}
-                      </p>
-                      <p className="text-sm text-muted">{loc.region}</p>
-                    </div>
-                    <span className="text-gold">→</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+      <Section>
+        <div className="reveal-in mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeading
+            eyebrow="05 — Service areas"
+            title="South Florida waters we work"
+          />
+          <Link
+            href="/locations"
+            className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
+          >
+            All areas →
+          </Link>
         </div>
-      </section>
-
-      {/* Gallery */}
-      <section>
-        <div className="wrap section-pad">
-          <div className="mb-8 flex items-end justify-between gap-3">
-            <h2 className="font-display text-2xl font-semibold text-navy sm:text-3xl">
-              On the water
-            </h2>
-            <Link
-              href="/gallery"
-              className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
-            >
-              Gallery →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {yachtStrip.slice(0, 4).map((img) => (
-              <div key={img.src} className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem]">
-                <Image src={img.src} alt={img.alt} fill sizes="25vw" className="object-cover" />
-              </div>
-            ))}
-          </div>
+        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {locations.map((loc) => {
+            const img = images.locations[loc.slug as keyof typeof images.locations];
+            return (
+              <MediaCard
+                key={loc.slug}
+                href={`/locations/${loc.slug}`}
+                image={img}
+                title={loc.name}
+                description={loc.region}
+              />
+            );
+          })}
         </div>
-      </section>
+      </Section>
 
-      {/* Quote */}
-      <section>
-        <div className="wrap max-w-3xl py-16 text-center sm:py-20">
+      <Section>
+        <div className="mb-8 flex items-end justify-between gap-3">
+          <h2 className="font-display text-navy">On the water</h2>
+          <Link
+            href="/gallery"
+            className="text-sm font-semibold text-gold no-underline hover:text-gold-light"
+          >
+            Gallery →
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+          {yachtStrip.slice(0, 4).map((img) => (
+            <MediaCard key={img.src} image={img} kicker={img.caption} />
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <div className="mx-auto max-w-3xl text-center">
           <blockquote className="font-display text-2xl font-medium leading-snug text-navy sm:text-3xl">
             “Clear diagnosis. Honest options. Dockside when it makes sense—not a mystery invoice.”
           </blockquote>
@@ -401,7 +347,7 @@ export default function HomePage() {
             <Link href="/book">Book repair</Link>
           </p>
         </div>
-      </section>
+      </Section>
 
       <FaqSection title="Common questions" faqs={homeFaqs} />
       <CTA />

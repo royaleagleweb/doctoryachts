@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Suspense } from "react";
 import { BookingForm } from "@/components/BookingForm";
+import { Button } from "@/components/Button";
+import { Card } from "@/components/Card";
+import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -52,68 +55,64 @@ export default function BookPage() {
       <PageHero
         eyebrow="Book online"
         title="Book boat repair"
-        description={
-          <>
-            Four quick steps. We confirm by phone or email during shop hours ({site.hours}).
-          </>
-        }
+        description={<>Four quick steps. We confirm by phone or email during shop hours ({site.hours}).</>}
         actions={
           <>
-            <a href={site.phoneHref} className="btn">
-              Call {site.phone}
-            </a>
-            <Link href="/free-estimate" className="btn btn-ghost">
+            <Button href={site.phoneHref}>Call {site.phone}</Button>
+            <Button href="/free-estimate" variant="ghost">
               Free estimate first?
-            </Link>
+            </Button>
           </>
         }
       />
 
-      <section className="wrap grid gap-8 py-10 lg:grid-cols-[minmax(0,1fr)_280px]">
-        <div className="min-w-0">
-          <Suspense
-            fallback={
-              <div className="panel p-8 text-center text-steel">Loading booking form…</div>
-            }
-          >
-            <BookingForm />
-          </Suspense>
+      <Section>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="min-w-0">
+            <Suspense
+              fallback={<Card className="p-8 text-center text-steel">Loading booking form…</Card>}
+            >
+              <BookingForm />
+            </Suspense>
+          </div>
+
+          <aside className="space-y-4 lg:sticky lg:top-36 lg:self-start">
+            <Card className="p-5">
+              <p className="eyebrow">4 easy steps</p>
+              <ol className="mt-3 space-y-3 text-sm text-steel">
+                <li>
+                  <strong className="text-navy">1.</strong> What&apos;s wrong
+                </li>
+                <li>
+                  <strong className="text-navy">2.</strong> City, marina, day &amp; time
+                </li>
+                <li>
+                  <strong className="text-navy">3.</strong> Boat type
+                </li>
+                <li>
+                  <strong className="text-navy">4.</strong> Name, phone &amp; email
+                </li>
+              </ol>
+              <p className="mt-4 border-t border-line pt-3 text-sm leading-relaxed text-steel">
+                Submitting is a <strong className="text-navy">request</strong>, not an instant lock.
+              </p>
+            </Card>
+
+            <Card className="p-5">
+              <p className="font-semibold text-navy">Need help now?</p>
+              <p className="mt-2 text-sm text-steel">
+                Urgent no-starts and safety issues: call the shop.
+              </p>
+              <Button href={site.phoneHref} className="mt-4 w-full">
+                {site.phone}
+              </Button>
+              <p className="mt-3 text-sm text-steel">{site.hours}</p>
+            </Card>
+          </aside>
         </div>
+      </Section>
 
-        <aside className="space-y-4 lg:sticky lg:top-36 lg:self-start">
-          <div className="panel p-5">
-            <p className="text-sm font-bold text-gold">4 easy steps</p>
-            <ol className="mt-3 space-y-3 text-sm text-steel">
-              <li>
-                <strong className="text-pearl">1.</strong> What&apos;s wrong
-              </li>
-              <li>
-                <strong className="text-pearl">2.</strong> City, marina, day &amp; time
-              </li>
-              <li>
-                <strong className="text-pearl">3.</strong> Boat type
-              </li>
-              <li>
-                <strong className="text-pearl">4.</strong> Name, phone &amp; email
-              </li>
-            </ol>
-            <p className="mt-4 border-t border-line pt-3 text-xs leading-relaxed text-muted">
-              Submitting is a <strong className="text-pearl">request</strong>, not an instant lock.
-            </p>
-          </div>
-
-          <div className="panel p-5">
-            <p className="text-sm font-bold text-pearl">Need help now?</p>
-            <p className="mt-2 text-sm text-steel">
-              Urgent no-starts and safety issues: call the shop.
-            </p>
-            <a href={site.phoneHref} className="btn mt-4 w-full">
-              {site.phone}
-            </a>
-            <p className="mt-3 text-xs text-muted">{site.hours}</p>
-          </div>
-        </aside>
-      </section>
+      <CTA />
     </>
   );
 }

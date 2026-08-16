@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnswerBox } from "@/components/AnswerBox";
-import { CaseTag, CoordStamp } from "@/components/ChartDecor";
+import { Button } from "@/components/Button";
+import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { locations } from "@/lib/locations";
 import {
@@ -102,64 +104,34 @@ export default async function ServiceCityPage({ params }: PageProps) {
         ]}
       />
 
-      {/* Hero */}
-      <section className="relative min-h-[380px] overflow-hidden border-b border-line bg-navy sm:min-h-[440px]">
-        <Image
-          src={hero.src}
-          alt={`${name} in ${location.name}, FL — ${hero.alt}`}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-80"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/30" />
-
-        <div className="wrap relative flex min-h-[380px] flex-col justify-end py-12 sm:min-h-[440px] sm:py-16">
-          <p className="text-xs text-steel">
-            <Link href="/" className="text-steel no-underline hover:text-gold">
-              Home
-            </Link>
-            {" / "}
-            <Link href="/services" className="text-steel no-underline hover:text-gold">
-              Services
-            </Link>
-            {" / "}
-            <Link
-              href={`/services/${service.slug}`}
-              className="text-steel no-underline hover:text-gold"
-            >
-              {name}
-            </Link>
-            {" / "}
-            <span className="text-paper/80">{location.name}</span>
-          </p>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <CaseTag>
-              {location.region} · {location.state}
-            </CaseTag>
-            <CoordStamp label={service.duration} />
-          </div>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
-            {serviceCityH1(service, location)}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-steel">
-            Mobile and dockside {name.toLowerCase()} for boat and yacht owners in{" "}
-            {location.name}—diagnose first, free estimates, clear notes.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/book?service=${service.id}`} className="btn btn-gold">
-              Book in {location.shortName}
-            </Link>
-            <Link href="/free-estimate" className="btn btn-ghost-light">
+      <PageHero
+        eyebrow={`${location.region} · ${location.state}${service.duration ? ` · ${service.duration}` : ""}`}
+        title={serviceCityH1(service, location)}
+        description={`Mobile and dockside ${name.toLowerCase()} for boat and yacht owners in ${location.name}—diagnose first, free estimates, clear notes.`}
+        image={{ src: hero.src, alt: `${name} in ${location.name}, FL — ${hero.alt}` }}
+        actions={
+          <>
+            <Button href={`/book?service=${service.id}`}>Book in {location.shortName}</Button>
+            <Button href="/free-estimate" variant="ghost">
               Free estimate
-            </Link>
-            <a href={site.phoneHref} className="btn btn-ghost-light">
+            </Button>
+            <Button href={site.phoneHref} variant="ghost">
               {site.phone}
-            </a>
-          </div>
-        </div>
-      </section>
+            </Button>
+          </>
+        }
+        meta={
+          <p className="page-hero__crumb">
+            <Link href="/">Home</Link>
+            {" / "}
+            <Link href="/services">Services</Link>
+            {" / "}
+            <Link href={`/services/${service.slug}`}>{name}</Link>
+            {" / "}
+            {location.name}
+          </p>
+        }
+      />
 
       <section className="wrap grid gap-10 section-pad lg:grid-cols-[minmax(0,1fr)_300px]">
         <article className="min-w-0 space-y-10">
@@ -186,10 +158,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </h2>
             <ul className="mt-5 grid gap-2 sm:grid-cols-2">
               {service.symptoms.map((s) => (
-                <li
-                  key={s}
-                  className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
-                >
+                <li key={s} className="list-tile">
                   {s}
                 </li>
               ))}
@@ -203,11 +172,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </h2>
             <ul className="mt-5 grid gap-2 sm:grid-cols-2">
               {service.features.map((f) => (
-                <li
-                  key={f}
-                  className="flex gap-2 border border-line bg-white px-3 py-2.5 text-sm text-navy"
-                >
-                  
+                <li key={f} className="list-tile">
                   {f}
                 </li>
               ))}
@@ -241,10 +206,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {location.neighborhoods.map((n) => (
-                <li
-                  key={n}
-                  className="flex gap-2 border border-line px-3 py-2 text-sm text-navy"
-                >
+                <li key={n} className="list-tile flex gap-2">
                   <span className="text-gold">·</span>
                   {n}
                 </li>
@@ -259,67 +221,60 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </h2>
             <ol className="mt-5 space-y-4">
               {service.process.map((step, i) => (
-                <li key={step.title} className="panel flex gap-4 p-4">
-                  <span className="font-display text-2xl font-semibold text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="font-semibold text-navy">{step.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{step.detail}</p>
-                  </div>
+                <li key={step.title}>
+                  <Card className="flex gap-4 p-4">
+                    <span className="font-display text-2xl font-semibold text-gold-deep">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-navy">{step.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-steel">{step.detail}</p>
+                    </div>
+                  </Card>
                 </li>
               ))}
             </ol>
           </section>
 
-          <section className="panel-navy p-6 sm:p-8">
-            <h2 className="font-display text-xl font-semibold text-paper sm:text-2xl">
+          <Card className="card-accent p-6 sm:p-8">
+            <h2 className="font-display text-navy">
               Book {name.toLowerCase()} in {location.name}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-steel">
               Free estimates. Mobile/dockside when access allows. Call{" "}
-              <a href={site.phoneHref} className="text-gold">
-                {site.phone}
-              </a>{" "}
-              or book online with your marina and symptoms.
+              <a href={site.phoneHref}>{site.phone}</a> or book online with your marina and
+              symptoms.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href={`/book?service=${service.id}`} className="btn btn-gold">
-                Book {location.shortName}
-              </Link>
-              <Link href="/free-estimate" className="btn btn-ghost-light">
+              <Button href={`/book?service=${service.id}`}>Book {location.shortName}</Button>
+              <Button href="/free-estimate" variant="ghost">
                 Free estimate
-              </Link>
-              <Link
-                href={`/services/${service.slug}`}
-                className="btn btn-ghost-light"
-              >
+              </Button>
+              <Button href={`/services/${service.slug}`} variant="ghost">
                 Full {name} page
-              </Link>
+              </Button>
             </div>
-          </section>
+          </Card>
         </article>
 
         <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-          <div className="panel p-5">
-            <p className="text-xs  text-gold">Book</p>
-            <p className="mt-2 text-sm text-muted">
+          <Card className="p-5">
+            <p className="eyebrow">Book</p>
+            <p className="mt-2 text-sm text-steel">
               {location.name}, FL · {service.duration}
             </p>
-            <Link href={`/book?service=${service.id}`} className="btn mt-4 w-full">
+            <Button href={`/book?service=${service.id}`} className="mt-4 w-full">
               Book this service
-            </Link>
+            </Button>
             <a
               href={site.phoneHref}
-              className="mt-3 block text-center text-sm font-semibold text-navy no-underline hover:text-gold"
+              className="mt-3 block text-center text-sm font-semibold text-navy no-underline hover:text-gold-deep"
             >
               {site.phone}
             </a>
-          </div>
-          <div className="panel p-5">
-            <p className="text-xs  text-muted">
-              This service · other cities
-            </p>
+          </Card>
+          <Card className="p-5">
+            <p className="eyebrow">This service · other cities</p>
             <ul className="mt-3 space-y-2">
               {otherCities.map((c) => (
                 <li key={c.href}>
@@ -332,11 +287,9 @@ export default async function ServiceCityPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="panel p-5">
-            <p className="text-xs  text-muted">
-              More in {location.shortName}
-            </p>
+          </Card>
+          <Card className="p-5">
+            <p className="eyebrow">More in {location.shortName}</p>
             <ul className="mt-3 space-y-2">
               <li>
                 <Link
@@ -357,7 +310,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
         </aside>
       </section>
 

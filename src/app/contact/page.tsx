@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
+import { Button } from "@/components/Button";
+import { Card } from "@/components/Card";
 import { ContactForm } from "@/components/ContactForm";
+import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { Section } from "@/components/Section";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -54,66 +58,66 @@ export default function ContactPage() {
             <Link href="/book">book online</Link>.
           </>
         }
-        actions={
-          <a href={site.phoneHref} className="btn">
-            Call {site.phone}
-          </a>
-        }
+        actions={<Button href={site.phoneHref}>Call {site.phone}</Button>}
       />
 
-      <section className="wrap grid gap-10 section-pad lg:grid-cols-2">
-        <div className="space-y-6">
-          <AnswerBox
-            label="Quick answer"
-            question="How do I reach Doctor Yachts?"
-            answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message for free estimates and scheduling. We serve Fort Lauderdale, Pompano Beach, Miami, and nearby South Florida docks.`}
-          />
-          <div className="panel-navy p-6 sm:p-8">
-            <p className="text-sm font-bold text-gold">Direct lines</p>
-            <dl className="mt-6 space-y-5">
-              <div>
-                <dt className="text-xs text-steel">Phone</dt>
-                <dd className="mt-1 font-display text-2xl">
-                  <a href={site.phoneHref} className="text-pearl no-underline hover:text-gold">
-                    {site.phone}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs text-steel">Email</dt>
-                <dd className="mt-1">
-                  <a
-                    href={`mailto:${site.email}`}
-                    className="text-pearl no-underline hover:text-gold"
-                  >
-                    {site.email}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs text-steel">Hours</dt>
-                <dd className="mt-1 text-pearl/90">{site.hours}</dd>
-              </div>
-              <div>
-                <dt className="text-xs text-steel">Service area</dt>
-                <dd className="mt-1 text-pearl/90">{site.serviceArea}</dd>
-              </div>
-            </dl>
-            <p className="mt-6 text-sm text-steel">
-              Also: <Link href="/free-estimate">free estimate</Link> · <Link href="/faq">FAQ</Link>
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div className="space-y-6">
+            <AnswerBox
+              label="Quick answer"
+              question="How do I reach Doctor Yachts?"
+              answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message for free estimates and scheduling. We serve Fort Lauderdale, Pompano Beach, Miami, and nearby South Florida docks.`}
+            />
+            <Card className="card-accent p-6 sm:p-8">
+              <p className="eyebrow">Direct lines</p>
+              <dl className="mt-6 space-y-5">
+                <div>
+                  <dt className="text-sm text-steel">Phone</dt>
+                  <dd className="mt-1 font-display text-2xl">
+                    <a href={site.phoneHref} className="text-navy no-underline hover:text-gold-deep">
+                      {site.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-steel">Email</dt>
+                  <dd className="mt-1">
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="text-navy no-underline hover:text-gold-deep"
+                    >
+                      {site.email}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-steel">Hours</dt>
+                  <dd className="mt-1 text-navy">{site.hours}</dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-steel">Service area</dt>
+                  <dd className="mt-1 text-navy">{site.serviceArea}</dd>
+                </div>
+              </dl>
+              <p className="mt-6 text-sm text-steel">
+                Also: <Link href="/free-estimate">free estimate</Link> · <Link href="/faq">FAQ</Link>
+              </p>
+            </Card>
+          </div>
+          <Card className="p-6 sm:p-8">
+            <h2 className="font-display text-navy">Send a message</h2>
+            <p className="mt-2 text-sm text-steel">
+              Include city/marina and symptoms for a faster free estimate.
             </p>
-          </div>
+            <div className="mt-5">
+              <ContactForm />
+            </div>
+          </Card>
         </div>
-        <div className="panel p-6 sm:p-8">
-          <h2 className="font-display text-2xl font-semibold text-pearl">Send a message</h2>
-          <p className="mt-2 text-sm text-steel">
-            Include city/marina and symptoms for a faster free estimate.
-          </p>
-          <div className="mt-5">
-            <ContactForm />
-          </div>
-        </div>
-      </section>
+      </Section>
+
+      <CTA />
     </>
   );
 }
