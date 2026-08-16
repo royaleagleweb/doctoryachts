@@ -191,10 +191,10 @@ export function BookingForm() {
           <p className="text-sm font-semibold  text-gold">
             Request received
           </p>
-          <h2 className="font-display mt-2 text-2xl font-semibold text-pearl">
+          <h2 className="font-display mt-2 text-2xl font-semibold text-white">
             Thanks — we got your request
           </h2>
-          <p className="mt-2 text-sm text-steel">
+          <p className="mt-2 text-sm text-[#c5d0d8]">
             Not a locked appointment yet. We confirm access and timing during shop hours (
             {site.hours}).
           </p>
@@ -212,7 +212,7 @@ export function BookingForm() {
             ].map((row) => (
               <div key={row.k} className="rounded-xl border border-line bg-white/[0.03] p-3">
                 <dt className="text-xs  text-muted">{row.k}</dt>
-                <dd className="mt-1 font-medium text-pearl">{row.v}</dd>
+                <dd className="mt-1 font-medium text-white">{row.v}</dd>
               </div>
             ))}
           </dl>

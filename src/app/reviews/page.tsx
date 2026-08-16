@@ -20,7 +20,7 @@ export const metadata: Metadata = buildMetadata({
   keywords: [
     "boat mechanic reviews Fort Lauderdale",
     "Doctor Yachts reviews",
-    "boat repair reviews Pompano Beach",
+    "boat repair reviews South Florida",
   ],
 });
 

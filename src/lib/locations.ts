@@ -307,7 +307,7 @@ export const locations: Location[] = [
       "Book a free estimate with your marina and symptoms. We’ll confirm access and whether the job is a dockside fix or needs a different path.",
       "Owners searching for boat repair Hollywood FL or a boat mechanic near Hallandale often need weekend reliability: no-starts, weak charging, overheating, and bilge pump failures. We diagnose at the dock when access allows so you are not always towing first.",
       "Hollywood Intracoastal and nearby private docks are within routine Broward coverage. Include marina name, slip, parking, and gate details when you book so mobile service can plan the visit correctly.",
-      "Free estimates after we understand the symptom and location. Same diagnose-first standard as our Fort Lauderdale and Pompano Beach work.",
+      "Free estimates after we understand the symptom and location. Same diagnose-first standard as our Fort Lauderdale and South Florida work.",
     ],
     neighborhoods: [
       "Hollywood Intracoastal",
@@ -348,5 +348,7 @@ export function getLocationBySlug(slug: string) {
 
 export const primaryMarket = "South Florida";
 export const cityList = locations.map((l) => l.name);
+/** Visible chrome — keep the Pompano URL, do not promote it in global lists. */
+export const publicLocations = locations.filter((l) => l.slug !== "pompano-beach");
 export const cityListText =
-  "Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami, and Palm Beach";
+  "Fort Lauderdale, Dania Beach, Hollywood, Miami, and Palm Beach";

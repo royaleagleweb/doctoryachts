@@ -46,9 +46,9 @@ export const services: Service[] = [
     title: "Marine Engine Repair",
     summary: "Inboard & outboard engine repair—diagnose first, fix what matters.",
     description:
-      "Inboard and outboard engine repairs for boats and yachts in the Fort Lauderdale, Pompano Beach, and Miami, FL area. Hard starts, overheating, power loss, generators—diagnose first, then fix what matters.",
+      "Inboard and outboard engine repairs for boats and yachts in the Fort Lauderdale and South Florida area. Hard starts, overheating, power loss, generators—diagnose first, then fix what matters.",
     content: [
-      "Need marine engine repair in Fort Lauderdale, Pompano Beach, or nearby South Florida? Doctor Yachts is an independent boat and yacht mechanic focused on finding the real fault before parts get thrown at the problem. Whether your vessel is a center console, cabin cruiser, sport yacht, or motor yacht, we treat engines as systems—fuel, air, spark/compression, cooling, and controls—not a shopping list of sensors.",
+      "Need marine engine repair in Fort Lauderdale, or nearby South Florida? Doctor Yachts is an independent boat and yacht mechanic focused on finding the real fault before parts get thrown at the problem. Whether your vessel is a center console, cabin cruiser, sport yacht, or motor yacht, we treat engines as systems—fuel, air, spark/compression, cooling, and controls—not a shopping list of sensors.",
       "Hard starts, overheating, power loss, rough idle, exhaust issues, and generator load problems are everyday calls in Broward and Miami-Dade. Salt air, heat, and year-round use punish cooling passages, connections, and fuel systems. A proper marine engine repair visit separates “needs a battery” from “needs a fuel pump,” “needs cooling flow,” or “needs deeper mechanical work”—so you don’t pay twice for the same symptom.",
       "We offer mobile and dockside marine engine repair when access allows at Fort Lauderdale marinas, private docks, and nearby waterways. Many diagnostics and repairs never need a travel lift. When a job does need haul-out or specialized equipment, we tell you early and help plan the next step. Free estimates apply to recommended work after diagnosis.",
     ],
@@ -80,7 +80,7 @@ export const services: Service[] = [
         heading: "Why South Florida engines fail differently",
         body: [
           "Midwest “once a season” logic under-serves Florida boats. Heat accelerates battery and connection failures. Salt accelerates corrosion in grounds and cooling hardware. Sitting between weekends can create sulfated batteries, sticky fuel issues, and surprise no-starts on Saturday morning.",
-          "That is why diagnose-first marine engine repair in Fort Lauderdale and Pompano Beach focuses on verifying the system under realistic conditions—not guessing the most popular part on a forum. We document findings so you have a paper trail for resale, surveys, or the next yard visit.",
+          "That is why diagnose-first marine engine repair in Fort Lauderdale and South Florida focuses on verifying the system under realistic conditions—not guessing the most popular part on a forum. We document findings so you have a paper trail for resale, surveys, or the next yard visit.",
         ],
       },
       {
@@ -140,14 +140,14 @@ export const services: Service[] = [
       "Check-engine / warning alarms",
     ],
     whenToCall:
-      "Call for marine engine repair when the boat won’t start, runs hot, loses power, or throws alarms—especially before a planned trip. Early diagnosis at the dock in Fort Lauderdale or Pompano Beach often prevents a tow and more expensive engine damage.",
+      "Call for marine engine repair when the boat won’t start, runs hot, loses power, or throws alarms—especially before a planned trip. Early diagnosis at the dock in Fort Lauderdale or South Florida often prevents a tow and more expensive engine damage.",
     duration: "2–8 hrs typical",
     icon: "engine",
     quickAnswer:
-      "Marine engine repair covers inboard and outboard no-starts, overheating, power loss, and generator issues. Doctor Yachts diagnoses first in Fort Lauderdale, Pompano Beach, and Miami, then repairs with dockside service when access allows. Free estimates before major parts work.",
+      "Marine engine repair covers inboard and outboard no-starts, overheating, power loss, and generator issues. Doctor Yachts diagnoses first in Fort Lauderdale and South Florida, then repairs with dockside service when access allows. Free estimates before major parts work.",
     seoTitle: "Marine Engine Repair, Inboard & Outboard | Doctor Yachts | Fort Lauderdale, FL",
     seoDescription:
-      "Expert inboard & outboard marine engine repair in Fort Lauderdale, Pompano Beach & Miami. Diagnose-first dockside service. Free estimates — Doctor Yachts.",
+      "Expert inboard & outboard marine engine repair in Fort Lauderdale & South Florida. Diagnose-first dockside service. Free estimates — Doctor Yachts.",
     keywords: [
       "marine engine repair Fort Lauderdale",
       "inboard engine repair Fort Lauderdale",
@@ -155,7 +155,7 @@ export const services: Service[] = [
       "boat motor repair Fort Lauderdale",
       "Mercruiser repair Fort Lauderdale",
       "marine diesel repair Fort Lauderdale",
-      "boat engine repair Pompano Beach",
+      "boat engine repair South Florida",
     ],
     images: [
       {
@@ -208,9 +208,9 @@ export const services: Service[] = [
     title: "Boat Electrical Repairs",
     summary: "Charging, wiring, shore power—you can't hit the water with a faulty electrical system.",
     description:
-      "Boat electrical repairs in the Pompano Beach or Fort Lauderdale, FL area: batteries, chargers, inverters, shore power, grounds, and distribution faults—diagnosed as a system, not a battery-swap lottery.",
+      "Boat electrical repairs in Fort Lauderdale and South Florida: batteries, chargers, inverters, shore power, grounds, and distribution faults—diagnosed as a system, not a battery-swap lottery.",
     content: [
-      "Turn to Doctor Yachts for boat electrical repairs in Fort Lauderdale, Pompano Beach, and across Miami and Palm Beach when scheduled. Dead batteries, no charge underway, shore power trips, dim electronics under load, and intermittent shorts are core work for a marine mechanic who treats electrical systems as a complete path—not a single box on the bulkhead.",
+      "Turn to Doctor Yachts for boat electrical repairs in Fort Lauderdale, and across Miami and Palm Beach when scheduled. Dead batteries, no charge underway, shore power trips, dim electronics under load, and intermittent shorts are core work for a marine mechanic who treats electrical systems as a complete path—not a single box on the bulkhead.",
       "Intermittent marine electrical issues are often the hardest to catch in salt air and heat. Green crust on grounds, high-resistance cable ends, failing chargers, and parasitic draws can look like “bad batteries” until the charging and distribution path is tested properly. We use a systems approach so parts-swapping does not become your weekend hobby.",
       "Mobile and dockside electrical service is available when access allows. Bring photos of the panel, battery bank, and shore power inlet when you request a free estimate—it speeds triage and helps us arrive prepared.",
     ],
@@ -299,13 +299,13 @@ export const services: Service[] = [
     duration: "1–6 hrs typical",
     icon: "electrical",
     quickAnswer:
-      "Boat electrical repairs fix dead batteries, weak charging, shore power trips, and intermittent wiring faults. We test the full path—batteries, chargers, alternators, and grounds—across Fort Lauderdale and Pompano Beach docks. Free estimates after diagnosis.",
-    seoTitle: "Boat Electrical Repairs | Doctor Yachts | Fort Lauderdale & Pompano Beach, FL",
+      "Boat electrical repairs fix dead batteries, weak charging, shore power trips, and intermittent wiring faults. We test the full path—batteries, chargers, alternators, and grounds—across Fort Lauderdale and South Florida docks. Free estimates after diagnosis.",
+    seoTitle: "Boat Electrical Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Expert boat electrical repairs in Fort Lauderdale, Pompano Beach & Miami. Batteries, charging, shore power, grounds. Free estimates — Doctor Yachts.",
+      "Expert boat electrical repairs in Fort Lauderdale & South Florida. Batteries, charging, shore power, grounds. Free estimates — Doctor Yachts.",
     keywords: [
       "boat electrical repairs Fort Lauderdale",
-      "boat electrical repairs Pompano Beach",
+      "boat electrical repairs South Florida",
       "marine electrical repair",
       "boat battery charger repair",
       "shore power problems boat",
@@ -352,7 +352,7 @@ export const services: Service[] = [
       {
         question: "Can electrical repairs be done at my marina?",
         answer:
-          "Yes. Many electrical diagnostics and repairs are completed dockside in Fort Lauderdale and Pompano Beach when access allows.",
+          "Yes. Many electrical diagnostics and repairs are completed dockside in Fort Lauderdale and South Florida when access allows.",
       },
     ],
   },
@@ -362,9 +362,9 @@ export const services: Service[] = [
     title: "Cooling System Repairs",
     summary: "Keep your engine cool and running safely—impellers, heat exchangers, raw-water flow.",
     description:
-      "Cooling system repair services in the Pompano Beach or Fort Lauderdale, FL area. Overheating, weak flow, clogged exchangers, impeller service—stop damage before a hot engine becomes an expensive engine.",
+      "Cooling system repair services in Fort Lauderdale and South Florida. Overheating, weak flow, clogged exchangers, impeller service—stop damage before a hot engine becomes an expensive engine.",
     content: [
-      "Overheating is one of the fastest ways to destroy an otherwise healthy marine engine. Doctor Yachts provides cooling system repair services for Fort Lauderdale, Pompano Beach, and nearby South Florida boats—raw-water and closed cooling paths, impellers, sea strainers, thermostats, heat exchangers, hoses, and flow under the right conditions.",
+      "Overheating is one of the fastest ways to destroy an otherwise healthy marine engine. Doctor Yachts provides cooling system repair services for Fort Lauderdale, and nearby South Florida boats—raw-water and closed cooling paths, impellers, sea strainers, thermostats, heat exchangers, hoses, and flow under the right conditions.",
       "If the engine runs hot only at cruise—or only after a few minutes—we still treat it as a cooling case until proven otherwise. A weak telltale (pee stream) on an outboard is a red flag, not a curiosity. Grass, sand, and growth in Broward and Miami-Dade waters make cooling reliability a weekly reality for active owners.",
       "Many impeller, strainer, hose, and thermostat jobs are done dockside without a haul-out. Free estimates after diagnosis. If you already overheated, stop running and book service before the next trip.",
     ],
@@ -389,7 +389,7 @@ export const services: Service[] = [
         heading: "What to do when the temperature climbs",
         body: [
           "Reduce load. If temperature keeps rising, shut down to protect the engine. Check the telltale stream on many outboards. At the dock, inspect the sea strainer if it is safe to do so. Do not keep running “a little hot”—that is how warped heads and seized engines happen.",
-          "Then book cooling system repairs. Bring notes: idle vs cruise heat, recent grounding or grass, storage history, and any alarms. That history shortens diagnosis time at Fort Lauderdale and Pompano docks.",
+          "Then book cooling system repairs. Bring notes: idle vs cruise heat, recent grounding or grass, storage history, and any alarms. That history shortens diagnosis time at Fort Lauderdale and South Florida docks.",
         ],
       },
       {
@@ -453,10 +453,10 @@ export const services: Service[] = [
     duration: "1–5 hrs typical",
     icon: "diagnostics",
     quickAnswer:
-      "Boat cooling system repairs address overheating from failed impellers, clogged strainers, stuck thermostats, or fouled heat exchangers. Stop running if temps keep rising. Doctor Yachts offers dockside cooling diagnostics in Fort Lauderdale and Pompano Beach. Free estimates.",
-    seoTitle: "Cooling System Repairs | Doctor Yachts | Fort Lauderdale & Pompano Beach, FL",
+      "Boat cooling system repairs address overheating from failed impellers, clogged strainers, stuck thermostats, or fouled heat exchangers. Stop running if temps keep rising. Doctor Yachts offers dockside cooling diagnostics in Fort Lauderdale and South Florida. Free estimates.",
+    seoTitle: "Cooling System Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat cooling system repairs in Fort Lauderdale, Pompano Beach & Miami. Overheating, impellers, strainers, exchangers. Free estimates — Doctor Yachts.",
+      "Boat cooling system repairs in Fort Lauderdale & South Florida. Overheating, impellers, strainers, exchangers. Free estimates — Doctor Yachts.",
     keywords: [
       "cooling system repairs boat Fort Lauderdale",
       "boat overheating repair",
@@ -510,9 +510,9 @@ export const services: Service[] = [
     title: "Boat & Yacht Diagnostics",
     summary: "We'll diagnose your boat problems clearly—before you buy parts you don't need.",
     description:
-      "Multi-system boat diagnostics in Fort Lauderdale, Pompano Beach & Miami, FL. Engines, electrical, bilge, and safety systems with written findings and a prioritized repair roadmap.",
+      "Multi-system boat diagnostics in Fort Lauderdale & South Florida, FL. Engines, electrical, bilge, and safety systems with written findings and a prioritized repair roadmap.",
     content: [
-      "Doctor Yachts performs multi-system mechanical diagnostics for boat and yacht owners in Fort Lauderdale, Pompano Beach, Miami, and surrounding South Florida docks. Use a diagnostic before peak season, after purchase, when something only fails “sometimes,” or after another shop replaced parts without solving the symptom.",
+      "Doctor Yachts performs multi-system mechanical diagnostics for boat and yacht owners in Fort Lauderdale, Miami, and surrounding South Florida docks. Use a diagnostic before peak season, after purchase, when something only fails “sometimes,” or after another shop replaced parts without solving the symptom.",
       "You receive clear findings and a prioritized repair roadmap—not a vague invoice. Pre-purchase mechanical checks and sea-trial support help buyers understand true condition beyond a walkthrough. Pre-season diagnostics help you start the year ready, not reactive—especially important in Florida’s year-round salt and heat.",
       "Diagnostics are ideal when multiple systems might be involved—charging vs starter, cooling vs fuel, bilge pump vs wiring. Free estimates for recommended work after the inspection.",
     ],
@@ -600,10 +600,10 @@ export const services: Service[] = [
     duration: "Half or full day",
     icon: "diagnostics",
     quickAnswer:
-      "Boat diagnostics inspect engines, electrical, bilge, and safety systems and deliver written findings with a repair roadmap. Use before season, after purchase, or when faults are intermittent. Available mobile in Fort Lauderdale, Pompano Beach, and Miami. Free estimates on recommended work.",
-    seoTitle: "Boat Diagnostics | Doctor Yachts | Fort Lauderdale & Pompano Beach, FL",
+      "Boat diagnostics inspect engines, electrical, bilge, and safety systems and deliver written findings with a repair roadmap. Use before season, after purchase, or when faults are intermittent. Available mobile in Fort Lauderdale and South Florida. Free estimates on recommended work.",
+    seoTitle: "Boat Diagnostics | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat & yacht diagnostics in Fort Lauderdale, Pompano Beach & Miami. Written findings, repair roadmap, free estimates on recommended work — Doctor Yachts.",
+      "Boat & yacht diagnostics in Fort Lauderdale & South Florida. Written findings, repair roadmap, free estimates on recommended work — Doctor Yachts.",
     keywords: [
       "boat diagnostics Fort Lauderdale",
       "yacht diagnostics Fort Lauderdale",
@@ -642,7 +642,7 @@ export const services: Service[] = [
       {
         question: "Can diagnostics be done at my marina?",
         answer:
-          "Yes. Many diagnostics are completed dockside in Fort Lauderdale, Pompano Beach, and Miami when the vessel is accessible. Sea-trial support is scheduled when the job requires underway testing.",
+          "Yes. Many diagnostics are completed dockside in Fort Lauderdale and South Florida when the vessel is accessible. Sea-trial support is scheduled when the job requires underway testing.",
       },
       {
         question: "How long does a diagnostic take?",
@@ -657,9 +657,9 @@ export const services: Service[] = [
     title: "Boat Maintenance",
     summary: "Routine and seasonal boat maintenance so you spend time on the water—not waiting on repairs.",
     description:
-      "Boat maintenance in Fort Lauderdale, Pompano Beach & Miami, FL: oil service, impellers, zincs, belts, batteries, and manufacturer-interval service with clear logs.",
+      "Boat maintenance in Fort Lauderdale & South Florida, FL: oil service, impellers, zincs, belts, batteries, and manufacturer-interval service with clear logs.",
     content: [
-      "Boat owners throughout Fort Lauderdale and Pompano Beach can depend on Doctor Yachts for quality boat maintenance scheduled to manufacturer intervals and how you actually use the boat. Preventative maintenance is cheaper than emergency no-starts the morning of a charter or family trip.",
+      "Boat owners throughout Fort Lauderdale and South Florida can depend on Doctor Yachts for quality boat maintenance scheduled to manufacturer intervals and how you actually use the boat. Preventative maintenance is cheaper than emergency no-starts the morning of a charter or family trip.",
       "Typical service includes oil and filters, impeller inspection/replacement planning, belts, zincs, fluid checks, cooling attention, battery/charging health, and system function tests. Clear service notes keep your maintenance history organized for resale or surveys.",
       "Book outboard engine maintenance or full seasonal commissioning early—South Florida calendars fill before peak season. Free estimates for packages available.",
     ],
@@ -688,7 +688,7 @@ export const services: Service[] = [
       {
         heading: "Seasonal commissioning in South Florida",
         body: [
-          "Pre-season commissioning is not winterization theater—it is a readiness pass before heavy use. We catch weak batteries, tired impellers, and bilge issues before they become Saturday emergencies in Fort Lauderdale or Pompano Beach.",
+          "Pre-season commissioning is not winterization theater—it is a readiness pass before heavy use. We catch weak batteries, tired impellers, and bilge issues before they become Saturday emergencies in Fort Lauderdale or South Florida.",
           "Ask about seasonal packages when you book. Free estimates available.",
         ],
       },
@@ -742,17 +742,17 @@ export const services: Service[] = [
       "Battery and charging “seems fine” but untested",
     ],
     whenToCall:
-      "Schedule boat maintenance by manufacturer hours, before peak season, and after buying a boat with unknown history. Annual saltwater service is the baseline for Fort Lauderdale and Pompano Beach use.",
+      "Schedule boat maintenance by manufacturer hours, before peak season, and after buying a boat with unknown history. Annual saltwater service is the baseline for Fort Lauderdale and South Florida use.",
     duration: "2–5 hrs typical",
     icon: "maintenance",
     quickAnswer:
-      "Boat maintenance in Florida should follow manufacturer hours plus saltwater reality—oil and filters, impellers, zincs, belts, and seasonal checks. Doctor Yachts provides scheduled maintenance in Fort Lauderdale, Pompano Beach, and Miami. Free estimates for packages.",
-    seoTitle: "Boat Maintenance | Doctor Yachts | Pompano Beach & Fort Lauderdale, FL",
+      "Boat maintenance in Florida should follow manufacturer hours plus saltwater reality—oil and filters, impellers, zincs, belts, and seasonal checks. Doctor Yachts provides scheduled maintenance in Fort Lauderdale and South Florida. Free estimates for packages.",
+    seoTitle: "Boat Maintenance | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat maintenance in Fort Lauderdale, Pompano Beach & Miami. Oil service, outboard maintenance, zincs, seasonal commissioning. Free estimates — Doctor Yachts.",
+      "Boat maintenance in Fort Lauderdale & South Florida. Oil service, outboard maintenance, zincs, seasonal commissioning. Free estimates — Doctor Yachts.",
     keywords: [
       "boat maintenance Fort Lauderdale",
-      "boat maintenance Pompano Beach",
+      "boat maintenance South Florida",
       "outboard engine maintenance",
       "annual boat service Florida",
       "preventative boat maintenance",
@@ -793,7 +793,7 @@ export const services: Service[] = [
       {
         question: "Can maintenance be done at my dock?",
         answer:
-          "Often yes. Many maintenance items are completed dockside in Fort Lauderdale, Pompano Beach, and Miami when access allows.",
+          "Often yes. Many maintenance items are completed dockside in Fort Lauderdale and South Florida when access allows.",
       },
     ],
   },
@@ -803,9 +803,9 @@ export const services: Service[] = [
     title: "Boat Plumbing & Systems Repairs",
     summary: "Bilge, freshwater, heads, and critical onboard plumbing systems.",
     description:
-      "Boat plumbing repairs in the Pompano Beach or Fort Lauderdale, FL area—bilge pumps, freshwater, heads, seacocks, and related electrical supply to pumps.",
+      "Boat plumbing repairs in Fort Lauderdale and South Florida—bilge pumps, freshwater, heads, seacocks, and related electrical supply to pumps.",
     content: [
-      "Doctor Yachts handles boat plumbing and systems repairs across Fort Lauderdale, Pompano Beach, and nearby South Florida docks. Bilge pumps that run nonstop, weak freshwater pressure, head system failures, and livewell/raw-water pump problems are common calls—and they are not “minor” when safety or guest weekends are on the line.",
+      "Doctor Yachts handles boat plumbing and systems repairs across Fort Lauderdale, and nearby South Florida docks. Bilge pumps that run nonstop, weak freshwater pressure, head system failures, and livewell/raw-water pump problems are common calls—and they are not “minor” when safety or guest weekends are on the line.",
       "We inspect pumps, float switches, plumbing runs, seacocks, and related electrical supply so you are protected at the dock and underway. When plumbing issues mix with electrical load or raw-water cooling problems, we troubleshoot the system as one machine.",
       "A bilge that “always runs a little” is not normal. Constant cycling can hide slow leaks, packing issues, AC condensate overload—or a stuck switch that leaves you unprotected when you need the pump most. Free estimates available.",
     ],
@@ -891,13 +891,13 @@ export const services: Service[] = [
     duration: "1–4 hrs typical",
     icon: "systems",
     quickAnswer:
-      "Boat plumbing repairs cover bilge pumps, freshwater systems, heads, seacocks, and related leaks or failures. Constant bilge running or weak water pressure needs diagnosis, not random part swaps. Mobile service in Fort Lauderdale and Pompano Beach when access allows.",
-    seoTitle: "Boat Plumbing Repairs | Doctor Yachts | Fort Lauderdale & Pompano Beach, FL",
+      "Boat plumbing repairs cover bilge pumps, freshwater systems, heads, seacocks, and related leaks or failures. Constant bilge running or weak water pressure needs diagnosis, not random part swaps. Mobile service in Fort Lauderdale and South Florida when access allows.",
+    seoTitle: "Boat Plumbing Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat plumbing & bilge repairs in Fort Lauderdale, Pompano Beach & Miami. Pumps, heads, seacocks, systems. Free estimates — Doctor Yachts.",
+      "Boat plumbing & bilge repairs in Fort Lauderdale & South Florida. Pumps, heads, seacocks, systems. Free estimates — Doctor Yachts.",
     keywords: [
       "boat plumbing repairs Fort Lauderdale",
-      "boat plumbing repairs Pompano Beach",
+      "boat plumbing repairs South Florida",
       "bilge pump repair Fort Lauderdale",
       "marine plumbing Florida",
       "boat pump repair",
@@ -948,9 +948,9 @@ export const services: Service[] = [
     title: "Mobile Boat Repair",
     summary: "On-site and dockside boat repair—we'll diagnose your boat problems on the spot.",
     description:
-      "Mobile boat mechanic and dockside service in Fort Lauderdale, Pompano Beach, FL and surrounding areas. Engines, electrical, cooling, plumbing systems—often without a tow first.",
+      "Mobile boat mechanic and dockside service in Fort Lauderdale, FL and surrounding areas. Engines, electrical, cooling, plumbing systems—often without a tow first.",
     content: [
-      "Looking for a mobile boat mechanic in Fort Lauderdale? Doctor Yachts provides on-site boat repair at marinas and private docks in Pompano Beach, Fort Lauderdale, Dania Beach, Hollywood, and nearby South Florida—when access and marina rules allow. Mobile repair means diagnosis and many repairs where the boat already lives.",
+      "Looking for a mobile boat mechanic in Fort Lauderdale? Doctor Yachts provides on-site boat repair at marinas and private docks in Fort Lauderdale, Dania Beach, Hollywood, and nearby South Florida—when access and marina rules allow. Mobile repair means diagnosis and many repairs where the boat already lives.",
       "We handle engines, electrical, cooling, bilge/pumps, and related systems. Priority slots for emergency boat repair—no-start, overheating, and safety-critical issues—when the schedule allows. Bridge schedules, marina gates, and tow wait times make dockside service the practical first move for many Broward owners.",
       "Share parking, gate codes, and slip numbers when you book so the tech arrives ready—not waiting on access. Free estimates on recommended work. Request online or call for urgent triage.",
     ],
@@ -980,7 +980,7 @@ export const services: Service[] = [
       {
         heading: "Fort Lauderdale mobile coverage notes",
         body: [
-          "East Fort Lauderdale docks, New River access, Intracoastal marinas, and private docks are routine when rules allow. Pompano Beach, Lighthouse Point, Dania Beach, and Hollywood are core Broward coverage—not rare stretch calls. Miami and Palm Beach County are scheduled with access details confirmed in advance.",
+          "East Fort Lauderdale docks, New River access, Intracoastal marinas, and private docks are routine when rules allow. Lighthouse Point, Dania Beach, and Hollywood are core Broward coverage—not rare stretch calls. Miami and Palm Beach County are scheduled with access details confirmed in advance.",
           "For emergency boat repair in Fort Lauderdale, call for triage. Capacity varies; priority goes to safety-critical and no-start situations when possible.",
         ],
       },
@@ -1034,20 +1034,20 @@ export const services: Service[] = [
       "Urgent pre-trip mechanical issue",
     ],
     whenToCall:
-      "Call a mobile boat mechanic when the boat is floating, accessible, and you want diagnosis without a yard wait—especially for no-starts, electrical faults, cooling issues, and many maintenance jobs in Fort Lauderdale and Pompano Beach.",
+      "Call a mobile boat mechanic when the boat is floating, accessible, and you want diagnosis without a yard wait—especially for no-starts, electrical faults, cooling issues, and many maintenance jobs in Fort Lauderdale and South Florida.",
     duration: "As needed",
     icon: "emergency",
     quickAnswer:
-      "A mobile boat mechanic in Fort Lauderdale comes to your marina or dock for no-starts, electrical faults, cooling issues, and maintenance—often without a tow. Doctor Yachts also covers Pompano Beach and nearby Broward. Free estimates. Priority for emergencies when available.",
+      "A mobile boat mechanic in Fort Lauderdale comes to your marina or dock for no-starts, electrical faults, cooling issues, and maintenance—often without a tow. Doctor Yachts also covers nearby Broward and South Florida. Free estimates. Priority for emergencies when available.",
     seoTitle: "Mobile Boat Mechanic Fort Lauderdale | Dockside Boat Repair",
     seoDescription:
-      "Mobile boat mechanic in Fort Lauderdale & Pompano Beach. Dockside engine, electrical & emergency repair. Free estimates — Doctor Yachts.",
+      "Mobile boat mechanic in Fort Lauderdale & South Florida. Dockside engine, electrical & emergency repair. Free estimates — Doctor Yachts.",
     keywords: [
       "mobile boat mechanic Fort Lauderdale",
       "mobile boat repair Fort Lauderdale",
       "emergency boat repair Fort Lauderdale",
       "dockside boat repair Fort Lauderdale",
-      "mobile boat repair Pompano Beach",
+      "mobile boat repair South Florida",
       "on-site boat repair Fort Lauderdale",
     ],
     images: [
@@ -1099,7 +1099,7 @@ export const services: Service[] = [
       "Outboard motor repair in Fort Lauderdale, FL: no-starts, overheating, power loss, 100-hour service, and mobile outboard repair for center consoles and fishing boats when access allows.",
     content: [
       "Outboard motor repair Fort Lauderdale searches are packed with dealer and mobile shops for a reason—center consoles and fishing boats live on outboards. Doctor Yachts provides diagnostic-first outboard repair and maintenance for owners who want clarity before parts and honest guidance before anyone mentions a repower you may not need.",
-      "We service common no-start, overheating (including weak telltale/pee stream), rough running, power loss, and charging-related outboard issues. Routine outboard service and 100-hour style maintenance keep you out of emergency mode. Many jobs are completed as mobile boat repair at Fort Lauderdale and Pompano Beach docks.",
+      "We service common no-start, overheating (including weak telltale/pee stream), rough running, power loss, and charging-related outboard issues. Routine outboard service and 100-hour style maintenance keep you out of emergency mode. Many jobs are completed as mobile boat repair at Fort Lauderdale and South Florida docks.",
       "Popular platforms include common Mercury and Yamaha applications. For brand warranty work, a factory dealer may be required—we’ll tell you if that’s the better path. Free estimates after we understand the symptoms and motor family.",
     ],
     sections: [
@@ -1187,7 +1187,7 @@ export const services: Service[] = [
     duration: "1–6 hrs typical",
     icon: "engine",
     quickAnswer:
-      "Outboard motor repair in Fort Lauderdale covers no-starts, overheating, power loss, and scheduled service. Doctor Yachts diagnoses first and often works dockside so you avoid unnecessary towing. Free estimates. Also serves Pompano Beach and nearby Broward.",
+      "Outboard motor repair in Fort Lauderdale covers no-starts, overheating, power loss, and scheduled service. Doctor Yachts diagnoses first and often works dockside so you avoid unnecessary towing. Free estimates. Also serves nearby Broward and South Florida.",
     seoTitle: "Outboard Motor Repair Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Outboard motor repair Fort Lauderdale—no-starts, overheating, 100-hour service. Diagnostic-first mobile mechanic. Free estimates — Doctor Yachts.",

@@ -13,7 +13,7 @@ import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { images } from "@/lib/images";
-import { locations } from "@/lib/locations";
+import { publicLocations } from "@/lib/locations";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { homeFaqs, site } from "@/lib/site";
@@ -46,7 +46,7 @@ export default function HomePage() {
 
       <PageHero
         eyebrow="Engine · Outboard · Electrical · Cooling · Mobile"
-        title="Mobile boat mechanic in Fort Lauderdale & Pompano Beach"
+        title="Mobile boat mechanic in South Florida"
         subhead="Eight repair services. Diagnose first."
         description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and dockside mobile repair. Free estimates."
         image={images.gallery.engine}
@@ -118,11 +118,11 @@ export default function HomePage() {
             <AnswerBox
               label="Quick answer"
               question="Who is Doctor Yachts?"
-              answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Pompano Beach, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
+              answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
             />
             <div>
               <h2 className="font-display text-navy">
-                Boat mechanic service for Fort Lauderdale &amp; Pompano Beach
+                Boat mechanic service for Fort Lauderdale &amp; South Florida
               </h2>
               <p className="mt-4 text-steel">
                 Looking for{" "}
@@ -253,7 +253,7 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {locations.map((loc) => {
+          {publicLocations.map((loc) => {
             const img = images.locations[loc.slug as keyof typeof images.locations];
             return (
               <MediaCard

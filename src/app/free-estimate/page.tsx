@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { EstimateForm } from "@/components/EstimateForm";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Free Boat Repair Estimate | Fort Lauderdale & Pompano Beach",
+  title: "Free Boat Repair Estimate | Fort Lauderdale & South Florida",
   description:
-    "Request a free boat repair estimate in Fort Lauderdale, Pompano Beach, or Miami. Tell us what's wrong and where the boat is — mobile and dockside marine service.",
+    "Request a free boat repair estimate in Fort Lauderdale or South Florida. Tell us what's wrong and where the boat is — mobile and dockside marine service.",
   path: "/free-estimate",
   keywords: [
     "free boat repair estimate Fort Lauderdale",
     "boat mechanic free estimate",
-    "mobile boat repair quote Pompano Beach",
+    "mobile boat repair quote South Florida",
   ],
 });
 
@@ -59,6 +61,15 @@ export default function FreeEstimatePage() {
           <>
             Answer a few practical questions—what&apos;s wrong, where the boat is, and how to reach
             you. Prefer to talk? Call <a href={site.phoneHref}>{site.phone}</a>.
+          </>
+        }
+        actions={
+          <>
+            <Button href={site.phoneHref}>Call {site.phone}</Button>
+            <Button href="/book" variant="ghost">
+              Book a visit
+            </Button>
+            <ReviewLinks />
           </>
         }
       />

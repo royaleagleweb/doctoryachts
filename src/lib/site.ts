@@ -6,7 +6,7 @@ export const site = {
   /** Primary domain for sitemap, canonicals, and structured data. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://doctoryachts.com",
   description:
-    "Boat repair & boat maintenance in Fort Lauderdale, Pompano Beach & Miami, FL. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",
+    "Boat repair & boat maintenance in Fort Lauderdale and South Florida. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",
   email: "office@doctoryachts.com",
   phone: "(347) 951-5710",
   phoneHref: "tel:+13479515710",
@@ -35,7 +35,7 @@ export const site = {
 /** Primary + secondary keywords (aligned to Drew's Marine keyword bank + yacht mechanic). */
 export const seoKeywords = [
   "boat repair Fort Lauderdale",
-  "boat repair Pompano Beach",
+  "boat repair South Florida",
   "boat maintenance Fort Lauderdale",
   "boat mechanic Fort Lauderdale",
   "mobile boat repair Fort Lauderdale",
@@ -70,7 +70,7 @@ export const homeFaqs = [
   {
     question: "Where does Doctor Yachts provide boat mechanic service?",
     answer:
-      "We serve South Florida—including Fort Lauderdale, Pompano Beach, Miami / Miami Beach, and Palm Beach County—with mobile and dockside service when access allows.",
+      "We serve South Florida—including Fort Lauderdale, Miami / Miami Beach, and Palm Beach County—with mobile and dockside service when access allows.",
   },
   {
     question: "What does a boat mechanic do?",
@@ -78,7 +78,7 @@ export const homeFaqs = [
       "A boat mechanic diagnoses and repairs marine engines, electrical systems, cooling, pumps, and related systems. Doctor Yachts uses a diagnose-first process so you understand the fault before parts are replaced.",
   },
   {
-    question: "Do you offer mobile boat repair in Fort Lauderdale and Pompano Beach?",
+    question: "Do you offer mobile boat repair in Fort Lauderdale and South Florida?",
     answer:
       "Yes. Mobile and dockside boat repair is a core service for no-starts, electrical issues, cooling problems, and many maintenance jobs when the marina or private dock is accessible.",
   },

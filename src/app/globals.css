@@ -295,6 +295,7 @@ h3 {
   border: none;
   border-bottom: 1px solid color-mix(in srgb, var(--navy) 18%, transparent);
   background: transparent;
+  min-height: 48px;
   padding: 0.85rem 0.15rem;
   border-radius: 0;
   font-size: 1.05rem;
@@ -328,6 +329,7 @@ select.input-field option {
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--white);
+  min-height: 48px;
   padding: 0.85rem 1.2rem;
   text-align: left;
   transition: background 0.12s ease, box-shadow 0.12s ease;
