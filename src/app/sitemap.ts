@@ -1,9 +1,19 @@
 import type { MetadataRoute } from "next";
-import { guides } from "@/lib/guides";
-import { locations } from "@/lib/locations";
-import { getAllServiceCityPairs, isServiceCityIndexable } from "@/lib/service-locations";
-import { services } from "@/lib/services";
-import { site } from "@/lib/site";
+import { indexableServiceCityPaths } from "@/lib/service-city-indexable";
+
+/**
+ * Sitemap must stay a thin Worker handler.
+ * Do not import guides/services/locations/site here — those modules pull the
+ * full page-copy graph. Next.js resolveSitemap also calls Date#toISOString();
+ * an Invalid Date throws and OpenNext surfaces that as HTTP 500.
+ *
+ * Slugs below match src/lib/services.ts, locations.ts, and guides.ts.
+ */
+
+const BASE = (process.env.NEXT_PUBLIC_SITE_URL || "https://doctoryachts.com").replace(
+  /\/$/,
+  "",
+);
 
 /** Content lastmod dates — not build time. Update when the page copy actually changes. */
 const LASTMOD = {
@@ -24,103 +34,85 @@ const LASTMOD = {
   location: "2026-08-16",
 } as const;
 
-function lastmod(iso: string) {
-  return new Date(`${iso}T12:00:00.000Z`);
+const SERVICE_SLUGS = [
+  "marine-engine-repair",
+  "electrical-repairs",
+  "cooling-system-repairs",
+  "boat-diagnostics",
+  "boat-maintenance",
+  "plumbing-repairs",
+  "mobile-boat-repair",
+  "outboard-motor-repair",
+] as const;
+
+const LOCATION_SLUGS = [
+  "fort-lauderdale",
+  "pompano-beach",
+  "miami",
+  "palm-beach",
+  "dania-beach",
+  "hollywood-fl",
+] as const;
+
+const GUIDES = [
+  { slug: "boat-wont-start-checklist", updated: "2026-08-06" },
+  { slug: "why-is-my-boat-engine-overheating", updated: "2026-08-06" },
+  { slug: "how-often-to-service-a-boat-in-florida", updated: "2026-08-06" },
+  { slug: "mobile-boat-repair-vs-shop", updated: "2026-08-06" },
+  { slug: "signs-you-need-marine-electrical-repair", updated: "2026-08-06" },
+  { slug: "emergency-boat-repair-fort-lauderdale", updated: "2026-08-06" },
+  { slug: "what-does-a-boat-mechanic-do", updated: "2026-08-06" },
+] as const;
+
+/** W3C lastmod string. Never return a Date — toISOString() throws on Invalid Date. */
+function lastmod(iso: string): string {
+  return /^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T12:00:00.000Z` : "2026-08-06T12:00:00.000Z";
+}
+
+function entry(
+  path: string,
+  iso: string,
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
+  priority: number,
+): MetadataRoute.Sitemap[number] {
+  return {
+    url: path ? `${BASE}${path}` : BASE,
+    lastModified: lastmod(iso),
+    changeFrequency,
+    priority,
+  };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = site.url.replace(/\/$/, "");
-
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: base, lastModified: lastmod(LASTMOD.home), changeFrequency: "weekly", priority: 1 },
-    {
-      url: `${base}/services`,
-      lastModified: lastmod(LASTMOD.services),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${base}/locations`,
-      lastModified: lastmod(LASTMOD.locations),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${base}/guides`,
-      lastModified: lastmod(LASTMOD.guides),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    { url: `${base}/faq`, lastModified: lastmod(LASTMOD.faq), changeFrequency: "weekly", priority: 0.95 },
-    {
-      url: `${base}/free-estimate`,
-      lastModified: lastmod(LASTMOD.freeEstimate),
-      changeFrequency: "monthly",
-      priority: 0.92,
-    },
-    { url: `${base}/book`, lastModified: lastmod(LASTMOD.book), changeFrequency: "monthly", priority: 0.9 },
-    {
-      url: `${base}/reviews`,
-      lastModified: lastmod(LASTMOD.reviews),
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    { url: `${base}/about`, lastModified: lastmod(LASTMOD.about), changeFrequency: "monthly", priority: 0.7 },
-    {
-      url: `${base}/gallery`,
-      lastModified: lastmod(LASTMOD.gallery),
-      changeFrequency: "monthly",
-      priority: 0.55,
-    },
-    {
-      url: `${base}/contact`,
-      lastModified: lastmod(LASTMOD.contact),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/privacy`,
-      lastModified: lastmod(LASTMOD.privacy),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${base}/terms`,
-      lastModified: lastmod(LASTMOD.terms),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+    entry("", LASTMOD.home, "weekly", 1),
+    entry("/services", LASTMOD.services, "weekly", 0.95),
+    entry("/locations", LASTMOD.locations, "weekly", 0.95),
+    entry("/guides", LASTMOD.guides, "weekly", 0.95),
+    entry("/faq", LASTMOD.faq, "weekly", 0.95),
+    entry("/free-estimate", LASTMOD.freeEstimate, "monthly", 0.92),
+    entry("/book", LASTMOD.book, "monthly", 0.9),
+    entry("/reviews", LASTMOD.reviews, "monthly", 0.75),
+    entry("/about", LASTMOD.about, "monthly", 0.7),
+    entry("/gallery", LASTMOD.gallery, "monthly", 0.55),
+    entry("/contact", LASTMOD.contact, "monthly", 0.8),
+    entry("/privacy", LASTMOD.privacy, "yearly", 0.2),
+    entry("/terms", LASTMOD.terms, "yearly", 0.2),
   ];
 
-  const serviceRoutes = services.map((service) => ({
-    url: `${base}/services/${service.slug}`,
-    lastModified: lastmod(LASTMOD.service),
-    changeFrequency: "monthly" as const,
-    priority: 0.9,
-  }));
+  const serviceRoutes = SERVICE_SLUGS.map((slug) =>
+    entry(`/services/${slug}`, LASTMOD.service, "monthly", 0.9),
+  );
 
-  const locationRoutes = locations.map((loc) => ({
-    url: `${base}/locations/${loc.slug}`,
-    lastModified: lastmod(LASTMOD.location),
-    changeFrequency: "monthly" as const,
-    priority: 0.92,
-  }));
+  const locationRoutes = LOCATION_SLUGS.map((slug) =>
+    entry(`/locations/${slug}`, LASTMOD.location, "monthly", 0.92),
+  );
 
-  const indexableServiceCityRoutes = getAllServiceCityPairs()
-    .filter(({ service, location }) => isServiceCityIndexable(service.slug, location.slug))
-    .map(({ path }) => ({
-      url: `${base}${path}`,
-      lastModified: lastmod(LASTMOD.service),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }));
+  const indexableServiceCityRoutes = indexableServiceCityPaths().map((path) =>
+    entry(path, LASTMOD.service, "monthly", 0.7),
+  );
 
-  const guideRoutes = guides.map((g) => ({
-    url: `${base}/guides/${g.slug}`,
-    lastModified: lastmod(g.updated),
-    changeFrequency: "monthly" as const,
-    priority: 0.88,
-  }));
+  const guideRoutes = GUIDES.map((g) => entry(`/guides/${g.slug}`, g.updated, "monthly", 0.88));
 
   return [
     ...staticRoutes,
