@@ -76,10 +76,10 @@ export default async function LocationPage({ params }: PageProps) {
           <>
             <Button href="/book">Book in {loc.shortName}</Button>
             <Button href="/free-estimate" variant="ghost">
-              Free estimate
+              Get a free estimate
             </Button>
             <Button href={site.phoneHref} variant="ghost">
-              {site.phone}
+              Call {site.phone}
             </Button>
           </>
         }

@@ -11,14 +11,14 @@ export function MobileCta() {
 
   return (
     <div className="mobile-cta lg:hidden">
-      <a href={site.phoneHref} className="btn btn-ghost">
+      <a href={site.phoneHref} className="btn btn-ghost" aria-label={`Call ${site.phone}`}>
         Call
       </a>
       <Link href="/free-estimate" className="btn btn-ghost">
         Estimate
       </Link>
       <Link href="/book" className="btn">
-        Book
+        Book a visit
       </Link>
     </div>
   );

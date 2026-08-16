@@ -113,10 +113,10 @@ export default async function ServiceCityPage({ params }: PageProps) {
           <>
             <Button href={`/book?service=${service.id}`}>Book in {location.shortName}</Button>
             <Button href="/free-estimate" variant="ghost">
-              Free estimate
+              Get a free estimate
             </Button>
             <Button href={site.phoneHref} variant="ghost">
-              {site.phone}
+              Call {site.phone}
             </Button>
           </>
         }
@@ -246,9 +246,9 @@ export default async function ServiceCityPage({ params }: PageProps) {
               symptoms.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button href={`/book?service=${service.id}`}>Book {location.shortName}</Button>
+              <Button href={`/book?service=${service.id}`}>Book a visit</Button>
               <Button href="/free-estimate" variant="ghost">
-                Free estimate
+                Get a free estimate
               </Button>
               <Button href={`/services/${service.slug}`} variant="ghost">
                 Full {name} page

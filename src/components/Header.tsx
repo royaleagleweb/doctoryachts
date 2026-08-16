@@ -56,7 +56,7 @@ export function Header() {
             {site.phone}
           </a>
           <Link href="/book" className="btn ml-3 !min-h-11 py-2 text-sm">
-            Book
+            Book a visit
           </Link>
         </nav>
 
@@ -105,7 +105,7 @@ export function Header() {
                 {site.phone}
               </a>
               <Link href="/book" onClick={() => setOpen(false)} className="btn w-full">
-                Book repair
+                Book a visit
               </Link>
             </div>
           </nav>

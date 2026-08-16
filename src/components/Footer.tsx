@@ -71,10 +71,10 @@ export function Footer() {
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             <Link href="/book" className="btn">
-              Book
+              Book a visit
             </Link>
             <Link href="/free-estimate" className="btn btn-ghost">
-              Estimate
+              Get a free estimate
             </Link>
           </div>
           <p className="mt-4 text-sm">

@@ -11,7 +11,7 @@ const LASTMOD = {
   services: "2026-08-06",
   locations: "2026-08-16",
   guides: "2026-08-06",
-  faq: "2026-08-06",
+  faq: "2026-08-16",
   freeEstimate: "2026-08-06",
   book: "2026-08-06",
   reviews: "2026-08-16",
@@ -51,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
     },
-    { url: `${base}/faq`, lastModified: lastmod(LASTMOD.faq), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/faq`, lastModified: lastmod(LASTMOD.faq), changeFrequency: "weekly", priority: 0.95 },
     {
       url: `${base}/free-estimate`,
       lastModified: lastmod(LASTMOD.freeEstimate),

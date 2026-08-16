@@ -48,13 +48,16 @@ export default function HomePage() {
         eyebrow="Engine · Outboard · Electrical · Cooling · Mobile"
         title="Mobile boat mechanic in South Florida"
         subhead="Eight repair services. Diagnose first."
-        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and dockside mobile repair. Free estimates."
+        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and dockside mobile repair. Book a visit—we confirm by phone during Mon–Sat 7–6. Free estimates."
         image={images.gallery.engine}
         actions={
           <>
-            <Button href="/book">Book a visit</Button>
+            <Button href="/book">Book this week</Button>
             <Button href="/free-estimate" variant="ghost">
-              Free estimate
+              Get a free estimate
+            </Button>
+            <Button href={site.phoneHref} variant="ghost">
+              Call {site.phone}
             </Button>
             <ReviewLinks />
           </>
@@ -88,9 +91,9 @@ export default function HomePage() {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Button href="/book">Book repair</Button>
+          <Button href="/book">Book this week</Button>
           <Button href="/free-estimate" variant="ghost">
-            Free estimate
+            Get a free estimate
           </Button>
         </div>
       </Section>
