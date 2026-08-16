@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { images, yachts } from "@/lib/images";
+import { images } from "@/lib/images";
 import { locations } from "@/lib/locations";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -60,7 +60,7 @@ export default function LocationsPage() {
         eyebrow="Service areas"
         title="Boat repair service areas in South Florida"
         description="Mobile and dockside boat mechanic coverage across Broward, Miami-Dade, and Palm Beach County. Pick a city for local keywords, neighborhoods, and booking."
-        image={yachts.intracoastal}
+        image={images.gallery.dockside}
       />
 
       <Section>

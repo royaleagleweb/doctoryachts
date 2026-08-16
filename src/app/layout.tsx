@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Syne } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import { AmbientMotes } from "@/components/AmbientMotes";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -12,22 +12,11 @@ import { absoluteUrl, defaultOgImage, localBusinessJsonLd, webSiteJsonLd } from 
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
 
-/**
- * Cutting-edge, less template:
- * Syne — geometric display (not soft serif luxury cliché)
- * IBM Plex Sans — technical, human, service-real
- */
+/** One family sitewide — IBM Plex Sans. No display / brochure face. */
 const plex = IBM_Plex_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const syne = Syne({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -59,7 +48,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${plex.variable} ${syne.variable} h-full antialiased`}>
+    <html lang="en" className={`${plex.variable} h-full antialiased`}>
       <body className="relative flex min-h-full flex-col font-sans">
         <JsonLd data={[localBusinessJsonLd(), webSiteJsonLd()]} />
         <ScrollProgress />

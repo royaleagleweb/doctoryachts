@@ -9,6 +9,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
@@ -57,8 +58,18 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Independent boat & yacht mechanic for South Florida"
-        description="Doctor Yachts is a diagnose-first marine mechanic shop—engines, electrical, cooling, and dockside service for owners in Fort Lauderdale, Pompano Beach, Miami, and beyond."
-        image={images.aboutHero}
+        subhead="Diagnose first. Fix what matters."
+        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair. Diagnose first. Free estimates."
+        image={images.gallery.dockside}
+        actions={
+          <>
+            <Button href="/services">View services</Button>
+            <Button href="/book" variant="ghost">
+              Book a visit
+            </Button>
+            <ReviewLinks />
+          </>
+        }
       />
 
       <Section>
@@ -93,9 +104,10 @@ export default function AboutPage() {
                   "Outboard motor repair & maintenance",
                   "Boat electrical repairs & charging systems",
                   "Cooling system repairs",
+                  "Boat & yacht diagnostics",
+                  "Seasonal boat maintenance",
                   "Boat plumbing, bilge & pumps",
                   "Mobile / dockside boat repair",
-                  "Seasonal boat maintenance",
                 ].map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -147,11 +159,11 @@ export default function AboutPage() {
             <div className="shot">
               <div className="shot-img relative aspect-[4/3]">
                 <Image
-                  src={images.aboutHero.src}
-                  alt={images.aboutHero.alt}
+                  src={images.gallery.maintenance.src}
+                  alt={images.gallery.maintenance.alt}
                   fill
                   sizes="50vw"
-                  className="object-cover"
+                  className="object-cover object-[center_30%]"
                 />
               </div>
               <div className="border-t border-line px-4 py-3 text-sm text-steel">
@@ -161,7 +173,7 @@ export default function AboutPage() {
             <Card className="mt-5 p-5">
               <p className="eyebrow">Core services</p>
               <ul className="mt-3 space-y-2">
-                {services.slice(0, 6).map((s) => (
+                {services.map((s) => (
                   <li key={s.id}>
                     <Link
                       href={`/services/${s.slug}`}

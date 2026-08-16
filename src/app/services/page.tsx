@@ -8,7 +8,7 @@ import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { yachts } from "@/lib/images";
+import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -66,8 +66,17 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Boat repair services in Fort Lauderdale, Pompano Beach & South Florida"
+        subhead="Engines, electrical, cooling, dockside."
         description="Full marine mechanic services—engines, electrical, cooling, diagnostics, maintenance, plumbing systems, and mobile dockside repair. Pick a service for details, free estimates, and booking."
-        image={yachts.dockPair}
+        image={images.gallery.electrical}
+        actions={
+          <>
+            <Button href="/book">Book a visit</Button>
+            <Button href="/free-estimate" variant="ghost">
+              Free estimate
+            </Button>
+          </>
+        }
       />
 
       <Section>
