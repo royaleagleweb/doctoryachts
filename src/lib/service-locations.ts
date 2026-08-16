@@ -2,23 +2,13 @@ import { getLocationBySlug, locations, type Location } from "./locations";
 import { getServiceBySlug, services, type Service } from "./services";
 import { site } from "./site";
 
+export { isServiceCityIndexable } from "./service-city-indexable";
+
 export type ServiceCityPair = {
   service: Service;
   location: Location;
   path: string;
 };
-
-/**
- * Combo URLs with unique marina-level copy may be indexed.
- * The current pages are templated service + city mix-ins — none qualify.
- */
-const INDEXABLE_SERVICE_CITY = new Set<string>([
-  // e.g. "marine-engine-repair/fort-lauderdale" when unique marina copy exists
-]);
-
-export function isServiceCityIndexable(serviceSlug: string, citySlug: string) {
-  return INDEXABLE_SERVICE_CITY.has(`${serviceSlug}/${citySlug}`);
-}
 
 /** All service × city combinations for static generation */
 export function getAllServiceCityPairs(): ServiceCityPair[] {
