@@ -6,9 +6,10 @@ type ServiceCardProps = {
   service: Service;
   featured?: boolean;
   index?: number;
+  compact?: boolean;
 };
 
-export function ServiceCard({ service }: ServiceCardProps) {
+export function ServiceCard({ service, compact = false }: ServiceCardProps) {
   const img = service.images[0] ?? images.services[service.id as keyof typeof images.services];
 
   return (
@@ -16,9 +17,11 @@ export function ServiceCard({ service }: ServiceCardProps) {
       href={`/services/${service.slug}`}
       image={img}
       title={service.title}
-      description={service.summary}
+      description={compact ? undefined : service.summary}
       footer={
-        <p className="mt-4 text-sm font-semibold text-gold-deep">Service details →</p>
+        compact ? undefined : (
+          <p className="mt-4 text-sm font-semibold text-gold">Service details →</p>
+        )
       }
     />
   );

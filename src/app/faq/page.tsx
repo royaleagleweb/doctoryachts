@@ -5,9 +5,9 @@ import { Card } from "@/components/Card";
 import { CTA, ShopActions } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
-import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { guides } from "@/lib/guides";
+import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -61,26 +61,23 @@ export default function FaqPage() {
       />
 
       <PageHero
-        eyebrow="Yacht maintenance FAQ"
+        eyebrow="Doctor Yachts · South Florida"
+        kicker="Mobile boat mechanic in South Florida"
         title="Yacht maintenance FAQ for South Florida boats"
+        subhead="Diagnose first. Dockside."
         description={
           <>
-            Forty diagnose-first answers owners and answer engines can cite—service intervals,
-            no-starts, cooling, electrical, generators, and when a dockside visit is enough. We
-            confirm bookings by phone during {site.hours}. Call{" "}
-            <a href={site.phoneHref}>{site.phone}</a>.
+            Forty diagnose-first answers—service intervals, no-starts, cooling, electrical,
+            generators. We confirm during {site.hours}.
           </>
         }
+        image={images.mechanic}
         actions={
           <>
             <Button href="/book">Book a visit</Button>
-            <Button href="/free-estimate" variant="ghost">
-              Get a free estimate
-            </Button>
             <Button href={site.phoneHref} variant="ghost">
               Call {site.phone}
             </Button>
-            <ReviewLinks />
           </>
         }
       />

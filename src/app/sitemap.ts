@@ -17,15 +17,15 @@ const BASE = (process.env.NEXT_PUBLIC_SITE_URL || "https://doctoryachts.com").re
 
 /** Content lastmod dates — not build time. Update when the page copy actually changes. */
 const LASTMOD = {
-  home: "2026-08-16",
-  services: "2026-08-06",
+  home: "2026-08-17",
+  services: "2026-08-17",
   locations: "2026-08-16",
   guides: "2026-08-06",
-  faq: "2026-08-16",
+  faq: "2026-08-17",
   freeEstimate: "2026-08-06",
   book: "2026-08-06",
   reviews: "2026-08-16",
-  about: "2026-08-16",
+  about: "2026-08-17",
   gallery: "2026-08-16",
   contact: "2026-08-06",
   privacy: "2026-08-16",
