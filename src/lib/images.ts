@@ -64,12 +64,16 @@ export const yachtStrip: BrandImage[] = [
 
 export const images = {
   homeHero: {
-    src: "/images/home-hero-v2.jpg",
-    alt: "Luxury motor yacht at Fort Lauderdale Intracoastal marina — Doctor Yachts boat repair",
+    src: "/images/service-engine.jpg",
+    alt: "Yacht engine bay — Doctor Yachts mobile boat mechanic in South Florida",
   },
   aboutHero: {
-    src: "/images/yacht-cockpit.jpg",
-    alt: "Yacht cockpit overlooking the marina — Doctor Yachts",
+    src: "/images/marine-mechanic.jpg",
+    alt: "Marine mechanic working dockside on a boat engine — Doctor Yachts",
+  },
+  mechanic: {
+    src: "/images/marine-mechanic.jpg",
+    alt: "Marine mechanic working dockside on a boat engine — Doctor Yachts",
   },
   contactHero: {
     src: "/images/yacht-intracoastal.jpg",

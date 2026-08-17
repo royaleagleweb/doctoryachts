@@ -36,9 +36,9 @@ export function MediaCard({
       </div>
       {(kicker || title || description || footer) && (
         <div className="flex flex-1 flex-col pt-4">
-          {kicker && <p className="text-sm font-medium text-gold-deep">{kicker}</p>}
+          {kicker && <p className="text-sm font-medium text-gold">{kicker}</p>}
           {title && (
-            <h3 className="font-display text-lg font-bold tracking-tight text-navy">{title}</h3>
+            <h3 className="font-display text-lg font-bold tracking-tight">{title}</h3>
           )}
           {description && (
             <div className="mt-2 flex-1 text-sm leading-relaxed text-steel">{description}</div>

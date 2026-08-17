@@ -6,7 +6,6 @@ import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
-import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -96,21 +95,18 @@ export default function ServicesPage() {
       />
 
       <PageHero
-        eyebrow="Services"
+        eyebrow="Doctor Yachts · South Florida"
+        kicker="Mobile boat mechanic in South Florida"
         title="Boat repair services in South Florida"
-        subhead="Eight services. Diagnose first."
-        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair. Book a visit—we confirm by phone during Mon–Sat 7–6. Pick a service or call."
-        image={images.gallery.electrical}
+        subhead="Diagnose first. Dockside."
+        description="Engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, mobile. Fort Lauderdale and nearby docks."
+        image={images.homeHero}
         actions={
           <>
             <Button href="/book">Book a visit</Button>
-            <Button href="/free-estimate" variant="ghost">
-              Get a free estimate
-            </Button>
             <Button href={site.phoneHref} variant="ghost">
               Call {site.phone}
             </Button>
-            <ReviewLinks />
           </>
         }
       />
@@ -129,9 +125,9 @@ export default function ServicesPage() {
             </Button>
           </div>
         </div>
-        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="shop-grid">
           {hubServices.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+            <ServiceCard key={service.id} service={service} compact />
           ))}
         </div>
       </Section>

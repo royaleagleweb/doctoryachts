@@ -13,7 +13,7 @@ type BuildMetaInput = {
 
 /** Default social/share image — keep in sync with LocalBusiness schema + layout OG */
 export const defaultOgImage = {
-  url: "/images/home-hero-v2.jpg",
+  url: "/images/service-engine.jpg",
   width: 1200,
   height: 630,
   alt: `${site.name} — mobile boat mechanic in Fort Lauderdale`,

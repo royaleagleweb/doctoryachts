@@ -9,7 +9,6 @@ import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
@@ -56,18 +55,18 @@ export default function AboutPage() {
       />
 
       <PageHero
-        eyebrow="About"
+        eyebrow="Doctor Yachts · South Florida"
+        kicker="Mobile boat mechanic in South Florida"
         title="Independent boat & yacht mechanic for South Florida"
-        subhead="Diagnose first. Fix what matters."
-        description="Marine engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, and mobile dockside repair. Diagnose first. Free estimates."
-        image={images.gallery.dockside}
+        subhead="Diagnose first. Dockside."
+        description="Fort Lauderdale, Miami, and nearby docks. Engines, electrical, cooling, diagnostics, maintenance."
+        image={images.aboutHero}
         actions={
           <>
-            <Button href="/services">View services</Button>
-            <Button href="/book" variant="ghost">
-              Book a visit
+            <Button href="/book">Book a visit</Button>
+            <Button href={site.phoneHref} variant="ghost">
+              Call {site.phone}
             </Button>
-            <ReviewLinks />
           </>
         }
       />
