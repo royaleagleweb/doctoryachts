@@ -105,6 +105,7 @@ export default function AboutPage() {
                   "Cooling system repairs",
                   "Boat & yacht diagnostics",
                   "Seasonal boat maintenance",
+                  "100-hour and 300-hour interval service",
                   "Boat plumbing, bilge & pumps",
                   "Mobile / dockside boat repair",
                 ].map((item) => (

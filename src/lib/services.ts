@@ -681,7 +681,7 @@ export const services: Service[] = [
       {
         heading: "What a maintenance visit usually includes",
         body: [
-          "Scope is matched to vessel and hours: oil and filters where applicable, gear lube on relevant drives, impeller and cooling attention, zincs, belts, fluid checks, and basic electrical health. Outboard interval service follows manufacturer guidance adapted to saltwater use.",
+          "Scope is matched to vessel and hours: oil and filters where applicable, gear lube on relevant drives, impeller and cooling attention, zincs, belts, fluid checks, and basic electrical health. Outboard interval service follows manufacturer guidance adapted to saltwater use. For a dedicated interval visit, see our 100-hour service and the heavier 300-hour service.",
           "You receive notes on what was done and what is recommended next. That log is valuable for surveys and resale—and for your own future self when planning trips.",
         ],
       },
@@ -794,6 +794,321 @@ export const services: Service[] = [
         question: "Can maintenance be done at my dock?",
         answer:
           "Often yes. Many maintenance items are completed dockside in Fort Lauderdale and South Florida when access allows.",
+      },
+      {
+        question: "Do you offer 100-hour and 300-hour service?",
+        answer:
+          "Yes. Manufacturer-interval dockside service is a first-class offering: 100-hour / annual saltwater service and the heavier 300-hour interval. We diagnose first and estimate before parts.",
+      },
+    ],
+  },
+  {
+    id: "hour-100",
+    slug: "100-hour-service",
+    title: "100-Hour Service",
+    summary: "Manufacturer-interval dockside service around 100 hours or annual saltwater use.",
+    description:
+      "100-hour boat and yacht service in Fort Lauderdale and South Florida: oil and filters, gear lube, impeller and cooling check, zincs, belts, batteries, fluids, and a service log. The visit that prevents Saturday no-starts.",
+    content: [
+      "Most manufacturer manuals put a serious service around 100 hours—or once a year if you run fewer hours in saltwater. Doctor Yachts provides 100-hour service at the dock in Fort Lauderdale and across South Florida when access allows. This is scheduled marine maintenance, not a parts dump: we follow the interval, inspect what salt and heat actually punish, and tell you what can wait.",
+      "A typical 100-hour visit covers engine oil and filters, gear lube where the drive or lower unit calls for it, impeller and cooling-path checks, zincs, belts, batteries and charging, fluid levels, and function tests you can keep in a service log. Sitting between weekends still ages fuel, batteries, and impellers—so “low hours” is not a free pass in Florida.",
+      "Think of 100-hour service as the visit that prevents Saturday no-starts. Diagnose first. If we find a fault that is not interval work—weak charging, restricted cooling, a safety circuit—we say so and give a free estimate before major parts. Book the 100-hour service, or start with a free estimate if you are not sure the hours or last service date.",
+    ],
+    sections: [
+      {
+        heading: "What 100-hour service actually includes",
+        body: [
+          "The 100-hour / annual interval is where most gas and diesel manuals put oil, filters, and a systems walk-through. On outboards we add gear-case lube when due, telltale/cooling attention, and cowling-access items. On inboards and sterndrives we add raw-water clues, belts, and accessible fluid checks. Scope follows the vessel and the manual—not a one-size invoice.",
+          "You leave with notes: what was inspected, what was replaced, and what the next interval looks like. That log helps resale, surveys, and your own trip planning.",
+        ],
+        list: [
+          "Engine oil and filters (per manufacturer hours / annual saltwater use)",
+          "Gear lube on relevant outboards, sterndrives, and transmissions",
+          "Impeller inspection or replacement planning and cooling-path check",
+          "Zincs / anodes and visible corrosion points",
+          "Belts, hoses, and accessible fluid levels",
+          "Battery load and charging health",
+          "Function tests — bilge, kill circuits, basic running quality",
+          "Written service log for your records",
+        ],
+      },
+      {
+        heading: "Why Florida boats miss the 100-hour window",
+        body: [
+          "South Florida use is year-round salt, heat, and grass—not a three-month season. Hours accumulate on fishing weekends and short runs. Other boats sit. Both patterns punish cooling, charging, and fuel. Waiting until something fails is how Saturday morning becomes a tow.",
+          "If you are overdue, book now. If you are near the interval, we will tell you what is due versus what is optional. See also our broader boat-maintenance page and the heavier 300-hour service when the manual or hours call for deeper work.",
+        ],
+      },
+      {
+        heading: "Dockside 100-hour service vs a dealer wait",
+        body: [
+          "Many interval items are strong dockside candidates when the boat is floating and accessible. You often skip a tow and a yard minimum. Dealers remain the right path for warranty-program work—we will say so if that is the better fit.",
+          "We are not here to upsell a parts kit you do not need. Findings first. Free estimates on recommended extras before you authorize them.",
+        ],
+      },
+    ],
+    process: [
+      {
+        title: "Share hours & last service",
+        detail:
+          "Engine hours, last oil/impeller/zinc work, vessel type, and how you use the boat. Photos of the hour meter help.",
+      },
+      {
+        title: "Interval plan",
+        detail:
+          "We match manufacturer guidance to saltwater use—oil, filters, gear lube, cooling, zincs, batteries.",
+      },
+      {
+        title: "Dockside service",
+        detail:
+          "Work completed at the marina or private dock when access allows. Diagnose first if something is already wrong.",
+      },
+      {
+        title: "Service log & next interval",
+        detail:
+          "What was done, what is due around 300 hours or next season, and a free estimate path for anything we found.",
+      },
+    ],
+    whatWeCheck: [
+      "Hour meter and last-service notes",
+      "Oil and filter interval status",
+      "Gear lube condition where applicable",
+      "Impeller / cooling telltale or flow clues",
+      "Zincs and visible bonding/anode points",
+      "Belts and accessible hoses",
+      "Battery condition and charging",
+      "Bilge pump and basic safety function tests",
+    ],
+    features: [
+      "100-hour / annual saltwater interval service",
+      "Oil, filters & gear lube where due",
+      "Impeller and cooling check",
+      "Zincs, belts & batteries",
+      "Function tests and service log",
+      "Mobile / dockside in Fort Lauderdale & South Florida",
+    ],
+    symptoms: [
+      "Approaching or past 100 hours",
+      "Annual saltwater service is overdue",
+      "Unknown last-service date on a used boat",
+      "Pre-season checklist before heavy use",
+      "Want to avoid Saturday no-starts",
+      "Planning a long weekend or cruise",
+    ],
+    whenToCall:
+      "Book 100-hour service when the hour meter or the calendar says you are due—especially before peak season or a trip. Annual saltwater use in Fort Lauderdale and South Florida is the baseline even if hours are low.",
+    duration: "2–5 hrs typical",
+    icon: "maintenance",
+    quickAnswer:
+      "100-hour service is manufacturer-interval dockside maintenance—oil and filters, gear lube, impeller and cooling checks, zincs, belts, batteries, and a service log. Doctor Yachts does this visit in Fort Lauderdale and South Florida to prevent Saturday no-starts. Diagnose first. Free estimates.",
+    seoTitle: "100-Hour Boat Service | Doctor Yachts | Fort Lauderdale & South Florida",
+    seoDescription:
+      "100-hour boat & yacht service in Fort Lauderdale & South Florida. Oil, filters, impeller, zincs, batteries. Dockside interval service. Free estimates — Doctor Yachts.",
+    keywords: [
+      "100 hour service boat",
+      "100 hour boat service Fort Lauderdale",
+      "100 hour outboard service",
+      "annual boat service South Florida",
+      "servicio 100 horas",
+      "yacht 100 hour maintenance",
+    ],
+    images: [
+      {
+        src: "/images/service-maintenance.jpg",
+        alt: "100-hour boat service at a South Florida marina dock",
+        caption: "Dockside 100-hour interval service",
+      },
+      {
+        src: "/images/service-outboard.jpg",
+        alt: "Outboard motors during 100-hour service",
+        caption: "Outboard 100-hour items",
+      },
+      {
+        src: "/images/service-dockside.jpg",
+        alt: "Mobile 100-hour marine service at the marina",
+        caption: "Mobile interval service when access allows",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is included in 100-hour boat service?",
+        answer:
+          "Typically oil and filters, gear lube where applicable, impeller and cooling checks, zincs, belts, batteries/charging, fluids, function tests, and a written service log. Scope follows the vessel and manufacturer interval—not a parts dump.",
+      },
+      {
+        question: "Do I need 100-hour service if I barely ran the boat?",
+        answer:
+          "Often yes on the calendar. Saltwater, heat, and sitting still age fuel, batteries, and impellers even with low hours. Annual service is the Florida baseline; we adjust after we see the boat.",
+      },
+      {
+        question: "Can you do 100-hour service at my dock?",
+        answer:
+          "Usually yes in Fort Lauderdale and South Florida when marina or private-dock access allows. Many interval items never need a travel lift.",
+      },
+      {
+        question: "How is this different from 300-hour service?",
+        answer:
+          "100-hour is the regular interval visit. 300-hour is the heavier inspection many manuals put around 250–300 hours—deeper cooling, electrical, and fuel-system attention. We recommend the one that matches your hours and history.",
+      },
+      {
+        question: "Do you give a free estimate before extra parts?",
+        answer:
+          "Yes. Interval items are planned up front. Anything we find that is not routine gets a free estimate before you authorize major parts and labor.",
+      },
+    ],
+  },
+  {
+    id: "hour-300",
+    slug: "300-hour-service",
+    title: "300-Hour Service",
+    summary: "The heavier interval—deeper cooling, electrical, and fuel-system inspection around 250–300 hours.",
+    description:
+      "300-hour boat and yacht service in Fort Lauderdale and South Florida. Deeper dockside inspection: cooling and heat-exchanger attention, thorough electrical and fuel-system checks, and the items many manuals put at 250–300 hours. Findings before parts.",
+    content: [
+      "Around 250–300 hours, most marine manuals stop calling it a simple oil change. Doctor Yachts provides 300-hour service as the heavier interval visit—still dockside in Fort Lauderdale and South Florida when access allows. This is not a parts dump. We inspect what the hours actually stress, document findings, and estimate extras before you buy them.",
+      "Expect deeper cooling attention (impeller plus heat-exchanger and raw-water path clues on inboards), more thorough electrical and charging checks, fuel-system inspection, and the drive or lower-unit items many makers group at this interval. Twin and triple setups take longer; we plan time honestly.",
+      "If you are past 300 hours, or you bought a boat with thin records, this visit is how you stop guessing. Diagnose first. Free estimates on recommended work. Pair it with regular 100-hour service so you are not jumping from neglect to a yard invoice.",
+    ],
+    sections: [
+      {
+        heading: "What 300-hour service covers",
+        body: [
+          "Think of 300-hour service as a structured deeper inspection plus the interval fluids. Cooling gets more than a glance: strainers, impeller condition, and heat-exchanger or raw-water clues that only show after real hours. Electrical gets load-aware charging and connection checks. Fuel systems get separator, supply, and leak/odor attention matched to the platform.",
+          "We still follow the manufacturer list for your engines—then adapt to saltwater use in South Florida. You get a written picture of what is due now versus what can wait until the next 100-hour visit.",
+        ],
+        list: [
+          "Interval fluids and filters plus the heavier 250–300 hour items",
+          "Cooling path and heat-exchanger attention (inboards, as accessible)",
+          "Impeller condition and raw-water restrictions",
+          "Electrical, charging, and high-resistance connection checks",
+          "Fuel-system inspection (separators, supply clues, leak/odor)",
+          "Drive / lower-unit and gear-lube items when due",
+          "Function tests and a prioritized findings list",
+          "Free estimate before non-interval parts and labor",
+        ],
+      },
+      {
+        heading: "When 300-hour service is the right call",
+        body: [
+          "The hour meter is near 250–300, or you skipped a couple of 100-hour visits. The boat overheats only after a long run. Charging “seems fine” but has never been load-tested. You bought used and the binder is thin. Those are 300-hour conversations—not another bottle of oil and a hope.",
+          "If the boat is already in failure (no-start, hot, flooding risk), we treat that first as repair, then fold interval work into the plan. Honesty about urgency is part of the job.",
+        ],
+      },
+      {
+        heading: "Still dockside — still diagnose first",
+        body: [
+          "A heavier interval does not automatically mean a haul-out. Many 300-hour inspections and services are completed at Fort Lauderdale and South Florida docks when access and parts allow. If exchanger work or a job needs shop equipment, we tell you early.",
+          "We will not sell you a kit to look busy. Findings before parts. That is the same Doctor Yachts method as a no-start call—just scheduled.",
+        ],
+      },
+    ],
+    process: [
+      {
+        title: "Hours, history, and access",
+        detail:
+          "Hour meter, last major service, cooling or electrical complaints, marina and slip details.",
+      },
+      {
+        title: "Deeper inspection plan",
+        detail:
+          "We outline 250–300 hour items for your engines—cooling, electrical, fuel, drives—before we start.",
+      },
+      {
+        title: "Dockside work",
+        detail:
+          "Inspection and interval service at the boat when access allows. Findings explained as we go.",
+      },
+      {
+        title: "Findings & free estimate",
+        detail:
+          "What is done, what is recommended, what can wait. Extras estimated before parts. Log for your file.",
+      },
+    ],
+    whatWeCheck: [
+      "Hour meter vs last documented service",
+      "Cooling path, impeller, and exchanger clues",
+      "Fuel separators and supply basics",
+      "Battery, charging, and voltage-drop clues",
+      "Belts, hoses, and visible leaks",
+      "Gear lube / drive interval status",
+      "Electrical connections that salt attacks",
+      "Safety and bilge function tests",
+    ],
+    features: [
+      "250–300 hour deeper interval service",
+      "Cooling / heat exchanger attention",
+      "Electrical and fuel-system inspection",
+      "Findings before parts — not a kit dump",
+      "Dockside when access allows",
+      "Service log and next-interval plan",
+    ],
+    symptoms: [
+      "Approaching or past 250–300 hours",
+      "Skipped 100-hour visits and the boat feels tired",
+      "Overheats only after a long run",
+      "Thin service records on a used boat",
+      "Charging or fuel issues that come and go",
+      "Planning a season of heavier use",
+    ],
+    whenToCall:
+      "Book 300-hour service when the manual or the hour meter puts you in the heavier interval—or when 100-hour visits have been skipped. Dockside in Fort Lauderdale and South Florida when access allows.",
+    duration: "4–8 hrs typical",
+    icon: "maintenance",
+    quickAnswer:
+      "300-hour service is the heavier manufacturer interval: deeper cooling and heat-exchanger attention, thorough electrical and fuel-system checks, plus fluids. Doctor Yachts does this dockside in Fort Lauderdale and South Florida when access allows. Findings before parts. Free estimates.",
+    seoTitle: "300-Hour Boat Service | Doctor Yachts | Fort Lauderdale & South Florida",
+    seoDescription:
+      "300-hour boat & yacht service in Fort Lauderdale & South Florida. Deeper cooling, electrical & fuel inspection. Dockside. Free estimates — Doctor Yachts.",
+    keywords: [
+      "300 hour service boat",
+      "300 hour boat service Fort Lauderdale",
+      "250 hour marine service",
+      "servicio 300 horas",
+      "yacht 300 hour maintenance",
+      "heat exchanger service boat",
+    ],
+    images: [
+      {
+        src: "/images/service-engine.jpg",
+        alt: "300-hour marine service inspection in an engine bay",
+        caption: "Deeper interval inspection in the engine bay",
+      },
+      {
+        src: "/images/service-cooling.jpg",
+        alt: "Cooling and heat-exchanger attention during 300-hour service",
+        caption: "Cooling path attention at the heavier interval",
+      },
+      {
+        src: "/images/service-maintenance.jpg",
+        alt: "Dockside 300-hour boat service in South Florida",
+        caption: "Dockside 300-hour service when access allows",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is 300-hour boat service?",
+        answer:
+          "The heavier manufacturer interval—typically around 250–300 hours. Deeper cooling and heat-exchanger attention, more thorough electrical and fuel-system checks, plus the usual fluids. Not a parts dump: we document findings first.",
+      },
+      {
+        question: "Do I need 300-hour service if I already did 100-hour?",
+        answer:
+          "Yes, when the hours or the manual say so. 100-hour keeps you current; 300-hour is the deeper pass. If records are missing, we treat it as a 300-hour-style inspection and tell you what was actually due.",
+      },
+      {
+        question: "Can 300-hour service be done dockside?",
+        answer:
+          "Often yes in Fort Lauderdale and South Florida when access allows. If heat-exchanger or other work needs haul-out or shop equipment, we say so early.",
+      },
+      {
+        question: "Will you replace everything on the 300-hour list?",
+        answer:
+          "No. We inspect to the interval, replace what is due or failed, and estimate optional or extra items before you authorize them. Findings before parts.",
+      },
+      {
+        question: "How long does 300-hour service take?",
+        answer:
+          "Often a half to a full day depending on engines, access, and what we find. Twins and generators add time. We estimate when you book.",
       },
     ],
   },
@@ -1247,6 +1562,25 @@ export function getServiceBySlug(slug: string) {
 
 export function getServiceById(id: string) {
   return services.find((s) => s.id === id);
+}
+
+export const HUB_SERVICE_ORDER = [
+  "engine-repair",
+  "outboard",
+  "electrical",
+  "cooling",
+  "diagnostics",
+  "maintenance",
+  "hour-100",
+  "hour-300",
+  "systems",
+  "emergency",
+] as const;
+
+export function servicesInHubOrder() {
+  return HUB_SERVICE_ORDER.map((id) => services.find((s) => s.id === id)).filter(
+    (s): s is Service => Boolean(s),
+  );
 }
 
 export const bookingServices = services.map((s) => ({

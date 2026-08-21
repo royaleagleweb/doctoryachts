@@ -15,7 +15,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { images } from "@/lib/images";
 import { publicLocations } from "@/lib/locations";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
-import { services } from "@/lib/services";
+import { servicesInHubOrder } from "@/lib/services";
 import { homeFaqs, site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -24,20 +24,7 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-const homeServiceOrder = [
-  "engine-repair",
-  "outboard",
-  "electrical",
-  "cooling",
-  "diagnostics",
-  "maintenance",
-  "systems",
-  "emergency",
-] as const;
-
-const homeServices = homeServiceOrder
-  .map((id) => services.find((s) => s.id === id))
-  .filter((s): s is (typeof services)[number] => Boolean(s));
+const homeServices = servicesInHubOrder();
 
 export default function HomePage() {
   return (
@@ -110,7 +97,9 @@ export default function HomePage() {
                 <Link href="/services/outboard-motor-repair">outboards</Link>,{" "}
                 <Link href="/services/electrical-repairs">electrical</Link>,{" "}
                 <Link href="/services/cooling-system-repairs">cooling</Link>,{" "}
-                <Link href="/services/boat-maintenance">maintenance</Link>. Call{" "}
+                <Link href="/services/boat-maintenance">maintenance</Link>,{" "}
+                <Link href="/services/100-hour-service">100-hour service</Link>,{" "}
+                <Link href="/services/300-hour-service">300-hour service</Link>. Call{" "}
                 <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book a visit</Link>.
               </p>
             </div>

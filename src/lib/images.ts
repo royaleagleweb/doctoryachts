@@ -170,6 +170,14 @@ export const images = {
       src: "/images/service-outboard.jpg",
       alt: "Outboard motor repair Fort Lauderdale",
     },
+    "hour-100": {
+      src: "/images/service-maintenance.jpg",
+      alt: "100-hour boat service at the dock",
+    },
+    "hour-300": {
+      src: "/images/service-engine.jpg",
+      alt: "300-hour marine interval service",
+    },
   },
   locations: {
     "fort-lauderdale": {

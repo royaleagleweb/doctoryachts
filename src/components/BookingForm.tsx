@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type FormEvent } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   boatTypeOptions,
   cityOptions,
@@ -10,43 +10,28 @@ import {
   problemOptions,
   timeWindowOptions,
 } from "@/lib/form-options";
+import { t } from "@/lib/copy";
+import { localeFromPath, pathFor } from "@/lib/i18n";
 import { getServiceById } from "@/lib/services";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
-
-const steps = [
-  {
-    id: "problem",
-    label: "Problem",
-    title: "What's going on with the boat?",
-    help: "Tap the closest match. You can add details later.",
-  },
-  {
-    id: "where",
-    label: "Where & when",
-    title: "Where is the boat, and when works?",
-    help: "Preferred window only — we'll confirm the visit by phone or text.",
-  },
-  {
-    id: "boat",
-    label: "Boat",
-    title: "Quick boat details",
-    help: "Type and size help us bring the right tools. Name is optional.",
-  },
-  {
-    id: "contact",
-    label: "Contact",
-    title: "How do we reach you?",
-    help: "Phone is best for dockside work. We confirm during shop hours.",
-  },
-] as const;
 
 function chipClass(selected: boolean) {
   return `chip w-full ${selected ? "is-on" : ""}`;
 }
 
 export function BookingForm() {
+  const pathname = usePathname() || "/";
+  const locale = localeFromPath(pathname);
+  const f = t(locale).forms;
+  const es = locale === "es";
+  const steps = [
+    { id: "problem", label: f.problem.label, title: f.problem.title, help: f.problem.help },
+    { id: "where", label: f.where.label, title: f.where.title, help: f.where.help },
+    { id: "boat", label: f.boat.label, title: f.boat.title, help: f.boat.help },
+    { id: "contact", label: f.contact.label, title: f.contact.title, help: f.contact.help },
+  ] as const;
   const searchParams = useSearchParams();
   const preselectedService = searchParams.get("service") || "";
 
@@ -92,18 +77,18 @@ export function BookingForm() {
   const progressPct = ((step + 1) / steps.length) * 100;
 
   function validateStep(s: number): string {
-    if (s === 0 && !problemId) return "Pick what best describes the problem.";
+    if (s === 0 && !problemId) return f.pickProblem;
     if (s === 1) {
-      if (!city) return "Select the city or area.";
-      if (!marina.trim()) return "Add marina name, slip, or dock address.";
-      if (!date) return "Pick a preferred date.";
-      if (!timeWindow) return "Pick a time window (or Flexible).";
+      if (!city) return f.selectCity;
+      if (!marina.trim()) return f.addMarina;
+      if (!date) return f.pickDate;
+      if (!timeWindow) return f.pickTime;
     }
-    if (s === 2 && !boatType) return "Select a boat type (or Other / not sure).";
+    if (s === 2 && !boatType) return f.selectBoat;
     if (s === 3) {
-      if (!name.trim()) return "Enter your name.";
-      if (!phone.trim()) return "Enter a phone number so we can confirm.";
-      if (!email.trim()) return "Enter an email for the confirmation.";
+      if (!name.trim()) return f.enterName;
+      if (!phone.trim()) return f.enterPhone;
+      if (!email.trim()) return f.enterEmail;
     }
     return "";
   }
@@ -189,26 +174,25 @@ export function BookingForm() {
       <div className="panel overflow-hidden">
         <div className="border-b border-line bg-navy px-6 py-6">
           <p className="text-sm font-semibold  text-gold">
-            Request received
+            {f.received}
           </p>
           <h2 className="font-display mt-2 text-2xl font-semibold text-white">
-            Thanks — we got your request
+            {f.thanks}
           </h2>
           <p className="mt-2 text-sm text-[#c5d0d8]">
-            Not a locked appointment yet. We confirm access and timing during shop hours (
-            {site.hours}).
+            {f.notLocked}
           </p>
         </div>
         <div className="space-y-4 p-6">
           <dl className="grid gap-3 sm:grid-cols-2">
             {[
-              { k: "Confirmation", v: confirmation },
-              { k: "Problem", v: selectedProblem?.label || "—" },
+              { k: f.confirmation, v: confirmation },
+              { k: f.reviewProblem, v: (es ? selectedProblem?.labelEs : selectedProblem?.label) || "—" },
               {
-                k: "Preferred visit",
-                v: `${date} · ${timeWindowOptions.find((t) => t.id === timeWindow)?.label || ""}${urgent ? " · Urgent" : ""}`,
+                k: f.preferredVisit,
+                v: `${date} · ${es ? timeWindowOptions.find((t) => t.id === timeWindow)?.labelEs : timeWindowOptions.find((t) => t.id === timeWindow)?.label || ""}${urgent ? ` · ${f.urgentFlag}` : ""}`,
               },
-              { k: "Location", v: `${city} · ${marina}` },
+              { k: f.location, v: `${city} · ${marina}` },
             ].map((row) => (
               <div key={row.k} className="rounded-xl border border-line bg-white/[0.03] p-3">
                 <dt className="text-xs  text-muted">{row.k}</dt>
@@ -217,17 +201,17 @@ export function BookingForm() {
             ))}
           </dl>
           <p className="text-sm text-steel">
-            Stuck at the dock? Call now:{" "}
+            {f.stuck}{" "}
             <a href={site.phoneHref} className="font-semibold text-gold">
               {site.phone}
             </a>
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/" className="btn">
-              Back home
+            <Link href={pathFor(locale, "/")} className="btn">
+              {f.backHome}
             </Link>
-            <Link href="/free-estimate" className="btn btn-ghost">
-              Free estimate instead
+            <Link href={pathFor(locale, "/free-estimate")} className="btn btn-ghost">
+              {f.estimateInstead}
             </Link>
           </div>
         </div>
@@ -244,7 +228,7 @@ export function BookingForm() {
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="text-sm font-semibold  text-gold">
-              Step {step + 1} of {steps.length}
+              {f.stepOf(step + 1, steps.length)}
             </p>
             <p className="mt-0.5 text-sm font-semibold text-pearl">{current.label}</p>
           </div>
@@ -300,8 +284,8 @@ export function BookingForm() {
                         setFieldHint("");
                       }}
                     >
-                      <span className="block font-semibold text-pearl">{p.label}</span>
-                      <span className="mt-0.5 block text-xs text-steel">{p.hint}</span>
+                      <span className="block font-semibold text-pearl">{es ? p.labelEs : p.label}</span>
+                      <span className="mt-0.5 block text-xs text-steel">{es ? p.hintEs : p.hint}</span>
                     </button>
                   );
                 })}
@@ -310,9 +294,9 @@ export function BookingForm() {
 
             <div>
               <label className="label-field" htmlFor="problemDetail">
-                Anything else we should know?{" "}
+                {f.anythingElse}{" "}
                 <span className="font-normal normal-case tracking-normal text-muted">
-                  (optional)
+                  {f.optional}
                 </span>
               </label>
               <textarea
@@ -321,7 +305,7 @@ export function BookingForm() {
                 className="input-field"
                 value={problemDetail}
                 onChange={(e) => setProblemDetail(e.target.value)}
-                placeholder="e.g. Battery is new, hear a click, sat for 5 days…"
+                placeholder={f.detailPlaceholder}
               />
             </div>
 
@@ -333,13 +317,9 @@ export function BookingForm() {
                 onChange={(e) => setUrgent(e.target.checked)}
               />
               <span>
-                <span className="font-semibold text-pearl">This is urgent</span>
+                <span className="font-semibold text-pearl">{f.urgent}</span>
                 <span className="mt-0.5 block text-xs text-steel">
-                  No-start, overheating, bilge/flood risk. For emergencies call{" "}
-                  <a href={site.phoneHref} className="font-semibold text-gold">
-                    {site.phone}
-                  </a>
-                  .
+                  {f.urgentHint}
                 </span>
               </span>
             </label>
@@ -350,19 +330,19 @@ export function BookingForm() {
         {step === 1 && (
           <div className="space-y-5">
             <div>
-              <p className="label-field">City / area *</p>
+              <p className="label-field">{f.city}</p>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                 {cityOptions.map((c) => (
                   <button
-                    key={c}
+                    key={c.id}
                     type="button"
-                    className={`${chipClass(city === c)} text-sm font-medium text-pearl`}
+                    className={`${chipClass(city === c.id)} text-sm font-medium text-pearl`}
                     onClick={() => {
-                      setCity(c);
+                      setCity(c.id);
                       setFieldHint("");
                     }}
                   >
-                    {c}
+                    {es ? c.labelEs : c.label}
                   </button>
                 ))}
               </div>
@@ -370,7 +350,7 @@ export function BookingForm() {
 
             <div>
               <label className="label-field" htmlFor="marina">
-                Marina, slip, or dock address *
+                {f.marina}
               </label>
               <input
                 id="marina"
@@ -380,17 +360,17 @@ export function BookingForm() {
                   setMarina(e.target.value);
                   setFieldHint("");
                 }}
-                placeholder="e.g. Bahia Mar, slip B-12"
+                placeholder={f.marinaPlaceholder}
                 autoComplete="street-address"
               />
               <p className="mt-1.5 text-xs text-muted">
-                Gate code or parking tip? Add it here — saves time on arrival.
+                {f.marinaHint}
               </p>
             </div>
 
             <div>
               <label className="label-field" htmlFor="date">
-                Preferred date *
+                {f.date}
               </label>
               <input
                 id="date"
@@ -406,20 +386,20 @@ export function BookingForm() {
             </div>
 
             <div>
-              <p className="label-field">Preferred time *</p>
+              <p className="label-field">{f.time}</p>
               <div className="grid grid-cols-2 gap-2">
-                {timeWindowOptions.map((t) => (
+                {timeWindowOptions.map((tw) => (
                   <button
-                    key={t.id}
+                    key={tw.id}
                     type="button"
-                    className={chipClass(timeWindow === t.id)}
+                    className={chipClass(timeWindow === tw.id)}
                     onClick={() => {
-                      setTimeWindow(t.id);
+                      setTimeWindow(tw.id);
                       setFieldHint("");
                     }}
                   >
-                    <span className="block font-semibold text-pearl">{t.label}</span>
-                    <span className="mt-0.5 block text-xs text-steel">{t.hint}</span>
+                    <span className="block font-semibold text-pearl">{es ? tw.labelEs : tw.label}</span>
+                    <span className="mt-0.5 block text-xs text-steel">{es ? tw.hintEs : tw.hint}</span>
                   </button>
                 ))}
               </div>
@@ -431,7 +411,7 @@ export function BookingForm() {
         {step === 2 && (
           <div className="space-y-5">
             <div>
-              <p className="label-field">Boat type *</p>
+              <p className="label-field">{f.boatType}</p>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                 {boatTypeOptions.map((b) => (
                   <button
@@ -443,7 +423,7 @@ export function BookingForm() {
                       setFieldHint("");
                     }}
                   >
-                    {b.label}
+                    {es ? b.labelEs : b.label}
                   </button>
                 ))}
               </div>
@@ -451,20 +431,20 @@ export function BookingForm() {
 
             <div>
               <p className="label-field">
-                Approx. length{" "}
+                {f.length}{" "}
                 <span className="font-normal normal-case tracking-normal text-muted">
-                  (optional)
+                  {f.optional}
                 </span>
               </p>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                 {lengthOptions.map((len) => (
                   <button
-                    key={len}
+                    key={len.id}
                     type="button"
-                    className={`${chipClass(boatLength === len)} text-sm text-pearl`}
-                    onClick={() => setBoatLength(len)}
+                    className={`${chipClass(boatLength === len.id)} text-sm text-pearl`}
+                    onClick={() => setBoatLength(len.id)}
                   >
-                    {len}
+                    {es ? len.labelEs : len.label}
                   </button>
                 ))}
               </div>
@@ -472,9 +452,9 @@ export function BookingForm() {
 
             <div>
               <label className="label-field" htmlFor="boatName">
-                Boat name{" "}
+                {f.boatName}{" "}
                 <span className="font-normal normal-case tracking-normal text-muted">
-                  (optional)
+                  {f.optional}
                 </span>
               </label>
               <input
@@ -482,7 +462,7 @@ export function BookingForm() {
                 className="input-field"
                 value={boatName}
                 onChange={(e) => setBoatName(e.target.value)}
-                placeholder="e.g. Sea Ya"
+                placeholder={f.boatNamePlaceholder}
                 autoComplete="off"
               />
             </div>
@@ -494,7 +474,7 @@ export function BookingForm() {
           <div className="space-y-4">
             <div>
               <label className="label-field" htmlFor="name">
-                Your name *
+                {f.yourName}
               </label>
               <input
                 id="name"
@@ -505,14 +485,14 @@ export function BookingForm() {
                   setName(e.target.value);
                   setFieldHint("");
                 }}
-                placeholder="Full name"
+                placeholder={f.fullName}
               />
             </div>
             <div>
               <label className="label-field" htmlFor="phone">
-                Phone *{" "}
+                {f.phone}{" "}
                 <span className="font-normal normal-case tracking-normal text-muted">
-                  (best way to confirm)
+                  {f.phoneBest}
                 </span>
               </label>
               <input
@@ -531,7 +511,7 @@ export function BookingForm() {
             </div>
             <div>
               <label className="label-field" htmlFor="email">
-                Email *
+                {f.email}
               </label>
               <input
                 id="email"
@@ -549,43 +529,44 @@ export function BookingForm() {
 
             <div className="rounded-xl border border-line bg-white/[0.03] p-4">
               <p className="text-sm font-semibold  text-gold">
-                Quick review
+                {f.review}
               </p>
               <ul className="mt-3 space-y-2 text-sm text-steel">
                 <li>
-                  <span className="text-muted">Problem:</span>{" "}
-                  <span className="text-pearl">{selectedProblem?.label || "—"}</span>
+                  <span className="text-muted">{f.reviewProblem}:</span>{" "}
+                  <span className="text-pearl">{(es ? selectedProblem?.labelEs : selectedProblem?.label) || "—"}</span>
                 </li>
                 <li>
-                  <span className="text-muted">Where:</span>{" "}
+                  <span className="text-muted">{f.reviewWhere}:</span>{" "}
                   <span className="text-pearl">
                     {city || "—"}
                     {marina ? ` · ${marina}` : ""}
                   </span>
                 </li>
                 <li>
-                  <span className="text-muted">When:</span>{" "}
+                  <span className="text-muted">{f.reviewWhen}:</span>{" "}
                   <span className="text-pearl">
                     {date || "—"}
                     {timeWindow
-                      ? ` · ${timeWindowOptions.find((t) => t.id === timeWindow)?.label}`
+                      ? ` · ${es ? timeWindowOptions.find((tw) => tw.id === timeWindow)?.labelEs : timeWindowOptions.find((tw) => tw.id === timeWindow)?.label}`
                       : ""}
-                    {urgent ? " · Urgent" : ""}
+                    {urgent ? ` · ${f.urgentFlag}` : ""}
                   </span>
                 </li>
                 <li>
-                  <span className="text-muted">Boat:</span>{" "}
+                  <span className="text-muted">{f.reviewBoat}:</span>{" "}
                   <span className="text-pearl">
-                    {boatTypeOptions.find((b) => b.id === boatType)?.label || "—"}
-                    {boatLength ? ` · ${boatLength}` : ""}
+                    {(es
+                      ? boatTypeOptions.find((b) => b.id === boatType)?.labelEs
+                      : boatTypeOptions.find((b) => b.id === boatType)?.label) || "—"}
+                    {boatLength ? ` · ${es ? lengthOptions.find((l) => l.id === boatLength)?.labelEs : boatLength}` : ""}
                   </span>
                 </li>
               </ul>
               <p className="mt-3 text-xs text-muted">
-                Submitting is a <strong className="text-pearl">request</strong>, not a locked
-                appointment. Prefer a quote first?{" "}
-                <Link href="/free-estimate" className="font-semibold text-gold">
-                  Free estimate
+                {f.submitNote}{" "}
+                <Link href={pathFor(locale, "/free-estimate")} className="font-semibold text-gold">
+                  {f.freeEstimate}
                 </Link>
                 .
               </p>
@@ -626,18 +607,18 @@ export function BookingForm() {
           onClick={goBack}
           disabled={step === 0 || status === "loading"}
         >
-          ← Back
+          {f.back}
         </button>
         <div className="flex flex-wrap items-center gap-3">
           <a
             href={site.phoneHref}
             className="hidden text-sm font-semibold text-steel no-underline hover:text-gold sm:inline"
           >
-            Call {site.phone}
+            {t(locale).cta.call}
           </a>
           {step < steps.length - 1 ? (
             <button type="button" className="btn min-w-[8.5rem]" onClick={goNext}>
-              Continue →
+              {f.continue}
             </button>
           ) : (
             <button
@@ -645,7 +626,7 @@ export function BookingForm() {
               className="btn min-w-[8.5rem] disabled:opacity-40"
               disabled={status === "loading"}
             >
-              {status === "loading" ? "Sending…" : "Submit request"}
+              {status === "loading" ? f.sending : f.submit}
             </button>
           )}
         </div>
