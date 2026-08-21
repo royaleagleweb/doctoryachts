@@ -11,19 +11,21 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
-import { services } from "@/lib/services";
+import { servicesInHubOrder } from "@/lib/services";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Boat Repair Services | Fort Lauderdale & South Florida",
   description:
-    "Boat repair services in Fort Lauderdale and South Florida: marine engine repair, outboard service, electrical, cooling, mobile dockside repair, and maintenance. Free estimates.",
+    "Boat repair services in Fort Lauderdale and South Florida: marine engine repair, outboard service, 100-hour and 300-hour service, electrical, cooling, mobile dockside repair, and maintenance. Free estimates.",
   path: "/services",
   keywords: [
     "boat repair services Fort Lauderdale",
     "marine engine repair",
     "mobile boat repair",
     "outboard motor repair Fort Lauderdale",
+    "100 hour boat service",
+    "300 hour boat service",
     "boat electrical repairs",
   ],
 });
@@ -32,7 +34,7 @@ const hubFaqs = [
   {
     question: "What boat repair services do you offer?",
     answer:
-      "Marine engine repair, outboard motor repair, boat electrical repairs, cooling system repairs, boat diagnostics, maintenance, plumbing/systems, and mobile dockside boat repair across South Florida.",
+      "Marine engine repair, outboard motor repair, 100-hour and 300-hour interval service, boat electrical repairs, cooling system repairs, boat diagnostics, maintenance, plumbing/systems, and mobile dockside boat repair across South Florida.",
   },
   {
     question: "Do you offer free estimates?",
@@ -66,20 +68,7 @@ const youGet = [
   },
 ];
 
-const serviceOrder = [
-  "engine-repair",
-  "outboard",
-  "electrical",
-  "cooling",
-  "diagnostics",
-  "maintenance",
-  "systems",
-  "emergency",
-] as const;
-
-const hubServices = serviceOrder
-  .map((id) => services.find((s) => s.id === id))
-  .filter((s): s is (typeof services)[number] => Boolean(s));
+const hubServices = servicesInHubOrder();
 
 export default function ServicesPage() {
   return (
@@ -99,7 +88,7 @@ export default function ServicesPage() {
         kicker="Mobile boat mechanic in South Florida"
         title="Boat repair services in South Florida"
         subhead="Diagnose first. Dockside."
-        description="Engine, outboard, electrical, cooling, diagnostics, maintenance, plumbing, mobile. Fort Lauderdale and nearby docks."
+        description="Engine, outboard, 100-hour and 300-hour service, electrical, cooling, diagnostics, maintenance, plumbing, mobile. Fort Lauderdale and nearby docks."
         image={images.homeHero}
         actions={
           <>
@@ -153,7 +142,7 @@ export default function ServicesPage() {
         <AnswerBox
           label="Quick answer"
           question="What does Doctor Yachts repair?"
-          answer="Doctor Yachts repairs boats and yachts across South Florida: marine engines (inboard/outboard), electrical systems, cooling, bilge/plumbing, diagnostics, and scheduled maintenance—often mobile at Fort Lauderdale and nearby docks. Free estimates after diagnosis."
+          answer="Doctor Yachts repairs boats and yachts across South Florida: marine engines (inboard/outboard), 100-hour and 300-hour interval service, electrical systems, cooling, bilge/plumbing, diagnostics, and scheduled maintenance—often mobile at Fort Lauderdale and nearby docks. Free estimates after diagnosis."
         />
         <div className="mt-10 space-y-4">
           <h2 className="font-display text-navy">How to choose the right service</h2>
@@ -164,7 +153,10 @@ export default function ServicesPage() {
             <Link href="/services/cooling-system-repairs">cooling</Link>. Constant bilge running is
             usually <Link href="/services/plumbing-repairs">plumbing/systems</Link>. Intermittent
             multi-system issues may need <Link href="/services/boat-diagnostics">diagnostics</Link>.
-            For a dockside visit without a tow, start with{" "}
+            Overdue hours? Start with{" "}
+            <Link href="/services/100-hour-service">100-hour service</Link> or the heavier{" "}
+            <Link href="/services/300-hour-service">300-hour service</Link>. For a dockside visit
+            without a tow, start with{" "}
             <Link href="/services/mobile-boat-repair">mobile boat repair</Link>.
           </p>
         </div>

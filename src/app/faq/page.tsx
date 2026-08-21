@@ -67,8 +67,8 @@ export default function FaqPage() {
         subhead="Diagnose first. Dockside."
         description={
           <>
-            Forty diagnose-first answers—service intervals, no-starts, cooling, electrical,
-            generators. We confirm during {site.hours}.
+            Forty diagnose-first answers—service intervals, 100-hour and 300-hour service,
+            no-starts, cooling, electrical, generators. We confirm during {site.hours}.
           </>
         }
         image={images.mechanic}

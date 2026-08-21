@@ -243,6 +243,26 @@ const servicePools: Record<string, ServiceImage[]> = {
     marineMedia.marina,
     marineMedia.maintenance,
   ],
+  "hour-100": [
+    marineMedia.maintenance,
+    marineMedia.outboard,
+    marineMedia.dockside,
+    marineMedia.engine,
+    marineMedia.marina,
+    marineMedia.mechanic,
+    marineMedia.wake,
+    marineMedia.cooling,
+  ],
+  "hour-300": [
+    marineMedia.engine,
+    marineMedia.cooling,
+    marineMedia.maintenance,
+    marineMedia.electrical,
+    marineMedia.mechanic,
+    marineMedia.dockside,
+    marineMedia.helm,
+    marineMedia.wake,
+  ],
 };
 
 function pick(service: Service, i: number): ServiceImage {

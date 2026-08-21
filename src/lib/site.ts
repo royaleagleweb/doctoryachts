@@ -3,14 +3,18 @@ import { cityListText, primaryMarket } from "./locations";
 export const site = {
   name: "Doctor Yachts",
   tagline: "The mechanic who comes to the boat.",
+  taglineEs: "El mecánico que va al barco.",
   /** Primary domain for sitemap, canonicals, and structured data. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://doctoryachts.com",
   description:
     "Boat repair & boat maintenance in Fort Lauderdale and South Florida. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",
+  descriptionEs:
+    "Reparación de barcos y mantenimiento de yates en Fort Lauderdale y el sur de la Florida. Mecánico náutico móvil/en el muelle: motor, eléctrico y servicio. Presupuestos gratis — Doctor Yachts.",
   email: "info@doctoryachts.com",
   phone: "(347) 951-5710",
   phoneHref: "tel:+13479515710",
   address: "Serving marinas & private docks across South Florida",
+  addressEs: "Marinas y muelles privados en el sur de la Florida",
   /** City-level NAP only — no street address on file */
   addressLocality: "Fort Lauderdale",
   addressRegion: "FL",
@@ -18,6 +22,7 @@ export const site = {
   serviceArea: `${primaryMarket} — ${cityListText}`,
   region: primaryMarket,
   hours: "Mon–Sat · 7:00 AM – 6:00 PM",
+  hoursEs: "Lun–Sáb · 7:00 a. m. – 6:00 p. m.",
   hoursSchema: ["Mo-Sa 07:00-18:00"],
   freeEstimates: true,
   /** Set real profile URLs when ready; empty = hidden in UI */
@@ -55,14 +60,14 @@ export const seoKeywords = [
 ] as const;
 
 export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/locations", label: "Areas" },
-  { href: "/guides", label: "Guides" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-  { href: "/book", label: "Book" },
+  { href: "/", label: "Home", labelEs: "Inicio", esHref: "/es" },
+  { href: "/services", label: "Services", labelEs: "Servicios", esHref: "/es/servicios" },
+  { href: "/locations", label: "Areas", labelEs: "Zonas", esHref: "/es/ubicaciones" },
+  { href: "/guides", label: "Guides", labelEs: "Guías", esHref: "/guides" },
+  { href: "/faq", label: "FAQ", labelEs: "Preguntas", esHref: "/es/preguntas" },
+  { href: "/about", label: "About", labelEs: "Nosotros", esHref: "/es/nosotros" },
+  { href: "/contact", label: "Contact", labelEs: "Contacto", esHref: "/es/contacto" },
+  { href: "/book", label: "Book", labelEs: "Reservar", esHref: "/es/reservar" },
 ] as const;
 
 /** Sitewide FAQ corpus for AEO (visible on /faq + schema). Keep answers ~40–80 words. */

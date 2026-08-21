@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { hreflangLanguages, localeFromPath, servicePath, type Locale } from "./i18n";
 import { locations } from "./locations";
+import { getLocalizedServices } from "./services-localized";
 import { services } from "./services";
 import { site, seoKeywords } from "./site";
 
@@ -9,6 +11,7 @@ type BuildMetaInput = {
   path?: string;
   keywords?: string[];
   noIndex?: boolean;
+  locale?: Locale;
 };
 
 /** Default social/share image — keep in sync with LocalBusiness schema + layout OG */
@@ -31,18 +34,20 @@ export function buildMetadata({
   path = "/",
   keywords = [],
   noIndex = false,
+  locale,
 }: BuildMetaInput): Metadata {
   const url = absoluteUrl(path);
+  const loc = locale ?? localeFromPath(path);
   const allKeywords = [...new Set([...keywords, ...seoKeywords.slice(0, 10)])];
+  const languages = hreflangLanguages(path, site.url);
 
-  // Use absolute titles so layout template does not append "| Doctor Yachts" twice
-  // when page titles already include the brand (Drew-style SEO titles).
   return {
     title: { absolute: title },
     description,
     keywords: allKeywords,
     alternates: {
       canonical: url,
+      languages,
     },
     robots: noIndex
       ? { index: false, follow: true }
@@ -53,7 +58,7 @@ export function buildMetadata({
       url,
       siteName: site.name,
       type: "website",
-      locale: "en_US",
+      locale: loc === "es" ? "es_US" : "en_US",
       images: [defaultOgImage],
     },
     twitter: {
@@ -65,19 +70,25 @@ export function buildMetadata({
   };
 }
 
-export function localBusinessJsonLd() {
+export function localBusinessJsonLd(locale: Locale = "en") {
+  const localized = getLocalizedServices(locale);
+  const catalogName =
+    locale === "es"
+      ? "Servicios de mecánico náutico en el sur de la Florida"
+      : "South Florida marine mechanic services";
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${site.url}/#business`,
     name: site.name,
-    alternateName: "Doctor Yachts Marine Mechanics",
-    description: site.description,
-    url: site.url,
+    alternateName:
+      locale === "es" ? "Doctor Yachts — mecánicos náuticos" : "Doctor Yachts Marine Mechanics",
+    description: locale === "es" ? site.descriptionEs : site.description,
+    url: locale === "es" ? `${site.url}/es` : site.url,
     telephone: site.phone,
     email: site.email,
     priceRange: "$$",
-    slogan: site.tagline,
+    slogan: locale === "es" ? site.taglineEs : site.tagline,
     image: absoluteUrl(defaultOgImage.url),
     address: {
       "@type": "PostalAddress",
@@ -102,24 +113,42 @@ export function localBusinessJsonLd() {
         closes: "18:00",
       },
     ],
-    knowsAbout: [
-      "Yacht repair Fort Lauderdale",
-      "Boat repair Miami",
-      "Yacht mechanic Palm Beach",
-      "Marine engine repair",
-      "Marine electrical systems",
-      "Dockside boat repair South Florida",
-    ],
+    knowsAbout:
+      locale === "es"
+        ? [
+            "Mecánico de yates Fort Lauderdale",
+            "Reparación de barcos Miami",
+            "Mantenimiento de yates",
+            "Mecánico náutico",
+            "Servicio de motor fuera de borda",
+            "Diagnóstico de yates",
+            "Reparación eléctrica de barcos",
+            "Sistema de enfriamiento",
+            "Servicio 100 horas",
+            "Servicio 300 horas",
+            "Fort Lauderdale",
+            "el sur de la Florida",
+          ]
+        : [
+            "Yacht repair Fort Lauderdale",
+            "Boat repair Miami",
+            "Yacht mechanic Palm Beach",
+            "Marine engine repair",
+            "Marine electrical systems",
+            "Dockside boat repair South Florida",
+            "100-hour boat service",
+            "300-hour boat service",
+          ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "South Florida marine mechanic services",
-      itemListElement: services.map((service, index) => ({
+      name: catalogName,
+      itemListElement: localized.map((service, index) => ({
         "@type": "Offer",
         position: index + 1,
         itemOffered: {
           "@type": "Service",
           name: service.title,
-          url: absoluteUrl(`/services/${service.slug}`),
+          url: absoluteUrl(servicePath(services.find((s) => s.id === service.id)?.slug ?? service.slug, locale)),
         },
       })),
     },
