@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
+import type { ReactNode } from "react";
 import { AmbientMotes } from "@/components/AmbientMotes";
 import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
@@ -67,7 +68,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default async function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const locale = await getRequestLocale();
   return (
     <html lang={locale} className={`${plex.variable} h-full antialiased`}>

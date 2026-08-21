@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 
@@ -5,7 +6,7 @@ import { localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
  * Spanish segment layout. Inline lang script runs before paint so crawlers
  * that execute JS see lang=es even when the shared root shell was prerendered.
  */
-export default function SpanishLayout({ children }: { children: React.ReactNode }) {
+export default function SpanishLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <script
