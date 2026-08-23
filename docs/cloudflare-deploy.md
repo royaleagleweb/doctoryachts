@@ -77,5 +77,6 @@ In Hostinger DNS, add records Cloudflare shows for the Worker custom domain (oft
 | Build fails on `next/image` | Ensure Node 20+; rebuild |
 | “nodejs_compat” error | Keep `compatibility_flags` in `wrangler.jsonc` |
 | Static site with blank/errors | Wrong build command — use OpenNext, not `next export` |
+| Workers Builds: “Could not find compiled Open Next config” | Dashboard **Build command** is empty and **Deploy command** is `npx wrangler deploy`. Wrangler 4 delegates to `opennextjs-cloudflare deploy` without compiling. Prefer Build command `npx opennextjs-cloudflare build`. The repo also wraps `npx wrangler` (postinstall) so deploy builds first. |
 | Old site on domain | DNS still on Hostinger parking — switch NS or A/CNAME |
 | Email breaks | Restore Hostinger MX in Cloudflare DNS |

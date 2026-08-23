@@ -1,12 +1,18 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
+import { t } from "@/lib/copy";
+import { localeFromPath } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 /** Simple contact form for /contact — free estimate uses EstimateForm */
 export function ContactForm() {
+  const pathname = usePathname() || "/";
+  const locale = localeFromPath(pathname);
+  const f = t(locale).forms;
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -36,16 +42,16 @@ export function ContactForm() {
     return (
       <div className="panel p-5">
         <p className="m-0 text-sm font-semibold  text-gold">
-          Message received
+          {f.contactReceived}
         </p>
-        <p className="mt-2 font-semibold text-pearl">Thanks — we&apos;ll reply during shop hours.</p>
-        <p className="mt-1 text-sm text-steel">{site.hours}</p>
+        <p className="mt-2 font-semibold text-pearl">{f.contactThanks}</p>
+        <p className="mt-1 text-sm text-steel">{locale === "es" ? site.hoursEs : site.hours}</p>
         <button
           type="button"
           className="mt-4 text-sm font-semibold text-gold"
           onClick={() => setStatus("idle")}
         >
-          Send another
+          {f.contactSendAnother}
         </button>
       </div>
     );
@@ -56,7 +62,7 @@ export function ContactForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="label-field">
-            Name *
+            {f.contactName}
           </label>
           <input
             id="name"
@@ -69,7 +75,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="phone" className="label-field">
-            Phone *
+            {f.phone}
           </label>
           <input
             id="phone"
@@ -85,7 +91,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="email" className="label-field">
-          Email *
+          {f.contactEmail}
         </label>
         <input
           id="email"
@@ -111,7 +117,7 @@ export function ContactForm() {
       </div>
       <div>
         <label htmlFor="message" className="label-field">
-          How can we help? *
+          {f.contactMessage}
         </label>
         <textarea
           id="message"
@@ -128,7 +134,7 @@ export function ContactForm() {
         </p>
       )}
       <button type="submit" className="btn w-full sm:w-auto" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Send message"}
+        {status === "loading" ? f.sending : f.contactSend}
       </button>
     </form>
   );
