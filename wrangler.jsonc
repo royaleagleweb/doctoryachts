@@ -1,5 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
+  // Workers Builds does not honor wrangler "build.command".
+  // The dashboard currently runs only `npx wrangler deploy`.
+  // scripts/wrangler-with-opennext.mjs compiles OpenNext first.
   "name": "doctoryachts",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-07",
