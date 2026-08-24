@@ -7,7 +7,7 @@ type SectionProps = {
   id?: string;
 };
 
-/** Shared section chrome: wrap + section-pad + pale steel floor. */
+/** Shared section chrome: wrap + section-pad + ivory reading floor. */
 export function Section({
   children,
   tone = "default",

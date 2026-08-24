@@ -43,11 +43,11 @@ export function AmbientMotes() {
     const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
     function makeMote(seedY?: number): Mote {
-      // Soft steel / marina-water ramp (cool daylight, not brass dust)
+      // Quiet brass dust on cool ink — metal, not highlighter
       const t = Math.random();
-      const r = Math.round(150 + 40 * (1 - t));
-      const g = Math.round(175 + 35 * (1 - t));
-      const b = Math.round(190 + 30 * (1 - t));
+      const r = Math.round(170 + 50 * (1 - t));
+      const g = Math.round(145 + 35 * (1 - t));
+      const b = Math.round(70 + 20 * (1 - t));
       return {
         x: Math.random() * w,
         y: seedY ?? Math.random() * h,
@@ -58,7 +58,7 @@ export function AmbientMotes() {
         roll: Math.random() * Math.PI * 2,
         rollRate: 0.2 + Math.random() * 0.6,
         scale: 0.35 + Math.random() * 0.9,
-        alpha: 0.05 + Math.random() * 0.12,
+        alpha: 0.035 + Math.random() * 0.08,
         r,
         g,
         b,

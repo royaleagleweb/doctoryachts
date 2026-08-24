@@ -28,7 +28,7 @@ export function Footer() {
   const list = getLocalizedServices(locale);
 
   return (
-    <footer className="site-footer mt-auto bg-navy-deep text-[#a3b4c2]">
+    <footer className="site-footer mt-auto">
       <div className="wrap grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-4">
           <p className="brand-wordmark text-2xl tracking-tight">
@@ -101,7 +101,7 @@ export function Footer() {
       </div>
 
       <div>
-        <div className="wrap flex flex-col gap-2 py-6 text-sm text-[#7a8c9c] sm:flex-row sm:items-center sm:justify-between">
+        <div className="wrap flex flex-col gap-2 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Doctor Yachts</span>
           <span className="flex flex-wrap gap-x-4 gap-y-1">
             <Link href="/privacy" className="no-underline hover:text-white">
