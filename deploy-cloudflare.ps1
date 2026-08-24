@@ -48,7 +48,7 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host ""
 Write-Host "=== DEPLOYED ===" -ForegroundColor Green
-Write-Host "1. Open the workers.dev URL printed above and confirm phone is (347) 951-5710" -ForegroundColor White
+Write-Host "1. Open the workers.dev URL printed above and confirm phone is (954) 770-1910" -ForegroundColor White
 Write-Host "2. Cloudflare Dashboard → Workers → doctoryachts → Settings → Domains" -ForegroundColor White
 Write-Host "   → Add custom domain: doctoryachts.com" -ForegroundColor White
 Write-Host "3. If old static Pages project also uses the domain, remove that custom domain first" -ForegroundColor White
