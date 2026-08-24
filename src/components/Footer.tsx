@@ -31,8 +31,9 @@ export function Footer() {
     <footer className="site-footer mt-auto bg-navy-deep text-[#a3b4c2]">
       <div className="wrap grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-4">
-          <p className="font-display text-2xl font-semibold tracking-tight text-white">
-            Doctor Yachts
+          <p className="brand-wordmark text-2xl tracking-tight">
+            <span className="brand-wordmark__doctor">Doctor</span>
+            <span className="brand-wordmark__yachts">Yachts</span>
           </p>
           <p className="mt-2 max-w-sm text-sm leading-relaxed">{copy.footer.blurb}</p>
           <a

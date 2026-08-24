@@ -26,10 +26,10 @@ export function PageHeroImage({
         className="object-cover"
       />
       {overlay === "navy" && (
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy/75 to-navy/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/48 via-navy/28 to-transparent" />
       )}
       {overlay === "soft" && (
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-navy/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/40 via-navy/12 to-transparent" />
       )}
     </div>
   );

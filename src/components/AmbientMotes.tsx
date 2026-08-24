@@ -43,11 +43,11 @@ export function AmbientMotes() {
     const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
     function makeMote(seedY?: number): Mote {
-      // Soft pearl → brass ramp (marine light, not candy red)
+      // Soft steel / marina-water ramp (cool daylight, not brass dust)
       const t = Math.random();
-      const r = Math.round(196 + (238 - 196) * (1 - t));
-      const g = Math.round(163 + (241 - 163) * (1 - t) * 0.85);
-      const b = Math.round(90 + (244 - 90) * (1 - t) * 0.55);
+      const r = Math.round(150 + 40 * (1 - t));
+      const g = Math.round(175 + 35 * (1 - t));
+      const b = Math.round(190 + 30 * (1 - t));
       return {
         x: Math.random() * w,
         y: seedY ?? Math.random() * h,
@@ -58,7 +58,7 @@ export function AmbientMotes() {
         roll: Math.random() * Math.PI * 2,
         rollRate: 0.2 + Math.random() * 0.6,
         scale: 0.35 + Math.random() * 0.9,
-        alpha: 0.12 + Math.random() * 0.28,
+        alpha: 0.05 + Math.random() * 0.12,
         r,
         g,
         b,
@@ -157,7 +157,7 @@ export function AmbientMotes() {
     <canvas
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-[1] opacity-70"
+      className="pointer-events-none fixed inset-0 z-[1] opacity-40"
     />
   );
 }
