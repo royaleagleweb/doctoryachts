@@ -1,3 +1,5 @@
+import { site } from "./site";
+
 export type FaqNext = {
   href: string;
   label: string;
@@ -69,7 +71,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "How do I book a mobile yacht mechanic in South Florida?",
         answer:
-          "Book online or call (347) 951-5710. Tell us the symptom, vessel type, marina or private dock, slip, and access notes such as a gate or parking. We confirm the visit by phone during Monday–Saturday 7:00 AM–6:00 PM and bring tools that match the complaint. Same-day depends on the real schedule and access—not a countdown or fake “two slots left.” Diagnose first, then we estimate recommended work.",
+          `Book online or call ${site.phone}. Tell us the symptom, vessel type, marina or private dock, slip, and access notes such as a gate or parking. We confirm the visit by phone during Monday–Saturday 7:00 AM–6:00 PM and bring tools that match the complaint. Same-day depends on the real schedule and access—not a countdown or fake “two slots left.” Diagnose first, then we estimate recommended work.`,
         next: { href: "/book", label: "Book a visit" },
       },
       {
@@ -81,7 +83,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "How fast will a mobile boat mechanic respond in Fort Lauderdale?",
         answer:
-          "We reply during shop hours, usually the same business day. Urgent no-starts, overheating, and safety issues should call (347) 951-5710 so we can triage. Same-day dockside work depends on the existing schedule and marina access—we will say so honestly. We do not advertise fake scarcity. Many Fort Lauderdale jobs start where the boat already sits when the dock is accessible.",
+          `We reply during shop hours, usually the same business day. Urgent no-starts, overheating, and safety issues should call ${site.phone} so we can triage. Same-day dockside work depends on the existing schedule and marina access—we will say so honestly. We do not advertise fake scarcity. Many Fort Lauderdale jobs start where the boat already sits when the dock is accessible.`,
         next: { href: "/services/mobile-boat-repair", label: "Mobile boat repair" },
       },
     ],
@@ -303,7 +305,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "What should I do if I’m stuck at the dock and the boat won’t start?",
         answer:
-          "Make it safe. Check battery connections, the kill switch, and fuel basics. Do not keep cranking a hot starter. Write down alarms and the last time it ran. Then call (347) 951-5710 or book mobile diagnostics—share marina, slip, and gate notes. Most no-starts in Fort Lauderdale do not need a tow first. We confirm by phone during Monday–Saturday 7:00 AM–6:00 PM.",
+          `Make it safe. Check battery connections, the kill switch, and fuel basics. Do not keep cranking a hot starter. Write down alarms and the last time it ran. Then call ${site.phone} or book mobile diagnostics—share marina, slip, and gate notes. Most no-starts in Fort Lauderdale do not need a tow first. We confirm by phone during Monday–Saturday 7:00 AM–6:00 PM.`,
         next: {
           href: "/guides/boat-wont-start-checklist",
           label: "Boat won’t start checklist",
@@ -359,7 +361,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "When is a boat problem an emergency vs a scheduled visit?",
         answer:
-          "Emergency: uncontrolled water, strong fuel smell or fire risk, overheating that returns, total electrical loss, or a no-start when you must move for weather or safety. Scheduled: interval maintenance, slow electrical quirks, and issues that can wait until shop hours. If people or the vessel are at risk, get them safe first, then call (347) 951-5710. We triage during Monday–Saturday 7:00 AM–6:00 PM.",
+          `Emergency: uncontrolled water, strong fuel smell or fire risk, overheating that returns, total electrical loss, or a no-start when you must move for weather or safety. Scheduled: interval maintenance, slow electrical quirks, and issues that can wait until shop hours. If people or the vessel are at risk, get them safe first, then call ${site.phone}. We triage during Monday–Saturday 7:00 AM–6:00 PM.`,
         next: {
           href: "/guides/emergency-boat-repair-fort-lauderdale",
           label: "Emergency boat repair in Fort Lauderdale",

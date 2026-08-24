@@ -11,8 +11,8 @@ export const site = {
   descriptionEs:
     "Reparación de barcos y mantenimiento de yates en Fort Lauderdale y el sur de la Florida. Mecánico náutico móvil/en el muelle: motor, eléctrico y servicio. Presupuestos gratis — Doctor Yachts.",
   email: "info@doctoryachts.com",
-  phone: "(347) 951-5710",
-  phoneHref: "tel:+13479515710",
+  phone: "(954) 770-1910",
+  phoneHref: "tel:+19547701910",
   address: "Serving marinas & private docks across South Florida",
   addressEs: "Marinas y muelles privados en el sur de la Florida",
   /** City-level NAP only — no street address on file */
