@@ -194,7 +194,7 @@ export function BookingForm() {
               },
               { k: f.location, v: `${city} · ${marina}` },
             ].map((row) => (
-              <div key={row.k} className="rounded-xl border border-line bg-white/[0.03] p-3">
+              <div key={row.k} className="rounded-xl border border-line bg-pearl p-3">
                 <dt className="text-xs  text-muted">{row.k}</dt>
                 <dd className="mt-1 font-medium text-navy">{row.v}</dd>
               </div>
@@ -234,7 +234,7 @@ export function BookingForm() {
           </div>
           <p className="text-[0.7rem] text-muted">{Math.round(progressPct)}%</p>
         </div>
-        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-paper-deep">
           <div
             className="h-full rounded-full bg-gradient-to-r from-gold-deep to-gold-light transition-all duration-300"
             style={{ width: `${progressPct}%` }}
@@ -527,7 +527,7 @@ export function BookingForm() {
               />
             </div>
 
-            <div className="rounded-xl border border-line bg-white/[0.03] p-4">
+            <div className="rounded-xl border border-line bg-pearl p-4">
               <p className="text-sm font-semibold  text-gold">
                 {f.review}
               </p>

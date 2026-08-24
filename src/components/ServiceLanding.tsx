@@ -62,8 +62,8 @@ function MediaBand({
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 via-navy/25 to-transparent p-4 pt-16">
-            <p className="text-xs  text-steel">{image.caption ?? fallbackCaption}</p>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/50 via-navy/12 to-transparent p-4 pt-16">
+            <p className="text-xs text-white/85">{image.caption ?? fallbackCaption}</p>
           </div>
         </div>
         <div
@@ -153,7 +153,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         }
       />
 
-      <section className="border-b border-line bg-paper-deep/40">
+      <section className="border-b border-line bg-paper-deep">
         <div className="wrap py-10">
           <AnswerBox
             label={sp.quickLabel}
@@ -269,9 +269,9 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
               sizes="50vw"
               className="object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/45 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
-              <p className="text-xs  text-steel">{media.process.caption ?? sp.processCaption}</p>
+              <p className="text-xs text-white/85">{media.process.caption ?? sp.processCaption}</p>
               <p className="font-display mt-1 text-xl text-paper">{sp.processOverlay}</p>
             </div>
           </div>
@@ -372,7 +372,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         </div>
       </section>
 
-      <section className="border-b border-line bg-paper-deep/40">
+      <section className="border-b border-line bg-paper-deep">
         <div className="wrap section-pad">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
