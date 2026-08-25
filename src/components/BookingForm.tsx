@@ -179,7 +179,7 @@ export function BookingForm() {
           <h2 className="font-display mt-2 text-2xl font-semibold text-white">
             {f.thanks}
           </h2>
-          <p className="mt-2 text-sm text-[#c5d0d8]">
+          <p className="mt-2 text-sm text-pearl/80">
             {f.notLocked}
           </p>
         </div>
@@ -194,7 +194,7 @@ export function BookingForm() {
               },
               { k: f.location, v: `${city} · ${marina}` },
             ].map((row) => (
-              <div key={row.k} className="rounded-xl border border-line bg-pearl p-3">
+              <div key={row.k} className="border-l border-line pl-3 py-2">
                 <dt className="text-xs  text-muted">{row.k}</dt>
                 <dd className="mt-1 font-medium text-navy">{row.v}</dd>
               </div>
@@ -527,7 +527,7 @@ export function BookingForm() {
               />
             </div>
 
-            <div className="rounded-xl border border-line bg-pearl p-4">
+            <div className="border-l border-line pl-4 py-1">
               <p className="text-sm font-semibold  text-gold">
                 {f.review}
               </p>

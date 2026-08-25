@@ -19,7 +19,7 @@ type PageHeroProps = {
   size?: "default" | "display";
 };
 
-/** Full-bleed hero: photo with a light marina scrim, tight Plex, gold accent. */
+/** Full-bleed hero: photo with a cool ink scrim, tight Plex, brass accent. */
 export function PageHero({
   eyebrow,
   kicker,
