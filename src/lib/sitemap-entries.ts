@@ -1,14 +1,29 @@
-import type { MetadataRoute } from "next";
-import { indexableServiceCityPaths } from "@/lib/service-city-indexable";
-
 /**
- * Sitemap must stay a thin Worker handler.
- * Do not import guides/services/locations/site here — those modules pull the
- * full page-copy graph. Next.js resolveSitemap also calls Date#toISOString();
- * an Invalid Date throws and OpenNext surfaces that as HTTP 500.
- *
- * Slugs below match src/lib/services.ts, locations.ts, guides.ts, and i18n.ts.
+ * Sitemap URL list — keep this module tiny.
+ * Do not import guides/services/locations/site here; those pull the page-copy graph.
+ * Slugs match src/lib/services.ts, locations.ts, guides.ts, and i18n.ts.
  */
+
+export type SitemapChangeFreq =
+  | "always"
+  | "hourly"
+  | "daily"
+  | "weekly"
+  | "monthly"
+  | "yearly"
+  | "never";
+
+export type SitemapEntry = {
+  url: string;
+  lastModified: string;
+  changeFrequency: SitemapChangeFreq;
+  priority: number;
+  alternates?: {
+    en: string;
+    es: string;
+    "x-default": string;
+  };
+};
 
 const BASE = (process.env.NEXT_PUBLIC_SITE_URL || "https://doctoryachts.com").replace(
   /\/$/,
@@ -97,9 +112,9 @@ function pair(
   enPath: string,
   esPath: string,
   iso: string,
-  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
+  changeFrequency: SitemapChangeFreq,
   priority: number,
-): MetadataRoute.Sitemap {
+): SitemapEntry[] {
   const languages = { en: abs(enPath), es: abs(esPath), "x-default": abs(enPath) };
   return [
     {
@@ -107,14 +122,14 @@ function pair(
       lastModified: lastmod(iso),
       changeFrequency,
       priority,
-      alternates: { languages },
+      alternates: languages,
     },
     {
       url: abs(esPath),
       lastModified: lastmod(iso),
       changeFrequency,
       priority,
-      alternates: { languages },
+      alternates: languages,
     },
   ];
 }
@@ -122,9 +137,9 @@ function pair(
 function solo(
   path: string,
   iso: string,
-  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
+  changeFrequency: SitemapChangeFreq,
   priority: number,
-): MetadataRoute.Sitemap[number] {
+): SitemapEntry {
   return {
     url: abs(path),
     lastModified: lastmod(iso),
@@ -133,7 +148,8 @@ function solo(
   };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/** Public indexable routes. Service×city combo pages stay omitted (templated, noindex). */
+export function getSitemapEntries(): SitemapEntry[] {
   const staticRoutes = STATIC_PAIRS.flatMap((r) =>
     pair(r.en, r.es, r.iso, r.freq, r.priority),
   );
@@ -148,18 +164,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pair(`/locations/${slug}`, `/es/ubicaciones/${slug}`, LASTMOD.location, "monthly", 0.92),
   );
 
-  const indexableServiceCityRoutes = indexableServiceCityPaths().map((path) =>
-    solo(path, LASTMOD.service, "monthly", 0.7),
-  );
-
   const guideRoutes = GUIDES.map((g) => solo(`/guides/${g.slug}`, g.updated, "monthly", 0.88));
 
-  return [
-    ...staticRoutes,
-    ...enOnly,
-    ...serviceRoutes,
-    ...locationRoutes,
-    ...indexableServiceCityRoutes,
-    ...guideRoutes,
-  ];
+  return [...staticRoutes, ...enOnly, ...serviceRoutes, ...locationRoutes, ...guideRoutes];
 }
