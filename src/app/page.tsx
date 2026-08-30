@@ -216,7 +216,6 @@ export default function HomePage() {
         <div className="contact-card reveal-in mt-8">
           <div>
             <h3 className="contact-card__title">{site.name}</h3>
-            <p className="contact-card__owner">Owner · {site.owner}</p>
             <address>
               <strong>{site.streetAddress}</strong>
               <br />

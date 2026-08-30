@@ -46,7 +46,6 @@ export function Footer() {
           </a>
           <address className="mt-3 text-sm not-italic leading-relaxed">
             <span className="block text-pearl">{site.name}</span>
-            <span className="block">{site.owner}</span>
             <span className="mt-2 block">
               {site.streetAddress}
               <br />
