@@ -115,8 +115,8 @@ export default function FreeEstimatePage() {
                 Common requests:{" "}
                 <Link href="/services/marine-engine-repair">marine engine repair</Link>,{" "}
                 <Link href="/services/electrical-repairs">electrical</Link>,{" "}
-                <Link href="/services/mobile-boat-repair">mobile boat repair</Link>,{" "}
-                <Link href="/services/boat-maintenance">maintenance</Link>.
+                <Link href="/services/boat-maintenance">maintenance</Link>,{" "}
+                <Link href="/">mobile boat mechanic</Link>.
               </p>
             </Card>
 

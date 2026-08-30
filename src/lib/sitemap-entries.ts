@@ -32,34 +32,31 @@ const BASE = (process.env.NEXT_PUBLIC_SITE_URL || "https://doctoryachts.com").re
 
 /** Content lastmod dates — not build time. Update when the page copy actually changes. */
 const LASTMOD = {
-  home: "2026-08-21",
-  services: "2026-08-21",
-  locations: "2026-08-21",
+  home: "2026-08-30",
+  services: "2026-08-30",
+  locations: "2026-08-30",
   guides: "2026-08-06",
-  faq: "2026-08-21",
+  faq: "2026-08-30",
   freeEstimate: "2026-08-21",
   book: "2026-08-21",
   reviews: "2026-08-16",
-  about: "2026-08-21",
+  about: "2026-08-30",
   gallery: "2026-08-16",
   contact: "2026-08-21",
   privacy: "2026-08-16",
   terms: "2026-08-16",
-  service: "2026-08-21",
-  location: "2026-08-21",
+  service: "2026-08-30",
+  location: "2026-08-30",
 } as const;
 
+/** Six hubs + home only. Retired slugs 301 away — do not list them. */
 const SERVICE_PAIRS = [
   ["marine-engine-repair", "reparacion-de-motores-marinos"],
+  ["outboard-motor-repair", "servicio-de-motor-fuera-de-borda"],
   ["electrical-repairs", "reparacion-electrica-de-barcos"],
   ["cooling-system-repairs", "sistema-de-enfriamiento"],
-  ["boat-diagnostics", "diagnostico-de-yates"],
   ["boat-maintenance", "mantenimiento-de-yates"],
   ["plumbing-repairs", "plomeria-de-barcos"],
-  ["mobile-boat-repair", "reparacion-movil-de-barcos"],
-  ["outboard-motor-repair", "servicio-de-motor-fuera-de-borda"],
-  ["100-hour-service", "servicio-100-horas"],
-  ["300-hour-service", "servicio-300-horas"],
 ] as const;
 
 const LOCATION_SLUGS = [

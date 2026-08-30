@@ -18,7 +18,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Servicios de reparación de barcos | Fort Lauderdale y el sur de la Florida",
   description:
-    "Servicios de reparación de barcos en Fort Lauderdale y el sur de la Florida: motor, fuera de borda, servicio 100 horas y 300 horas, eléctrico, enfriamiento, mantenimiento de yates y reparación móvil. Presupuestos gratis.",
+    "Servicios de reparación de barcos en Fort Lauderdale: motor, fuera de borda, eléctrico, enfriamiento, mantenimiento (incluido servicio 100 horas y 300 horas) y plomería. Presupuestos gratis.",
   path: "/es/servicios",
   locale: "es",
   keywords: [
@@ -35,7 +35,7 @@ const hubFaqs = [
   {
     question: "¿Qué servicios de reparación de barcos ofrecen?",
     answer:
-      "Reparación de motores marinos, servicio de motor fuera de borda, servicio 100 horas y 300 horas, reparación eléctrica de barcos, sistema de enfriamiento, diagnóstico de yates, mantenimiento, plomería/sistemas y reparación móvil en el muelle en el sur de la Florida.",
+      "Seis hubs: reparación de motores marinos, motor fuera de borda, eléctrico, enfriamiento, mantenimiento de barcos (incluido servicio 100 horas y 300 horas en esa página) y plomería. Trabajamos en el muelle en el sur de la Florida.",
   },
   {
     question: "¿Dan presupuestos gratis?",
@@ -50,7 +50,7 @@ const hubFaqs = [
   {
     question: "¿Qué zonas cubren?",
     answer:
-      "Fort Lauderdale, Dania Beach, Hollywood, Miami / Miami Beach, el condado de Palm Beach y muelles cercanos del sur de la Florida.",
+      "Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach, el condado de Palm Beach y muelles cercanos del sur de la Florida.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function SpanishServicesPage() {
         kicker="Mecánico de yates móvil en el sur de la Florida"
         title="Servicios de reparación de barcos en el sur de la Florida"
         subhead="Primero diagnosticamos. En el muelle."
-        description="Motor, fuera de borda, servicio 100 horas y 300 horas, eléctrico, enfriamiento, diagnóstico, mantenimiento, plomería, móvil. Fort Lauderdale y muelles cercanos."
+        description="Seis hubs: motor, fuera de borda, eléctrico, enfriamiento, mantenimiento, plomería. Fort Lauderdale y muelles cercanos."
         image={images.homeHero}
         actions={
           <>
@@ -132,9 +132,9 @@ export default function SpanishServicesPage() {
           ))}
         </div>
         <p className="mt-8 text-steel">
-          ¿No sabe qué servicio? Llame al <a href={site.phoneHref}>{site.phone}</a> o empiece por{" "}
-          <Link href={servicePath("boat-diagnostics", "es")}>diagnóstico</Link> /{" "}
-          <Link href={servicePath("mobile-boat-repair", "es")}>reparación móvil</Link>.
+          ¿No sabe qué servicio? Llame al <a href={site.phoneHref}>{site.phone}</a> o empiece en el{" "}
+          <Link href="/es">inicio de mecánico móvil</Link>. El diagnóstico es el método, no una
+          página aparte.
         </p>
       </Section>
 
@@ -142,7 +142,7 @@ export default function SpanishServicesPage() {
         <AnswerBox
           label="Respuesta rápida"
           question="¿Qué repara Doctor Yachts?"
-          answer="Doctor Yachts repara botes y yates en el sur de la Florida: motores marinos (interno/fuera de borda), servicio 100 horas y 300 horas, sistemas eléctricos, enfriamiento, sentina/plomería, diagnóstico y mantenimiento programado—a menudo móvil en Fort Lauderdale y muelles cercanos. Presupuesto gratis después del diagnóstico."
+          answer="Doctor Yachts repara botes y yates en el sur de la Florida: motores, fuera de borda, eléctrico, enfriamiento, plomería y mantenimiento programado—incluido servicio 100 horas y 300 horas en la página de mantenimiento. Presupuesto gratis después del diagnóstico."
         />
         <div className="mt-10 space-y-4">
           <h2 className="font-display text-navy">Cómo elegir el servicio correcto</h2>
@@ -152,19 +152,17 @@ export default function SpanishServicesPage() {
             <Link href={servicePath("marine-engine-repair", "es")}>diagnóstico de motor</Link>. Si se
             calienta, es <Link href={servicePath("cooling-system-repairs", "es")}>enfriamiento</Link>.
             Sentina que no para,{" "}
-            <Link href={servicePath("plumbing-repairs", "es")}>plomería/sistemas</Link>. Horas
-            vencidas:{" "}
-            <Link href={servicePath("100-hour-service", "es")}>servicio 100 horas</Link> o el más
-            profundo <Link href={servicePath("300-hour-service", "es")}>servicio 300 horas</Link>.
-            Para una visita en el muelle sin remolque, empiece por{" "}
-            <Link href={servicePath("mobile-boat-repair", "es")}>reparación móvil</Link>.
+            <Link href={servicePath("plumbing-repairs", "es")}>plomería</Link>. Horas vencidas:{" "}
+            <Link href={servicePath("boat-maintenance", "es")}>mantenimiento de barcos</Link> (el
+            servicio 100 horas y 300 horas son secciones de esa página). Para una visita en el
+            muelle sin remolque, empiece en el <Link href="/es">inicio</Link>.
           </p>
         </div>
         <Card className="mt-10 p-6">
           <h2 className="font-display text-navy">Zonas de servicio</h2>
           <p className="mt-2 text-sm text-steel">
-            Fort Lauderdale · Miami · Dania Beach · Hollywood · condado de Palm Beach · muelles del
-            sur de la Florida. Vea <Link href="/es/ubicaciones">todas las zonas</Link> o llame al{" "}
+            Fort Lauderdale · Pompano Beach · Miami · Dania Beach · Hollywood · condado de Palm
+            Beach. Vea <Link href="/es/ubicaciones">todas las zonas</Link> o llame al{" "}
             <a href={site.phoneHref}>{site.phone}</a>.
           </p>
         </Card>

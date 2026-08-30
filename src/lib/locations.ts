@@ -206,7 +206,7 @@ export const locations: Location[] = [
       "Doctor Yachts serves Palm Beach, West Palm Beach, and Palm Beach County with precision marine mechanics—yacht engine repair, boat maintenance, electrical systems, and dockside service.",
     content: [
       "Palm Beach County owners expect discreet, high-standard service. Doctor Yachts brings specialist yacht mechanic skill to private docks and marinas—from Palm Beach to West Palm Beach and surrounding waterways.",
-      "We focus on reliability: engine diagnostics and repair, marine electrical troubleshooting, generator service, bilge and systems care, and scheduled boat maintenance before season or extended cruising.",
+      "We focus on reliability: engine diagnostics and repair, marine electrical troubleshooting, bilge and systems care, and scheduled boat maintenance before season or extended cruising.",
       "If you’re searching for a Palm Beach boat mechanic or yacht repair near West Palm Beach, you’ll get clear findings, professional dockside manners, and a plan that prioritizes what actually needs fixing.",
       "Gated communities and private docks are common north of Broward. Provide gate codes, dock location, and vessel details when booking so service arrives prepared and on time.",
     ],
@@ -348,7 +348,7 @@ export function getLocationBySlug(slug: string) {
 
 export const primaryMarket = "South Florida";
 export const cityList = locations.map((l) => l.name);
-/** Visible chrome — keep the Pompano URL, do not promote it in global lists. */
-export const publicLocations = locations.filter((l) => l.slug !== "pompano-beach");
+/** Visible chrome — include Pompano Beach wherever other cities appear. */
+export const publicLocations = locations;
 export const cityListText =
-  "Fort Lauderdale, Dania Beach, Hollywood, Miami, and Palm Beach";
+  "Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami, and Palm Beach";

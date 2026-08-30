@@ -33,12 +33,12 @@ The site is optimized for high-intent marine keywords:
 |----------------------------------------------|--------------|
 | boat repair, boat maintenance + FTL/Pompano | `/` |
 | marine engine repair, inboard/outboard | `/services/marine-engine-repair` |
-| boat electrical repairs | `/services/electrical-repairs` |
-| cooling system repairs | `/services/cooling-system-repairs` |
-| boat diagnostics | `/services/boat-diagnostics` |
-| boat maintenance | `/services/boat-maintenance` |
-| boat plumbing repairs | `/services/plumbing-repairs` |
-| mobile / dockside boat repair | `/services/mobile-boat-repair` |
+| boat electrical repair | `/services/electrical-repairs` |
+| boat cooling system repair | `/services/cooling-system-repairs` |
+| boat maintenance (incl. 100-hour / 300-hour) | `/services/boat-maintenance` |
+| boat plumbing repair | `/services/plumbing-repairs` |
+| outboard motor repair | `/services/outboard-motor-repair` |
+| mobile boat mechanic (homepage) | `/` |
 | Fort Lauderdale boat repair | `/locations/fort-lauderdale` |
 | Pompano Beach mobile boat repair | `/locations/pompano-beach` |
 

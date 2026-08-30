@@ -16,7 +16,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Boat Repair Near Me | Fort Lauderdale & South Florida",
   description:
-    "Boat repair service areas: Fort Lauderdale, Dania Beach, Hollywood, Miami & Palm Beach. Mobile dockside mechanic. Free estimates — Doctor Yachts.",
+    "Boat repair service areas: Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami & Palm Beach. Mobile dockside mechanic. Free estimates — Doctor Yachts.",
   path: "/locations",
   keywords: [
     "boat repair near me Fort Lauderdale",
@@ -30,12 +30,12 @@ const hubFaqs = [
   {
     question: "Where do you provide boat repair?",
     answer:
-      "Doctor Yachts serves Fort Lauderdale, Dania Beach, Hollywood, Miami, Palm Beach County, and nearby South Florida docks with mobile and dockside service when access allows.",
+      "Doctor Yachts serves Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami, Palm Beach County, and nearby South Florida docks with mobile and dockside service when access allows.",
   },
   {
     question: "Do you offer boat repair near me in Broward?",
     answer:
-      "Yes. Broward coverage includes Fort Lauderdale, Dania Beach, and Hollywood. Share your marina and slip when booking so we can confirm access.",
+      "Yes. Broward coverage includes Fort Lauderdale, Pompano Beach, Dania Beach, and Hollywood. Share your marina and slip when booking so we can confirm access.",
   },
   {
     question: "Is mobile service available in every city?",
@@ -80,7 +80,7 @@ export default function LocationsPage() {
           <AnswerBox
             label="Quick answer"
             question="Do you offer boat repair near Fort Lauderdale?"
-            answer={`Yes. Doctor Yachts provides boat repair and mobile dockside mechanic service in Fort Lauderdale and nearby South Florida cities including Dania Beach, Hollywood, Miami, and Palm Beach County. Free estimates. Call ${site.phone} or book online.`}
+            answer={`Yes. Doctor Yachts provides boat repair and mobile dockside mechanic service in Fort Lauderdale and nearby South Florida cities including Pompano Beach, Dania Beach, Hollywood, Miami, and Palm Beach County. Free estimates. Call ${site.phone} or book online.`}
           />
 
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">

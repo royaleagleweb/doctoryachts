@@ -20,7 +20,7 @@ import { servicesInHubOrderLocalized } from "@/lib/services-localized";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Mecánico de yates móvil Fort Lauderdale | Doctor Yachts",
+  title: "Mecánico de botes móvil Fort Lauderdale | Doctor Yachts",
   description: site.descriptionEs,
   path: "/es",
   locale: "es",
@@ -35,9 +35,9 @@ export const metadata: Metadata = buildMetadata({
 
 const homeFaqsEs = [
   {
-    question: "¿Dónde da servicio de mecánico de yates Doctor Yachts?",
+    question: "¿Dónde trabaja Doctor Yachts?",
     answer:
-      "En el sur de la Florida—Fort Lauderdale, Miami / Miami Beach y el condado de Palm Beach—con servicio móvil y en el muelle cuando el acceso lo permite.",
+      "Fort Lauderdale, Miami, el condado de Palm Beach, Dania Beach, Hollywood y Pompano Beach—más muelles cercanos del sur de la Florida—con servicio móvil y en el muelle cuando el acceso lo permite.",
   },
   {
     question: "¿Qué hace un mecánico náutico?",
@@ -76,9 +76,9 @@ export default function SpanishHomePage() {
         size="display"
         eyebrow="Doctor Yachts · el sur de la Florida"
         kicker="Mecánico de yates móvil en el sur de la Florida"
-        title="El mecánico que va al barco."
-        subhead="Primero diagnosticamos. En el muelle."
-        description="Fort Lauderdale, Miami y muelles cercanos. Confirmamos por teléfono de lun a sáb, 7–6."
+        title="Mecánico de botes móvil en Fort Lauderdale"
+        subhead="Primero diagnosticamos. En el muelle. Hallazgos antes de piezas."
+        description={`Lun–Sáb 7:00 a. m.–6:00 p. m. Presupuestos gratis. Llame al ${site.phone}.`}
         image={images.homeHero}
         actions={
           <>
@@ -101,8 +101,8 @@ export default function SpanishHomePage() {
           <Link href="/es/reservar?service=electrical">
             <strong>Batería / corriente</strong>
           </Link>
-          <Link href="/es/reservar?service=hour-100">
-            <strong>Servicio 100 horas</strong>
+          <Link href="/es/reservar?service=maintenance">
+            <strong>Servicio vencido</strong>
           </Link>
         </nav>
       </div>
@@ -127,20 +127,19 @@ export default function SpanishHomePage() {
             <AnswerBox
               label="Respuesta rápida"
               question="¿Quién es Doctor Yachts?"
-              answer="Doctor Yachts es un mecánico de yates y botes independiente que atiende Fort Lauderdale, Miami y el sur de la Florida con reparación de motores marinos, eléctrico, enfriamiento, diagnóstico y mantenimiento de yates, móvil y en el muelle. Presupuestos gratis. Primero diagnosticamos—reparamos lo que importa."
+              answer="Doctor Yachts es un mecánico de botes móvil en Fort Lauderdale. Vamos al barco en marinas y muelles privados cuando hay acceso. Primero diagnosticamos, hallazgos antes de piezas, presupuestos gratis. Horario lun–sáb 7:00 a. m.–6:00 p. m. Llame al (954) 770-1910."
             />
             <div>
-              <h2 className="font-display">Mecánico náutico para Fort Lauderdale</h2>
+              <h2 className="font-display">Primero en el muelle</h2>
               <p className="mt-4 text-steel">
-                <Link href={locationPath("fort-lauderdale", "es")}>Reparación de barcos en Fort Lauderdale</Link>,{" "}
-                <Link href={servicePath("mobile-boat-repair", "es")}>mecánico móvil</Link>,{" "}
+                <Link href={locationPath("fort-lauderdale", "es")}>Fort Lauderdale</Link>,{" "}
                 <Link href={servicePath("marine-engine-repair", "es")}>motores</Link>,{" "}
                 <Link href={servicePath("outboard-motor-repair", "es")}>fuera de borda</Link>,{" "}
                 <Link href={servicePath("electrical-repairs", "es")}>eléctrico</Link>,{" "}
                 <Link href={servicePath("cooling-system-repairs", "es")}>enfriamiento</Link>,{" "}
-                <Link href={servicePath("100-hour-service", "es")}>servicio 100 horas</Link>,{" "}
-                <Link href={servicePath("300-hour-service", "es")}>servicio 300 horas</Link>,{" "}
-                <Link href={servicePath("boat-maintenance", "es")}>mantenimiento de yates</Link>. Llame al{" "}
+                <Link href={servicePath("boat-maintenance", "es")}>mantenimiento</Link>,{" "}
+                <Link href={servicePath("plumbing-repairs", "es")}>plomería</Link>. El servicio 100
+                horas y 300 horas viven en mantenimiento. Llame al{" "}
                 <a href={site.phoneHref}>{site.phone}</a> o <Link href="/es/reservar">reserve una visita</Link>.
               </p>
             </div>
@@ -236,6 +235,9 @@ export default function SpanishHomePage() {
             Todas las zonas →
           </Link>
         </div>
+        <p className="mb-8 text-steel">
+          Fort Lauderdale, Miami, el condado de Palm Beach, Dania Beach, Hollywood y Pompano Beach.
+        </p>
         <div className="shop-grid shop-grid--areas">
           {publicLocations.map((loc) => {
             const img = images.locations[loc.slug as keyof typeof images.locations];
@@ -253,6 +255,25 @@ export default function SpanishHomePage() {
       </Section>
 
       <Section tone="soft">
+        <SectionHeading eyebrow="NAP" title="Doctor Yachts" />
+        <address className="mt-6 max-w-xl text-base not-italic leading-relaxed text-steel">
+          <strong className="text-navy">{site.name}</strong>
+          <br />
+          {site.owner}
+          <br />
+          {site.streetAddress}
+          <br />
+          {site.addressLocality}, {site.addressRegion} {site.postalCode}
+          <br />
+          <a href={site.phoneHref}>{site.phone}</a>
+          <br />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <br />
+          {site.hoursEs}
+        </address>
+      </Section>
+
+      <Section>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <p className="eyebrow">Reseñas</p>

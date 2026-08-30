@@ -77,9 +77,10 @@ export const chrome = {
       processEyebrow: "How we work",
       processTitle: (title: string) => `How a ${title.toLowerCase()} visit works`,
       areaEyebrow: "Service area",
-      areaTitle: (title: string) => `${title} in Fort Lauderdale & South Florida`,
+      areaTitle: (title: string) =>
+        `${title.replace(/ in Fort Lauderdale$/i, "")} in Fort Lauderdale & South Florida`,
       areaP1: (title: string) =>
-        `Owners searching for ${title.toLowerCase()} near Fort Lauderdale, Dania Beach, Hollywood, Miami, and Palm Beach County book Doctor Yachts for diagnostic-first mobile and dockside work. We confirm marina access, review symptoms before arrival, and give free estimates before authorizing major parts.`,
+        `Owners searching for ${title.toLowerCase()} near Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami, and Palm Beach County book Doctor Yachts for diagnostic-first mobile and dockside work. We confirm marina access, review symptoms before arrival, and give free estimates before authorizing major parts.`,
       areaP2a: "Local pages:",
       areaP2ftl: "Fort Lauderdale boat repair",
       areaP2all: "all service areas",
@@ -296,9 +297,10 @@ export const chrome = {
       processEyebrow: "Cómo trabajamos",
       processTitle: (title: string) => `Cómo es una visita de ${title.toLowerCase()}`,
       areaEyebrow: "Zona de servicio",
-      areaTitle: (title: string) => `${title} en Fort Lauderdale y el sur de la Florida`,
+      areaTitle: (title: string) =>
+        `${title.replace(/ en Fort Lauderdale$/i, "")} en Fort Lauderdale y el sur de la Florida`,
       areaP1: (title: string) =>
-        `Dueños que buscan ${title.toLowerCase()} cerca de Fort Lauderdale, Dania Beach, Hollywood, Miami y el condado de Palm Beach reservan Doctor Yachts para trabajo móvil y en el muelle, con diagnóstico primero. Confirmamos el acceso a la marina, repasamos los síntomas antes de llegar y damos presupuesto gratis antes de autorizar piezas mayores.`,
+        `Dueños que buscan ${title.toLowerCase()} cerca de Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami y el condado de Palm Beach reservan Doctor Yachts para trabajo móvil y en el muelle, con diagnóstico primero. Confirmamos el acceso a la marina, repasamos los síntomas antes de llegar y damos presupuesto gratis antes de autorizar piezas mayores.`,
       areaP2a: "Páginas locales:",
       areaP2ftl: "reparación de barcos en Fort Lauderdale",
       areaP2all: "todas las zonas",

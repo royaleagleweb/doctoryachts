@@ -34,10 +34,10 @@ export default function HomePage() {
       <PageHero
         size="display"
         eyebrow="Doctor Yachts · South Florida"
-        kicker="Mobile boat mechanic in South Florida"
-        title="The mechanic who comes to the boat."
-        subhead="Diagnose first. Dockside."
-        description="Fort Lauderdale, Miami, and nearby docks. We confirm by phone during Mon–Sat 7–6."
+        kicker="We come to the boat"
+        title="Mobile Boat Mechanic in Fort Lauderdale"
+        subhead="Diagnose first. Dockside. Findings before parts."
+        description={`Mon–Sat 7:00 AM–6:00 PM. Free estimates. Call ${site.phone}.`}
         image={images.homeHero}
         actions={
           <>
@@ -68,7 +68,11 @@ export default function HomePage() {
 
       <Section>
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading eyebrow="The shop" title="What we repair" />
+          <SectionHeading
+            eyebrow="What we repair"
+            title="Six service hubs"
+            description="Diagnostics is how we work a visit—not a separate page. 100-hour and 300-hour service live on boat maintenance."
+          />
           <Link href="/services" className="text-sm font-semibold text-gold no-underline hover:text-gold-light">
             All services →
           </Link>
@@ -78,6 +82,20 @@ export default function HomePage() {
             <ServiceCard key={service.id} service={service} index={i} compact />
           ))}
         </div>
+        <p className="mt-8 text-steel">
+          <Link href="/services/marine-engine-repair">Marine engine repair</Link>
+          {" · "}
+          <Link href="/services/outboard-motor-repair">Outboard motor repair</Link>
+          {" · "}
+          <Link href="/services/electrical-repairs">Boat electrical repair</Link>
+          {" · "}
+          <Link href="/services/cooling-system-repairs">Boat cooling system repair</Link>
+          {" · "}
+          <Link href="/services/boat-maintenance">Boat maintenance</Link>
+          {" · "}
+          <Link href="/services/plumbing-repairs">Boat plumbing repair</Link>
+          . Call <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book a visit</Link>.
+        </p>
       </Section>
 
       <Section tone="soft">
@@ -86,21 +104,15 @@ export default function HomePage() {
             <AnswerBox
               label="Quick answer"
               question="Who is Doctor Yachts?"
-              answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
+              answer="Doctor Yachts is a mobile boat mechanic in Fort Lauderdale. We come to the boat at marinas and private docks when access allows. Diagnose first, findings before parts, free estimates. Hours Mon–Sat 7:00 AM–6:00 PM. Call (954) 770-1910."
             />
             <div>
-              <h2 className="font-display">Boat mechanic service for Fort Lauderdale</h2>
+              <h2 className="font-display">Dockside first</h2>
               <p className="mt-4 text-steel">
-                <Link href="/locations/fort-lauderdale">Fort Lauderdale boat repair</Link>,{" "}
-                <Link href="/services/mobile-boat-repair">mobile mechanic</Link>,{" "}
-                <Link href="/services/marine-engine-repair">engines</Link>,{" "}
-                <Link href="/services/outboard-motor-repair">outboards</Link>,{" "}
-                <Link href="/services/electrical-repairs">electrical</Link>,{" "}
-                <Link href="/services/cooling-system-repairs">cooling</Link>,{" "}
-                <Link href="/services/boat-maintenance">maintenance</Link>,{" "}
-                <Link href="/services/100-hour-service">100-hour service</Link>,{" "}
-                <Link href="/services/300-hour-service">300-hour service</Link>. Call{" "}
-                <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book a visit</Link>.
+                A mobile boat mechanic in Fort Lauderdale starts where the boat already lives. Many
+                no-starts, electrical faults, cooling jobs, and maintenance visits never need a tow.
+                We confirm marina access, review the symptom before arrival, and explain findings
+                before you authorize parts. If the job needs a yard, we say so early.
               </p>
             </div>
           </div>
@@ -140,9 +152,9 @@ export default function HomePage() {
         <SectionHeading eyebrow="How it works" title="Call. Diagnose. Repair." />
         <ol className="process-open reveal-in mt-12">
           {[
-            { n: "01", t: "Tell us the symptom", d: "What the boat is doing—or not doing." },
-            { n: "02", t: "Plan the visit", d: "Marina, slip, access, a time that works." },
-            { n: "03", t: "Diagnose on site", d: "Findings before parts or labor." },
+            { n: "01", t: "Call or book", d: "Tell us the symptom. Call (954) 770-1910 or book online." },
+            { n: "02", t: "Plan the visit", d: "Marina, slip, access, a time that works. Mon–Sat 7–6." },
+            { n: "03", t: "Diagnose on site", d: "Findings before parts or labor. Diagnostics is the method." },
             { n: "04", t: "Repair with a plan", d: "Free estimate. Notes you can keep." },
           ].map((step) => (
             <li key={step.n}>
@@ -171,11 +183,12 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Why Doctor Yachts"
               title="Diagnose first. Then we repair."
-              description="Engines, electrical, cooling, pumps, and wiring treated as one system."
+              description="Engines, outboards, electrical, cooling, maintenance, and plumbing treated as one system."
             />
             <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-steel">
-              <li>Dockside first when access allows</li>
+              <li>We come to the boat when access allows</li>
               <li>Findings before parts</li>
+              <li>Free estimates on recommended work</li>
               <li>Notes for the next trip, yard, or survey</li>
             </ul>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -195,6 +208,9 @@ export default function HomePage() {
             All areas →
           </Link>
         </div>
+        <p className="mb-8 text-steel">
+          Fort Lauderdale, Miami, Palm Beach County, Dania Beach, Hollywood, and Pompano Beach.
+        </p>
         <div className="shop-grid shop-grid--areas">
           {publicLocations.map((loc) => {
             const img = images.locations[loc.slug as keyof typeof images.locations];
@@ -212,6 +228,25 @@ export default function HomePage() {
       </Section>
 
       <Section tone="soft">
+        <SectionHeading eyebrow="NAP" title="Doctor Yachts" />
+        <address className="mt-6 max-w-xl text-base not-italic leading-relaxed text-steel">
+          <strong className="text-navy">{site.name}</strong>
+          <br />
+          {site.owner}
+          <br />
+          {site.streetAddress}
+          <br />
+          {site.addressLocality}, {site.addressRegion} {site.postalCode}
+          <br />
+          <a href={site.phoneHref}>{site.phone}</a>
+          <br />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <br />
+          {site.hours}
+        </address>
+      </Section>
+
+      <Section>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <p className="eyebrow">Reviews</p>

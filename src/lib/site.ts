@@ -4,12 +4,13 @@ export const site = {
   name: "Doctor Yachts",
   tagline: "The mechanic who comes to the boat.",
   taglineEs: "El mecánico que va al barco.",
+  owner: "Roy Bachar",
   /** Primary domain for sitemap, canonicals, and structured data. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://doctoryachts.com",
   description:
-    "Boat repair & boat maintenance in Fort Lauderdale and South Florida. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",
+    "Mobile boat mechanic in Fort Lauderdale and South Florida. We come to the boat—engines, outboards, electrical, cooling, maintenance, and plumbing. Diagnose first. Free estimates. Call (954) 770-1910.",
   descriptionEs:
-    "Reparación de barcos y mantenimiento de yates en Fort Lauderdale y el sur de la Florida. Mecánico náutico móvil/en el muelle: motor, eléctrico y servicio. Presupuestos gratis — Doctor Yachts.",
+    "Mecánico de botes móvil en Fort Lauderdale y el sur de la Florida. Vamos al barco: motores, fuera de borda, eléctrico, enfriamiento, mantenimiento y plomería. Primero diagnosticamos. Presupuestos gratis. Llame al (954) 770-1910.",
   email: "info@doctoryachts.com",
   phone: "(954) 770-1910",
   phoneHref: "tel:+19547701910",
@@ -50,7 +51,7 @@ export const seoKeywords = [
   "inboard engine repair",
   "outboard engine repair",
   "boat electrical repairs",
-  "marine electronics installation",
+  "boat plumbing repair Fort Lauderdale",
   "yacht mechanic South Florida",
   "yacht repair Fort Lauderdale",
   "boat repair Miami",
@@ -71,22 +72,17 @@ export const navLinks = [
   { href: "/book", label: "Book", labelEs: "Reservar", esHref: "/es/reservar" },
 ] as const;
 
-/** Sitewide FAQ corpus for AEO (visible on /faq + schema). Keep answers ~40–80 words. */
+/** Homepage hire-intent FAQs (also used in FAQPage schema). */
 export const homeFaqs = [
   {
-    question: "Where does Doctor Yachts provide boat mechanic service?",
+    question: "Where does Doctor Yachts work?",
     answer:
-      "We serve South Florida—including Fort Lauderdale, Miami / Miami Beach, and Palm Beach County—with mobile and dockside service when access allows.",
+      "Fort Lauderdale, Miami, Palm Beach County, Dania Beach, Hollywood, and Pompano Beach—plus nearby South Florida docks—with mobile and dockside service when access allows.",
   },
   {
-    question: "What does a boat mechanic do?",
+    question: "Do you offer mobile boat repair in Fort Lauderdale?",
     answer:
-      "A boat mechanic diagnoses and repairs marine engines, electrical systems, cooling, pumps, and related systems. Doctor Yachts uses a diagnose-first process so you understand the fault before parts are replaced.",
-  },
-  {
-    question: "Do you offer mobile boat repair in Fort Lauderdale and South Florida?",
-    answer:
-      "Yes. Mobile and dockside boat repair is a core service for no-starts, electrical issues, cooling problems, and many maintenance jobs when the marina or private dock is accessible.",
+      "Yes. We come to the boat at Fort Lauderdale marinas and private docks when access allows. Diagnostics is how we work a visit, not a separate page. Many no-starts, electrical, cooling, and maintenance jobs never need a tow first.",
   },
   {
     question: "Do you give free estimates?",
@@ -94,23 +90,18 @@ export const homeFaqs = [
       "Yes. After we understand the symptoms and location, we provide free estimates for recommended repair work so you can decide before authorizing parts and labor.",
   },
   {
-    question: "Do you repair both boats and yachts?",
-    answer:
-      "Yes. We service recreational boats and yachts—center consoles, cabin cruisers, sport yachts, motor yachts, and more—matched to vessel systems and access.",
-  },
-  {
-    question: "How do I book boat repair?",
-    answer:
-      "Book online (service, vessel, schedule, contact) or call the shop. Include marina, slip, and symptoms so we can confirm the visit and bring the right tools.",
-  },
-  {
     question: "What should I do if my boat won’t start?",
     answer:
-      "Check battery connections, kill switch, and fuel basics first. If it still won’t start, stop guessing parts and book mobile diagnostics—especially for weak cranking or intermittent electrical faults.",
+      "Check battery connections, kill switch, and fuel basics first. If it still won’t start, stop guessing parts and book a visit—especially for weak cranking or intermittent electrical faults. Call (954) 770-1910.",
   },
   {
     question: "Why is my boat engine overheating?",
     answer:
       "Most overheating is restricted raw-water flow: impeller, strainer, intake, thermostat, or heat exchanger issues. Reduce load and shut down if temperatures keep rising, then schedule cooling system repair.",
+  },
+  {
+    question: "Do you repair both boats and yachts?",
+    answer:
+      "Yes. We service recreational boats and yachts—center consoles, cabin cruisers, sport yachts, motor yachts, and more—matched to vessel systems and access.",
   },
 ] as const;

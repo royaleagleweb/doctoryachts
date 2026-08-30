@@ -37,7 +37,7 @@ const aboutFaqs = [
   {
     question: "What areas do you cover?",
     answer:
-      "Fort Lauderdale, Dania Beach, Hollywood, Miami, Palm Beach County, and nearby South Florida docks when access allows.",
+      "Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami, Palm Beach County, and nearby South Florida docks when access allows.",
   },
 ];
 
@@ -100,14 +100,12 @@ export default function AboutPage() {
               <ul className="mt-4 list-disc space-y-2 pl-5 text-steel">
                 {[
                   "Marine engine repair (inboard & outboard)",
-                  "Outboard motor repair & maintenance",
-                  "Boat electrical repairs & charging systems",
-                  "Cooling system repairs",
-                  "Boat & yacht diagnostics",
-                  "Seasonal boat maintenance",
-                  "100-hour and 300-hour interval service",
+                  "Outboard motor repair",
+                  "Boat electrical repair & charging systems",
+                  "Boat cooling system repair",
+                  "Boat maintenance (including 100-hour and 300-hour service)",
                   "Boat plumbing, bilge & pumps",
-                  "Mobile / dockside boat repair",
+                  "Mobile / dockside — we come to the boat",
                 ].map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -117,7 +115,7 @@ export default function AboutPage() {
             <div>
               <h2 className="font-display text-navy">Service areas</h2>
               <p className="mt-3 text-steel">
-                Fort Lauderdale, Dania Beach, Hollywood, Miami / Miami Beach, and Palm
+                Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach, and Palm
                 Beach County—dockside and mobile when access allows. See{" "}
                 <Link href="/locations">all service areas</Link>.
               </p>

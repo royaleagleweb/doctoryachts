@@ -84,7 +84,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
         question: "How fast will a mobile boat mechanic respond in Fort Lauderdale?",
         answer:
           `We reply during shop hours, usually the same business day. Urgent no-starts, overheating, and safety issues should call ${site.phone} so we can triage. Same-day dockside work depends on the existing schedule and marina access—we will say so honestly. We do not advertise fake scarcity. Many Fort Lauderdale jobs start where the boat already sits when the dock is accessible.`,
-        next: { href: "/services/mobile-boat-repair", label: "Mobile boat repair" },
+        next: { href: "/", label: "Mobile boat mechanic" },
       },
     ],
   },
@@ -222,7 +222,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "Why won’t my marine generator start?",
         answer:
-          "The same families as the main engines: weak batteries or connections, fuel, safety interlocks, raw-water cooling, and control faults. Generators also sit more, so fuel and batteries age even when the yacht runs. We diagnose the start first, then ask whether the unit will carry air and house loads—not just idle in the slip. Book engine or diagnostics service and note any alarms.",
+          "The same families as the main engines: weak batteries or connections, fuel, safety interlocks, raw-water cooling, and control faults. We diagnose the start first. Book marine engine repair and note any alarms.",
         next: { href: "/services/marine-engine-repair", label: "Marine engine repair" },
       },
       {
@@ -334,7 +334,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
         question: "How often should steering, hydraulics, or stabilizers be inspected?",
         answer:
           "At least annually, and immediately after stiffness, leaks, unusual noise, or a change in feel. Check fluid level and look for weeping fittings before a long trip. These systems are diagnose-first: find the leak or air before you keep topping off. If the job needs specialized yard equipment, we say so. Book a visit or start with diagnostics when the helm does not feel like last season.",
-        next: { href: "/services/boat-diagnostics", label: "Boat diagnostics" },
+        next: { href: "/", label: "Mobile boat mechanic" },
       },
       {
         question: "What should I check before a weekend trip on the boat?",

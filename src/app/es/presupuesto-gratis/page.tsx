@@ -114,10 +114,9 @@ export default function SpanishEstimatePage() {
               <p className="mt-3 text-sm text-steel">
                 Pedidos comunes:{" "}
                 <Link href={servicePath("marine-engine-repair", "es")}>reparación de motores</Link>,{" "}
-                <Link href={servicePath("100-hour-service", "es")}>servicio 100 horas</Link>,{" "}
-                <Link href={servicePath("300-hour-service", "es")}>servicio 300 horas</Link>,{" "}
+                <Link href={servicePath("boat-maintenance", "es")}>mantenimiento</Link>,{" "}
                 <Link href={servicePath("electrical-repairs", "es")}>eléctrico</Link>,{" "}
-                <Link href={servicePath("mobile-boat-repair", "es")}>reparación móvil</Link>.
+                <Link href="/es">mecánico móvil</Link>.
               </p>
             </Card>
 

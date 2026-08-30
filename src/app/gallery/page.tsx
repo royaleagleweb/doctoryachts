@@ -25,10 +25,10 @@ export const metadata: Metadata = buildMetadata({
 const workShots = [
   { ...images.gallery.engine, kicker: "Engine", href: "/services/marine-engine-repair" },
   { ...images.gallery.electrical, kicker: "Electrical", href: "/services/electrical-repairs" },
-  { ...images.gallery.diagnostics, kicker: "Diagnostics", href: "/services/boat-diagnostics" },
+  { ...images.gallery.diagnostics, kicker: "Diagnose first", href: "/" },
   { ...images.gallery.maintenance, kicker: "Maintenance", href: "/services/boat-maintenance" },
   { ...images.gallery.systems, kicker: "Systems", href: "/services/plumbing-repairs" },
-  { ...images.gallery.dockside, kicker: "Mobile", href: "/services/mobile-boat-repair" },
+  { ...images.gallery.dockside, kicker: "Mobile", href: "/" },
   { ...images.gallery.hull, kicker: "Hull", href: "/services" },
   { ...images.gallery.teak, kicker: "Deck", href: "/about" },
 ];
@@ -47,7 +47,7 @@ export default function GalleryPage() {
         eyebrow="Gallery"
         title="Marine service work in South Florida"
         subhead="Engines, electrical, cooling, dockside."
-        description="Service-category photos for the work we do—engines, electrical, diagnostics, maintenance, plumbing systems, and mobile marina repair. Captions describe the photo, not a specific job."
+        description="Service-category photos for the work we do—engines, electrical, maintenance, plumbing, and dockside marina repair. Captions describe the photo, not a specific job."
         image={images.gallery.systems}
       />
 

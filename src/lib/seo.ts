@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { hreflangLanguages, localeFromPath, servicePath, type Locale } from "./i18n";
 import { locations } from "./locations";
-import { getLocalizedServices } from "./services-localized";
+import { servicesInHubOrderLocalized } from "./services-localized";
 import { services } from "./services";
 import { site, seoKeywords } from "./site";
 
@@ -71,7 +71,7 @@ export function buildMetadata({
 }
 
 export function localBusinessJsonLd(locale: Locale = "en") {
-  const localized = getLocalizedServices(locale);
+  const localized = servicesInHubOrderLocalized(locale);
   const catalogName =
     locale === "es"
       ? "Servicios de mecánico náutico en el sur de la Florida"
@@ -115,31 +115,32 @@ export function localBusinessJsonLd(locale: Locale = "en") {
         closes: "18:00",
       },
     ],
+    founder: {
+      "@type": "Person",
+      name: site.owner,
+    },
     knowsAbout:
       locale === "es"
         ? [
-            "Mecánico de yates Fort Lauderdale",
-            "Reparación de barcos Miami",
-            "Mantenimiento de yates",
-            "Mecánico náutico",
-            "Servicio de motor fuera de borda",
-            "Diagnóstico de yates",
+            "Mecánico de botes móvil Fort Lauderdale",
+            "Reparación de motores marinos",
+            "Reparación de motor fuera de borda",
             "Reparación eléctrica de barcos",
             "Sistema de enfriamiento",
-            "Servicio 100 horas",
-            "Servicio 300 horas",
+            "Mantenimiento de barcos",
+            "Plomería de barcos",
             "Fort Lauderdale",
+            "Pompano Beach",
             "el sur de la Florida",
           ]
         : [
-            "Yacht repair Fort Lauderdale",
-            "Boat repair Miami",
-            "Yacht mechanic Palm Beach",
-            "Marine engine repair",
-            "Marine electrical systems",
-            "Dockside boat repair South Florida",
-            "100-hour boat service",
-            "300-hour boat service",
+            "Mobile boat mechanic Fort Lauderdale",
+            "Marine engine repair Fort Lauderdale",
+            "Outboard motor repair Fort Lauderdale",
+            "Boat electrical repair",
+            "Boat cooling system repair",
+            "Boat maintenance Fort Lauderdale",
+            "Boat plumbing repair",
           ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
