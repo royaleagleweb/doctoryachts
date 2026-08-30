@@ -51,8 +51,8 @@ export default function SpanishContactPage() {
         description={
           <>
             Llame al <a href={site.phoneHref}>{site.phone}</a> o envíe un mensaje. Horario{" "}
-            {site.hoursEs}. Correo: {site.email}. Fort Lauderdale, Pompano Beach y el sur de la
-            Florida.
+            {site.hoursEs}. Correo: {site.email}. Sur de la Florida—no Pompano Beach como mercado
+            principal.
           </>
         }
         actions={
@@ -81,13 +81,7 @@ export default function SpanishContactPage() {
           <Card className="p-5">
             <h2 className="font-display text-navy">Taller</h2>
             <p className="mt-3 text-steel">{site.hoursEs}</p>
-            <p className="mt-2 text-steel">
-              {site.owner}
-              <br />
-              {site.streetAddress}
-              <br />
-              {site.addressLocality}, {site.addressRegion} {site.postalCode}
-            </p>
+            <p className="mt-2 text-steel">{site.addressEs}</p>
             <p className="mt-4 text-steel">
               <a href={site.phoneHref} className="font-semibold text-navy">
                 {site.phone}

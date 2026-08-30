@@ -34,19 +34,19 @@ const BASE = (process.env.NEXT_PUBLIC_SITE_URL || "https://doctoryachts.com").re
 const LASTMOD = {
   home: "2026-08-30",
   services: "2026-08-30",
-  locations: "2026-08-30",
+  locations: "2026-08-21",
   guides: "2026-08-06",
-  faq: "2026-08-30",
+  faq: "2026-08-21",
   freeEstimate: "2026-08-21",
   book: "2026-08-21",
   reviews: "2026-08-16",
-  about: "2026-08-30",
+  about: "2026-08-21",
   gallery: "2026-08-16",
   contact: "2026-08-21",
   privacy: "2026-08-16",
   terms: "2026-08-16",
   service: "2026-08-30",
-  location: "2026-08-30",
+  location: "2026-08-21",
 } as const;
 
 /** Six hubs + home only. Retired slugs 301 away — do not list them. */

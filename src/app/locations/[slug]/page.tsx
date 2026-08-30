@@ -48,7 +48,7 @@ export default async function LocationPage({ params }: PageProps) {
   const img = images.locations[loc.slug as keyof typeof images.locations];
   const others = locations.filter((l) => l.slug !== loc.slug);
 
-  const quickAnswer = `Doctor Yachts provides boat repair and mobile dockside mechanic service in ${loc.name}, ${loc.state}—marine engines, outboards, electrical, cooling, maintenance, and plumbing. Free estimates. Call ${site.phone} or book online for marina and private-dock visits when access allows.`;
+  const quickAnswer = `Doctor Yachts provides boat repair and mobile dockside mechanic service in ${loc.name}, ${loc.state}—marine engines, electrical, cooling, maintenance, and diagnostics. Free estimates. Call ${site.phone} or book online for marina and private-dock visits when access allows.`;
 
   return (
     <>

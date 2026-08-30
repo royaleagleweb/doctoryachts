@@ -45,7 +45,7 @@ export default async function SpanishLocationPage({ params }: PageProps) {
   const img = images.locations[loc.slug as keyof typeof images.locations];
   const others = locations.filter((l) => l.slug !== loc.slug).map((l) => localizeLocation(l, "es"));
   const hub = servicesInHubOrderLocalized("es");
-  const quickAnswer = `Doctor Yachts da reparación de barcos y mecánico móvil en ${loc.name}, ${loc.state}—motores, fuera de borda, eléctrico, enfriamiento, mantenimiento y plomería. Presupuestos gratis. Llame al ${site.phone} o reserve en línea para visitas a marina y muelle privado cuando hay acceso.`;
+  const quickAnswer = `Doctor Yachts da reparación de barcos y mecánico móvil en ${loc.name}, ${loc.state}—motores, eléctrico, enfriamiento, mantenimiento de yates y diagnóstico. Presupuestos gratis. Llame al ${site.phone} o reserve en línea para visitas a marina y muelle privado cuando hay acceso.`;
 
   return (
     <>

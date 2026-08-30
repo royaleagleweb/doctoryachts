@@ -287,7 +287,6 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         <p>
           {sp.areaP2a}{" "}
           <Link href={locationPath("fort-lauderdale", locale)}>{sp.areaP2ftl}</Link>,{" "}
-          <Link href={locationPath("pompano-beach", locale)}>Pompano Beach</Link>,{" "}
           <Link href={locationPath("miami", locale)}>Miami</Link>,{" "}
           <Link href={locationPath("dania-beach", locale)}>Dania Beach</Link>,{" "}
           <Link href={locationPath("hollywood-fl", locale)}>Hollywood</Link>, {locale === "es" ? "y" : "and"}{" "}

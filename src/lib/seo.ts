@@ -115,32 +115,26 @@ export function localBusinessJsonLd(locale: Locale = "en") {
         closes: "18:00",
       },
     ],
-    founder: {
-      "@type": "Person",
-      name: site.owner,
-    },
     knowsAbout:
       locale === "es"
         ? [
-            "Mecánico de botes móvil Fort Lauderdale",
-            "Reparación de motores marinos",
-            "Reparación de motor fuera de borda",
+            "Mecánico de yates Fort Lauderdale",
+            "Reparación de barcos Miami",
+            "Mantenimiento de yates",
+            "Mecánico náutico",
+            "Servicio de motor fuera de borda",
             "Reparación eléctrica de barcos",
             "Sistema de enfriamiento",
-            "Mantenimiento de barcos",
-            "Plomería de barcos",
             "Fort Lauderdale",
-            "Pompano Beach",
             "el sur de la Florida",
           ]
         : [
-            "Mobile boat mechanic Fort Lauderdale",
-            "Marine engine repair Fort Lauderdale",
-            "Outboard motor repair Fort Lauderdale",
-            "Boat electrical repair",
-            "Boat cooling system repair",
-            "Boat maintenance Fort Lauderdale",
-            "Boat plumbing repair",
+            "Yacht repair Fort Lauderdale",
+            "Boat repair Miami",
+            "Yacht mechanic Palm Beach",
+            "Marine engine repair",
+            "Marine electrical systems",
+            "Dockside boat repair South Florida",
           ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",

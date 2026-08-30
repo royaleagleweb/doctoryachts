@@ -101,18 +101,6 @@ export default function ContactPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-sm text-steel">Address</dt>
-                  <dd className="mt-1 text-navy">
-                    {site.streetAddress}
-                    <br />
-                    {site.addressLocality}, {site.addressRegion} {site.postalCode}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-steel">Owner</dt>
-                  <dd className="mt-1 text-navy">{site.owner}</dd>
-                </div>
-                <div>
                   <dt className="text-sm text-steel">Hours</dt>
                   <dd className="mt-1 text-navy">{site.hours}</dd>
                 </div>

@@ -13,7 +13,7 @@ import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { images } from "@/lib/images";
-import { publicLocations } from "@/lib/locations";
+import { locations } from "@/lib/locations";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 import { servicesInHubOrder } from "@/lib/services";
 import { homeFaqs, site } from "@/lib/site";
@@ -69,8 +69,8 @@ export default function HomePage() {
       <Section>
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
-            eyebrow="What we repair"
-            title="Six service hubs"
+            eyebrow="The shop"
+            title="What we repair"
             description="Diagnostics is how we work a visit—not a separate page. 100-hour and 300-hour service live on boat maintenance."
           />
           <Link href="/services" className="text-sm font-semibold text-gold no-underline hover:text-gold-light">
@@ -212,7 +212,7 @@ export default function HomePage() {
           Fort Lauderdale, Miami, Palm Beach County, Dania Beach, Hollywood, and Pompano Beach.
         </p>
         <div className="shop-grid shop-grid--areas">
-          {publicLocations.map((loc) => {
+          {locations.map((loc) => {
             const img = images.locations[loc.slug as keyof typeof images.locations];
             return (
               <MediaCard

@@ -58,6 +58,14 @@ export const problemOptions = [
     hintEs: "Intervalo más profundo, 250–300 h",
   },
   {
+    id: "generator",
+    label: "Generator",
+    hint: "Won't carry load, no start, AC",
+    serviceId: "engine-repair",
+    labelEs: "Generador",
+    hintEs: "No aguanta la carga, no arranca, A/C",
+  },
+  {
     id: "outboard",
     label: "Outboard issue",
     hint: "Running rough, no start, service",

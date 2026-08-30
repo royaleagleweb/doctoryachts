@@ -301,7 +301,9 @@ export function getServicePageMedia(service: Service): ServicePageMedia {
   });
   const checks = pick(service, 8);
   const process = pick(service, 9);
-  const local = service.id === "outboard" ? marineMedia.ftl : pick(service, 10);
+  const local = service.id === "emergency" || service.id === "outboard"
+    ? marineMedia.ftl
+    : pick(service, 10);
   const audience = marineMedia.wake;
   const diagnose = marineMedia.mechanic;
   const gallery = [

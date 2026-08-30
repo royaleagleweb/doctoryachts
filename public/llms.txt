@@ -3,9 +3,7 @@
 
 ## Core facts
 - Name: Doctor Yachts
-- Owner: Roy Bachar
-- Tagline: The mechanic who comes to the boat.
-- Address: 2029 SW 20th St, Fort Lauderdale, FL 33315
+- Tagline: The Mechanic for Boats & Yachts
 - Area: Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach, Palm Beach County, FL
 - Model: Mobile / dockside when access allows
 - Free estimates: Yes
@@ -15,15 +13,15 @@
 - Site: https://doctoryachts.com
 - Not: a full paint yard, brokerage, or detailing company
 
-## Primary services (6 hubs + home)
-- Mobile boat mechanic Fort Lauderdale (home): /
-- Marine engine repair: /services/marine-engine-repair
-- Outboard motor repair: /services/outboard-motor-repair
-- Boat electrical repair: /services/electrical-repairs
-- Boat cooling system repair: /services/cooling-system-repairs
-- Boat maintenance (includes 100-hour and 300-hour service): /services/boat-maintenance
-- Boat plumbing repair: /services/plumbing-repairs
-- Retired URLs 301: /services/mobile-boat-repair → / ; /services/boat-diagnostics → / ; /services/100-hour-service → /services/boat-maintenance ; /services/300-hour-service → /services/boat-maintenance
+## Primary services
+- Marine engine repair (inboard & outboard): /services/marine-engine-repair
+- Outboard motor repair Fort Lauderdale: /services/outboard-motor-repair
+- Boat electrical repairs: /services/electrical-repairs
+- Cooling system repairs: /services/cooling-system-repairs
+- Boat diagnostics: /services/boat-diagnostics
+- Boat maintenance: /services/boat-maintenance
+- Boat plumbing repairs: /services/plumbing-repairs
+- Mobile boat repair / mobile boat mechanic: /services/mobile-boat-repair
 
 ## Cities (local SEO pages)
 - Fort Lauderdale: /locations/fort-lauderdale
@@ -35,7 +33,7 @@
 - All areas hub: /locations
 
 ## Indexable service & city pages
-Use the 6 service hubs, home, and 6 city pages above. Convenience URLs exist at
+Use the 8 service hubs and 6 city pages above. Convenience URLs exist at
 /services/{service-slug}/{city-slug} but they are thin templates (noindex) unless a
 page has unique marina-level copy. Do not treat the full matrix as an indexable sitemap.
 

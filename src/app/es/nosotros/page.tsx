@@ -33,7 +33,7 @@ const aboutFaqs = [
   {
     question: "¿Qué zonas cubren?",
     answer:
-      "Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami, el condado de Palm Beach y muelles cercanos del sur de la Florida cuando hay acceso.",
+      "Fort Lauderdale, Dania Beach, Hollywood, Miami, el condado de Palm Beach y muelles cercanos del sur de la Florida cuando hay acceso.",
   },
 ];
 
@@ -97,12 +97,14 @@ export default function SpanishAboutPage() {
               <ul className="mt-4 list-disc space-y-2 pl-5 text-steel">
                 {[
                   "Reparación de motores marinos (interno y fuera de borda)",
-                  "Reparación de motor fuera de borda",
+                  "Servicio de motor fuera de borda",
+                  "Servicio 100 horas y servicio 300 horas",
                   "Reparación eléctrica de barcos y sistemas de carga",
-                  "Reparación del sistema de enfriamiento",
-                  "Mantenimiento de barcos (incluido servicio 100 horas y 300 horas)",
+                  "Sistema de enfriamiento",
+                  "Diagnóstico de yates",
+                  "Mantenimiento de yates de temporada",
                   "Plomería, sentina y bombas",
-                  "Móvil / en el muelle — vamos al barco",
+                  "Reparación móvil / en el muelle",
                 ].map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -112,8 +114,8 @@ export default function SpanishAboutPage() {
             <div>
               <h2 className="font-display text-navy">Zonas de servicio</h2>
               <p className="mt-3 text-steel">
-                Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach y el
-                condado de Palm Beach—en el muelle y móvil cuando hay acceso. Vea{" "}
+                Fort Lauderdale, Dania Beach, Hollywood, Miami / Miami Beach y el condado de Palm
+                Beach—en el muelle y móvil cuando hay acceso. Vea{" "}
                 <Link href="/es/ubicaciones">todas las zonas</Link>.
               </p>
             </div>

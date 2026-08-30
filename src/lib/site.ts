@@ -8,9 +8,9 @@ export const site = {
   /** Primary domain for sitemap, canonicals, and structured data. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://doctoryachts.com",
   description:
-    "Mobile boat mechanic in Fort Lauderdale and South Florida. We come to the boat—engines, outboards, electrical, cooling, maintenance, and plumbing. Diagnose first. Free estimates. Call (954) 770-1910.",
+    "Boat repair & boat maintenance in Fort Lauderdale and South Florida. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",
   descriptionEs:
-    "Mecánico de botes móvil en Fort Lauderdale y el sur de la Florida. Vamos al barco: motores, fuera de borda, eléctrico, enfriamiento, mantenimiento y plomería. Primero diagnosticamos. Presupuestos gratis. Llame al (954) 770-1910.",
+    "Reparación de barcos y mantenimiento de yates en Fort Lauderdale y el sur de la Florida. Mecánico náutico móvil/en el muelle: motor, eléctrico y servicio. Presupuestos gratis — Doctor Yachts.",
   email: "info@doctoryachts.com",
   phone: "(954) 770-1910",
   phoneHref: "tel:+19547701910",
@@ -51,7 +51,7 @@ export const seoKeywords = [
   "inboard engine repair",
   "outboard engine repair",
   "boat electrical repairs",
-  "boat plumbing repair Fort Lauderdale",
+  "marine electronics installation",
   "yacht mechanic South Florida",
   "yacht repair Fort Lauderdale",
   "boat repair Miami",

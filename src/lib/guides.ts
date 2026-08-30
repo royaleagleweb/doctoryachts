@@ -43,7 +43,7 @@ export const guides: Guide[] = [
     ],
     readTime: "6 min",
     updated: "2026-08-06",
-    relatedServices: ["engine-repair", "electrical"],
+    relatedServices: ["engine-repair", "electrical", "emergency"],
     howTo: {
       name: "What to check when a boat won’t start",
       description:
@@ -130,7 +130,7 @@ export const guides: Guide[] = [
     ],
     readTime: "5 min",
     updated: "2026-08-06",
-    relatedServices: ["cooling", "engine-repair"],
+    relatedServices: ["cooling", "engine-repair", "emergency"],
     howTo: {
       name: "What to do if your boat engine overheats",
       description: "Safe first steps when engine temperature rises on the water or at idle.",
@@ -261,7 +261,7 @@ export const guides: Guide[] = [
     ],
     readTime: "4 min",
     updated: "2026-08-06",
-    relatedServices: ["engine-repair", "electrical"],
+    relatedServices: ["emergency", "engine-repair", "electrical"],
     sections: [
       {
         heading: "When mobile / dockside wins",
@@ -318,7 +318,7 @@ export const guides: Guide[] = [
     ],
     readTime: "5 min",
     updated: "2026-08-06",
-    relatedServices: ["electrical", "engine-repair"],
+    relatedServices: ["electrical", "diagnostics", "emergency"],
     sections: [
       {
         heading: "Red flags at the dock",
@@ -376,7 +376,7 @@ export const guides: Guide[] = [
     ],
     readTime: "5 min",
     updated: "2026-08-06",
-    relatedServices: ["engine-repair", "electrical", "cooling"],
+    relatedServices: ["emergency", "engine-repair", "electrical", "cooling"],
     howTo: {
       name: "What to do in a boat repair emergency at the dock",
       description: "First steps for common dockside emergencies in Fort Lauderdale.",
@@ -449,7 +449,7 @@ export const guides: Guide[] = [
     ],
     readTime: "4 min",
     updated: "2026-08-06",
-    relatedServices: ["engine-repair", "electrical", "maintenance"],
+    relatedServices: ["engine-repair", "electrical", "maintenance", "emergency"],
     sections: [
       {
         heading: "Core boat mechanic services",

@@ -214,8 +214,9 @@ export default function SpanishFaqPage() {
         </div>
 
         <p className="mt-10 text-steel">
-          Guías en inglés: vea <Link href="/guides">repair guides</Link>. Servicio 100 horas y 300
-          horas: <Link href={servicePath("boat-maintenance", "es")}>mantenimiento de barcos</Link>.
+          Guías en inglés: vea <Link href="/guides">repair guides</Link>. Servicio 100 horas:{" "}
+          <Link href={servicePath("100-hour-service", "es")}>servicio 100 horas</Link>. Servicio 300
+          horas: <Link href={servicePath("300-hour-service", "es")}>servicio 300 horas</Link>.
         </p>
       </Section>
 
