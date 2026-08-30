@@ -42,6 +42,15 @@ export function Footer() {
           >
             {site.phone}
           </a>
+          <address className="mt-3 text-sm not-italic leading-relaxed">
+            {site.streetAddress}
+            <br />
+            {site.addressLocality}, {site.addressRegion} {site.postalCode}
+            <br />
+            <a href={`mailto:${site.email}`} className="no-underline hover:text-white">
+              {site.email}
+            </a>
+          </address>
         </div>
 
         <div className="md:col-span-3">

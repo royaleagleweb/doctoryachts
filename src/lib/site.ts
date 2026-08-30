@@ -15,9 +15,10 @@ export const site = {
   phoneHref: "tel:+19547701910",
   address: "Serving marinas & private docks across South Florida",
   addressEs: "Marinas y muelles privados en el sur de la Florida",
-  /** City-level NAP only — no street address on file */
+  streetAddress: "2029 SW 20th St",
   addressLocality: "Fort Lauderdale",
   addressRegion: "FL",
+  postalCode: "33315",
   addressCountry: "US",
   serviceArea: `${primaryMarket} — ${cityListText}`,
   region: primaryMarket,
