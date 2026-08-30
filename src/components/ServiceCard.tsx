@@ -24,12 +24,13 @@ export function ServiceCard({ service, compact = false, locale = "en" }: Service
       href={servicePath(enSlug, locale)}
       image={img}
       title={service.title}
-      description={compact ? undefined : service.summary}
+      description={compact ? service.summary : service.summary}
       footer={
         compact ? undefined : (
-          <p className="mt-4 text-sm font-semibold text-gold">{copy.serviceCard.details}</p>
+          <p className="media-card__cta">{copy.serviceCard.details}</p>
         )
       }
+      cta={copy.serviceCard.details}
     />
   );
 }

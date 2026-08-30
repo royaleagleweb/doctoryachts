@@ -9,6 +9,7 @@ type MediaCardProps = {
   kicker?: string;
   description?: ReactNode;
   footer?: ReactNode;
+  cta?: string;
 };
 
 /**
@@ -22,6 +23,7 @@ export function MediaCard({
   kicker,
   description,
   footer,
+  cta = "View details →",
 }: MediaCardProps) {
   const body = (
     <article className="media-card group flex h-full flex-col">
@@ -34,8 +36,8 @@ export function MediaCard({
           className="object-cover transition duration-500 group-hover:scale-[1.04]"
         />
       </div>
-      {(kicker || title || description || footer) && (
-        <div className="flex flex-1 flex-col pt-4">
+      {(kicker || title || description || footer || href) && (
+        <div className="media-card__body">
           {kicker && <p className="text-sm font-medium text-gold">{kicker}</p>}
           {title && (
             <h3 className="font-display text-lg font-bold tracking-tight">{title}</h3>
@@ -44,6 +46,7 @@ export function MediaCard({
             <div className="mt-2 flex-1 text-sm leading-relaxed text-steel">{description}</div>
           )}
           {footer}
+          {href && !footer && <p className="media-card__cta">{cta}</p>}
         </div>
       )}
     </article>
@@ -51,7 +54,7 @@ export function MediaCard({
 
   if (href) {
     return (
-      <Link href={href} className="media-card-link no-underline">
+      <Link href={href} className="media-card-link">
         {body}
       </Link>
     );

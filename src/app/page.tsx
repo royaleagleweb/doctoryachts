@@ -8,7 +8,6 @@ import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
-import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -82,20 +81,6 @@ export default function HomePage() {
             <ServiceCard key={service.id} service={service} index={i} compact />
           ))}
         </div>
-        <p className="mt-8 text-steel">
-          <Link href="/services/marine-engine-repair">Marine engine repair</Link>
-          {" · "}
-          <Link href="/services/outboard-motor-repair">Outboard motor repair</Link>
-          {" · "}
-          <Link href="/services/electrical-repairs">Boat electrical repair</Link>
-          {" · "}
-          <Link href="/services/cooling-system-repairs">Boat cooling system repair</Link>
-          {" · "}
-          <Link href="/services/boat-maintenance">Boat maintenance</Link>
-          {" · "}
-          <Link href="/services/plumbing-repairs">Boat plumbing repair</Link>
-          . Call <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book a visit</Link>.
-        </p>
       </Section>
 
       <Section tone="soft">
@@ -150,7 +135,7 @@ export default function HomePage() {
 
       <Section>
         <SectionHeading eyebrow="How it works" title="Call. Diagnose. Repair." />
-        <ol className="process-open reveal-in mt-12">
+        <ol className="process-open reveal-in mt-10">
           {[
             { n: "01", t: "Call or book", d: "Tell us the symptom. Call (954) 770-1910 or book online." },
             { n: "02", t: "Plan the visit", d: "Marina, slip, access, a time that works. Mon–Sat 7–6." },
@@ -168,16 +153,14 @@ export default function HomePage() {
 
       <Section tone="soft">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
-            <div className="shot absolute inset-0">
-              <Image
-                src={images.gallery.maintenance.src}
-                alt={images.gallery.maintenance.alt}
-                fill
-                sizes="50vw"
-                className="object-cover object-[center_35%]"
-              />
-            </div>
+          <div className="shot relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
+            <Image
+              src={images.gallery.maintenance.src}
+              alt={images.gallery.maintenance.alt}
+              fill
+              sizes="50vw"
+              className="object-cover object-[center_35%]"
+            />
           </div>
           <div className="reveal-in flex flex-col justify-center py-2">
             <SectionHeading
@@ -221,6 +204,7 @@ export default function HomePage() {
                 image={img}
                 title={loc.name}
                 description={loc.region}
+                cta="Service area →"
               />
             );
           })}
@@ -228,37 +212,52 @@ export default function HomePage() {
       </Section>
 
       <Section tone="soft">
-        <SectionHeading eyebrow="NAP" title="Doctor Yachts" />
-        <address className="mt-6 max-w-xl text-base not-italic leading-relaxed text-steel">
-          <strong className="text-navy">{site.name}</strong>
-          <br />
-          {site.owner}
-          <br />
-          {site.streetAddress}
-          <br />
-          {site.addressLocality}, {site.addressRegion} {site.postalCode}
-          <br />
-          <a href={site.phoneHref}>{site.phone}</a>
-          <br />
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-          <br />
-          {site.hours}
-        </address>
+        <SectionHeading eyebrow="Visit & contact" title="Shop details" />
+        <div className="contact-card reveal-in mt-8">
+          <div>
+            <h3 className="contact-card__title">{site.name}</h3>
+            <address>
+              <strong>{site.streetAddress}</strong>
+              <br />
+              {site.addressLocality}, {site.addressRegion} {site.postalCode}
+              <br />
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </address>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button href="/contact">Contact</Button>
+              <Button href="/book" variant="ghost">
+                Book a visit
+              </Button>
+            </div>
+          </div>
+          <aside className="contact-card__aside">
+            <div>
+              <p className="eyebrow">Call the shop</p>
+              <a href={site.phoneHref} className="contact-card__phone">
+                {site.phone}
+              </a>
+              <p className="contact-card__hours">{site.hours}</p>
+            </div>
+            <p className="text-sm leading-relaxed text-steel-light">
+              Free estimates. Mobile and dockside when access allows across South Florida.
+            </p>
+          </aside>
+        </div>
       </Section>
 
       <Section>
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div className="reviews-card reveal-in">
           <div className="max-w-xl">
             <p className="eyebrow">Reviews</p>
             <h2 className="font-display">Read or leave a review</h2>
             <p className="mt-3 text-steel">
-              Google and Yelp for Doctor Yachts in Fort Lauderdale. No invented ratings on this
-              site.
+              See what boat owners say on Google and Yelp. We do not invent ratings or testimonials
+              on this site.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="reviews-card__actions">
             <Button href={site.profiles.google} target="_blank" rel="noopener noreferrer">
-              Google
+              Google reviews
             </Button>
             <Button href={site.profiles.yelp} variant="ghost" target="_blank" rel="noopener noreferrer">
               Yelp
@@ -268,9 +267,6 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <p className="mt-6">
-          <ReviewLinks />
-        </p>
       </Section>
 
       <FaqSection title="Common questions" faqs={homeFaqs} />

@@ -31,41 +31,40 @@ export function Footer() {
 
   return (
     <footer className="site-footer mt-auto">
-      <div className="wrap grid gap-10 py-14 md:grid-cols-12">
+      <div className="wrap grid gap-10 py-14 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-4">
           <p className="brand-wordmark text-2xl tracking-tight">
             <span className="brand-wordmark__doctor">Doctor</span>
             <span className="brand-wordmark__yachts">Yachts</span>
           </p>
-          <p className="mt-2 max-w-sm text-sm leading-relaxed">{copy.footer.blurb}</p>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed">{copy.footer.blurb}</p>
           <a
             href={site.phoneHref}
-            className="mt-5 inline-block font-display text-xl font-bold text-gold no-underline hover:text-gold-light"
+            className="mt-5 inline-block font-display text-xl font-bold text-gold"
           >
             {site.phone}
           </a>
           <address className="mt-3 text-sm not-italic leading-relaxed">
-            {site.streetAddress}
-            <br />
-            {site.addressLocality}, {site.addressRegion} {site.postalCode}
-            <br />
-            <a href={`mailto:${site.email}`} className="no-underline hover:text-white">
+            <span className="block text-pearl">{site.name}</span>
+            <span className="mt-2 block">
+              {site.streetAddress}
+              <br />
+              {site.addressLocality}, {site.addressRegion} {site.postalCode}
+            </span>
+            <a href={`mailto:${site.email}`} className="mt-2 inline-block hover:text-white">
               {site.email}
             </a>
           </address>
         </div>
 
         <div className="md:col-span-3">
-          <p className="text-sm font-semibold text-white">{copy.footer.services}</p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <p className="site-footer__label">{copy.footer.services}</p>
+          <ul className="site-footer__list text-sm">
             {list.map((s) => {
               const en = services.find((x) => x.id === s.id);
               return (
                 <li key={s.id}>
-                  <Link
-                    href={servicePath(en?.slug ?? s.slug, locale)}
-                    className="no-underline hover:text-white"
-                  >
+                  <Link href={servicePath(en?.slug ?? s.slug, locale)}>
                     {shortServiceTitle(s.title)}
                   </Link>
                 </li>
@@ -75,27 +74,22 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-2">
-          <p className="text-sm font-semibold text-white">{copy.footer.areas}</p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <p className="site-footer__label">{copy.footer.areas}</p>
+          <ul className="site-footer__list text-sm">
             {publicLocations.map((loc) => (
               <li key={loc.slug}>
-                <Link
-                  href={locationPath(loc.slug, locale)}
-                  className="no-underline hover:text-white"
-                >
-                  {loc.name}
-                </Link>
+                <Link href={locationPath(loc.slug, locale)}>{loc.name}</Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div className="md:col-span-3">
-          <p className="text-sm font-semibold text-white">{copy.footer.book}</p>
-          <p className="mt-3 text-sm">
+          <p className="site-footer__label">{copy.footer.book}</p>
+          <p className="mt-3 text-sm leading-relaxed">
             {locale === "es" ? site.hoursEs : site.hours}
             <br />
-            {site.email}
+            <a href={`mailto:${site.email}`}>{site.email}</a>
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             <Link href={pathFor(locale, "/book")} className="btn">
@@ -111,20 +105,14 @@ export function Footer() {
         </div>
       </div>
 
-      <div>
-        <div className="wrap flex flex-col gap-2 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <div className="site-footer__bottom">
+        <div className="wrap flex flex-col gap-2 py-5 text-sm sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Doctor Yachts</span>
-          <span className="flex flex-wrap gap-x-4 gap-y-1">
-            <Link href="/privacy" className="no-underline hover:text-white">
-              {copy.footer.privacy}
-            </Link>
-            <Link href="/terms" className="no-underline hover:text-white">
-              {copy.footer.terms}
-            </Link>
-            <Link href="/reviews" className="no-underline hover:text-white">
-              {copy.footer.reviews}
-            </Link>
-            <span>{copy.footer.tag}</span>
+          <span className="flex flex-wrap gap-x-5 gap-y-1">
+            <Link href="/privacy">{copy.footer.privacy}</Link>
+            <Link href="/terms">{copy.footer.terms}</Link>
+            <Link href="/reviews">{copy.footer.reviews}</Link>
+            <span className="text-steel-light/80">{copy.footer.tag}</span>
           </span>
         </div>
       </div>
