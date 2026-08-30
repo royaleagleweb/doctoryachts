@@ -19,12 +19,13 @@ export function RelatedLinks({
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {links.map((l) => (
           <li key={l.href}>
-            <Card as="div" className="h-full">
-              <Link href={l.href} className="block p-5 no-underline">
+            <Link href={l.href} className="block h-full no-underline">
+              <Card as="div" className="card-interactive h-full p-5">
                 <span className="font-semibold text-navy">{l.label}</span>
                 {l.note && <span className="mt-1 block text-sm text-steel">{l.note}</span>}
-              </Link>
-            </Card>
+                <span className="mt-4 block text-sm font-semibold text-gold">View service →</span>
+              </Card>
+            </Link>
           </li>
         ))}
       </ul>

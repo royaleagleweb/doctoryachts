@@ -70,9 +70,9 @@ export function CTA() {
       <div className="wrap flex flex-col items-start justify-between gap-8 section-pad md:flex-row md:items-end">
         <div className="max-w-xl">
           <p className="eyebrow">{copy.cta.eyebrow}</p>
-          <h2 className="font-display">{copy.cta.title}</h2>
-          <p className="mt-3">{copy.cta.body}</p>
-          <p className="mt-2 text-sm">
+          <h2 className="font-display text-white">{copy.cta.title}</h2>
+          <p className="mt-3 max-w-lg leading-relaxed">{copy.cta.body}</p>
+          <p className="mt-3 text-sm">
             {copy.cta.reviews} <ReviewLinks />
           </p>
         </div>

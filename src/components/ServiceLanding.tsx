@@ -56,9 +56,11 @@ function MediaBand({
   children: ReactNode;
 }) {
   return (
-    <section className="border-b border-line">
+    <section className="border-b border-line bg-ivory">
       <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
-        <div className={`relative min-h-[260px] lg:min-h-[420px] ${reverse ? "lg:order-2" : ""}`}>
+        <div
+          className={`shot relative min-h-[280px] lg:min-h-[440px] ${reverse ? "lg:order-2" : ""}`}
+        >
           <Image
             src={image.src}
             alt={image.alt}
@@ -66,13 +68,13 @@ function MediaBand({
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/50 via-navy/12 to-transparent p-4 pt-16">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/55 via-navy/15 to-transparent p-4 pt-16">
             <p className="text-xs text-white/85">{image.caption ?? fallbackCaption}</p>
           </div>
         </div>
         <div
-          className={`flex flex-col justify-center px-0 py-10 lg:py-14 ${
-            reverse ? "lg:order-1 lg:pr-12" : "lg:pl-12"
+          className={`flex flex-col justify-center px-0 py-12 lg:py-16 ${
+            reverse ? "lg:order-1 lg:pr-12 xl:pr-16" : "lg:pl-12 xl:pl-16"
           }`}
         >
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
@@ -144,8 +146,8 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         }
       />
 
-      <section className="border-b border-line bg-paper-deep">
-        <div className="wrap py-10">
+      <section className="section-soft border-b border-line">
+        <div className="wrap py-12">
           <AnswerBox
             label={sp.quickLabel}
             question={sp.quickQuestion(service.title)}
@@ -240,9 +242,9 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         </ol>
       </MediaBand>
 
-      <section className="border-b border-line bg-navy text-paper">
+      <section className="section-dark border-b border-line">
         <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
-          <div className="relative min-h-[320px]">
+          <div className="relative min-h-[320px] overflow-hidden">
             <Image
               src={media.process.src}
               alt={media.process.alt}
@@ -250,24 +252,24 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
               sizes="50vw"
               className="object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/45 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/55 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <p className="text-xs text-white/85">{media.process.caption ?? sp.processCaption}</p>
-              <p className="font-display mt-1 text-xl text-paper">{sp.processOverlay}</p>
+              <p className="font-display mt-1 text-xl text-pearl">{sp.processOverlay}</p>
             </div>
           </div>
-          <div className="flex flex-col justify-center px-0 py-12 lg:px-12">
+          <div className="flex flex-col justify-center px-0 py-12 lg:px-12 xl:px-16">
             <p className="eyebrow">{sp.processEyebrow}</p>
-            <h2 className="font-display mt-3">{sp.processTitle(service.title)}</h2>
+            <h2 className="font-display mt-3 text-white">{sp.processTitle(service.title)}</h2>
             <ol className="mt-8 space-y-5">
               {service.process.map((step, i) => (
-                <li key={step.title} className="flex gap-4 border-b border-white/10 pb-5">
+                <li key={step.title} className="flex gap-4 border-b border-white/10 pb-5 last:border-0">
                   <span className="font-display text-2xl font-semibold text-gold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-semibold text-paper">{step.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-steel">{step.detail}</p>
+                    <h3 className="font-semibold text-pearl">{step.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-steel-light">{step.detail}</p>
                   </div>
                 </li>
               ))}
@@ -314,8 +316,8 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
       </MediaBand>
 
       <section className="border-b border-line">
-        <div className="wrap grid items-center gap-0 lg:grid-cols-2">
-          <div className="relative min-h-[300px] lg:min-h-[400px]">
+        <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
+          <div className="shot relative min-h-[300px] lg:min-h-[420px]">
             <Image
               src={media.diagnose.src}
               alt={media.diagnose.alt}
@@ -324,11 +326,11 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
               className="object-cover"
             />
           </div>
-          <div className="bg-navy px-6 py-12 text-paper sm:px-12 lg:min-h-[400px] lg:py-16">
+          <div className="bg-navy px-6 py-12 text-pearl sm:px-12 lg:min-h-[420px] lg:py-16">
             <p className="eyebrow">{sp.diagnoseEyebrow}</p>
-            <h2 className="font-display mt-4">{sp.diagnoseTitle}</h2>
-            <p className="mt-4 text-sm leading-relaxed text-steel">{sp.diagnoseP1}</p>
-            <p className="mt-3 text-sm leading-relaxed text-steel">
+            <h2 className="font-display mt-4 text-white">{sp.diagnoseTitle}</h2>
+            <p className="mt-4 text-sm leading-relaxed text-steel-light">{sp.diagnoseP1}</p>
+            <p className="mt-3 text-sm leading-relaxed text-steel-light">
               {sp.diagnoseP2}{" "}
               <Link href="/guides/boat-wont-start-checklist" className="text-gold">
                 {sp.diagnoseStart}
@@ -378,8 +380,8 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         </div>
       </section>
 
-      <section className="border-b border-line">
-        <div className="wrap grid gap-6 section-pad lg:grid-cols-[1.2fr_0.8fr]">
+      <section className="section-soft border-b border-line">
+        <div className="wrap grid gap-5 section-pad lg:grid-cols-[1.2fr_0.8fr]">
           <Card className="p-6 sm:p-8">
             <p className="eyebrow">{sp.bookEyebrow}</p>
             <h2 className="font-display mt-2 text-navy">{sp.bookTitle(service.title)}</h2>
@@ -415,7 +417,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
               </ul>
               <Link
                 href={pathFor(locale, "/locations")}
-                className="mt-3 block text-sm font-semibold text-navy no-underline hover:text-gold-deep"
+                className="mt-4 block text-sm font-semibold text-gold no-underline hover:text-gold-deep"
               >
                 {sp.allAreas}
               </Link>
