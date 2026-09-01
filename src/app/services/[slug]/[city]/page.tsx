@@ -10,6 +10,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { Section } from "@/components/Section";
 import { locations } from "@/lib/locations";
 import {
   getAllServiceCityPairs,
@@ -133,7 +134,8 @@ export default async function ServiceCityPage({ params }: PageProps) {
         }
       />
 
-      <section className="wrap grid gap-10 section-pad lg:grid-cols-[minmax(0,1fr)_300px]">
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
         <article className="min-w-0 space-y-10">
           <AnswerBox
             label="Quick answer"
@@ -146,7 +148,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
               {name} for {location.name} boat owners
             </h2>
             {content.map((p) => (
-              <p key={p.slice(0, 60)} className="mt-4 leading-relaxed text-muted">
+              <p key={p.slice(0, 60)} className="mt-4 leading-relaxed text-steel">
                 {p}
               </p>
             ))}
@@ -163,7 +165,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-muted">{service.whenToCall}</p>
+            <p className="mt-4 text-steel">{service.whenToCall}</p>
           </section>
 
           <section>
@@ -190,7 +192,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
               />
             </div>
             {secondary.caption && (
-              <div className="border-t border-line px-4 py-3 text-[0.65rem]  text-muted">
+              <div className="border-t border-line px-4 py-3 text-[0.65rem] text-steel">
                 {secondary.caption} · {location.name}
               </div>
             )}
@@ -200,7 +202,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
             <h2 className="font-display text-2xl font-semibold text-navy">
               Service corridors in {location.name}
             </h2>
-            <p className="mt-3 text-muted">
+            <p className="mt-3 text-steel">
               We routinely plan mobile visits around these {location.shortName} areas when access
               allows:
             </p>
@@ -212,7 +214,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-muted">{location.marinasNote}</p>
+            <p className="mt-4 text-steel">{location.marinasNote}</p>
           </section>
 
           <section>
@@ -312,7 +314,8 @@ export default async function ServiceCityPage({ params }: PageProps) {
             </ul>
           </Card>
         </aside>
-      </section>
+        </div>
+      </Section>
 
       <FaqSection
         title={`${name} in ${location.shortName} FAQ`}

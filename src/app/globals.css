@@ -10,18 +10,18 @@
   --navy-deep: #070b12;
   --navy-mid: #152033;
   --gold: #c9a24a;
-  --gold-deep: #a88832;
+  --gold-deep: #8a6a1e;
   --gold-light: #d4b66a;
   --white: #ffffff;
   --pearl: #f6f1e8;
   --ivory: #f6f1e8;
-  --ink: #161a22;
+  --ink: #121826;
   --deep: #070b12;
   --paper: #f6f1e8;
   --paper-deep: #efe8dc;
-  --steel: #4e4a42;
-  --steel-light: #c8bba6;
-  --muted: #6e675c;
+  --steel: #243044;
+  --steel-light: #efe6d4;
+  --muted: #3a4558;
   --line: rgba(201, 162, 74, 0.28);
   --background: #070b12;
   --foreground: #f6f1e8;
@@ -72,6 +72,12 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.65;
+}
+
+/* Reading surface is ivory + navy ink so pages never inherit pearl-on-ivory */
+main {
+  background: var(--ivory);
+  color: var(--ink);
 }
 
 h1,
@@ -145,8 +151,14 @@ h3 {
 }
 
 .section-floor,
-.section-soft {
+.section-soft,
+.bg-paper,
+.bg-white {
   background: var(--ivory);
+  color: var(--ink);
+}
+.bg-paper-deep {
+  background: var(--paper-deep);
   color: var(--ink);
 }
 
@@ -371,7 +383,7 @@ select.input-field option {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--navy);
 }
 
 .chip {
@@ -415,7 +427,7 @@ select.input-field option {
 .stamp,
 .coord-stamp {
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--steel);
 }
 
 .progress {
@@ -442,17 +454,27 @@ textarea {
   font-family: inherit;
 }
 
-/* Pearl = cream on dark chrome; ink on ivory reading surfaces */
-.text-pearl {
+/*
+  Contrast contract:
+  - Ivory reading surfaces use navy ink (never cream/white body copy)
+  - Navy chrome uses pearl / warm ivory (never navy or taupe-gray copy)
+  - Brass stays for accents only
+*/
+.text-pearl,
+.text-white,
+.text-paper {
   color: var(--ink);
 }
 .text-pearl\/80,
 .text-pearl\/75,
-.text-pearl\/90 {
-  color: color-mix(in srgb, var(--ink) 80%, transparent);
+.text-pearl\/90,
+.text-white\/85,
+.text-white\/80 {
+  color: color-mix(in srgb, var(--ink) 82%, transparent);
 }
 
-.text-navy {
+.text-navy,
+.text-ink {
   color: var(--navy);
 }
 .text-navy\/90 {
@@ -462,34 +484,53 @@ textarea {
   color: color-mix(in srgb, var(--navy) 80%, transparent);
 }
 
-.bg-navy .text-pearl,
-.bg-navy-deep .text-pearl,
-.section-dark .text-pearl,
-.cta-band .text-pearl,
-.site-footer .text-pearl,
-.site-header .text-pearl,
-.page-hero .text-pearl {
+.text-steel,
+.text-muted {
+  color: var(--steel);
+}
+
+.page-hero,
+.page-hero--band,
+.cta-band,
+.site-header,
+.site-footer,
+.section-dark,
+.bg-navy,
+.bg-navy-deep,
+.mobile-cta {
   color: var(--pearl);
 }
-.bg-navy .text-pearl\/80,
-.bg-navy-deep .text-pearl\/80,
-.section-dark .text-pearl\/80,
-.bg-navy .text-pearl\/75,
-.bg-navy .text-pearl\/90,
-.page-hero .text-pearl\/80 {
-  color: color-mix(in srgb, var(--pearl) 80%, transparent);
+
+.page-hero :is(.text-pearl, .text-white, .text-paper, .text-navy, .font-display),
+.page-hero--band :is(.text-pearl, .text-white, .text-paper, .text-navy),
+.cta-band :is(.text-pearl, .text-white, .text-paper, .text-navy, .font-display),
+.site-header :is(.text-pearl, .text-white, .text-paper),
+.site-footer :is(.text-pearl, .text-white, .text-paper, .font-display),
+.section-dark :is(.text-pearl, .text-white, .text-paper, .text-navy, .font-display),
+.bg-navy :is(.text-pearl, .text-white, .text-paper, .text-navy),
+.bg-navy-deep :is(.text-pearl, .text-white, .text-paper, .text-navy),
+.mobile-cta :is(.text-pearl, .text-white, .text-paper) {
+  color: var(--pearl);
 }
-.bg-navy .text-steel,
-.bg-navy-deep .text-steel,
-.section-dark .text-steel,
-.cta-band .text-steel,
-.site-footer .text-steel,
-.page-hero .text-steel {
+
+.page-hero :is(.text-pearl\/80, .text-pearl\/75, .text-pearl\/90, .text-white\/85, .text-white\/80),
+.cta-band :is(.text-pearl\/80, .text-steel, .text-muted),
+.site-footer :is(.text-steel, .text-muted),
+.section-dark :is(.text-pearl\/80, .text-steel, .text-muted),
+.bg-navy :is(.text-pearl\/80, .text-pearl\/75, .text-pearl\/90, .text-steel, .text-muted),
+.bg-navy-deep :is(.text-pearl\/80, .text-steel, .text-muted),
+.page-hero :is(.text-steel, .text-muted) {
   color: var(--steel-light);
 }
 
-.bg-white {
-  background-color: var(--ivory);
+.page-hero h1,
+.page-hero .font-display,
+.cta-band h2,
+.cta-band .font-display,
+.bg-navy h2,
+.bg-navy-deep h2,
+.section-dark h2 {
+  color: #fff;
 }
 .border-navy {
   border-color: color-mix(in srgb, var(--gold) 28%, transparent);

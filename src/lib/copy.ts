@@ -219,6 +219,8 @@ export const chrome = {
       contactPhone: "Phone",
       contactMessage: "Message *",
       contactSend: "Send message",
+      sendFailed: `We couldn't deliver your message. Please call ${site.phone}.`,
+      callShop: `Call ${site.phone}`,
     },
   },
   es: {
@@ -438,6 +440,8 @@ export const chrome = {
       contactPhone: "Teléfono",
       contactMessage: "Mensaje *",
       contactSend: "Enviar mensaje",
+      sendFailed: `No pudimos entregar su mensaje. Llame al ${site.phone}.`,
+      callShop: `Llamar ${site.phone}`,
     },
   },
 } as const;

@@ -21,5 +21,10 @@
   ],
   "observability": {
     "enabled": true
+  },
+  // Non-secret mailer defaults. Put RESEND_API_KEY in Worker Secrets
+  // (Dashboard → Settings → Variables and Secrets, or `wrangler secret put`).
+  "vars": {
+    "RESEND_FROM": "Doctor Yachts <info@doctoryachts.com>"
   }
 }

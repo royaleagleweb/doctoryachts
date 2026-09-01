@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
 import { t } from "@/lib/copy";
+import { readDelivery } from "@/lib/form-delivery";
 import { localeFromPath } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
@@ -29,12 +30,13 @@ export function ContactForm() {
         body: JSON.stringify({ ...data, formType: "contact" }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Something went wrong");
+      const delivery = readDelivery(res.ok, json, f.sendFailed);
+      if (!delivery.ok) throw new Error(delivery.error);
       setStatus("success");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Unable to send");
+      setError(err instanceof Error ? err.message : f.sendFailed);
     }
   }
 
@@ -44,7 +46,7 @@ export function ContactForm() {
         <p className="m-0 text-sm font-semibold  text-gold">
           {f.contactReceived}
         </p>
-        <p className="mt-2 font-semibold text-pearl">{f.contactThanks}</p>
+        <p className="mt-2 font-semibold text-navy">{f.contactThanks}</p>
         <p className="mt-1 text-sm text-steel">{locale === "es" ? site.hoursEs : site.hours}</p>
         <button
           type="button"
@@ -129,8 +131,15 @@ export function ContactForm() {
         />
       </div>
       {status === "error" && (
-        <p className="m-0 rounded-xl border border-gold/30 bg-navy-deep p-2 text-sm text-pearl">
-          {error}
+        <p role="alert" className="m-0 rounded-xl border border-gold/30 bg-navy-deep p-3 text-sm text-pearl">
+          {error}{" "}
+          <span className="mt-1 block">
+            {locale === "es" ? "Llame al" : "Call"}{" "}
+            <a href={site.phoneHref} className="font-semibold text-gold underline">
+              {site.phone}
+            </a>
+            .
+          </span>
         </p>
       )}
       <button type="submit" className="btn w-full sm:w-auto" disabled={status === "loading"}>

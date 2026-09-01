@@ -12,6 +12,7 @@ import {
 } from "@/lib/form-options";
 import { t } from "@/lib/copy";
 import { localeFromPath, pathFor } from "@/lib/i18n";
+import { readDelivery } from "@/lib/form-delivery";
 import { getServiceById } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -160,12 +161,13 @@ export function BookingForm() {
         }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Booking failed");
-      setConfirmation(json.confirmationId);
+      const delivery = readDelivery(res.ok, json, f.sendFailed);
+      if (!delivery.ok) throw new Error(delivery.error);
+      setConfirmation(delivery.confirmationId || json.confirmationId);
       setStatus("success");
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Unable to complete booking");
+      setError(err instanceof Error ? err.message : f.sendFailed);
     }
   }
 
@@ -179,7 +181,7 @@ export function BookingForm() {
           <h2 className="font-display mt-2 text-2xl font-semibold text-white">
             {f.thanks}
           </h2>
-          <p className="mt-2 text-sm text-pearl/80">
+          <p className="mt-2 text-sm text-pearl">
             {f.notLocked}
           </p>
         </div>
@@ -230,7 +232,7 @@ export function BookingForm() {
             <p className="text-sm font-semibold  text-gold">
               {f.stepOf(step + 1, steps.length)}
             </p>
-            <p className="mt-0.5 text-sm font-semibold text-pearl">{current.label}</p>
+            <p className="mt-0.5 text-sm font-semibold text-navy">{current.label}</p>
           </div>
           <p className="text-[0.7rem] text-muted">{Math.round(progressPct)}%</p>
         </div>
@@ -248,8 +250,8 @@ export function BookingForm() {
                 i === step
                   ? "bg-gold/15 text-gold"
                   : i < step
-                    ? "text-pearl/80"
-                    : "text-muted"
+                    ? "text-navy"
+                    : "text-steel"
               }`}
             >
               {s.label}
@@ -260,7 +262,7 @@ export function BookingForm() {
 
       <div className="space-y-5">
         <div>
-          <h2 className="font-display m-0 text-xl font-semibold text-pearl sm:text-2xl">
+          <h2 className="font-display m-0 text-xl font-semibold text-navy sm:text-2xl">
             {current.title}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-steel">{current.help}</p>
@@ -284,7 +286,7 @@ export function BookingForm() {
                         setFieldHint("");
                       }}
                     >
-                      <span className="block font-semibold text-pearl">{es ? p.labelEs : p.label}</span>
+                      <span className="block font-semibold text-navy">{es ? p.labelEs : p.label}</span>
                       <span className="mt-0.5 block text-xs text-steel">{es ? p.hintEs : p.hint}</span>
                     </button>
                   );
@@ -317,7 +319,7 @@ export function BookingForm() {
                 onChange={(e) => setUrgent(e.target.checked)}
               />
               <span>
-                <span className="font-semibold text-pearl">{f.urgent}</span>
+                <span className="font-semibold text-navy">{f.urgent}</span>
                 <span className="mt-0.5 block text-xs text-steel">
                   {f.urgentHint}
                 </span>
@@ -336,7 +338,7 @@ export function BookingForm() {
                   <button
                     key={c.id}
                     type="button"
-                    className={`${chipClass(city === c.id)} text-sm font-medium text-pearl`}
+                    className={`${chipClass(city === c.id)} text-sm font-medium text-navy`}
                     onClick={() => {
                       setCity(c.id);
                       setFieldHint("");
@@ -398,7 +400,7 @@ export function BookingForm() {
                       setFieldHint("");
                     }}
                   >
-                    <span className="block font-semibold text-pearl">{es ? tw.labelEs : tw.label}</span>
+                    <span className="block font-semibold text-navy">{es ? tw.labelEs : tw.label}</span>
                     <span className="mt-0.5 block text-xs text-steel">{es ? tw.hintEs : tw.hint}</span>
                   </button>
                 ))}
@@ -417,7 +419,7 @@ export function BookingForm() {
                   <button
                     key={b.id}
                     type="button"
-                    className={`${chipClass(boatType === b.id)} text-sm font-medium text-pearl`}
+                    className={`${chipClass(boatType === b.id)} text-sm font-medium text-navy`}
                     onClick={() => {
                       setBoatType(b.id);
                       setFieldHint("");
@@ -441,7 +443,7 @@ export function BookingForm() {
                   <button
                     key={len.id}
                     type="button"
-                    className={`${chipClass(boatLength === len.id)} text-sm text-pearl`}
+                    className={`${chipClass(boatLength === len.id)} text-sm text-navy`}
                     onClick={() => setBoatLength(len.id)}
                   >
                     {es ? len.labelEs : len.label}
@@ -534,18 +536,18 @@ export function BookingForm() {
               <ul className="mt-3 space-y-2 text-sm text-steel">
                 <li>
                   <span className="text-muted">{f.reviewProblem}:</span>{" "}
-                  <span className="text-pearl">{(es ? selectedProblem?.labelEs : selectedProblem?.label) || "—"}</span>
+                  <span className="text-navy">{(es ? selectedProblem?.labelEs : selectedProblem?.label) || "—"}</span>
                 </li>
                 <li>
                   <span className="text-muted">{f.reviewWhere}:</span>{" "}
-                  <span className="text-pearl">
+                  <span className="text-navy">
                     {city || "—"}
                     {marina ? ` · ${marina}` : ""}
                   </span>
                 </li>
                 <li>
                   <span className="text-muted">{f.reviewWhen}:</span>{" "}
-                  <span className="text-pearl">
+                  <span className="text-navy">
                     {date || "—"}
                     {timeWindow
                       ? ` · ${es ? timeWindowOptions.find((tw) => tw.id === timeWindow)?.labelEs : timeWindowOptions.find((tw) => tw.id === timeWindow)?.label}`
@@ -555,8 +557,8 @@ export function BookingForm() {
                 </li>
                 <li>
                   <span className="text-muted">{f.reviewBoat}:</span>{" "}
-                  <span className="text-pearl">
-                    {(es
+                  <span className="text-navy">
+                    {(es}
                       ? boatTypeOptions.find((b) => b.id === boatType)?.labelEs
                       : boatTypeOptions.find((b) => b.id === boatType)?.label) || "—"}
                     {boatLength ? ` · ${es ? lengthOptions.find((l) => l.id === boatLength)?.labelEs : boatLength}` : ""}
@@ -577,7 +579,7 @@ export function BookingForm() {
         {fieldHint && (
           <p
             role="alert"
-            className="m-0 rounded-xl border border-gold/40 bg-gold/10 px-3 py-2.5 text-sm text-pearl"
+            className="m-0 rounded-xl border border-gold/40 bg-gold/10 px-3 py-2.5 text-sm text-navy"
           >
             {fieldHint}
           </p>
@@ -590,7 +592,7 @@ export function BookingForm() {
           >
             {error}{" "}
             <span className="mt-1 block">
-              Or call{" "}
+              {es ? "O llame al" : "Or call"}{" "}
               <a href={site.phoneHref} className="font-semibold text-gold underline">
                 {site.phone}
               </a>
