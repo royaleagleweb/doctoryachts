@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { notifyFailed, notifyShop } from "@/lib/notify";
-import { site } from "@/lib/site";
 
 type BookingBody = {
   serviceId?: string;
@@ -87,7 +86,7 @@ export async function POST(request: Request) {
       {
         ok: false,
         confirmationId,
-        error: `We couldn't deliver your booking request. Please call ${site.phone}.`,
+        error: "We couldn't deliver your booking request.",
         notify,
       },
       { status: 502 },
