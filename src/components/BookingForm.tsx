@@ -558,7 +558,7 @@ export function BookingForm() {
                 <li>
                   <span className="text-muted">{f.reviewBoat}:</span>{" "}
                   <span className="text-navy">
-                    {(es}
+                    {(es
                       ? boatTypeOptions.find((b) => b.id === boatType)?.labelEs
                       : boatTypeOptions.find((b) => b.id === boatType)?.label) || "—"}
                     {boatLength ? ` · ${es ? lengthOptions.find((l) => l.id === boatLength)?.labelEs : boatLength}` : ""}
