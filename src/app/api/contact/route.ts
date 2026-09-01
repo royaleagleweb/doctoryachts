@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { notifyShop } from "@/lib/notify";
+import { notifyFailed, notifyShop } from "@/lib/notify";
+import { site } from "@/lib/site";
 
 type ContactBody = {
   name?: string;
@@ -63,6 +64,17 @@ export async function POST(request: Request) {
       message: body.message,
     },
   });
+
+  if (notifyFailed(notify)) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: `We couldn't deliver your message. Please call ${site.phone}.`,
+        notify,
+      },
+      { status: 502 },
+    );
+  }
 
   return NextResponse.json({ ok: true, message: "Message received", notify });
 }

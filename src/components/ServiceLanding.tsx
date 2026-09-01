@@ -52,7 +52,7 @@ function MediaBand({
   children: ReactNode;
 }) {
   return (
-    <section className="border-b border-line">
+    <section className="section-floor border-b border-line">
       <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
         <div className={`relative min-h-[260px] lg:min-h-[420px] ${reverse ? "lg:order-2" : ""}`}>
           <Image
@@ -285,7 +285,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-semibold text-paper">{step.title}</h3>
+                    <h3 className="font-semibold text-pearl">{step.title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-steel">{step.detail}</p>
                   </div>
                 </li>
@@ -332,7 +332,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         </ul>
       </MediaBand>
 
-      <section className="border-b border-line">
+      <section className="border-b border-line bg-navy-deep">
         <div className="wrap grid items-center gap-0 lg:grid-cols-2">
           <div className="relative min-h-[300px] lg:min-h-[400px]">
             <Image
@@ -378,7 +378,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
             <div>
               <p className="eyebrow">{sp.galleryEyebrow}</p>
               <h2 className="font-display mt-3 text-navy">{sp.galleryTitle(service.title)}</h2>
-              <p className="mt-2 max-w-2xl text-sm text-muted">{sp.galleryBody}</p>
+              <p className="mt-2 max-w-2xl text-sm text-steel">{sp.galleryBody}</p>
             </div>
             <p className="text-sm text-steel">{sp.galleryMeta}</p>
           </div>
@@ -388,7 +388,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
                 <div className="shot-img relative aspect-[4/3]">
                   <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover" />
                 </div>
-                <figcaption className="border-t border-line px-3 py-2 text-xs  text-muted">
+                <figcaption className="border-t border-line px-3 py-2 text-xs text-steel">
                   {img.caption ?? img.alt}
                 </figcaption>
               </figure>
@@ -397,12 +397,12 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         </div>
       </section>
 
-      <section className="border-b border-line">
+      <section className="section-floor border-b border-line">
         <div className="wrap grid gap-6 section-pad lg:grid-cols-[1.2fr_0.8fr]">
           <Card className="p-6 sm:p-8">
             <p className="eyebrow">{sp.bookEyebrow}</p>
             <h2 className="font-display mt-2 text-navy">{sp.bookTitle(service.title)}</h2>
-            <p className="mt-3 text-muted">{sp.bookBody}</p>
+            <p className="mt-3 text-steel">{sp.bookBody}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href={`${pathFor(locale, "/book")}?service=${service.id}`}>{sp.book}</Button>
               <Button href={pathFor(locale, "/free-estimate")} variant="ghost">

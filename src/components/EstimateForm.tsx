@@ -10,6 +10,7 @@ import {
   urgencyOptions,
 } from "@/lib/form-options";
 import { t } from "@/lib/copy";
+import { readDelivery } from "@/lib/form-delivery";
 import { localeFromPath, pathFor } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
@@ -93,11 +94,12 @@ export function EstimateForm() {
         }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Something went wrong");
+      const delivery = readDelivery(res.ok, json, f.sendFailed);
+      if (!delivery.ok) throw new Error(delivery.error);
       setStatus("success");
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Unable to send");
+      setError(err instanceof Error ? err.message : f.sendFailed);
     }
   }
 
@@ -108,7 +110,7 @@ export function EstimateForm() {
           <p className="text-sm font-semibold  text-gold">
             {f.estSent}
           </p>
-          <h3 className="font-display mt-2 text-xl font-semibold text-pearl">
+          <h3 className="font-display mt-2 text-xl font-semibold text-navy">
             {f.estThanks}
           </h3>
           <p className="mt-2 text-sm text-steel">
@@ -146,7 +148,7 @@ export function EstimateForm() {
                 setHint("");
               }}
             >
-              <span className="block font-semibold text-pearl">{es ? p.labelEs : p.label}</span>
+              <span className="block font-semibold text-navy">{es ? p.labelEs : p.label}</span>
               <span className="mt-0.5 block text-xs text-steel">{es ? p.hintEs : p.hint}</span>
             </button>
           ))}
@@ -177,7 +179,7 @@ export function EstimateForm() {
             <button
               key={c.id}
               type="button"
-              className={`${chipClass(city === c.id)} text-sm font-medium text-pearl`}
+              className={`${chipClass(city === c.id)} text-sm font-medium text-navy`}
               onClick={() => {
                 setCity(c.id);
                 setHint("");
@@ -215,7 +217,7 @@ export function EstimateForm() {
             <button
               key={b.id}
               type="button"
-              className={`${chipClass(boatType === b.id)} text-sm text-pearl`}
+              className={`${chipClass(boatType === b.id)} text-sm text-navy`}
               onClick={() => setBoatType(b.id)}
             >
               {es ? b.labelEs : b.label}
@@ -235,7 +237,7 @@ export function EstimateForm() {
                 className={chipClass(whenNeeded === u.id)}
                 onClick={() => setWhenNeeded(u.id)}
               >
-                <span className="block font-semibold text-pearl">{es ? u.labelEs : u.label}</span>
+                <span className="block font-semibold text-navy">{es ? u.labelEs : u.label}</span>
                 <span className="mt-0.5 block text-xs text-steel">{es ? u.hintEs : u.hint}</span>
               </button>
             ))}
@@ -304,7 +306,7 @@ export function EstimateForm() {
       {hint && (
         <p
           role="alert"
-          className="m-0 rounded-xl border border-gold/40 bg-gold/10 px-3 py-2.5 text-sm text-pearl"
+          className="m-0 rounded-xl border border-gold/40 bg-gold/10 px-3 py-2.5 text-sm text-navy"
         >
           {hint}
         </p>
@@ -314,11 +316,12 @@ export function EstimateForm() {
           role="alert"
           className="m-0 rounded-xl border border-gold/30 bg-navy-deep p-3 text-sm text-pearl"
         >
-          {error} Call{" "}
-          <a href={site.phoneHref} className="font-semibold text-gold">
+          {error}{" "}
+          {es ? "Llame al" : "Call"}{" "}
+          <a href={site.phoneHref} className="font-semibold text-gold underline">
             {site.phone}
-          </a>{" "}
-          if you need help now.
+          </a>
+          {es ? " si necesita ayuda ahora." : " if you need help now."}
         </p>
       )}
 

@@ -78,14 +78,11 @@ Also included:
 | Brand colors | `src/app/globals.css` |
 | Gallery photos | Add images under `public/gallery/` and update `src/app/gallery/page.tsx` |
 
-## Booking & contact (next step)
+## Booking & contact
 
-API routes currently validate input and log requests:
+`POST /api/book` and `POST /api/contact` email **roy@royaleagleweb.com** and **info@doctoryachts.com** via Resend. The API returns `ok: true` only when at least one inbox is accepted. If delivery fails, the forms show an error and ask the customer to call **(954) 770-1910**.
 
-- `POST /api/book` — service booking
-- `POST /api/contact` — contact messages
-
-To go live with real notifications, connect these routes to email (e.g. Resend), a CRM, or Google Calendar.
+Set the Cloudflare Worker secret `RESEND_API_KEY` and verify `doctoryachts.com` in Resend. See `docs/cloudflare-deploy.md`.
 
 ## Deploy
 
