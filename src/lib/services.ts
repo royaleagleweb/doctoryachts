@@ -914,19 +914,19 @@ export const services: Service[] = [
     ],
     images: [
       {
-        src: "/images/service-maintenance.jpg",
-        alt: "100-hour boat service at a South Florida marina dock",
-        caption: "Dockside 100-hour interval service",
-      },
-      {
         src: "/images/service-outboard.jpg",
-        alt: "Outboard motors during 100-hour service",
-        caption: "Outboard 100-hour items",
+        alt: "100-hour boat interval service — systems and cooling check at a South Florida dock",
+        caption: "100-hour / annual interval service",
       },
       {
         src: "/images/service-dockside.jpg",
         alt: "Mobile 100-hour marine service at the marina",
         caption: "Mobile interval service when access allows",
+      },
+      {
+        src: "/images/service-cooling.jpg",
+        alt: "Cooling and impeller checks during 100-hour boat service",
+        caption: "Cooling-path checks at the 100-hour interval",
       },
     ],
     faqs: [

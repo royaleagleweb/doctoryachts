@@ -171,8 +171,8 @@ export const images = {
       alt: "Outboard motor repair Fort Lauderdale",
     },
     "hour-100": {
-      src: "/images/service-maintenance.jpg",
-      alt: "100-hour boat service at the dock",
+      src: "/images/service-outboard.jpg",
+      alt: "100-hour boat interval service — systems and cooling check at the dock",
     },
     "hour-300": {
       src: "/images/service-engine.jpg",
