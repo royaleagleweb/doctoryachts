@@ -6,7 +6,7 @@ import { ReviewLinks } from "@/components/ReviewLinks";
 import { t } from "@/lib/copy";
 import { localeFromPath, locationPath, pathFor, servicePath } from "@/lib/i18n";
 import { publicLocations } from "@/lib/locations";
-import { getLocalizedServices } from "@/lib/services-localized";
+import { servicesInHubOrderLocalized } from "@/lib/services-localized";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -14,7 +14,9 @@ function shortServiceTitle(title: string) {
   return title
     .replace("Yacht & Boat ", "")
     .replace("Marine ", "")
+    .replace(" in Fort Lauderdale", "")
     .replace(" Fort Lauderdale", "")
+    .replace(" en Fort Lauderdale", "")
     .replace("Boat & Yacht ", "")
     .replace("Boat ", "")
     .replace("Reparación de ", "")
@@ -25,7 +27,7 @@ export function Footer() {
   const pathname = usePathname() || "/";
   const locale = localeFromPath(pathname);
   const copy = t(locale);
-  const list = getLocalizedServices(locale);
+  const list = servicesInHubOrderLocalized(locale);
 
   return (
     <footer className="site-footer mt-auto">

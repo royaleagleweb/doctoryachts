@@ -21,19 +21,23 @@ import { services } from "@/lib/services";
 import { getLocalizedServices } from "@/lib/services-localized";
 import { site } from "@/lib/site";
 
+const RELATED_HUBS: Record<string, string[]> = {
+  "engine-repair": ["outboard", "electrical", "cooling", "maintenance"],
+  outboard: ["engine-repair", "cooling", "electrical", "maintenance"],
+  electrical: ["engine-repair", "systems", "maintenance"],
+  cooling: ["engine-repair", "outboard", "maintenance"],
+  maintenance: ["engine-repair", "outboard", "electrical", "cooling"],
+  systems: ["electrical", "cooling", "maintenance"],
+};
+
 function relatedServices(all: Service[], currentId: string): Service[] {
-  const others = all.filter((s) => s.id !== currentId);
-  const pick = (ids: string[]) => ids.map((id) => others.find((s) => s.id === id)).filter((s): s is Service => Boolean(s));
-  if (currentId === "maintenance") {
-    return [...pick(["hour-100", "hour-300"]), ...others.filter((s) => s.id !== "hour-100" && s.id !== "hour-300")].slice(0, 4);
-  }
-  if (currentId === "hour-100") {
-    return [...pick(["hour-300", "maintenance"]), ...others.filter((s) => s.id !== "hour-300" && s.id !== "maintenance")].slice(0, 4);
-  }
-  if (currentId === "hour-300") {
-    return [...pick(["hour-100", "maintenance"]), ...others.filter((s) => s.id !== "hour-100" && s.id !== "maintenance")].slice(0, 4);
-  }
-  return others.slice(0, 4);
+  const preferred = RELATED_HUBS[currentId] ?? [];
+  const pick = (ids: string[]) =>
+    ids.map((id) => all.find((s) => s.id === id)).filter((s): s is Service => Boolean(s));
+  const chosen = pick(preferred);
+  if (chosen.length >= 3) return chosen;
+  const extras = all.filter((s) => s.id !== currentId && !chosen.some((c) => c.id === s.id));
+  return [...chosen, ...extras].slice(0, 4);
 }
 
 function MediaBand({
@@ -90,19 +94,6 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
   const enSlug = services.find((s) => s.id === service.id)?.slug ?? service.slug;
   const pagePath = servicePath(enSlug, locale);
   const hours = locale === "es" ? site.hoursEs : site.hours;
-  const extraLinks =
-    service.id === "maintenance"
-      ? locale === "es"
-        ? [
-            { href: servicePath("100-hour-service", locale), label: "servicio 100 horas" },
-            { href: servicePath("300-hour-service", locale), label: "servicio 300 horas" },
-          ]
-        : [
-            { href: servicePath("100-hour-service", locale), label: "100-hour service" },
-            { href: servicePath("300-hour-service", locale), label: "300-hour service" },
-          ]
-      : [];
-
   return (
     <>
       <JsonLd
@@ -172,16 +163,6 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         {service.content.map((p) => (
           <p key={p.slice(0, 56)}>{p}</p>
         ))}
-        {extraLinks.length > 0 && (
-          <p>
-            {extraLinks.map((l, i) => (
-              <span key={l.href}>
-                {i > 0 ? " · " : ""}
-                <Link href={l.href}>{l.label}</Link>
-              </span>
-            ))}
-          </p>
-        )}
       </MediaBand>
 
       <MediaBand

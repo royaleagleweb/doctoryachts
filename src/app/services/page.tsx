@@ -34,7 +34,7 @@ const hubFaqs = [
   {
     question: "What boat repair services do you offer?",
     answer:
-      "Marine engine repair, outboard motor repair, 100-hour and 300-hour interval service, boat electrical repairs, cooling system repairs, boat diagnostics, maintenance, plumbing/systems, and mobile dockside boat repair across South Florida.",
+      "Marine engine repair, outboard motor repair, boat electrical repairs, cooling system repairs, boat maintenance (including 100-hour and 300-hour service), and plumbing/systems. Dockside across South Florida.",
   },
   {
     question: "Do you offer free estimates?",
@@ -132,9 +132,8 @@ export default function ServicesPage() {
           ))}
         </div>
         <p className="mt-8 text-steel">
-          Not sure which service? Call <a href={site.phoneHref}>{site.phone}</a> or start with{" "}
-          <Link href="/services/boat-diagnostics">diagnostics</Link> /{" "}
-          <Link href="/services/mobile-boat-repair">mobile boat repair</Link>.
+          Not sure which service? Call <a href={site.phoneHref}>{site.phone}</a> or start on the{" "}
+          <Link href="/">homepage</Link>.
         </p>
       </Section>
 
@@ -151,13 +150,10 @@ export default function ServicesPage() {
             <Link href="/services/electrical-repairs">electrical</Link> or{" "}
             <Link href="/services/marine-engine-repair">engine diagnosis</Link>. Overheating is{" "}
             <Link href="/services/cooling-system-repairs">cooling</Link>. Constant bilge running is
-            usually <Link href="/services/plumbing-repairs">plumbing/systems</Link>. Intermittent
-            multi-system issues may need <Link href="/services/boat-diagnostics">diagnostics</Link>.
-            Overdue hours? Start with{" "}
-            <Link href="/services/100-hour-service">100-hour service</Link> or the heavier{" "}
-            <Link href="/services/300-hour-service">300-hour service</Link>. For a dockside visit
-            without a tow, start with{" "}
-            <Link href="/services/mobile-boat-repair">mobile boat repair</Link>.
+            usually <Link href="/services/plumbing-repairs">plumbing/systems</Link>. Overdue hours?
+            Start with <Link href="/services/boat-maintenance">boat maintenance</Link> (100-hour and
+            300-hour service are on that page). For a dockside visit without a tow, start on the{" "}
+            <Link href="/">homepage</Link>.
           </p>
         </div>
         <Card className="mt-10 p-6">

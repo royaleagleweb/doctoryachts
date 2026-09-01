@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { hreflangLanguages, localeFromPath, servicePath, type Locale } from "./i18n";
 import { locations } from "./locations";
-import { getLocalizedServices } from "./services-localized";
+import { servicesInHubOrderLocalized } from "./services-localized";
 import { services } from "./services";
 import { site, seoKeywords } from "./site";
 
@@ -71,7 +71,7 @@ export function buildMetadata({
 }
 
 export function localBusinessJsonLd(locale: Locale = "en") {
-  const localized = getLocalizedServices(locale);
+  const localized = servicesInHubOrderLocalized(locale);
   const catalogName =
     locale === "es"
       ? "Servicios de mecánico náutico en el sur de la Florida"
@@ -123,11 +123,8 @@ export function localBusinessJsonLd(locale: Locale = "en") {
             "Mantenimiento de yates",
             "Mecánico náutico",
             "Servicio de motor fuera de borda",
-            "Diagnóstico de yates",
             "Reparación eléctrica de barcos",
             "Sistema de enfriamiento",
-            "Servicio 100 horas",
-            "Servicio 300 horas",
             "Fort Lauderdale",
             "el sur de la Florida",
           ]
@@ -138,8 +135,6 @@ export function localBusinessJsonLd(locale: Locale = "en") {
             "Marine engine repair",
             "Marine electrical systems",
             "Dockside boat repair South Florida",
-            "100-hour boat service",
-            "300-hour boat service",
           ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",

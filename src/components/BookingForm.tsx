@@ -37,7 +37,9 @@ export function BookingForm() {
   const preselectedService = searchParams.get("service") || "";
 
   const initialProblem =
-    problemOptions.find((p) => p.serviceId === preselectedService)?.id ?? "";
+    problemOptions.find(
+      (p) => p.serviceId === preselectedService || p.id === preselectedService,
+    )?.id ?? "";
 
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<Status>("idle");
@@ -67,7 +69,7 @@ export function BookingForm() {
     [problemId],
   );
 
-  const serviceId = selectedProblem?.serviceId || preselectedService || "diagnostics";
+  const serviceId = selectedProblem?.serviceId || preselectedService || "engine-repair";
   const selectedService = getServiceById(serviceId);
 
   const minDate = useMemo(() => {

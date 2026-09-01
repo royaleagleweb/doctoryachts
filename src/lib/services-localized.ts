@@ -986,12 +986,8 @@ export function servicesInHubOrderLocalized(locale: Locale): Service[] {
     "outboard",
     "electrical",
     "cooling",
-    "diagnostics",
     "maintenance",
-    "hour-100",
-    "hour-300",
     "systems",
-    "emergency",
   ] as const;
   return order
     .map((id) => services.find((s) => s.id === id))
