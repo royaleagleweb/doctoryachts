@@ -244,14 +244,14 @@ const servicePools: Record<string, ServiceImage[]> = {
     marineMedia.maintenance,
   ],
   "hour-100": [
-    marineMedia.maintenance,
     marineMedia.outboard,
     marineMedia.dockside,
+    marineMedia.cooling,
     marineMedia.engine,
     marineMedia.marina,
     marineMedia.mechanic,
     marineMedia.wake,
-    marineMedia.cooling,
+    marineMedia.maintenance,
   ],
   "hour-300": [
     marineMedia.engine,
