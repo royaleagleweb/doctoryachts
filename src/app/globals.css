@@ -1251,17 +1251,18 @@ textarea {
 }
 
 .hero-water__wave--a {
-  animation: hero-tide-a 16s ease-in-out infinite alternate;
+  animation: hero-tide-a 11s ease-in-out infinite alternate;
 }
 
 .hero-water__wave--b,
 .hero-water__crest {
-  animation: hero-tide-b 20s ease-in-out infinite alternate;
+  animation: hero-tide-b 14s ease-in-out infinite alternate;
 }
 
 .cta-band--water {
   position: relative;
   overflow: hidden;
+  border-top-color: transparent;
 }
 
 .cta-band--water::before {
@@ -1270,17 +1271,18 @@ textarea {
   left: 0;
   right: 0;
   top: 0;
-  height: 3px;
+  z-index: 1;
+  height: 2px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(201, 162, 74, 0.28) 18%,
-    rgba(246, 241, 232, 0.55) 50%,
-    rgba(201, 162, 74, 0.28) 82%,
+    rgba(201, 162, 74, 0.35) 16%,
+    rgba(246, 241, 232, 0.85) 50%,
+    rgba(201, 162, 74, 0.35) 84%,
     transparent 100%
   );
-  background-size: 180% 100%;
-  animation: hero-gold-sheen 18s ease-in-out infinite alternate;
+  background-size: 220% 100%;
+  animation: hero-gold-sheen 14s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
@@ -1298,7 +1300,7 @@ textarea {
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-4%, 4px, 0);
+    transform: translate3d(-5.5%, 5px, 0);
   }
 }
 
@@ -1307,7 +1309,7 @@ textarea {
     transform: translate3d(0, 2px, 0);
   }
   to {
-    transform: translate3d(3.4%, -3px, 0);
+    transform: translate3d(4.5%, -4px, 0);
   }
 }
 

@@ -48,11 +48,12 @@ export function HeroWater() {
     }
 
     function field(x: number, y: number, t: number) {
+      // Slightly quicker phase so gold-hour ridges drift within a short glance
       return (
-        Math.sin(x * 0.052 + t * 0.62) * Math.cos(y * 0.041 - t * 0.38) +
-        Math.sin((x * 0.7 + y) * 0.036 + t * 0.34) * 0.7 +
-        Math.cos((x - y * 0.55) * 0.03 - t * 0.26) * 0.48 +
-        Math.sin(x * 0.02 - y * 0.055 + t * 0.48) * 0.35
+        Math.sin(x * 0.052 + t * 0.95) * Math.cos(y * 0.041 - t * 0.58) +
+        Math.sin((x * 0.7 + y) * 0.036 + t * 0.52) * 0.7 +
+        Math.cos((x - y * 0.55) * 0.03 - t * 0.4) * 0.48 +
+        Math.sin(x * 0.02 - y * 0.055 + t * 0.72) * 0.35
       );
     }
 
