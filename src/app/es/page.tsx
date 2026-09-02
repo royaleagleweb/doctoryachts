@@ -74,6 +74,7 @@ export default function SpanishHomePage() {
 
       <PageHero
         size="display"
+        water
         eyebrow="Doctor Yachts · el sur de la Florida"
         kicker="Mecánico de yates móvil en el sur de la Florida"
         title="El mecánico que va al barco."
@@ -279,7 +280,7 @@ export default function SpanishHomePage() {
       </Section>
 
       <FaqSection title="Preguntas frecuentes" faqs={homeFaqsEs} />
-      <CTA />
+      <CTA water />
     </>
   );
 }

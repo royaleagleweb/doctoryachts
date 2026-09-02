@@ -33,6 +33,7 @@ export default function HomePage() {
 
       <PageHero
         size="display"
+        water
         eyebrow="Doctor Yachts · South Florida"
         kicker="Mobile boat mechanic in South Florida"
         title="The mechanic who comes to the boat."
@@ -239,7 +240,7 @@ export default function HomePage() {
       </Section>
 
       <FaqSection title="Common questions" faqs={homeFaqs} />
-      <CTA />
+      <CTA water />
     </>
   );
 }

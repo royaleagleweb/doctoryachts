@@ -589,7 +589,7 @@ textarea {
 .page-hero__veil {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
   background:
     linear-gradient(
@@ -608,7 +608,7 @@ textarea {
 
 .page-hero__grid {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   display: block;
   padding-block: clamp(3rem, 8vw, 5.75rem);
 }
@@ -627,6 +627,10 @@ textarea {
   letter-spacing: -0.042em;
   line-height: 0.92;
   max-width: 9.4em;
+}
+
+.page-hero--water h1 {
+  text-shadow: 0 2px 28px rgba(7, 11, 18, 0.5);
 }
 
 .page-hero__kicker {
@@ -1145,6 +1149,191 @@ textarea {
 
 .border-line {
   border-color: var(--line) !important;
+}
+
+/* Homepage Intracoastal water — surface band + gold-hour caustics */
+.hero-water {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-water__surface {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: min(34%, 240px);
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(12, 40, 58, 0.18) 18%,
+      rgba(10, 34, 50, 0.42) 48%,
+      rgba(8, 24, 40, 0.72) 100%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 5px,
+      rgba(201, 162, 74, 0.045) 5px 6px
+    );
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 100%);
+}
+
+.hero-water__caustics {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: block;
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 28%,
+    rgba(0, 0, 0, 0.55) 55%,
+    #000 78%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 28%,
+    rgba(0, 0, 0, 0.55) 55%,
+    #000 78%
+  );
+}
+
+.hero-water__sheen {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 42%;
+  background: linear-gradient(
+    108deg,
+    transparent 12%,
+    rgba(201, 162, 74, 0.08) 38%,
+    rgba(246, 241, 232, 0.16) 50%,
+    rgba(201, 162, 74, 0.08) 62%,
+    transparent 88%
+  );
+  background-size: 240% 100%;
+  background-position: 12% 100%;
+  mix-blend-mode: soft-light;
+  animation: hero-gold-sheen 22s ease-in-out infinite alternate;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+}
+
+.hero-water__horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: clamp(64px, 10vw, 96px);
+  overflow: hidden;
+}
+
+.hero-water__wave,
+.hero-water__crest {
+  position: absolute;
+  left: -10%;
+  bottom: 0;
+  width: 120%;
+  height: 100%;
+  display: block;
+}
+
+.hero-water__wave--a {
+  animation: hero-tide-a 11s ease-in-out infinite alternate;
+}
+
+.hero-water__wave--b,
+.hero-water__crest {
+  animation: hero-tide-b 14s ease-in-out infinite alternate;
+}
+
+.cta-band--water {
+  position: relative;
+  overflow: hidden;
+  border-top-color: transparent;
+}
+
+.cta-band--water::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 74, 0.35) 16%,
+    rgba(246, 241, 232, 0.85) 50%,
+    rgba(201, 162, 74, 0.35) 84%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  animation: hero-gold-sheen 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-gold-sheen {
+  from {
+    background-position: 8% 50%;
+  }
+  to {
+    background-position: 92% 50%;
+  }
+}
+
+@keyframes hero-tide-a {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-5.5%, 5px, 0);
+  }
+}
+
+@keyframes hero-tide-b {
+  from {
+    transform: translate3d(0, 2px, 0);
+  }
+  to {
+    transform: translate3d(4.5%, -4px, 0);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-water__horizon {
+    height: 56px;
+  }
+  .hero-water__surface,
+  .hero-water__sheen {
+    height: 36%;
+  }
+  .hero-water__caustics {
+    opacity: 0.58;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-water__sheen,
+  .hero-water__wave--a,
+  .hero-water__wave--b,
+  .hero-water__crest,
+  .cta-band--water::before {
+    animation: none;
+  }
 }
 
 /* Kage-inspired chapter reveals */
