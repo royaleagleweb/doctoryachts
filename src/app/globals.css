@@ -1151,22 +1151,60 @@ textarea {
   border-color: var(--line) !important;
 }
 
-/* Homepage Intracoastal water — gold-hour caustics + shallow waterline */
+/* Homepage Intracoastal water — surface band + gold-hour caustics */
 .hero-water {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
+.hero-water__surface {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: min(34%, 240px);
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(12, 40, 58, 0.18) 18%,
+      rgba(10, 34, 50, 0.42) 48%,
+      rgba(8, 24, 40, 0.72) 100%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 5px,
+      rgba(201, 162, 74, 0.045) 5px 6px
+    );
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 28%, #000 100%);
+}
+
 .hero-water__caustics {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   height: 100%;
   display: block;
-  mix-blend-mode: soft-light;
-  opacity: 0.88;
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 28%,
+    rgba(0, 0, 0, 0.55) 55%,
+    #000 78%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 28%,
+    rgba(0, 0, 0, 0.55) 55%,
+    #000 78%
+  );
 }
 
 .hero-water__sheen {
@@ -1174,20 +1212,22 @@ textarea {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  height: 38%;
+  z-index: 3;
+  height: 42%;
   background: linear-gradient(
     108deg,
-    transparent 18%,
-    rgba(201, 162, 74, 0.05) 40%,
-    rgba(212, 182, 106, 0.12) 50%,
-    rgba(201, 162, 74, 0.05) 60%,
-    transparent 82%
+    transparent 12%,
+    rgba(201, 162, 74, 0.08) 38%,
+    rgba(246, 241, 232, 0.16) 50%,
+    rgba(201, 162, 74, 0.08) 62%,
+    transparent 88%
   );
   background-size: 240% 100%;
   background-position: 12% 100%;
   mix-blend-mode: soft-light;
-  animation: hero-gold-sheen 26s ease-in-out infinite alternate;
+  animation: hero-gold-sheen 22s ease-in-out infinite alternate;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
 }
 
 .hero-water__horizon {
@@ -1196,27 +1236,27 @@ textarea {
   right: 0;
   bottom: 0;
   z-index: 3;
-  height: clamp(52px, 8vw, 78px);
+  height: clamp(64px, 10vw, 96px);
   overflow: hidden;
 }
 
 .hero-water__wave,
 .hero-water__crest {
   position: absolute;
-  left: -8%;
+  left: -10%;
   bottom: 0;
-  width: 116%;
+  width: 120%;
   height: 100%;
   display: block;
 }
 
 .hero-water__wave--a {
-  animation: hero-tide-a 18s ease-in-out infinite alternate;
+  animation: hero-tide-a 16s ease-in-out infinite alternate;
 }
 
 .hero-water__wave--b,
 .hero-water__crest {
-  animation: hero-tide-b 22s ease-in-out infinite alternate;
+  animation: hero-tide-b 20s ease-in-out infinite alternate;
 }
 
 .cta-band--water {
@@ -1230,17 +1270,17 @@ textarea {
   left: 0;
   right: 0;
   top: 0;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(201, 162, 74, 0.15) 22%,
-    rgba(212, 182, 106, 0.55) 50%,
-    rgba(201, 162, 74, 0.15) 78%,
+    rgba(201, 162, 74, 0.28) 18%,
+    rgba(246, 241, 232, 0.55) 50%,
+    rgba(201, 162, 74, 0.28) 82%,
     transparent 100%
   );
   background-size: 180% 100%;
-  animation: hero-gold-sheen 20s ease-in-out infinite alternate;
+  animation: hero-gold-sheen 18s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
@@ -1258,25 +1298,29 @@ textarea {
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-3.2%, 3px, 0);
+    transform: translate3d(-4%, 4px, 0);
   }
 }
 
 @keyframes hero-tide-b {
   from {
-    transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 2px, 0);
   }
   to {
-    transform: translate3d(2.6%, -2px, 0);
+    transform: translate3d(3.4%, -3px, 0);
   }
 }
 
 @media (max-width: 720px) {
   .hero-water__horizon {
-    height: 44px;
+    height: 56px;
   }
+  .hero-water__surface,
   .hero-water__sheen {
-    height: 30%;
+    height: 36%;
+  }
+  .hero-water__caustics {
+    opacity: 0.58;
   }
 }
 

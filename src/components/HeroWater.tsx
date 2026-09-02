@@ -3,9 +3,8 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Homepage hero water: gold-hour caustics + a shallow Intracoastal waterline.
- * Canvas runs at a fraction of CSS size, pauses offscreen / hidden, and
- * draws a still frame when the visitor prefers reduced motion.
+ * Homepage hero water: Intracoastal surface + gold-hour caustics.
+ * Low-res canvas, pauses offscreen/hidden, still frame for reduced motion.
  */
 export function HeroWater() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -40,9 +39,9 @@ export function HeroWater() {
       cssW = parent?.clientWidth || window.innerWidth;
       cssH = parent?.clientHeight || 640;
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const scale = cssW < 720 ? 0.22 : 0.28;
-      w = Math.max(140, Math.floor(cssW * scale * dpr));
-      h = Math.max(80, Math.floor(cssH * scale * dpr));
+      const scale = cssW < 720 ? 0.26 : 0.34;
+      w = Math.max(160, Math.floor(cssW * scale * dpr));
+      h = Math.max(96, Math.floor(cssH * scale * dpr));
       canvas!.width = w;
       canvas!.height = h;
       buffer = ctx!.createImageData(w, h);
@@ -50,9 +49,10 @@ export function HeroWater() {
 
     function field(x: number, y: number, t: number) {
       return (
-        Math.sin(x * 0.046 + t * 0.58) * Math.cos(y * 0.038 - t * 0.36) +
-        Math.sin((x * 0.72 + y) * 0.033 + t * 0.31) * 0.62 +
-        Math.cos((x - y * 0.55) * 0.027 - t * 0.24) * 0.42
+        Math.sin(x * 0.052 + t * 0.62) * Math.cos(y * 0.041 - t * 0.38) +
+        Math.sin((x * 0.7 + y) * 0.036 + t * 0.34) * 0.7 +
+        Math.cos((x - y * 0.55) * 0.03 - t * 0.26) * 0.48 +
+        Math.sin(x * 0.02 - y * 0.055 + t * 0.48) * 0.35
       );
     }
 
@@ -65,29 +65,33 @@ export function HeroWater() {
 
       for (let y = 0; y < h; y++) {
         const yn = y / h;
-        const top = smooth(mobile ? 0.18 : 0.28, mobile ? 0.62 : 0.72, yn);
-        if (top < 0.01) continue;
+        // Keep text band clear; light gathers mid/lower + right (photo side)
+        const top = smooth(mobile ? 0.28 : 0.36, mobile ? 0.7 : 0.78, yn);
+        if (top < 0.015) continue;
 
         for (let x = 0; x < w; x++) {
           const xn = x / w;
-          const side = mobile ? 0.55 + 0.45 * smooth(0.02, 0.38, xn) : smooth(0.06, 0.48, xn);
+          const side = mobile
+            ? 0.4 + 0.6 * smooth(0.05, 0.55, xn)
+            : smooth(0.18, 0.62, xn);
           const mask = top * side;
-          if (mask < 0.012) continue;
+          if (mask < 0.02) continue;
 
           const n = field(x, y, t);
-          const nx = field(x + 1.4, y, t) - n;
-          const ny = field(x, y + 1.4, t) - n;
-          // Gold-hour light from the upper right — Fort Lauderdale late afternoon
-          const lit = Math.max(0, -nx * 0.28 - ny * 0.92);
-          const ridge = lit * lit;
-          if (ridge < 0.012) continue;
+          const nx = field(x + 1.25, y, t) - n;
+          const ny = field(x, y + 1.25, t) - n;
+          // Gold-hour light from upper right
+          const lit = Math.max(0, -nx * 0.32 - ny * 0.95);
+          const ridge = Math.pow(lit, 1.85);
+          if (ridge < 0.02) continue;
 
-          const warm = clamp(ridge * 1.15, 0, 1);
+          const warm = clamp(ridge * 1.25, 0, 1);
           const i = (y * w + x) * 4;
-          data[i] = Math.round(168 + 54 * warm);
-          data[i + 1] = Math.round(148 + 28 * warm);
-          data[i + 2] = Math.round(78 + 42 * (1 - warm));
-          data[i + 3] = Math.round(255 * ridge * mask * (mobile ? 0.34 : 0.42));
+          // Brass highlight with cool Intracoastal undertone
+          data[i] = Math.round(150 + 70 * warm);
+          data[i + 1] = Math.round(145 + 45 * warm);
+          data[i + 2] = Math.round(95 + 55 * (1 - warm * 0.65));
+          data[i + 3] = Math.round(255 * ridge * mask * (mobile ? 0.55 : 0.68));
         }
       }
 
@@ -101,8 +105,7 @@ export function HeroWater() {
         raf = requestAnimationFrame(frame);
         return;
       }
-      const dt = now - last;
-      if (dt < 1000 / 24) {
+      if (now - last < 1000 / 24) {
         raf = requestAnimationFrame(frame);
         return;
       }
@@ -155,39 +158,46 @@ export function HeroWater() {
 
   return (
     <div className="hero-water" aria-hidden>
+      <div className="hero-water__surface" />
       <canvas ref={canvasRef} className="hero-water__caustics" />
       <div className="hero-water__sheen" />
       <div className="hero-water__horizon">
         <svg
           className="hero-water__wave hero-water__wave--a"
-          viewBox="0 0 1200 72"
+          viewBox="0 0 1200 90"
           preserveAspectRatio="none"
         >
           <path
-            fill="rgba(12, 18, 32, 0.42)"
-            d="M0 38C90 30 170 48 280 40C400 31 470 22 590 32C720 43 820 50 940 38C1040 28 1120 24 1200 30V72H0Z"
+            fill="rgba(14, 42, 58, 0.55)"
+            d="M0 42C110 30 200 54 320 44C450 33 540 22 670 36C800 50 900 58 1030 42C1120 32 1165 28 1200 34V90H0Z"
           />
         </svg>
         <svg
           className="hero-water__wave hero-water__wave--b"
-          viewBox="0 0 1200 72"
+          viewBox="0 0 1200 90"
           preserveAspectRatio="none"
         >
           <path
-            fill="rgba(7, 11, 18, 0.78)"
-            d="M0 44C130 36 220 52 340 46C470 39 560 28 690 36C820 44 910 54 1030 44C1110 38 1160 36 1200 40V72H0Z"
+            fill="rgba(8, 22, 36, 0.88)"
+            d="M0 52C140 40 240 62 370 52C510 41 600 30 740 42C880 54 980 64 1100 50C1155 43 1180 42 1200 46V90H0Z"
           />
         </svg>
         <svg
           className="hero-water__crest"
-          viewBox="0 0 1200 72"
+          viewBox="0 0 1200 90"
           preserveAspectRatio="none"
         >
           <path
             fill="none"
-            stroke="rgba(201, 162, 74, 0.42)"
-            strokeWidth="1.1"
-            d="M0 44C130 36 220 52 340 46C470 39 560 28 690 36C820 44 910 54 1030 44C1110 38 1160 36 1200 40"
+            stroke="rgba(212, 182, 106, 0.82)"
+            strokeWidth="1.8"
+            d="M0 52C140 40 240 62 370 52C510 41 600 30 740 42C880 54 980 64 1100 50C1155 43 1180 42 1200 46"
+          />
+          <path
+            fill="none"
+            stroke="rgba(246, 241, 232, 0.22)"
+            strokeWidth="0.8"
+            d="M0 54C140 42 240 64 370 54C510 43 600 32 740 44C880 56 980 66 1100 52C1155 45 1180 44 1200 48"
           />
         </svg>
       </div>
