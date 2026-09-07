@@ -60,13 +60,13 @@ export function ShopActions({
 }
 
 /** Shared page-bottom band. Shop voice: what happens next, no fake scarcity. */
-export function CTA() {
+export function CTA({ water = false }: { water?: boolean }) {
   const pathname = usePathname() || "/";
   const locale = localeFromPath(pathname);
   const copy = t(locale);
 
   return (
-    <section className="cta-band">
+    <section className={water ? "cta-band cta-band--water" : "cta-band"}>
       <div className="wrap flex flex-col items-start justify-between gap-8 section-pad md:flex-row md:items-end">
         <div className="max-w-xl">
           <p className="eyebrow">{copy.cta.eyebrow}</p>

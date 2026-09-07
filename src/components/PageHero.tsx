@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { HeroWater } from "@/components/HeroWater";
 
 export type PageHeroImage = {
   src: string;
@@ -17,6 +18,8 @@ type PageHeroProps = {
   meta?: ReactNode;
   priority?: boolean;
   size?: "default" | "display";
+  /** Homepage-only Intracoastal water treatment. Off everywhere else. */
+  water?: boolean;
 };
 
 /** Full-bleed hero: photo with a cool ink scrim, tight Plex, brass accent. */
@@ -31,12 +34,14 @@ export function PageHero({
   meta,
   priority,
   size = "default",
+  water = false,
 }: PageHeroProps) {
   const eager = priority ?? Boolean(image);
   const classes = [
     "page-hero",
     image ? "page-hero--cinema" : "page-hero--band",
     size === "display" ? "page-hero--display" : "",
+    water ? "page-hero--water" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -55,6 +60,7 @@ export function PageHero({
           />
         </div>
       )}
+      {water && <HeroWater />}
       <div className="page-hero__veil" aria-hidden />
       <div className="wrap page-hero__grid">
         <div className="page-hero__copy">
