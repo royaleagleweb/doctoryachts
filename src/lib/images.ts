@@ -6,6 +6,22 @@ export type BrandImage = {
   caption?: string;
 };
 
+/**
+ * Stable React list key from an image path.
+ * Never use `/images/foo.jpg` or `/images/foo.jpg-0` as a `key` — Googlebot
+ * reads those strings out of the RSC payload and crawls them as image URLs
+ * (Search Console 404s such as `/images/service-engine.jpg-0`).
+ */
+export function imageListKey(src: string, suffix?: string | number): string {
+  const slug = src
+    .replace(/^\/images\//, "")
+    .replace(/\.[a-z0-9]+$/i, "")
+    .replace(/[^a-z0-9]+/gi, "-")
+    .replace(/^-|-$/g, "")
+    .toLowerCase();
+  return suffix === undefined || suffix === "" ? slug : `${slug}-${suffix}`;
+}
+
 /** Premium yacht / marina branding set */
 export const yachts = {
   marinaGold: {
