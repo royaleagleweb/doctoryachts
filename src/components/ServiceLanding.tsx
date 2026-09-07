@@ -14,6 +14,7 @@ import { guides } from "@/lib/guides";
 import type { Locale } from "@/lib/i18n";
 import { locationPath, pathFor, servicePath } from "@/lib/i18n";
 import { locations } from "@/lib/locations";
+import { imageListKey } from "@/lib/images";
 import { getServicePageMedia, type ServicePageMedia } from "@/lib/marine-media";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
 import type { Service, ServiceImage } from "@/lib/services";
@@ -384,7 +385,7 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {media.gallery.map((img, i) => (
-              <figure key={`${img.src}-${i}`} className="shot m-0">
+              <figure key={imageListKey(img.src, i)} className="shot m-0">
                 <div className="shot-img relative aspect-[4/3]">
                   <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover" />
                 </div>

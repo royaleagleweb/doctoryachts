@@ -6,7 +6,7 @@ import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
-import { images, yachtStrip } from "@/lib/images";
+import { imageListKey, images, yachtStrip } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -23,14 +23,14 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const workShots = [
-  { ...images.gallery.engine, kicker: "Engine", href: "/services/marine-engine-repair" },
-  { ...images.gallery.electrical, kicker: "Electrical", href: "/services/electrical-repairs" },
-  { ...images.gallery.diagnostics, kicker: "Diagnostics", href: "/services/boat-diagnostics" },
-  { ...images.gallery.maintenance, kicker: "Maintenance", href: "/services/boat-maintenance" },
-  { ...images.gallery.systems, kicker: "Systems", href: "/services/plumbing-repairs" },
-  { ...images.gallery.dockside, kicker: "Mobile", href: "/services/mobile-boat-repair" },
-  { ...images.gallery.hull, kicker: "Hull", href: "/services" },
-  { ...images.gallery.teak, kicker: "Deck", href: "/about" },
+  { id: "engine", ...images.gallery.engine, kicker: "Engine", href: "/services/marine-engine-repair" },
+  { id: "electrical", ...images.gallery.electrical, kicker: "Electrical", href: "/services/electrical-repairs" },
+  { id: "diagnostics", ...images.gallery.diagnostics, kicker: "Diagnostics", href: "/services/boat-diagnostics" },
+  { id: "maintenance", ...images.gallery.maintenance, kicker: "Maintenance", href: "/services/boat-maintenance" },
+  { id: "systems", ...images.gallery.systems, kicker: "Systems", href: "/services/plumbing-repairs" },
+  { id: "dockside", ...images.gallery.dockside, kicker: "Mobile", href: "/services/mobile-boat-repair" },
+  { id: "hull", ...images.gallery.hull, kicker: "Hull", href: "/services" },
+  { id: "teak", ...images.gallery.teak, kicker: "Deck", href: "/about" },
 ];
 
 export default function GalleryPage() {
@@ -59,7 +59,7 @@ export default function GalleryPage() {
         <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {workShots.map((shot) => (
             <MediaCard
-              key={shot.src + shot.kicker}
+              key={shot.id}
               href={shot.href}
               image={shot}
               kicker={shot.kicker}
@@ -79,9 +79,9 @@ export default function GalleryPage() {
           description="Fort Lauderdale and nearby South Florida water. Captions describe the photo, not a specific job."
         />
         <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {yachtStrip.map((shot) => (
+          {yachtStrip.map((shot, i) => (
             <MediaCard
-              key={shot.src}
+              key={imageListKey(shot.src, i)}
               href="/locations"
               image={shot}
               kicker={shot.caption}
