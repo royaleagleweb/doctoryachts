@@ -108,13 +108,13 @@ export default async function ServiceCityPage({ params }: PageProps) {
       <PageHero
         eyebrow={`${location.region} · ${location.state}${service.duration ? ` · ${service.duration}` : ""}`}
         title={serviceCityH1(service, location)}
-        description={`Mobile and dockside ${name.toLowerCase()} for boat and yacht owners in ${location.name}—diagnose first, free estimates, clear notes.`}
+        description={`Mobile and dockside ${name.toLowerCase()} for boat and yacht owners in ${location.name}—diagnose first, clear estimate, notes you can keep.`}
         image={{ src: hero.src, alt: `${name} in ${location.name}, FL — ${hero.alt}` }}
         actions={
           <>
             <Button href={`/book?service=${service.id}`}>Book in {location.shortName}</Button>
             <Button href="/free-estimate" variant="ghost">
-              Get a free estimate
+              Request an estimate
             </Button>
             <Button href={site.phoneHref} variant="ghost">
               Call {site.phone}
@@ -243,14 +243,14 @@ export default async function ServiceCityPage({ params }: PageProps) {
               Book {name.toLowerCase()} in {location.name}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-steel">
-              Free estimates. Mobile/dockside when access allows. Call{" "}
+              Free estimate when you book the job. Mobile/dockside when access allows. Call{" "}
               <a href={site.phoneHref}>{site.phone}</a> or book online with your marina and
               symptoms.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href={`/book?service=${service.id}`}>Book a visit</Button>
               <Button href="/free-estimate" variant="ghost">
-                Get a free estimate
+                Request an estimate
               </Button>
               <Button href={`/services/${service.slug}`} variant="ghost">
                 Full {name} page

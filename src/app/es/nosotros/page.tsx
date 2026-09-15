@@ -18,7 +18,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Sobre Doctor Yachts | Mecánico de yates en el sur de la Florida",
   description:
-    "Sobre Doctor Yachts—mecánico de yates y botes independiente en Fort Lauderdale, Miami y el sur de la Florida. Reparación móvil y en el muelle, diagnóstico primero. Presupuestos gratis.",
+    "Sobre Doctor Yachts—mecánico de yates y botes independiente en Fort Lauderdale, Miami y el sur de la Florida. Reparación móvil y en el muelle, diagnóstico primero. Presupuesto gratis al reservar.",
   path: "/es/nosotros",
   locale: "es",
   keywords: ["sobre Doctor Yachts", "mecánico de yates Fort Lauderdale", "mecánico náutico"],
@@ -74,7 +74,7 @@ export default function SpanishAboutPage() {
             <AnswerBox
               label="Respuesta rápida"
               question="¿Qué es Doctor Yachts?"
-              answer="Doctor Yachts es un mecánico de yates y botes independiente que atiende el sur de la Florida con reparación de motores, eléctrico, enfriamiento, sistemas, diagnóstico y mantenimiento, móvil y en el muelle. Primero diagnosticamos, damos presupuestos gratis y reparamos lo que importa—sin teatro de yard."
+              answer="Doctor Yachts es un mecánico de yates y botes independiente que atiende el sur de la Florida con reparación de motores, eléctrico, enfriamiento, sistemas, diagnóstico y mantenimiento, móvil y en el muelle. Primero diagnosticamos, damos un presupuesto claro—gratis cuando reserva el trabajo—y reparamos lo que importa—sin teatro de yard."
             />
 
             <div>
@@ -88,7 +88,7 @@ export default function SpanishAboutPage() {
               <p className="mt-4 text-steel">
                 No somos brokerage, no somos detailing ni un handyman general. Motores, eléctrico,
                 bombas, enfriamiento y la zona gris donde esos sistemas se pelean—ese es el trabajo.
-                Presupuesto gratis después del diagnóstico.
+                Presupuesto claro después del diagnóstico—gratis cuando reserva el trabajo.
               </p>
             </div>
 
@@ -123,7 +123,7 @@ export default function SpanishAboutPage() {
             <div className="flex flex-wrap gap-3">
               <Button href="/es/reservar">Reservar visita</Button>
               <Button href="/es/presupuesto-gratis" variant="ghost">
-                Pedir presupuesto gratis
+                Pedir presupuesto
               </Button>
               <Button href="/es/contacto" variant="ghost">
                 Contacto

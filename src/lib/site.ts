@@ -7,9 +7,9 @@ export const site = {
   /** Primary domain for sitemap, canonicals, and structured data. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://doctoryachts.com",
   description:
-    "Boat repair & boat maintenance in Fort Lauderdale and South Florida. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimates — Doctor Yachts.",
+    "Boat repair & boat maintenance in Fort Lauderdale and South Florida. Mobile/dockside marine engine repair, electrical, and maintenance. Free estimate when you book — Doctor Yachts.",
   descriptionEs:
-    "Reparación de barcos y mantenimiento de yates en Fort Lauderdale y el sur de la Florida. Mecánico náutico móvil/en el muelle: motor, eléctrico y servicio. Presupuestos gratis — Doctor Yachts.",
+    "Reparación de barcos y mantenimiento de yates en Fort Lauderdale y el sur de la Florida. Mecánico náutico móvil/en el muelle: motor, eléctrico y servicio. Presupuesto gratis al reservar — Doctor Yachts.",
   email: "info@doctoryachts.com",
   phone: "(954) 770-1910",
   phoneHref: "tel:+19547701910",
@@ -25,7 +25,8 @@ export const site = {
   hours: "Mon–Sat · 7:00 AM – 6:00 PM",
   hoursEs: "Lun–Sáb · 7:00 a. m. – 6:00 p. m.",
   hoursSchema: ["Mo-Sa 07:00-18:00"],
-  freeEstimates: true,
+  /** Estimate is free only when the customer books the job. Estimate-only visits are $75, credited if we do the work. */
+  estimateFeeUsd: 75,
   /** Set real profile URLs when ready; empty = hidden in UI */
   social: {
     instagram: "",
@@ -91,7 +92,7 @@ export const homeFaqs = [
   {
     question: "Do you give free estimates?",
     answer:
-      "Yes. After we understand the symptoms and location, we provide free estimates for recommended repair work so you can decide before authorizing parts and labor.",
+      "The estimate is free when you book the job with us. If you only want an estimate and do not proceed, there is a $75 fee. That $75 is credited toward the repair if we do the work.",
   },
   {
     question: "Do you repair both boats and yachts?",
@@ -114,3 +115,32 @@ export const homeFaqs = [
       "Most overheating is restricted raw-water flow: impeller, strainer, intake, thermostat, or heat exchanger issues. Reduce load and shut down if temperatures keep rising, then schedule cooling system repair.",
   },
 ] as const;
+
+/** Customer-facing estimate policy (EN + ES). Use these instead of inventing “free estimate” language. */
+export const estimatePolicy = {
+  feeUsd: 75,
+  en: {
+    short: "Free estimate when you book the job with us.",
+    line: "Free estimate when you book the job with us. Estimate-only visits are $75, credited toward your repair if we do the work.",
+    meta: "Free estimate when you book the job. Estimate-only visits $75, credited if we do the work.",
+    seoTail: "Estimate free when you book — Doctor Yachts.",
+    cta: "Request an estimate",
+    ctaInstead: "Request an estimate instead",
+    tag: "Diagnose first · estimate free when you book",
+    faqQ: "Do you give free estimates?",
+    faqA:
+      "The estimate is free when you book the job with us. If you only want an estimate and do not proceed, there is a $75 fee. That $75 is credited toward the repair if we do the work.",
+  },
+  es: {
+    short: "Presupuesto gratis cuando reserva el trabajo con nosotros.",
+    line: "Presupuesto gratis cuando reserva el trabajo con nosotros. Si solo quiere el presupuesto y no sigue con nosotros, hay un cargo de $75, que se descuenta de la reparación si hacemos el trabajo.",
+    meta: "Presupuesto gratis al reservar el trabajo. Solo presupuesto: $75, acreditado si hacemos el trabajo.",
+    seoTail: "Presupuesto gratis al reservar — Doctor Yachts.",
+    cta: "Pedir presupuesto",
+    ctaInstead: "Pedir presupuesto",
+    tag: "Primero diagnosticamos · presupuesto gratis al reservar",
+    faqQ: "¿Dan presupuestos gratis?",
+    faqA:
+      "El presupuesto es gratis cuando reserva el trabajo con nosotros. Si solo quiere el presupuesto y no sigue, hay un cargo de $75. Ese $75 se descuenta de la reparación si hacemos el trabajo.",
+  },
+} as const;

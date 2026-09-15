@@ -37,7 +37,7 @@ const LASTMOD = {
   locations: "2026-08-21",
   guides: "2026-08-06",
   faq: "2026-08-21",
-  freeEstimate: "2026-08-21",
+  freeEstimate: "2026-09-15",
   book: "2026-08-21",
   reviews: "2026-08-16",
   about: "2026-08-21",

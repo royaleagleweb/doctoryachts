@@ -50,7 +50,7 @@ export const services: Service[] = [
     content: [
       "Need marine engine repair in Fort Lauderdale, or nearby South Florida? Doctor Yachts is an independent boat and yacht mechanic focused on finding the real fault before parts get thrown at the problem. Whether your vessel is a center console, cabin cruiser, sport yacht, or motor yacht, we treat engines as systems—fuel, air, spark/compression, cooling, and controls—not a shopping list of sensors.",
       "Hard starts, overheating, power loss, rough idle, exhaust issues, and generator load problems are everyday calls in Broward and Miami-Dade. Salt air, heat, and year-round use punish cooling passages, connections, and fuel systems. A proper marine engine repair visit separates “needs a battery” from “needs a fuel pump,” “needs cooling flow,” or “needs deeper mechanical work”—so you don’t pay twice for the same symptom.",
-      "We offer mobile and dockside marine engine repair when access allows at Fort Lauderdale marinas, private docks, and nearby waterways. Many diagnostics and repairs never need a travel lift. When a job does need haul-out or specialized equipment, we tell you early and help plan the next step. Free estimates apply to recommended work after diagnosis.",
+      "We offer mobile and dockside marine engine repair when access allows at Fort Lauderdale marinas, private docks, and nearby waterways. Many diagnostics and repairs never need a travel lift. When a job does need haul-out or specialized equipment, we tell you early and help plan the next step. Clear estimate after diagnosis—free when you book the job.",
     ],
     sections: [
       {
@@ -86,7 +86,7 @@ export const services: Service[] = [
       {
         heading: "What you receive after an engine visit",
         body: [
-          "You should leave with more than a verbal “we think it’s fine.” After diagnosis we explain options in plain language: temporary safety fix, full repair now, or planned maintenance if the boat is still trip-ready. Free estimates cover recommended repair work before major parts and labor are authorized.",
+          "You should leave with more than a verbal “we think it’s fine.” After diagnosis we explain options in plain language: temporary safety fix, full repair now, or planned maintenance if the boat is still trip-ready. You get a clear estimate for recommended repair work before major parts and labor are authorized. The estimate is free when you book the job.",
           "If the root cause is primarily electrical or cooling rather than the engine core, we say so and point you to the right service path. That honesty saves money and keeps the “doctor” method intact.",
         ],
       },
@@ -108,9 +108,9 @@ export const services: Service[] = [
           "Battery/charging baseline, safety circuits, fuel delivery clues, cooling indicators, and engine behavior under the right test conditions.",
       },
       {
-        title: "Findings & free estimate",
+        title: "Findings & estimate",
         detail:
-          "Clear options, recommended vs optional work, and a free estimate path before major parts. Repair proceeds with your approval.",
+          "Clear options, recommended vs optional work, and a clear estimate before major parts. Repair proceeds with your approval. The estimate is free when you book the job.",
       },
     ],
     whatWeCheck: [
@@ -144,10 +144,10 @@ export const services: Service[] = [
     duration: "2–8 hrs typical",
     icon: "engine",
     quickAnswer:
-      "Marine engine repair covers inboard and outboard no-starts, overheating, power loss, and generator issues. Doctor Yachts diagnoses first in Fort Lauderdale and South Florida, then repairs with dockside service when access allows. Free estimates before major parts work.",
+      "Marine engine repair covers inboard and outboard no-starts, overheating, power loss, and generator issues. Doctor Yachts diagnoses first in Fort Lauderdale and South Florida, then repairs with dockside service when access allows. Clear estimate before major parts work—free when you book.",
     seoTitle: "Marine Engine Repair, Inboard & Outboard | Doctor Yachts | Fort Lauderdale, FL",
     seoDescription:
-      "Expert inboard & outboard marine engine repair in Fort Lauderdale & South Florida. Diagnose-first dockside service. Free estimates — Doctor Yachts.",
+      "Expert inboard & outboard marine engine repair in Fort Lauderdale & South Florida. Diagnose-first dockside service. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "marine engine repair Fort Lauderdale",
       "inboard engine repair Fort Lauderdale",
@@ -193,7 +193,7 @@ export const services: Service[] = [
       {
         question: "Do you give free estimates for engine repair?",
         answer:
-          "Yes. After we understand symptoms and complete diagnosis, we provide free estimates for recommended engine repair work before you authorize major parts and labor.",
+          "The estimate is free when you book the job with us. If you only want an estimate and do not proceed, there is a $75 fee, credited toward the repair if we do the work. After diagnosis we still explain recommended engine work before you authorize major parts and labor.",
       },
       {
         question: "Do you only replace parts, or do you diagnose first?",
@@ -212,7 +212,7 @@ export const services: Service[] = [
     content: [
       "Turn to Doctor Yachts for boat electrical repairs in Fort Lauderdale, and across Miami and Palm Beach when scheduled. Dead batteries, no charge underway, shore power trips, dim electronics under load, and intermittent shorts are core work for a marine mechanic who treats electrical systems as a complete path—not a single box on the bulkhead.",
       "Intermittent marine electrical issues are often the hardest to catch in salt air and heat. Green crust on grounds, high-resistance cable ends, failing chargers, and parasitic draws can look like “bad batteries” until the charging and distribution path is tested properly. We use a systems approach so parts-swapping does not become your weekend hobby.",
-      "Mobile and dockside electrical service is available when access allows. Bring photos of the panel, battery bank, and shore power inlet when you request a free estimate—it speeds triage and helps us arrive prepared.",
+      "Mobile and dockside electrical service is available when access allows. Bring photos of the panel, battery bank, and shore power inlet when you request an estimate—it speeds triage and helps us arrive prepared.",
     ],
     sections: [
       {
@@ -241,7 +241,7 @@ export const services: Service[] = [
       {
         heading: "How we document electrical findings",
         body: [
-          "You receive plain-language findings: what failed, what is weak, and what is optional. Free estimates cover recommended repair work. Notes matter for surveys, resale, and the next technician—especially after lithium or house-bank upgrades.",
+          "You receive plain-language findings: what failed, what is weak, and what is optional. Clear estimate for recommended repair work—free when you book. Notes matter for surveys, resale, and the next technician—especially after lithium or house-bank upgrades.",
           "We are not a general handyman and not a full multi-display nav package design firm. We keep electronics reliable by fixing the power and distribution foundation they depend on. For large installation packages, we can discuss scope or coordinate when a specialist installer is the better path.",
         ],
       },
@@ -265,7 +265,7 @@ export const services: Service[] = [
       {
         title: "Estimate & repair",
         detail:
-          "Free estimate for recommended work. Repair proceeds with approval—no mystery parts pressure.",
+          "Clear estimate for recommended work—free when you book. Repair proceeds with approval—no mystery parts pressure.",
       },
     ],
     whatWeCheck: [
@@ -299,10 +299,10 @@ export const services: Service[] = [
     duration: "1–6 hrs typical",
     icon: "electrical",
     quickAnswer:
-      "Boat electrical repairs fix dead batteries, weak charging, shore power trips, and intermittent wiring faults. We test the full path—batteries, chargers, alternators, and grounds—across Fort Lauderdale and South Florida docks. Free estimates after diagnosis.",
+      "Boat electrical repairs fix dead batteries, weak charging, shore power trips, and intermittent wiring faults. We test the full path—batteries, chargers, alternators, and grounds—across Fort Lauderdale and South Florida docks. Clear estimate after diagnosis—free when you book.",
     seoTitle: "Boat Electrical Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Expert boat electrical repairs in Fort Lauderdale & South Florida. Batteries, charging, shore power, grounds. Free estimates — Doctor Yachts.",
+      "Expert boat electrical repairs in Fort Lauderdale & South Florida. Batteries, charging, shore power, grounds. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "boat electrical repairs Fort Lauderdale",
       "boat electrical repairs South Florida",
@@ -366,7 +366,7 @@ export const services: Service[] = [
     content: [
       "Overheating is one of the fastest ways to destroy an otherwise healthy marine engine. Doctor Yachts provides cooling system repair services for Fort Lauderdale, and nearby South Florida boats—raw-water and closed cooling paths, impellers, sea strainers, thermostats, heat exchangers, hoses, and flow under the right conditions.",
       "If the engine runs hot only at cruise—or only after a few minutes—we still treat it as a cooling case until proven otherwise. A weak telltale (pee stream) on an outboard is a red flag, not a curiosity. Grass, sand, and growth in Broward and Miami-Dade waters make cooling reliability a weekly reality for active owners.",
-      "Many impeller, strainer, hose, and thermostat jobs are done dockside without a haul-out. Free estimates after diagnosis. If you already overheated, stop running and book service before the next trip.",
+      "Many impeller, strainer, hose, and thermostat jobs are done dockside without a haul-out. Clear estimate after diagnosis—free when you book. If you already overheated, stop running and book service before the next trip.",
     ],
     sections: [
       {
@@ -414,7 +414,7 @@ export const services: Service[] = [
       {
         title: "Repair path",
         detail:
-          "Impeller, thermostat, hose, exchanger, or deeper work—explained with a free estimate before major parts.",
+          "Impeller, thermostat, hose, exchanger, or deeper work—explained with a clear estimate before major parts—free when you book.",
       },
       {
         title: "Prevention notes",
@@ -453,10 +453,10 @@ export const services: Service[] = [
     duration: "1–5 hrs typical",
     icon: "diagnostics",
     quickAnswer:
-      "Boat cooling system repairs address overheating from failed impellers, clogged strainers, stuck thermostats, or fouled heat exchangers. Stop running if temps keep rising. Doctor Yachts offers dockside cooling diagnostics in Fort Lauderdale and South Florida. Free estimates.",
+      "Boat cooling system repairs address overheating from failed impellers, clogged strainers, stuck thermostats, or fouled heat exchangers. Stop running if temps keep rising. Doctor Yachts offers dockside cooling diagnostics in Fort Lauderdale and South Florida. Estimate free when you book.",
     seoTitle: "Cooling System Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat cooling system repairs in Fort Lauderdale & South Florida. Overheating, impellers, strainers, exchangers. Free estimates — Doctor Yachts.",
+      "Boat cooling system repairs in Fort Lauderdale & South Florida. Overheating, impellers, strainers, exchangers. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "cooling system repairs boat Fort Lauderdale",
       "boat overheating repair",
@@ -514,7 +514,7 @@ export const services: Service[] = [
     content: [
       "Doctor Yachts performs multi-system mechanical diagnostics for boat and yacht owners in Fort Lauderdale, Miami, and surrounding South Florida docks. Use a diagnostic before peak season, after purchase, when something only fails “sometimes,” or after another shop replaced parts without solving the symptom.",
       "You receive clear findings and a prioritized repair roadmap—not a vague invoice. Pre-purchase mechanical checks and sea-trial support help buyers understand true condition beyond a walkthrough. Pre-season diagnostics help you start the year ready, not reactive—especially important in Florida’s year-round salt and heat.",
-      "Diagnostics are ideal when multiple systems might be involved—charging vs starter, cooling vs fuel, bilge pump vs wiring. Free estimates for recommended work after the inspection.",
+      "Diagnostics are ideal when multiple systems might be involved—charging vs starter, cooling vs fuel, bilge pump vs wiring. Clear estimate for recommended work after the inspection—free when you book.",
     ],
     sections: [
       {
@@ -529,7 +529,7 @@ export const services: Service[] = [
           "Bilge pumps and float switch behavior",
           "Critical systems function checks by vessel type",
           "Notes on access issues and recommended next tests",
-          "Prioritized repair roadmap with free estimate path",
+          "Prioritized repair roadmap with a clear estimate",
         ],
       },
       {
@@ -566,7 +566,7 @@ export const services: Service[] = [
       {
         title: "Written findings",
         detail:
-          "Prioritized roadmap and free estimates for recommended repairs.",
+          "Prioritized roadmap and a clear estimate for recommended repairs—free when you book.",
       },
     ],
     whatWeCheck: [
@@ -600,10 +600,10 @@ export const services: Service[] = [
     duration: "Half or full day",
     icon: "diagnostics",
     quickAnswer:
-      "Boat diagnostics inspect engines, electrical, bilge, and safety systems and deliver written findings with a repair roadmap. Use before season, after purchase, or when faults are intermittent. Available mobile in Fort Lauderdale and South Florida. Free estimates on recommended work.",
+      "Boat diagnostics inspect engines, electrical, bilge, and safety systems and deliver written findings with a repair roadmap. Use before season, after purchase, or when faults are intermittent. Available mobile in Fort Lauderdale and South Florida. Clear estimate on recommended work—free when you book.",
     seoTitle: "Boat Diagnostics | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat & yacht diagnostics in Fort Lauderdale & South Florida. Written findings, repair roadmap, free estimates on recommended work — Doctor Yachts.",
+      "Boat & yacht diagnostics in Fort Lauderdale & South Florida. Written findings, repair roadmap, estimate free when you book — Doctor Yachts.",
     keywords: [
       "boat diagnostics Fort Lauderdale",
       "yacht diagnostics Fort Lauderdale",
@@ -661,7 +661,7 @@ export const services: Service[] = [
     content: [
       "Boat owners throughout Fort Lauderdale and South Florida can depend on Doctor Yachts for quality boat maintenance scheduled to manufacturer intervals and how you actually use the boat. Preventative maintenance is cheaper than emergency no-starts the morning of a charter or family trip.",
       "Typical service includes oil and filters, impeller inspection/replacement planning, belts, zincs, fluid checks, cooling attention, battery/charging health, and system function tests. Clear service notes keep your maintenance history organized for resale or surveys.",
-      "Book outboard engine maintenance or full seasonal commissioning early—South Florida calendars fill before peak season. Free estimates for packages available.",
+      "Book outboard engine maintenance or full seasonal commissioning early—South Florida calendars fill before peak season. Clear estimate for packages—free when you book.",
     ],
     sections: [
       {
@@ -689,7 +689,7 @@ export const services: Service[] = [
         heading: "Seasonal commissioning in South Florida",
         body: [
           "Pre-season commissioning is not winterization theater—it is a readiness pass before heavy use. We catch weak batteries, tired impellers, and bilge issues before they become Saturday emergencies in Fort Lauderdale or South Florida.",
-          "Ask about seasonal packages when you book. Free estimates available.",
+          "Ask about seasonal packages when you book. Clear estimate available—free when you book the job.",
         ],
       },
     ],
@@ -746,10 +746,10 @@ export const services: Service[] = [
     duration: "2–5 hrs typical",
     icon: "maintenance",
     quickAnswer:
-      "Boat maintenance in Florida should follow manufacturer hours plus saltwater reality—oil and filters, impellers, zincs, belts, and seasonal checks. Doctor Yachts provides scheduled maintenance in Fort Lauderdale and South Florida. Free estimates for packages.",
+      "Boat maintenance in Florida should follow manufacturer hours plus saltwater reality—oil and filters, impellers, zincs, belts, and seasonal checks. Doctor Yachts provides scheduled maintenance in Fort Lauderdale and South Florida. Clear estimate for packages—free when you book.",
     seoTitle: "Boat Maintenance | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat maintenance in Fort Lauderdale & South Florida. Oil service, outboard maintenance, zincs, seasonal commissioning. Free estimates — Doctor Yachts.",
+      "Boat maintenance in Fort Lauderdale & South Florida. Oil service, outboard maintenance, zincs, seasonal commissioning. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "boat maintenance Fort Lauderdale",
       "boat maintenance South Florida",
@@ -812,7 +812,7 @@ export const services: Service[] = [
     content: [
       "Most manufacturer manuals put a serious service around 100 hours—or once a year if you run fewer hours in saltwater. Doctor Yachts provides 100-hour service at the dock in Fort Lauderdale and across South Florida when access allows. This is scheduled marine maintenance, not a parts dump: we follow the interval, inspect what salt and heat actually punish, and tell you what can wait.",
       "A typical 100-hour visit covers engine oil and filters, gear lube where the drive or lower unit calls for it, impeller and cooling-path checks, zincs, belts, batteries and charging, fluid levels, and function tests you can keep in a service log. Sitting between weekends still ages fuel, batteries, and impellers—so “low hours” is not a free pass in Florida.",
-      "Think of 100-hour service as the visit that prevents Saturday no-starts. Diagnose first. If we find a fault that is not interval work—weak charging, restricted cooling, a safety circuit—we say so and give a free estimate before major parts. Book the 100-hour service, or start with a free estimate if you are not sure the hours or last service date.",
+      "Think of 100-hour service as the visit that prevents Saturday no-starts. Diagnose first. If we find a fault that is not interval work—weak charging, restricted cooling, a safety circuit—we say so and give a clear estimate before major parts. Book the 100-hour service, or request an estimate if you are not sure the hours or last service date. The estimate is free when you book the job.",
     ],
     sections: [
       {
@@ -843,7 +843,7 @@ export const services: Service[] = [
         heading: "Dockside 100-hour service vs a dealer wait",
         body: [
           "Many interval items are strong dockside candidates when the boat is floating and accessible. You often skip a tow and a yard minimum. Dealers remain the right path for warranty-program work—we will say so if that is the better fit.",
-          "We are not here to upsell a parts kit you do not need. Findings first. Free estimates on recommended extras before you authorize them.",
+          "We are not here to upsell a parts kit you do not need. Findings first. Clear estimate on recommended extras before you authorize them—free when you book.",
         ],
       },
     ],
@@ -866,7 +866,7 @@ export const services: Service[] = [
       {
         title: "Service log & next interval",
         detail:
-          "What was done, what is due around 300 hours or next season, and a free estimate path for anything we found.",
+          "What was done, what is due around 300 hours or next season, and a clear estimate path for anything we found—free when you book.",
       },
     ],
     whatWeCheck: [
@@ -900,10 +900,10 @@ export const services: Service[] = [
     duration: "2–5 hrs typical",
     icon: "maintenance",
     quickAnswer:
-      "100-hour service is manufacturer-interval dockside maintenance—oil and filters, gear lube, impeller and cooling checks, zincs, belts, batteries, and a service log. Doctor Yachts does this visit in Fort Lauderdale and South Florida to prevent Saturday no-starts. Diagnose first. Free estimates.",
+      "100-hour service is manufacturer-interval dockside maintenance—oil and filters, gear lube, impeller and cooling checks, zincs, belts, batteries, and a service log. Doctor Yachts does this visit in Fort Lauderdale and South Florida to prevent Saturday no-starts. Diagnose first. Estimate free when you book.",
     seoTitle: "100-Hour Boat Service | Doctor Yachts | Fort Lauderdale & South Florida",
     seoDescription:
-      "100-hour boat & yacht service in Fort Lauderdale & South Florida. Oil, filters, impeller, zincs, batteries. Dockside interval service. Free estimates — Doctor Yachts.",
+      "100-hour boat & yacht service in Fort Lauderdale & South Florida. Oil, filters, impeller, zincs, batteries. Dockside interval service. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "100 hour service boat",
       "100 hour boat service Fort Lauderdale",
@@ -953,7 +953,7 @@ export const services: Service[] = [
       {
         question: "Do you give a free estimate before extra parts?",
         answer:
-          "Yes. Interval items are planned up front. Anything we find that is not routine gets a free estimate before you authorize major parts and labor.",
+          "Interval items are planned up front. Anything we find that is not routine gets a clear estimate before you authorize major parts and labor. That estimate is free when you book the job; estimate-only visits are $75, credited if we do the work.",
       },
     ],
   },
@@ -967,7 +967,7 @@ export const services: Service[] = [
     content: [
       "Around 250–300 hours, most marine manuals stop calling it a simple oil change. Doctor Yachts provides 300-hour service as the heavier interval visit—still dockside in Fort Lauderdale and South Florida when access allows. This is not a parts dump. We inspect what the hours actually stress, document findings, and estimate extras before you buy them.",
       "Expect deeper cooling attention (impeller plus heat-exchanger and raw-water path clues on inboards), more thorough electrical and charging checks, fuel-system inspection, and the drive or lower-unit items many makers group at this interval. Twin and triple setups take longer; we plan time honestly.",
-      "If you are past 300 hours, or you bought a boat with thin records, this visit is how you stop guessing. Diagnose first. Free estimates on recommended work. Pair it with regular 100-hour service so you are not jumping from neglect to a yard invoice.",
+      "If you are past 300 hours, or you bought a boat with thin records, this visit is how you stop guessing. Diagnose first. Clear estimate on recommended work—free when you book. Pair it with regular 100-hour service so you are not jumping from neglect to a yard invoice.",
     ],
     sections: [
       {
@@ -984,7 +984,7 @@ export const services: Service[] = [
           "Fuel-system inspection (separators, supply clues, leak/odor)",
           "Drive / lower-unit and gear-lube items when due",
           "Function tests and a prioritized findings list",
-          "Free estimate before non-interval parts and labor",
+          "Clear estimate before non-interval parts and labor—free when you book",
         ],
       },
       {
@@ -1019,7 +1019,7 @@ export const services: Service[] = [
           "Inspection and interval service at the boat when access allows. Findings explained as we go.",
       },
       {
-        title: "Findings & free estimate",
+        title: "Findings & estimate",
         detail:
           "What is done, what is recommended, what can wait. Extras estimated before parts. Log for your file.",
       },
@@ -1055,10 +1055,10 @@ export const services: Service[] = [
     duration: "4–8 hrs typical",
     icon: "maintenance",
     quickAnswer:
-      "300-hour service is the heavier manufacturer interval: deeper cooling and heat-exchanger attention, thorough electrical and fuel-system checks, plus fluids. Doctor Yachts does this dockside in Fort Lauderdale and South Florida when access allows. Findings before parts. Free estimates.",
+      "300-hour service is the heavier manufacturer interval: deeper cooling and heat-exchanger attention, thorough electrical and fuel-system checks, plus fluids. Doctor Yachts does this dockside in Fort Lauderdale and South Florida when access allows. Findings before parts. Estimate free when you book.",
     seoTitle: "300-Hour Boat Service | Doctor Yachts | Fort Lauderdale & South Florida",
     seoDescription:
-      "300-hour boat & yacht service in Fort Lauderdale & South Florida. Deeper cooling, electrical & fuel inspection. Dockside. Free estimates — Doctor Yachts.",
+      "300-hour boat & yacht service in Fort Lauderdale & South Florida. Deeper cooling, electrical & fuel inspection. Dockside. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "300 hour service boat",
       "300 hour boat service Fort Lauderdale",
@@ -1122,7 +1122,7 @@ export const services: Service[] = [
     content: [
       "Doctor Yachts handles boat plumbing and systems repairs across Fort Lauderdale, and nearby South Florida docks. Bilge pumps that run nonstop, weak freshwater pressure, head system failures, and livewell/raw-water pump problems are common calls—and they are not “minor” when safety or guest weekends are on the line.",
       "We inspect pumps, float switches, plumbing runs, seacocks, and related electrical supply so you are protected at the dock and underway. When plumbing issues mix with electrical load or raw-water cooling problems, we troubleshoot the system as one machine.",
-      "A bilge that “always runs a little” is not normal. Constant cycling can hide slow leaks, packing issues, AC condensate overload—or a stuck switch that leaves you unprotected when you need the pump most. Free estimates available.",
+      "A bilge that “always runs a little” is not normal. Constant cycling can hide slow leaks, packing issues, AC condensate overload—or a stuck switch that leaves you unprotected when you need the pump most. Clear estimate available—free when you book the job.",
     ],
     sections: [
       {
@@ -1172,7 +1172,7 @@ export const services: Service[] = [
       {
         title: "Repair & estimate",
         detail:
-          "Free estimate for recommended work. Haul-out needs flagged early when relevant.",
+          "Clear estimate for recommended work—free when you book. Haul-out needs flagged early when relevant.",
       },
     ],
     whatWeCheck: [
@@ -1209,7 +1209,7 @@ export const services: Service[] = [
       "Boat plumbing repairs cover bilge pumps, freshwater systems, heads, seacocks, and related leaks or failures. Constant bilge running or weak water pressure needs diagnosis, not random part swaps. Mobile service in Fort Lauderdale and South Florida when access allows.",
     seoTitle: "Boat Plumbing Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat plumbing & bilge repairs in Fort Lauderdale & South Florida. Pumps, heads, seacocks, systems. Free estimates — Doctor Yachts.",
+      "Boat plumbing & bilge repairs in Fort Lauderdale & South Florida. Pumps, heads, seacocks, systems. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "boat plumbing repairs Fort Lauderdale",
       "boat plumbing repairs South Florida",
@@ -1267,7 +1267,7 @@ export const services: Service[] = [
     content: [
       "Looking for a mobile boat mechanic in Fort Lauderdale? Doctor Yachts provides on-site boat repair at marinas and private docks in Fort Lauderdale, Dania Beach, Hollywood, and nearby South Florida—when access and marina rules allow. Mobile repair means diagnosis and many repairs where the boat already lives.",
       "We handle engines, electrical, cooling, bilge/pumps, and related systems. Priority slots for emergency boat repair—no-start, overheating, and safety-critical issues—when the schedule allows. Bridge schedules, marina gates, and tow wait times make dockside service the practical first move for many Broward owners.",
-      "Share parking, gate codes, and slip numbers when you book so the tech arrives ready—not waiting on access. Free estimates on recommended work. Request online or call for urgent triage.",
+      "Share parking, gate codes, and slip numbers when you book so the tech arrives ready—not waiting on access. Clear estimate on recommended work—free when you book. Request online or call for urgent triage.",
     ],
     sections: [
       {
@@ -1319,7 +1319,7 @@ export const services: Service[] = [
       {
         title: "Estimate & fix",
         detail:
-          "Free estimate for recommended work. Repair at the dock when possible, or plan yard path if needed.",
+          "Clear estimate for recommended work—free when you book. Repair at the dock when possible, or plan yard path if needed.",
       },
     ],
     whatWeCheck: [
@@ -1338,7 +1338,7 @@ export const services: Service[] = [
       "Emergency boat repair triage",
       "Same-day priority when available",
       "Engines, electrical, cooling, systems",
-      "Free estimates",
+      "Estimate free when you book",
     ],
     symptoms: [
       "No-start at the marina or private dock",
@@ -1353,10 +1353,10 @@ export const services: Service[] = [
     duration: "As needed",
     icon: "emergency",
     quickAnswer:
-      "A mobile boat mechanic in Fort Lauderdale comes to your marina or dock for no-starts, electrical faults, cooling issues, and maintenance—often without a tow. Doctor Yachts also covers nearby Broward and South Florida. Free estimates. Priority for emergencies when available.",
+      "A mobile boat mechanic in Fort Lauderdale comes to your marina or dock for no-starts, electrical faults, cooling issues, and maintenance—often without a tow. Doctor Yachts also covers nearby Broward and South Florida. Estimate free when you book. Priority for emergencies when available.",
     seoTitle: "Mobile Boat Mechanic Fort Lauderdale | Dockside Boat Repair",
     seoDescription:
-      "Mobile boat mechanic in Fort Lauderdale & South Florida. Dockside engine, electrical & emergency repair. Free estimates — Doctor Yachts.",
+      "Mobile boat mechanic in Fort Lauderdale & South Florida. Dockside engine, electrical & emergency repair. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "mobile boat mechanic Fort Lauderdale",
       "mobile boat repair Fort Lauderdale",
@@ -1396,7 +1396,7 @@ export const services: Service[] = [
       {
         question: "Is mobile boat repair more expensive than a shop?",
         answer:
-          "Not always. You may pay a trip fee, but you often save towing, yard days, and downtime. Ask for a free estimate with your location and symptoms.",
+          "Not always. You may pay a trip fee, but you often save towing, yard days, and downtime. Ask for an estimate with your location and symptoms. Free when you book the job; estimate-only visits are $75, credited if we do the work.",
       },
       {
         question: "Do you work at private docks?",
@@ -1415,7 +1415,7 @@ export const services: Service[] = [
     content: [
       "Outboard motor repair Fort Lauderdale searches are packed with dealer and mobile shops for a reason—center consoles and fishing boats live on outboards. Doctor Yachts provides diagnostic-first outboard repair and maintenance for owners who want clarity before parts and honest guidance before anyone mentions a repower you may not need.",
       "We service common no-start, overheating (including weak telltale/pee stream), rough running, power loss, and charging-related outboard issues. Routine outboard service and 100-hour style maintenance keep you out of emergency mode. Many jobs are completed as mobile boat repair at Fort Lauderdale and South Florida docks.",
-      "Popular platforms include common Mercury and Yamaha applications. For brand warranty work, a factory dealer may be required—we’ll tell you if that’s the better path. Free estimates after we understand the symptoms and motor family.",
+      "Popular platforms include common Mercury and Yamaha applications. For brand warranty work, a factory dealer may be required—we’ll tell you if that’s the better path. Clear estimate after we understand the symptoms and motor family—free when you book.",
     ],
     sections: [
       {
@@ -1463,7 +1463,7 @@ export const services: Service[] = [
       {
         title: "Repair options",
         detail:
-          "Clear findings, free estimate for recommended work, dealer path if warranty requires it.",
+          "Clear findings, estimate for recommended work—free when you book—dealer path if warranty requires it.",
       },
       {
         title: "Service log",
@@ -1502,10 +1502,10 @@ export const services: Service[] = [
     duration: "1–6 hrs typical",
     icon: "engine",
     quickAnswer:
-      "Outboard motor repair in Fort Lauderdale covers no-starts, overheating, power loss, and scheduled service. Doctor Yachts diagnoses first and often works dockside so you avoid unnecessary towing. Free estimates. Also serves nearby Broward and South Florida.",
+      "Outboard motor repair in Fort Lauderdale covers no-starts, overheating, power loss, and scheduled service. Doctor Yachts diagnoses first and often works dockside so you avoid unnecessary towing. Estimate free when you book. Also serves nearby Broward and South Florida.",
     seoTitle: "Outboard Motor Repair Fort Lauderdale | Doctor Yachts",
     seoDescription:
-      "Outboard motor repair Fort Lauderdale—no-starts, overheating, 100-hour service. Diagnostic-first mobile mechanic. Free estimates — Doctor Yachts.",
+      "Outboard motor repair Fort Lauderdale—no-starts, overheating, 100-hour service. Diagnostic-first mobile mechanic. Estimate free when you book — Doctor Yachts.",
     keywords: [
       "outboard motor repair Fort Lauderdale",
       "outboard repair Fort Lauderdale",

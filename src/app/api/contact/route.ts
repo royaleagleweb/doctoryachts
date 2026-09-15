@@ -40,12 +40,12 @@ export async function POST(request: Request) {
 
   if (body.formType === "free-estimate" && !body.phone?.trim()) {
     return NextResponse.json(
-      { error: "Phone number is required for free estimates" },
+      { error: "Phone number is required for estimate requests" },
       { status: 400 },
     );
   }
 
-  const kind = body.formType === "free-estimate" ? "Free estimate" : "Contact message";
+  const kind = body.formType === "free-estimate" ? "Estimate request" : "Contact message";
 
   const notify = await notifyShop({
     subject: `${kind} — Doctor Yachts — ${body.name}`,

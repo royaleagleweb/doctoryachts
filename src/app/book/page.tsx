@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Book Boat Repair Online | Fort Lauderdale & South Florida",
   description:
-    "Book boat repair online in Fort Lauderdale and South Florida. Tell us what's wrong, where the boat is, and when works. Free estimates. Mobile dockside when available.",
+    "Book boat repair online in Fort Lauderdale and South Florida. Tell us what's wrong, where the boat is, and when works. Free estimate when you book the job. Mobile dockside when available.",
   path: "/book",
   keywords: [
     "book boat repair Fort Lauderdale",
@@ -30,9 +30,9 @@ const faqs = [
       "It’s a service request. We confirm availability, marina access, and scope—then lock the visit. You’ll hear back during shop hours by phone or email.",
   },
   {
-    question: "Can I get a free estimate before booking?",
+    question: "Can I get an estimate before booking?",
     answer:
-      "Yes. Use the free estimate form if you only want pricing guidance first. Booking is better when you already know you want a visit.",
+      "Yes. Use the estimate form if you want pricing guidance first. Estimate-only visits are $75; that fee is credited if we do the work. Booking is the better path when you already want a visit—then the estimate is free.",
   },
   {
     question: "What if my boat won’t start and I need help today?",
@@ -66,7 +66,7 @@ export default function BookPage() {
           <>
             <Button href={site.phoneHref}>Call {site.phone}</Button>
             <Button href="/free-estimate" variant="ghost">
-              Get a free estimate
+              Request an estimate
             </Button>
             <ReviewLinks />
           </>

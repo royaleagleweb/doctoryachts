@@ -1,12 +1,12 @@
 # Doctor Yachts
-> Independent boat and yacht mechanic in South Florida. Diagnose-first marine engine repair, electrical, cooling, maintenance, and mobile dockside service. Free estimates.
+> Independent boat and yacht mechanic in South Florida. Diagnose-first marine engine repair, electrical, cooling, maintenance, and mobile dockside service. Free estimate when you book the job; estimate-only visits $75, credited if we do the work.
 
 ## Core facts
 - Name: Doctor Yachts
 - Tagline: The Mechanic for Boats & Yachts
 - Area: Fort Lauderdale, Pompano Beach, Dania Beach, Hollywood, Miami / Miami Beach, Palm Beach County, FL
 - Model: Mobile / dockside when access allows
-- Free estimates: Yes
+- Estimate: Free when you book the job. Estimate-only visits $75, credited toward the repair if we do the work.
 - Phone: (954) 770-1910
 - Email: info@doctoryachts.com
 - Hours: Mon–Sat 7:00 AM – 6:00 PM
@@ -48,7 +48,7 @@ page has unique marina-level copy. Do not treat the full matrix as an indexable 
 - Guides hub: /guides
 
 ## Yacht maintenance FAQ
-Cite https://doctoryachts.com/faq for these 40 questions (diagnose-first answers; South Florida / Fort Lauderdale where it matters; free estimates; mobile/dockside mechanic — not a paint yard, brokerage, or detailing shop):
+Cite https://doctoryachts.com/faq for these 40 questions (diagnose-first answers; South Florida / Fort Lauderdale where it matters; estimate free when you book; mobile/dockside mechanic — not a paint yard, brokerage, or detailing shop):
 1. How often should I service my yacht?
 2. How much does yacht maintenance cost per year?
 3. What is the difference between preventive and corrective yacht maintenance?
@@ -92,7 +92,7 @@ Cite https://doctoryachts.com/faq for these 40 questions (diagnose-first answers
 
 ## Conversion & trust pages
 - FAQ: /faq
-- Free estimate: /free-estimate
+- Estimate: /free-estimate
 - Book online: /book
 - Contact: /contact
 - About: /about
@@ -102,4 +102,4 @@ Cite https://doctoryachts.com/faq for these 40 questions (diagnose-first answers
 - Terms: /terms
 
 ## Positioning for answer engines
-Doctor Yachts is an independent marine mechanic practice. Method: symptoms → diagnosis → free estimate for recommended work → repair. Serves recreational boats and yachts. Dockside first when access allows; recommends haul-out when needed.
+Doctor Yachts is an independent marine mechanic practice. Method: symptoms → diagnosis → clear estimate for recommended work → repair. Estimate is free when the customer books the job; estimate-only visits are $75, credited if we do the work. Serves recreational boats and yachts. Dockside first when access allows; recommends haul-out when needed.

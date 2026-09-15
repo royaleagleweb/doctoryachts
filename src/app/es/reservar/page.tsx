@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Reservar reparación de barcos en línea | Fort Lauderdale y el sur de la Florida",
   description:
-    "Reserve reparación de barcos en Fort Lauderdale y el sur de la Florida. Cuéntenos qué pasa, dónde está el bote y cuándo le sirve. Presupuestos gratis. Móvil en el muelle cuando hay cupo.",
+    "Reserve reparación de barcos en Fort Lauderdale y el sur de la Florida. Cuéntenos qué pasa, dónde está el bote y cuándo le sirve. Presupuesto gratis al reservar el trabajo. Móvil en el muelle cuando hay cupo.",
   path: "/es/reservar",
   locale: "es",
   keywords: ["reservar mecánico de yates", "agendar reparación de barcos Fort Lauderdale"],
@@ -27,9 +27,9 @@ const faqs = [
       "Es una solicitud. Confirmamos disponibilidad, acceso a la marina y alcance—después cerramos la visita. Le respondemos en horario del taller por teléfono o correo.",
   },
   {
-    question: "¿Puedo pedir presupuesto gratis antes de reservar?",
+    question: "¿Puedo pedir presupuesto antes de reservar?",
     answer:
-      "Sí. Use el formulario de presupuesto si solo quiere una guía de costo primero. Reservar es mejor cuando ya sabe que quiere la visita.",
+      "Sí. Use el formulario de presupuesto si quiere una guía de costo primero. Las visitas solo para presupuesto cuestan $75; ese cargo se descuenta si hacemos el trabajo. Reservar es el mejor camino cuando ya quiere la visita—entonces el presupuesto es gratis.",
   },
   {
     question: "¿Y si el bote no arranca y necesito ayuda hoy?",
@@ -63,7 +63,7 @@ export default function SpanishBookPage() {
           <>
             <Button href={site.phoneHref}>Llamar {site.phone}</Button>
             <Button href="/es/presupuesto-gratis" variant="ghost">
-              Pedir presupuesto gratis
+              Pedir presupuesto
             </Button>
             <ReviewLinks />
           </>

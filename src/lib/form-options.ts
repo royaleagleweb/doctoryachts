@@ -1,4 +1,4 @@
-/** Practical client-facing options for book + free estimate forms */
+/** Practical client-facing options for book + estimate forms */
 
 export const problemOptions = [
   {

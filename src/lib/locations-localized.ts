@@ -10,14 +10,14 @@ const es: Record<string, Overlay> = {
   "fort-lauderdale": {
     seoTitle: "Reparación de barcos | Doctor Yachts | Fort Lauderdale, FL",
     seoDescription:
-      "Reparación y mantenimiento de yates móvil en Fort Lauderdale. Motores, eléctrico, plomería y sistema de enfriamiento. Presupuestos gratis — Doctor Yachts.",
+      "Reparación y mantenimiento de yates móvil en Fort Lauderdale. Motores, eléctrico, plomería y sistema de enfriamiento. Presupuesto gratis al reservar — Doctor Yachts.",
     h1: "Reparación de barcos en Fort Lauderdale — en el muelle, diagnóstico primero",
     intro:
       "Doctor Yachts da reparación de barcos y mantenimiento de yates en Fort Lauderdale y Broward—motor, eléctrico y sistemas, móvil y en el muelle.",
     content: [
       "Los dueños en Fort Lauderdale pueden contar con Doctor Yachts para reparaciones móviles y en el muelle. De sportfish y center consoles a cabin cruisers y motor yachts, trabajamos donde vive el bote cuando el acceso lo permite.",
       "Atendemos reparación de motores (interno y fuera de borda), reparación eléctrica de barcos, sistema de enfriamiento, sentina y plomería, y mantenimiento programado—incluido servicio 100 horas y 300 horas.",
-      "Si busca un mecánico de yates en Fort Lauderdale por un no-arranque en el slip o un servicio antes de un viaje, primero diagnosticamos y damos presupuesto gratis del trabajo recomendado.",
+      "Si busca un mecánico de yates en Fort Lauderdale por un no-arranque en el slip o un servicio antes de un viaje, primero diagnosticamos y damos un presupuesto claro del trabajo recomendado—gratis cuando reserva.",
       "Fort Lauderdale es de los mercados náuticos más densos del país—New River, Intracoastal, marinas cerca de Port Everglades y muelles privados. La reparación móvil aquí a menudo gana a esperar remolque o cupo de yard para no-arranques, carga y sobrecalentamiento.",
     ],
     marinasNote:
@@ -42,14 +42,14 @@ const es: Record<string, Overlay> = {
       {
         question: "¿Hay presupuesto gratis?",
         answer:
-          "Sí. Después de entender síntomas y ubicación, damos presupuesto gratis del trabajo recomendado antes de piezas y mano de obra mayores.",
+          "El presupuesto es gratis cuando reserva el trabajo con nosotros. Si solo quiere el presupuesto y no sigue, hay un cargo de $75, acreditado si hacemos el trabajo.",
       },
     ],
   },
   miami: {
     seoTitle: "Reparación de barcos | Doctor Yachts | Miami y Miami Beach, FL",
     seoDescription:
-      "Reparación de barcos en Miami y Miami Beach. Motor, eléctrico y mantenimiento móvil. Presupuestos gratis — Doctor Yachts.",
+      "Reparación de barcos en Miami y Miami Beach. Motor, eléctrico y mantenimiento móvil. Presupuesto gratis al reservar — Doctor Yachts.",
     h1: "Reparación de barcos y servicio náutico móvil en Miami y Miami Beach",
     intro:
       "De Miami Beach a Biscayne Bay, Doctor Yachts da reparación de barcos y mecánico de yates—motores, eléctrico, diagnóstico y mantenimiento, con disciplina de muelle.",
@@ -108,13 +108,13 @@ const es: Record<string, Overlay> = {
   "dania-beach": {
     seoTitle: "Reparación de barcos Dania Beach FL | Doctor Yachts",
     seoDescription:
-      "Reparación de barcos en Dania Beach—motor, eléctrico y mantenimiento móvil cerca de Fort Lauderdale. Presupuestos gratis — Doctor Yachts.",
+      "Reparación de barcos en Dania Beach—motor, eléctrico y mantenimiento móvil cerca de Fort Lauderdale. Presupuesto gratis al reservar — Doctor Yachts.",
     h1: "Reparación de barcos en Dania Beach, FL",
     intro:
       "Doctor Yachts da reparación de barcos y mecánico móvil para marinas y muelles de Dania Beach—a minutos del corredor de Fort Lauderdale.",
     content: [
       "Dania Beach está en el centro del boating de Broward. Quien busca reparación de barcos en Dania Beach suele necesitar el mismo motor, eléctrico y mantenimiento que hacemos a diario en Fort Lauderdale.",
-      "Vamos al muelle cuando hay acceso para no-arranques, sobrecalentamiento, carga y servicio programado. Presupuesto gratis cuando entendemos síntomas y ubicación.",
+      "Vamos al muelle cuando hay acceso para no-arranques, sobrecalentamiento, carga y servicio programado. Presupuesto claro cuando entendemos síntomas y ubicación—gratis cuando reserva.",
       "Si el bote está entre Hollywood y Fort Lauderdale, Dania Beach es cobertura núcleo—no una llamada rara.",
     ],
     marinasNote: "Comparta marina y slip al reservar. Dania Beach es cobertura rutinaria de Broward.",
@@ -129,13 +129,13 @@ const es: Record<string, Overlay> = {
   "hollywood-fl": {
     seoTitle: "Reparación de barcos Hollywood FL | Doctor Yachts",
     seoDescription:
-      "Reparación de barcos en Hollywood, FL—mecánico móvil para motores, eléctrico y mantenimiento. Presupuestos gratis — Doctor Yachts.",
+      "Reparación de barcos en Hollywood, FL—mecánico móvil para motores, eléctrico y mantenimiento. Presupuesto gratis al reservar — Doctor Yachts.",
     h1: "Reparación de barcos en Hollywood, Florida",
     intro:
       "Reparación móvil y mecánico en el muelle para dueños en Hollywood, FL—motores, eléctrico y mantenimiento, sin siempre remolcar primero.",
     content: [
       "Los boteros de Hollywood, FL quedan entre las opciones de Miami-Dade y Fort Lauderdale. Doctor Yachts cubre muelles de Hollywood para reparación móvil, fuera de borda, internos y fallas eléctricas.",
-      "Pida presupuesto gratis con marina y síntomas. Confirmamos acceso y si el trabajo se cierra en el muelle o pide otro camino.",
+      "Pida un presupuesto con marina y síntomas. Gratis cuando reserva el trabajo; solo presupuesto: $75, acreditado si hacemos el trabajo. Confirmamos acceso y si el trabajo se cierra en el muelle o pide otro camino.",
     ],
     marinasNote: "Incluya marina, slip y notas de parqueo para llamadas en Hollywood.",
     keywords: ["reparación de barcos Hollywood FL", "mecánico de botes Hollywood Florida"],
@@ -150,7 +150,7 @@ const es: Record<string, Overlay> = {
   "pompano-beach": {
     seoTitle: "Reparación móvil de barcos | Doctor Yachts | Pompano Beach, FL",
     seoDescription:
-      "Reparación móvil de barcos en Pompano Beach. Motores, eléctrico, mantenimiento y servicio en el muelle. Presupuestos gratis — Doctor Yachts.",
+      "Reparación móvil de barcos en Pompano Beach. Motores, eléctrico, mantenimiento y servicio en el muelle. Presupuesto gratis al reservar — Doctor Yachts.",
     h1: "Reparación móvil de barcos en Pompano Beach, FL",
     intro:
       "Reparación móvil en Pompano Beach—motor, eléctrico y sistemas en sitio para volver al agua.",
