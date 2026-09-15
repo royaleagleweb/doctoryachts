@@ -162,9 +162,10 @@ export default async function LocationPage({ params }: PageProps) {
                 ))}
               </ol>
               <p className="mt-4 text-steel">
-                Prefer a quick quote first? Use our{" "}
-                <Link href="/free-estimate">free boat repair estimate</Link> form or call{" "}
-                <a href={site.phoneHref}>{site.phone}</a>.
+                Prefer a quote first? Use our{" "}
+                <Link href="/free-estimate">boat repair estimate</Link> form or call{" "}
+                <a href={site.phoneHref}>{site.phone}</a>. The estimate is free when you book the
+                job; estimate-only visits are $75, credited if we do the work.
               </p>
             </section>
 
