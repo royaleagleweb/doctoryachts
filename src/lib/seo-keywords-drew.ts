@@ -42,7 +42,7 @@ export function titleWithGeo(primary: string, secondary?: string) {
   return `${left} | Doctor Yachts | Fort Lauderdale & Miami, FL`;
 }
 
-/** Meta formula from Drew: Get expert X in City. Handle A, B & C. Free estimate. */
+/** Meta formula from Drew: Get expert X in City. Handle A, B & C. Estimate CTA. */
 export function metaWithCta(service: string, extras: string) {
-  return `Get expert ${service} in Fort Lauderdale & South Florida, FL. ${extras} Free estimates. Book Doctor Yachts or call.`;
+  return `Get expert ${service} in Fort Lauderdale & South Florida, FL. ${extras} Free estimate when you book. Book Doctor Yachts or call.`;
 }

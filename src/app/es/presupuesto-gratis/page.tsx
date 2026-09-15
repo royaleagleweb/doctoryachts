@@ -10,22 +10,21 @@ import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { servicePath } from "@/lib/i18n";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { estimatePolicy, site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Presupuesto gratis de reparación de barcos | Fort Lauderdale",
+  title: "Presupuesto de reparación de barcos | Fort Lauderdale",
   description:
-    "Pida un presupuesto gratis de reparación de barcos en Fort Lauderdale o el sur de la Florida. Cuéntenos qué pasa y dónde está el bote — servicio náutico móvil y en el muelle.",
+    "Pida un presupuesto de reparación de barcos en Fort Lauderdale o el sur de la Florida. Presupuesto gratis cuando reserva el trabajo. Solo presupuesto: $75, acreditado si hacemos el trabajo.",
   path: "/es/presupuesto-gratis",
   locale: "es",
-  keywords: ["presupuesto gratis reparación de barcos", "cotización mecánico náutico"],
+  keywords: ["presupuesto reparación de barcos", "cotización mecánico náutico"],
 });
 
 const faqs = [
   {
-    question: "¿El presupuesto es de verdad gratis?",
-    answer:
-      "Sí. Cuando entendemos síntomas y ubicación, damos presupuesto gratis del trabajo recomendado antes de que autorice reparaciones de pago.",
+    question: "¿El presupuesto es gratis?",
+    answer: estimatePolicy.es.faqA,
   },
   {
     question: "¿Qué tan rápido responden?",
@@ -46,19 +45,19 @@ export default function SpanishEstimatePage() {
         data={[
           breadcrumbJsonLd([
             { name: "Inicio", path: "/es" },
-            { name: "Presupuesto gratis", path: "/es/presupuesto-gratis" },
+            { name: "Presupuesto", path: "/es/presupuesto-gratis" },
           ]),
           faqJsonLd(faqs),
         ]}
       />
 
       <PageHero
-        eyebrow="Presupuestos gratis"
-        title="Presupuesto gratis de reparación de barcos"
+        eyebrow="Presupuestos"
+        title="Presupuesto de reparación de barcos"
         description={
           <>
-            Responda unas preguntas prácticas—qué pasa, dónde está el bote y cómo localizarlo.
-            Respondemos en horario {site.hoursEs}. ¿Prefiere hablar? Llame al{" "}
+            {estimatePolicy.es.line} Responda unas preguntas prácticas—qué pasa, dónde está el bote y
+            cómo localizarlo. Respondemos en horario {site.hoursEs}. ¿Prefiere hablar? Llame al{" "}
             <a href={site.phoneHref}>{site.phone}</a>.
           </>
         }
@@ -76,7 +75,7 @@ export default function SpanishEstimatePage() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_0.9fr]">
           <Card className="p-5 sm:p-7">
-            <h2 className="font-display text-navy">Pida su presupuesto gratis</h2>
+            <h2 className="font-display text-navy">Pida su presupuesto</h2>
             <p className="mt-2 text-sm text-steel">
               Los campos con * son obligatorios. Lo demás es opcional pero nos ayuda a cotizar más
               rápido.
@@ -87,6 +86,15 @@ export default function SpanishEstimatePage() {
           </Card>
 
           <div className="space-y-6">
+            <Card className="p-5">
+              <h2 className="font-display text-navy">Cómo funciona el presupuesto</h2>
+              <p className="mt-3 text-sm text-steel">{estimatePolicy.es.line}</p>
+              <p className="mt-3 text-sm text-steel">
+                No hay pago en línea del $75—confirmamos la visita y el camino por teléfono. Si
+                reserva el trabajo, ese cargo se descuenta.
+              </p>
+            </Card>
+
             <Card className="p-5">
               <h2 className="font-display text-navy">Qué necesitamos</h2>
               <ol className="mt-4 space-y-3 text-sm text-steel">
@@ -108,8 +116,8 @@ export default function SpanishEstimatePage() {
               <h2 className="font-display text-navy">Qué recibe</h2>
               <p className="mt-3 text-sm text-steel">
                 Cuando entendemos el síntoma y la ubicación, armamos los pasos de diagnóstico
-                probables y un camino de presupuesto gratis del trabajo recomendado—antes de que
-                autorice piezas y mano de obra mayores.
+                probables y un presupuesto claro del trabajo recomendado—antes de que autorice
+                piezas y mano de obra mayores.
               </p>
               <p className="mt-3 text-sm text-steel">
                 Pedidos comunes:{" "}

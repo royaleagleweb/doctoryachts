@@ -86,7 +86,7 @@ export default function HomePage() {
             <AnswerBox
               label="Quick answer"
               question="Who is Doctor Yachts?"
-              answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimates. Diagnose first—fix what matters."
+              answer="Doctor Yachts is an independent boat and yacht mechanic serving Fort Lauderdale, Miami, and South Florida with mobile and dockside marine engine repair, electrical work, cooling service, diagnostics, and maintenance. Free estimate when you book the job. Diagnose first—fix what matters."
             />
             <div>
               <h2 className="font-display">Boat mechanic service for Fort Lauderdale</h2>
@@ -143,7 +143,7 @@ export default function HomePage() {
             { n: "01", t: "Tell us the symptom", d: "What the boat is doing—or not doing." },
             { n: "02", t: "Plan the visit", d: "Marina, slip, access, a time that works." },
             { n: "03", t: "Diagnose on site", d: "Findings before parts or labor." },
-            { n: "04", t: "Repair with a plan", d: "Free estimate. Notes you can keep." },
+            { n: "04", t: "Repair with a plan", d: "Clear estimate—free when you book. Notes you can keep." },
           ].map((step) => (
             <li key={step.n}>
               <span className="n">{step.n}</span>

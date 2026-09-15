@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           <div>
             <h2 className="font-display text-navy">How we use it</h2>
             <p className="mt-3 text-steel">
-              We use that information to reply, schedule visits, give free estimates, and perform
+              We use that information to reply, schedule visits, provide estimates, and perform
               requested marine repair work. Form submissions are delivered to the shop inbox so we can
               follow up. We do not sell your contact details.
             </p>

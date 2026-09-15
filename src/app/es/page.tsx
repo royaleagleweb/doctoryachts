@@ -52,7 +52,7 @@ const homeFaqsEs = [
   {
     question: "¿Dan presupuestos gratis?",
     answer:
-      "Sí. Cuando entendemos el síntoma y la ubicación, damos presupuesto gratis del trabajo recomendado para que decida antes de autorizar piezas y mano de obra.",
+      "El presupuesto es gratis cuando reserva el trabajo con nosotros. Si solo quiere el presupuesto y no sigue, hay un cargo de $75. Ese $75 se descuenta de la reparación si hacemos el trabajo.",
   },
   {
     question: "¿Reparán botes y yates?",
@@ -127,7 +127,7 @@ export default function SpanishHomePage() {
             <AnswerBox
               label="Respuesta rápida"
               question="¿Quién es Doctor Yachts?"
-              answer="Doctor Yachts es un mecánico de yates y botes independiente que atiende Fort Lauderdale, Miami y el sur de la Florida con reparación de motores marinos, eléctrico, enfriamiento, diagnóstico y mantenimiento de yates, móvil y en el muelle. Presupuestos gratis. Primero diagnosticamos—reparamos lo que importa."
+              answer="Doctor Yachts es un mecánico de yates y botes independiente que atiende Fort Lauderdale, Miami y el sur de la Florida con reparación de motores marinos, eléctrico, enfriamiento, diagnóstico y mantenimiento de yates, móvil y en el muelle. Presupuesto gratis al reservar el trabajo. Primero diagnosticamos—reparamos lo que importa."
             />
             <div>
               <h2 className="font-display">Mecánico náutico para Fort Lauderdale</h2>
@@ -184,7 +184,7 @@ export default function SpanishHomePage() {
             { n: "01", t: "Cuéntenos el síntoma", d: "Qué está haciendo el bote—o qué dejó de hacer." },
             { n: "02", t: "Planeamos la visita", d: "Marina, slip, acceso, un horario que sirva." },
             { n: "03", t: "Diagnosticamos en sitio", d: "Hallazgos antes de piezas o mano de obra." },
-            { n: "04", t: "Reparamos con un plan", d: "Presupuesto gratis. Notas que puede guardar." },
+            { n: "04", t: "Reparamos con un plan", d: "Presupuesto claro—gratis al reservar. Notas que puede guardar." },
           ].map((step) => (
             <li key={step.n}>
               <span className="n">{step.n}</span>

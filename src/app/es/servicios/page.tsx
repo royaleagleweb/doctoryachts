@@ -18,7 +18,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Servicios de reparación de barcos | Fort Lauderdale y el sur de la Florida",
   description:
-    "Servicios de reparación de barcos en Fort Lauderdale y el sur de la Florida: motor, fuera de borda, servicio 100 horas y 300 horas, eléctrico, enfriamiento, mantenimiento de yates y reparación móvil. Presupuestos gratis.",
+    "Servicios de reparación de barcos en Fort Lauderdale y el sur de la Florida: motor, fuera de borda, servicio 100 horas y 300 horas, eléctrico, enfriamiento, mantenimiento de yates y reparación móvil. Presupuesto gratis al reservar.",
   path: "/es/servicios",
   locale: "es",
   keywords: [
@@ -40,7 +40,7 @@ const hubFaqs = [
   {
     question: "¿Dan presupuestos gratis?",
     answer:
-      "Sí. Cuando entendemos síntomas y ubicación, damos presupuesto gratis del trabajo recomendado antes de que autorice piezas y mano de obra mayores.",
+      "El presupuesto es gratis cuando reserva el trabajo con nosotros. Si solo quiere el presupuesto y no sigue, hay un cargo de $75. Ese $75 se descuenta de la reparación si hacemos el trabajo.",
   },
   {
     question: "¿Van a la marina o tengo que llevar el bote?",
@@ -60,8 +60,8 @@ const youGet = [
     body: "Hallazgos antes de piezas. Sabe qué es urgente y qué puede esperar.",
   },
   {
-    title: "Presupuestos gratis",
-    body: "El trabajo recomendado se cotiza antes de que autorice piezas y mano de obra mayores.",
+    title: "Presupuesto claro",
+    body: "El trabajo recomendado se cotiza antes de que autorice piezas y mano de obra mayores. Gratis cuando reserva el trabajo; solo presupuesto: $75, acreditado si hacemos el trabajo.",
   },
   {
     title: "En el muelle cuando ayuda",
@@ -110,7 +110,7 @@ export default function SpanishServicesPage() {
           <div className="flex flex-wrap gap-3">
             <Button href="/es/reservar">Reserve esta semana</Button>
             <Button href="/es/presupuesto-gratis" variant="ghost">
-              Pedir presupuesto gratis
+              Pedir presupuesto
             </Button>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function SpanishServicesPage() {
         <AnswerBox
           label="Respuesta rápida"
           question="¿Qué repara Doctor Yachts?"
-          answer="Doctor Yachts repara botes y yates en el sur de la Florida: motores marinos (interno/fuera de borda), servicio 100 horas y 300 horas, sistemas eléctricos, enfriamiento, sentina/plomería, diagnóstico y mantenimiento programado—a menudo móvil en Fort Lauderdale y muelles cercanos. Presupuesto gratis después del diagnóstico."
+          answer="Doctor Yachts repara botes y yates en el sur de la Florida: motores marinos (interno/fuera de borda), servicio 100 horas y 300 horas, sistemas eléctricos, enfriamiento, sentina/plomería, diagnóstico y mantenimiento programado—a menudo móvil en Fort Lauderdale y muelles cercanos. Presupuesto claro después del diagnóstico—gratis cuando reserva el trabajo."
         />
         <div className="mt-10 space-y-4">
           <h2 className="font-display text-navy">Cómo elegir el servicio correcto</h2>

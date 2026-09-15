@@ -17,7 +17,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Boat Repair Services | Fort Lauderdale & South Florida",
   description:
-    "Boat repair services in Fort Lauderdale and South Florida: marine engine repair, outboard service, 100-hour and 300-hour service, electrical, cooling, mobile dockside repair, and maintenance. Free estimates.",
+    "Boat repair services in Fort Lauderdale and South Florida: marine engine repair, outboard service, 100-hour and 300-hour service, electrical, cooling, mobile dockside repair, and maintenance. Free estimate when you book.",
   path: "/services",
   keywords: [
     "boat repair services Fort Lauderdale",
@@ -39,7 +39,7 @@ const hubFaqs = [
   {
     question: "Do you offer free estimates?",
     answer:
-      "Yes. After we understand symptoms and location, we provide free estimates for recommended work before you authorize major parts and labor.",
+      "The estimate is free when you book the job with us. If you only want an estimate and do not proceed, there is a $75 fee. That $75 is credited toward the repair if we do the work.",
   },
   {
     question: "Do you come to the marina or do I bring the boat in?",
@@ -59,8 +59,8 @@ const youGet = [
     body: "Findings before parts. You know what’s urgent versus what can wait.",
   },
   {
-    title: "Free estimates",
-    body: "Recommended work is estimated before you authorize major parts and labor.",
+    title: "Clear estimates",
+    body: "Recommended work is estimated before you authorize major parts and labor. Free when you book the job; estimate-only visits are $75, credited if we do the work.",
   },
   {
     title: "Dockside when it helps",
@@ -110,7 +110,7 @@ export default function ServicesPage() {
           <div className="flex flex-wrap gap-3">
             <Button href="/book">Book this week</Button>
             <Button href="/free-estimate" variant="ghost">
-              Get a free estimate
+              Request an estimate
             </Button>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function ServicesPage() {
         <AnswerBox
           label="Quick answer"
           question="What does Doctor Yachts repair?"
-          answer="Doctor Yachts repairs boats and yachts across South Florida: marine engines (inboard/outboard), 100-hour and 300-hour interval service, electrical systems, cooling, bilge/plumbing, diagnostics, and scheduled maintenance—often mobile at Fort Lauderdale and nearby docks. Free estimates after diagnosis."
+          answer="Doctor Yachts repairs boats and yachts across South Florida: marine engines (inboard/outboard), 100-hour and 300-hour interval service, electrical systems, cooling, bilge/plumbing, diagnostics, and scheduled maintenance—often mobile at Fort Lauderdale and nearby docks. Clear estimate after diagnosis—free when you book the job."
         />
         <div className="mt-10 space-y-4">
           <h2 className="font-display text-navy">How to choose the right service</h2>

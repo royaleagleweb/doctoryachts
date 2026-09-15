@@ -28,7 +28,7 @@ export const metadata: Metadata = buildMetadata({
     "yacht maintenance questions",
     "boat repair FAQ Fort Lauderdale",
     "mobile yacht mechanic FAQ",
-    "free estimate boat repair",
+    "boat repair estimate Fort Lauderdale",
   ],
 });
 
