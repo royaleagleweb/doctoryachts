@@ -8,8 +8,10 @@ import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { MonthlyPackages } from "@/components/MonthlyPackages";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { t } from "@/lib/copy";
+import { MONTHLY_PACKAGES_ID } from "@/lib/monthly-packages";
 import { guides } from "@/lib/guides";
 import type { Locale } from "@/lib/i18n";
 import { locationPath, pathFor, servicePath } from "@/lib/i18n";
@@ -95,10 +97,12 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
     service.id === "maintenance"
       ? locale === "es"
         ? [
+            { href: `#${MONTHLY_PACKAGES_ID}`, label: "paquetes mensuales" },
             { href: servicePath("100-hour-service", locale), label: "servicio 100 horas" },
             { href: servicePath("300-hour-service", locale), label: "servicio 300 horas" },
           ]
         : [
+            { href: `#${MONTHLY_PACKAGES_ID}`, label: "monthly packages" },
             { href: servicePath("100-hour-service", locale), label: "100-hour service" },
             { href: servicePath("300-hour-service", locale), label: "300-hour service" },
           ]
@@ -215,6 +219,8 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
           ))}
         </ul>
       </MediaBand>
+
+      {service.id === "maintenance" && <MonthlyPackages locale={locale} />}
 
       {service.sections.map((section, sectionIdx) => (
         <MediaBand

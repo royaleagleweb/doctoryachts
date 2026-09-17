@@ -411,7 +411,7 @@ const es: Record<string, Overlay> = {
     content: [
       "Los dueños en Fort Lauderdale y el sur de la Florida pueden contar con Doctor Yachts para mantenimiento de yates alineado al intervalo del fabricante y a cómo usa el bote de verdad. El mantenimiento preventivo sale más barato que el no-arranque de emergencia la mañana del charter o del viaje familiar.",
       "El servicio típico incluye aceite y filtros, inspección/plan de impulsor, correas, zincs, fluidos, atención de enfriamiento, salud de batería/carga y pruebas de función. Las notas claras dejan el historial ordenado para reventa o survey.",
-      "Reserve temprano el mantenimiento de fuera de borda o la puesta a punto de temporada—los calendarios del sur de la Florida se llenan antes de temporada alta. Para visitas de intervalo dedicadas, vea el servicio 100 horas y el servicio 300 horas. Presupuesto gratis de paquetes.",
+      "Reserve temprano el mantenimiento de fuera de borda o la puesta a punto de temporada—los calendarios del sur de la Florida se llenan antes de temporada alta. Para visitas de intervalo dedicadas, vea el servicio 100 horas y el servicio 300 horas. Los paquetes mensuales en el muelle—Mensual esencial, Sistemas plus y Cuidado completo—son para dueños que quieren un recorrido regular entre esas visitas. Llame para el precio del paquete. Presupuesto gratis del trabajo de reparación recomendado.",
     ],
     sections: [
       {
@@ -461,6 +461,7 @@ const es: Record<string, Overlay> = {
       "Mantenimiento de motor fuera de borda",
       "Impulsores, correas y zincs",
       "Puesta a punto de temporada",
+      "Paquetes mensuales en el muelle",
       "Bitácora para reventa",
       "Chequeos de batería y carga",
     ],
@@ -477,18 +478,20 @@ const es: Record<string, Overlay> = {
     duration: "2–5 h típico",
     seoTitle: "Mantenimiento de yates | Doctor Yachts | Fort Lauderdale, FL",
     seoDescription:
-      "Mantenimiento de yates y botes en Fort Lauderdale y el sur de la Florida. Aceite, fuera de borda, zincs, temporada. Presupuestos gratis — Doctor Yachts.",
+      "Mantenimiento de yates y botes en Fort Lauderdale y el sur de la Florida. Aceite, paquetes mensuales en el muelle, zincs, temporada. Llame para el precio del paquete — Doctor Yachts.",
     quickAnswer:
-      "El mantenimiento de yates en Florida debe seguir las horas del fabricante más la realidad de agua salada—aceite y filtros, impulsores, zincs, correas y chequeos de temporada. Doctor Yachts hace mantenimiento programado en Fort Lauderdale y el sur de la Florida. Presupuesto gratis de paquetes.",
+      "El mantenimiento de yates en Florida debe seguir las horas del fabricante más la realidad de agua salada—aceite y filtros, impulsores, zincs, correas y chequeos de temporada. Doctor Yachts hace mantenimiento programado y paquetes mensuales en el muelle en Fort Lauderdale y el sur de la Florida. Llame para el precio del paquete. Presupuesto gratis del trabajo de reparación recomendado.",
     keywords: [
       "mantenimiento de yates",
       "mantenimiento de barcos Fort Lauderdale",
       "servicio de motor fuera de borda",
       "servicio anual de bote Florida",
+      "mantenimiento mensual de botes Fort Lauderdale",
     ],
     faqs: [
       { question: "¿Cada cuánto debo darle servicio al bote?", answer: "Siga horas/tiempo del fabricante y ajuste por agua salada, guarda y qué tan duro corre. Recomendamos un calendario práctico cuando conozcamos la embarcación." },
-      { question: "¿Ofrecen paquetes de temporada?", answer: "Sí. Puesta a punto de pretemporada, mantenimiento en temporada e invernada según el bote o yate." },
+      { question: "¿Ofrecen paquetes de temporada?", answer: "Sí. Puesta a punto de pretemporada y mantenimiento en temporada, más tres paquetes mensuales en el muelle—Mensual esencial, Sistemas plus y Cuidado completo. Llame para el precio del paquete. El trabajo de reparación recomendado sigue con presupuesto gratis después del diagnóstico." },
+      { question: "¿Ofrecen paquetes de mantenimiento mensual?", answer: "Sí. Tres planes en el muelle: Mensual esencial (recorrido e informe corto), Sistemas plus (eléctrico, enfriamiento y plomería) y Cuidado completo (prioridad en la agenda, notas de temporada en Florida y bitácora mensual). Llame al (954) 770-1910 para el precio. Son visitas de mecánico móvil—no haul-out ni membresía de marina." },
       { question: "¿Guardan récord de servicio?", answer: "Sí. Notas claras ayudan a reventa, survey y al próximo técnico. Documentamos qué se inspeccionó, cambió y recomendó." },
       { question: "¿Se puede hacer en mi muelle?", answer: "A menudo sí. Muchos ítems se cierran en el muelle en Fort Lauderdale y el sur de la Florida cuando hay acceso." },
       { question: "¿Hacen servicio 100 horas y 300 horas?", answer: "Sí. Son ofertas de primera: servicio 100 horas / anual de agua salada y el intervalo más profundo de 300 horas. Primero diagnosticamos; presupuesto antes de piezas extras." },

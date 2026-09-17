@@ -661,7 +661,7 @@ export const services: Service[] = [
     content: [
       "Boat owners throughout Fort Lauderdale and South Florida can depend on Doctor Yachts for quality boat maintenance scheduled to manufacturer intervals and how you actually use the boat. Preventative maintenance is cheaper than emergency no-starts the morning of a charter or family trip.",
       "Typical service includes oil and filters, impeller inspection/replacement planning, belts, zincs, fluid checks, cooling attention, battery/charging health, and system function tests. Clear service notes keep your maintenance history organized for resale or surveys.",
-      "Book outboard engine maintenance or full seasonal commissioning early—South Florida calendars fill before peak season. Free estimates for packages available.",
+      "Book outboard engine maintenance or full seasonal commissioning early—South Florida calendars fill before peak season. Monthly dockside packages—Essential Monthly, Systems Plus, and Full Care—are for owners who want a regular walkthrough between 100-hour and 300-hour visits. Call for package pricing. Free estimates for recommended repair work.",
     ],
     sections: [
       {
@@ -689,7 +689,7 @@ export const services: Service[] = [
         heading: "Seasonal commissioning in South Florida",
         body: [
           "Pre-season commissioning is not winterization theater—it is a readiness pass before heavy use. We catch weak batteries, tired impellers, and bilge issues before they become Saturday emergencies in Fort Lauderdale or South Florida.",
-          "Ask about seasonal packages when you book. Free estimates available.",
+          "Ask about monthly maintenance packages or seasonal commissioning when you book. Call for package pricing. Free estimates for recommended repair work.",
         ],
       },
     ],
@@ -730,6 +730,7 @@ export const services: Service[] = [
       "Outboard engine maintenance",
       "Impellers, belts & zincs",
       "Seasonal commissioning",
+      "Monthly dockside packages",
       "Service logs for resale value",
       "Battery & charging health checks",
     ],
@@ -746,16 +747,17 @@ export const services: Service[] = [
     duration: "2–5 hrs typical",
     icon: "maintenance",
     quickAnswer:
-      "Boat maintenance in Florida should follow manufacturer hours plus saltwater reality—oil and filters, impellers, zincs, belts, and seasonal checks. Doctor Yachts provides scheduled maintenance in Fort Lauderdale and South Florida. Free estimates for packages.",
+      "Boat maintenance in Florida should follow manufacturer hours plus saltwater reality—oil and filters, impellers, zincs, belts, and seasonal checks. Doctor Yachts provides scheduled maintenance and monthly dockside packages in Fort Lauderdale and South Florida. Call for package pricing. Free estimates for recommended repair work.",
     seoTitle: "Boat Maintenance | Doctor Yachts | Fort Lauderdale & South Florida, FL",
     seoDescription:
-      "Boat maintenance in Fort Lauderdale & South Florida. Oil service, outboard maintenance, zincs, seasonal commissioning. Free estimates — Doctor Yachts.",
+      "Boat maintenance in Fort Lauderdale & South Florida. Oil service, monthly dockside packages, zincs, seasonal commissioning. Call for package pricing — Doctor Yachts.",
     keywords: [
       "boat maintenance Fort Lauderdale",
       "boat maintenance South Florida",
       "outboard engine maintenance",
       "annual boat service Florida",
       "preventative boat maintenance",
+      "monthly boat maintenance Fort Lauderdale",
     ],
     images: [
       {
@@ -783,7 +785,12 @@ export const services: Service[] = [
       {
         question: "Do you offer seasonal packages?",
         answer:
-          "Yes. We provide pre-season commissioning, in-season maintenance, and winterization options tailored to your boat or yacht.",
+          "Yes. Pre-season commissioning and in-season maintenance, plus three monthly dockside packages—Essential Monthly, Systems Plus, and Full Care. Call for package pricing. Recommended repair work still gets a free estimate after diagnosis.",
+      },
+      {
+        question: "Do you offer monthly maintenance packages?",
+        answer:
+          "Yes. Three dockside plans: Essential Monthly (walkthrough and short report), Systems Plus (electrical, cooling, and plumbing checks), and Full Care (priority scheduling, Florida season notes, and a written monthly log). Call (954) 770-1910 for package pricing. These are mobile mechanic visits—not haul-outs or a marina membership.",
       },
       {
         question: "Do you keep service records?",

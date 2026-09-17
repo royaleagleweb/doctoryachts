@@ -31,7 +31,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "How often should I service my yacht?",
         answer:
-          "In South Florida, treat the engine maker’s hours as the floor, not the ceiling. Salt, heat, and year-round growth age cooling, electrical connections, and anodes faster than a northern once-a-season plan. Most boats need a yearly systems check plus oil and filters on the hour interval—often every 50–100 hours. Sitting still still ages fuel, batteries, and impellers. After we see the vessel and how you use it, we set a practical schedule.",
+          "In South Florida, treat the engine maker’s hours as the floor, not the ceiling. Salt, heat, and year-round growth age cooling, electrical connections, and anodes faster than a northern once-a-season plan. Most boats need a yearly systems check plus oil and filters on the hour interval—often every 50–100 hours. Sitting still still ages fuel, batteries, and impellers. Monthly dockside packages are optional walkthroughs between those visits—not a substitute for 100-hour oil and impeller work. After we see the vessel and how you use it, we set a practical schedule.",
         next: {
           href: "/guides/how-often-to-service-a-boat-in-florida",
           label: "How often to service a boat in Florida",
@@ -46,7 +46,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "What is the difference between preventive and corrective yacht maintenance?",
         answer:
-          "Preventive maintenance is scheduled: oil and filters, impeller inspection, zincs, belts, batteries, and a systems walk-through before the boat fails. Corrective work is the repair after a no-start, overheat, leak, or dead bank. A diagnose-first shop treats both—we find the fault before parts, and we flag items that become corrective if you wait. Preventive visits in Fort Lauderdale often catch cooling and charging issues before a weekend trip.",
+          "Preventive maintenance is scheduled: oil and filters, impeller inspection, zincs, belts, batteries, and a systems walk-through before the boat fails. Monthly packages are preventive too—a dockside walkthrough so bilge, battery, and zinc issues show up before Saturday. Corrective work is the repair after a no-start, overheat, leak, or dead bank. A diagnose-first shop treats both—we find the fault before parts, and we flag items that become corrective if you wait.",
         next: { href: "/services/boat-maintenance", label: "Boat maintenance" },
       },
       {
@@ -77,7 +77,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "Do you give free estimates for boat and yacht repair?",
         answer:
-          "Yes. After we understand symptoms and location—and complete diagnosis when the boat needs to be seen—we give a free estimate for recommended repair work before you authorize major parts and labor. An online note can start the conversation; a dockside visit is how we price the real fault. We do not publish invented menus. If you only want guidance first, use the estimate form; book when you already want a visit.",
+          "Yes. After we understand symptoms and location—and complete diagnosis when the boat needs to be seen—we give a free estimate for recommended repair work before you authorize major parts and labor. Monthly package pricing is quoted by phone—we do not publish a dollar menu. An online note can start the conversation; a dockside visit is how we price the real fault. If you only want guidance first, use the estimate form; book when you already want a visit.",
         next: { href: "/free-estimate", label: "Get a free estimate" },
       },
       {
@@ -321,7 +321,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "What is included in annual yacht maintenance?",
         answer:
-          "Typical annual work includes engine oil and filters on hours, gear lube where it applies, impeller inspection, zincs, belts and hoses, battery and charging health, bilge and critical pumps, and a systems walk-through. Generators and steering get checked when the boat has them. You get notes, not a mystery invoice. Scope follows the vessel, not a brochure package. Ask for a free estimate after we see what is due.",
+          "Typical annual work includes engine oil and filters on hours, gear lube where it applies, impeller inspection, zincs, belts and hoses, battery and charging health, bilge and critical pumps, and a systems walk-through. Generators and steering get checked when the boat has them. Monthly packages are lighter walkthroughs between those visits—they do not replace 100-hour or 300-hour interval service. You get notes, not a mystery invoice. Call for package pricing; ask for a free estimate on recommended repair work.",
         next: { href: "/services/boat-maintenance", label: "Boat maintenance" },
       },
       {

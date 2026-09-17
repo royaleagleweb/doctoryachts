@@ -35,12 +35,17 @@ const groups = [
       {
         question: "¿Cada cuánto debo darle servicio a mi yate?",
         answer:
-          "En el sur de la Florida, las horas del fabricante son el piso, no el techo. La sal, el calor y el crecimiento todo el año envejecen enfriamiento, conexiones y ánodos más rápido que un plan del norte de una vez por temporada. La mayoría necesita un chequeo anual más aceite y filtros en el intervalo—a menudo cada 50–100 horas. Estar parado igual envejece combustible, baterías e impulsores.",
+          "En el sur de la Florida, las horas del fabricante son el piso, no el techo. La sal, el calor y el crecimiento todo el año envejecen enfriamiento, conexiones y ánodos más rápido que un plan del norte de una vez por temporada. La mayoría necesita un chequeo anual más aceite y filtros en el intervalo—a menudo cada 50–100 horas. Estar parado igual envejece combustible, baterías e impulsores. Los paquetes mensuales en el muelle son recorridos opcionales entre esas visitas—no sustituyen el aceite y el impulsor de 100 horas.",
       },
       {
         question: "¿Cuánto cuesta el mantenimiento de yates al año?",
         answer:
-          "No hay un número honesto fijo. El costo sigue el tamaño, las horas, sistemas como generador y aire, y si el bote vive en sal todo el año. Lo preventivo—aceite, filtros, impulsores, zincs, baterías—suele costar menos que un sobrecalentamiento o una falla eléctrica. Doctor Yachts no publica listas inventadas. Primero diagnosticamos y damos presupuesto gratis.",
+          "No hay un número honesto fijo. El costo sigue el tamaño, las horas, sistemas como generador y aire, y si el bote vive en sal todo el año. Lo preventivo—aceite, filtros, impulsores, zincs, baterías—suele costar menos que un sobrecalentamiento o una falla eléctrica. Doctor Yachts no publica listas inventadas. El precio de los paquetes mensuales se cotiza por teléfono. Primero diagnosticamos y damos presupuesto gratis del trabajo recomendado.",
+      },
+      {
+        question: "¿Ofrecen paquetes de mantenimiento mensual?",
+        answer:
+          "Sí. Tres planes en el muelle: Mensual esencial (recorrido e informe corto), Sistemas plus (eléctrico, enfriamiento y plomería) y Cuidado completo (prioridad en la agenda, notas de temporada y bitácora mensual). Llame al (954) 770-1910 para el precio. Son visitas de mecánico móvil—no haul-out ni membresía de marina.",
       },
       {
         question: "¿Qué es el servicio 100 horas y el servicio 300 horas?",
@@ -138,8 +143,9 @@ export default function SpanishFaqPage() {
         subhead="Primero diagnosticamos. En el muelle."
         description={
           <>
-            Respuestas de diagnóstico primero—intervalos, no-arranques, enfriamiento, eléctrico,
-            servicio 100 horas y 300 horas. Confirmamos en horario {site.hoursEs}.
+            Respuestas de diagnóstico primero—intervalos, paquetes mensuales en el muelle,
+            no-arranques, enfriamiento, eléctrico, servicio 100 horas y 300 horas. Confirmamos en
+            horario {site.hoursEs}.
           </>
         }
         image={images.mechanic}
