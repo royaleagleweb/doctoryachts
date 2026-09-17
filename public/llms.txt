@@ -19,7 +19,7 @@
 - Boat electrical repairs: /services/electrical-repairs
 - Cooling system repairs: /services/cooling-system-repairs
 - Boat diagnostics: /services/boat-diagnostics
-- Boat maintenance: /services/boat-maintenance
+- Boat maintenance: /services/boat-maintenance (monthly dockside packages — Essential Monthly, Systems Plus, Full Care — on that hub; call for package pricing, no published dollar menu)
 - Boat plumbing repairs: /services/plumbing-repairs
 - Mobile boat repair / mobile boat mechanic: /services/mobile-boat-repair
 

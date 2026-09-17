@@ -203,7 +203,7 @@ export const guides: Guide[] = [
       "South Florida boat maintenance",
     ],
     readTime: "5 min",
-    updated: "2026-08-06",
+    updated: "2026-09-17",
     relatedServices: ["maintenance", "engine-repair", "electrical"],
     sections: [
       {
@@ -239,7 +239,7 @@ export const guides: Guide[] = [
       {
         question: "Do you offer seasonal packages?",
         answer:
-          "Yes. We can schedule pre-season commissioning and interval maintenance for boats kept in Fort Lauderdale, Miami, and Palm Beach County.",
+          "Yes. We can schedule pre-season commissioning, interval maintenance, and monthly dockside packages (Essential Monthly, Systems Plus, Full Care) for boats kept in Fort Lauderdale, Miami, and Palm Beach County. Call for package pricing.",
       },
     ],
   },

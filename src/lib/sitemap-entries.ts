@@ -32,11 +32,11 @@ const BASE = (process.env.NEXT_PUBLIC_SITE_URL || "https://doctoryachts.com").re
 
 /** Content lastmod dates — not build time. Update when the page copy actually changes. */
 const LASTMOD = {
-  home: "2026-08-21",
-  services: "2026-08-21",
+  home: "2026-09-17",
+  services: "2026-09-17",
   locations: "2026-08-21",
-  guides: "2026-08-06",
-  faq: "2026-08-21",
+  guides: "2026-09-17",
+  faq: "2026-09-17",
   freeEstimate: "2026-08-21",
   book: "2026-08-21",
   reviews: "2026-08-16",
@@ -45,7 +45,7 @@ const LASTMOD = {
   contact: "2026-08-21",
   privacy: "2026-08-16",
   terms: "2026-08-16",
-  service: "2026-08-21",
+  service: "2026-09-17",
   location: "2026-08-21",
 } as const;
 
@@ -74,7 +74,7 @@ const LOCATION_SLUGS = [
 const GUIDES = [
   { slug: "boat-wont-start-checklist", updated: "2026-08-06" },
   { slug: "why-is-my-boat-engine-overheating", updated: "2026-08-06" },
-  { slug: "how-often-to-service-a-boat-in-florida", updated: "2026-08-06" },
+  { slug: "how-often-to-service-a-boat-in-florida", updated: "2026-09-17" },
   { slug: "mobile-boat-repair-vs-shop", updated: "2026-08-06" },
   { slug: "signs-you-need-marine-electrical-repair", updated: "2026-08-06" },
   { slug: "emergency-boat-repair-fort-lauderdale", updated: "2026-08-06" },

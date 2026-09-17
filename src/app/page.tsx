@@ -98,6 +98,7 @@ export default function HomePage() {
                 <Link href="/services/electrical-repairs">electrical</Link>,{" "}
                 <Link href="/services/cooling-system-repairs">cooling</Link>,{" "}
                 <Link href="/services/boat-maintenance">maintenance</Link>,{" "}
+                <Link href="/services/boat-maintenance#monthly-packages">monthly packages</Link>,{" "}
                 <Link href="/services/100-hour-service">100-hour service</Link>,{" "}
                 <Link href="/services/300-hour-service">300-hour service</Link>. Call{" "}
                 <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book a visit</Link>.
@@ -132,6 +133,22 @@ export default function HomePage() {
                 className="object-cover object-[center_40%]"
               />
             </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+          <SectionHeading
+            eyebrow="Monthly care"
+            title="Monthly maintenance packages"
+            description="Three dockside plans—Essential Monthly, Systems Plus, and Full Care. Walkthroughs and systems checks at your slip, not a marina membership. Call for package pricing."
+          />
+          <div className="flex flex-wrap gap-3">
+            <Button href="/services/boat-maintenance#monthly-packages">See packages</Button>
+            <Button href={site.phoneHref} variant="ghost">
+              Call {site.phone}
+            </Button>
           </div>
         </div>
       </Section>

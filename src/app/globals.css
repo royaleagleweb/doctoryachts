@@ -1079,6 +1079,30 @@ textarea {
   margin-bottom: 0.75rem;
 }
 
+.package-grid {
+  display: grid;
+  gap: 2rem 1.75rem;
+}
+@media (min-width: 900px) {
+  .package-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+.package-card {
+  border-left: 1px solid color-mix(in srgb, var(--gold) 42%, transparent);
+  padding: 0.15rem 0 0.15rem 1.15rem;
+}
+.package-card--featured {
+  border-left-color: var(--gold);
+}
+.section-dark .package-card .list-tile,
+.bg-navy .package-card .list-tile,
+.bg-navy-deep .package-card .list-tile {
+  color: var(--steel-light);
+  border-left-color: color-mix(in srgb, var(--gold) 45%, transparent);
+}
+
 .site-footer,
 .site-footer a {
   color: var(--steel-light);
