@@ -7,12 +7,11 @@ import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
-import { PageHero } from "@/components/PageHero";
 import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { images } from "@/lib/images";
+import { images, yachts } from "@/lib/images";
 import { publicLocations } from "@/lib/locations";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 import { servicesInHubOrder } from "@/lib/services";
@@ -31,23 +30,58 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      <PageHero
-        size="display"
-        eyebrow="Doctor Yachts · South Florida"
-        kicker="Mobile boat mechanic in South Florida"
-        title="The mechanic who comes to the boat."
-        subhead="Diagnose first. Dockside."
-        description="Fort Lauderdale, Miami, and nearby docks. We confirm by phone during Mon–Sat 7–6."
-        image={images.homeHero}
-        actions={
-          <>
-            <Button href="/book">Book a visit</Button>
-            <Button href={site.phoneHref} variant="ghost">
-              Call {site.phone}
-            </Button>
-          </>
-        }
-      />
+      <section className="lux-hero" aria-labelledby="home-hero-title">
+        <div className="lux-hero__media">
+          <Image
+            src={yachts.marinaGold.src}
+            alt={yachts.marinaGold.alt}
+            fill
+            preload
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="lux-hero__veil" aria-hidden />
+        <div className="lux-hero__sheen" aria-hidden />
+        <div className="wrap lux-hero__inner">
+          <div className="lux-hero__glass">
+            <p className="eyebrow lux-hero__eyebrow">Doctor Yachts · South Florida</p>
+            <p className="lux-hero__kicker">Mobile boat mechanic in South Florida</p>
+            <h1 id="home-hero-title" className="lux-serif lux-hero__title">
+              The mechanic who comes to the boat.
+            </h1>
+            <p className="lux-hero__subhead">Diagnose first. Dockside.</p>
+            <p className="lux-hero__desc">
+              Fort Lauderdale, Miami, and nearby docks. We confirm by phone during Mon–Sat 7–6.
+            </p>
+            <div className="lux-hero__actions">
+              <Button href="/book">Book a visit</Button>
+              <Button href={site.phoneHref} variant="ghost">
+                Call {site.phone}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ul className="lux-trust" aria-label="Why owners call Doctor Yachts">
+        <li>
+          <span className="lux-trust__dot" aria-hidden />
+          Mobile &amp; dockside service
+        </li>
+        <li>
+          <span className="lux-trust__dot" aria-hidden />
+          Free estimates
+        </li>
+        <li>
+          <span className="lux-trust__dot" aria-hidden />
+          English &amp; Español
+        </li>
+        <li>
+          <span className="lux-trust__dot" aria-hidden />
+          Mon–Sat 7–6
+        </li>
+      </ul>
 
       <div className="problem-rail-wrap">
         <nav className="problem-rail" aria-label="Common problems">
@@ -68,12 +102,12 @@ export default function HomePage() {
 
       <Section>
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading eyebrow="The shop" title="What we repair" />
+          <div className="reveal-in"><SectionHeading eyebrow="The shop" title="What we repair" /></div>
           <Link href="/services" className="text-sm font-semibold text-gold no-underline hover:text-gold-light">
             All services →
           </Link>
         </div>
-        <div className="shop-grid">
+        <div className="shop-grid lux-cards reveal-in">
           {homeServices.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} compact />
           ))}
@@ -99,7 +133,9 @@ export default function HomePage() {
                 <Link href="/services/cooling-system-repairs">cooling</Link>,{" "}
                 <Link href="/services/boat-maintenance">maintenance</Link>,{" "}
                 <Link href="/services/100-hour-service">100-hour service</Link>,{" "}
-                <Link href="/services/300-hour-service">300-hour service</Link>. Call{" "}
+                <Link href="/services/300-hour-service">300-hour service</Link>,{" "}
+                <Link href="/services/monthly-boat-maintenance">monthly maintenance</Link>,{" "}
+                <Link href="/services/boat-upholstery-canvas">upholstery &amp; canvas</Link>. Call{" "}
                 <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book a visit</Link>.
               </p>
             </div>
@@ -195,7 +231,7 @@ export default function HomePage() {
             All areas →
           </Link>
         </div>
-        <div className="shop-grid shop-grid--areas">
+        <div className="shop-grid shop-grid--areas lux-cards reveal-in">
           {publicLocations.map((loc) => {
             const img = images.locations[loc.slug as keyof typeof images.locations];
             return (
@@ -239,6 +275,25 @@ export default function HomePage() {
       </Section>
 
       <FaqSection title="Common questions" faqs={homeFaqs} />
+
+      <section className="lux-cta" aria-labelledby="lux-cta-title">
+        <div className="lux-cta__media" aria-hidden>
+          <Image src={yachts.night.src} alt="" fill sizes="100vw" className="object-cover" />
+        </div>
+        <div className="wrap lux-cta__inner reveal-in">
+          <p className="eyebrow lux-hero__eyebrow">Fort Lauderdale · Miami · South Florida</p>
+          <h2 id="lux-cta-title" className="lux-serif lux-cta__title">
+            Your boat, back on the water.
+          </h2>
+          <p className="lux-cta__desc">Free estimates. Dockside when access allows. English &amp; Español.</p>
+          <div className="lux-hero__actions">
+            <Button href="/book">Book a visit</Button>
+            <Button href="/free-estimate" variant="ghost">
+              Free estimate
+            </Button>
+          </div>
+        </div>
+      </section>
       <CTA />
     </>
   );

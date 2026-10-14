@@ -60,6 +60,8 @@ const SERVICE_PAIRS = [
   ["outboard-motor-repair", "servicio-de-motor-fuera-de-borda"],
   ["100-hour-service", "servicio-100-horas"],
   ["300-hour-service", "servicio-300-horas"],
+  ["boat-upholstery-canvas", "tapiceria-y-lona-de-barcos"],
+  ["monthly-boat-maintenance", "mantenimiento-mensual-de-barcos"],
 ] as const;
 
 const LOCATION_SLUGS = [

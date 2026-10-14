@@ -137,8 +137,8 @@ export const images = {
       alt: "Marine bilge pumps and systems compartment",
     },
     dockside: {
-      src: "/images/service-dockside.jpg",
-      alt: "Dockside mobile boat repair service at the marina",
+      src: "/images/service-mobile-repair.webp",
+      alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
     },
     miami: {
       src: "/images/location-miami.jpg",
@@ -179,8 +179,8 @@ export const images = {
       alt: "Boat plumbing and bilge system repairs",
     },
     emergency: {
-      src: "/images/service-dockside.jpg",
-      alt: "Mobile and dockside boat repair",
+      src: "/images/service-mobile-repair.webp",
+      alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
     },
     outboard: {
       src: "/images/service-outboard.jpg",
@@ -193,6 +193,14 @@ export const images = {
     "hour-300": {
       src: "/images/service-engine.jpg",
       alt: "300-hour marine interval service",
+    },
+    "upholstery-canvas": {
+      src: "/images/service-upholstery-canvas.webp",
+      alt: "Boat cockpit with white and navy upholstered seats under a canvas bimini top",
+    },
+    "monthly-maintenance": {
+      src: "/images/service-monthly-maintenance.webp",
+      alt: "Marine battery bank and charging connections checked during a monthly boat maintenance visit",
     },
   },
   locations: {

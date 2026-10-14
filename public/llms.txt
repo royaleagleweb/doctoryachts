@@ -22,6 +22,8 @@
 - Boat maintenance: /services/boat-maintenance
 - Boat plumbing repairs: /services/plumbing-repairs
 - Mobile boat repair / mobile boat mechanic: /services/mobile-boat-repair
+- Monthly maintenance packages: /services/monthly-boat-maintenance
+- Boat upholstery & canvas (bimini tops, enclosures, cushions, covers): /services/boat-upholstery-canvas
 
 ## Cities (local SEO pages)
 - Fort Lauderdale: /locations/fort-lauderdale
