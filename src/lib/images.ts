@@ -179,8 +179,8 @@ export const images = {
       alt: "Boat plumbing and bilge system repairs",
     },
     emergency: {
-      src: "/images/service-dockside.jpg",
-      alt: "Mobile and dockside boat repair",
+      src: "/images/service-mobile-repair.webp",
+      alt: "Marine mechanic adjusting the carburetor on an outboard engine aboard a boat on the water",
     },
     outboard: {
       src: "/images/service-outboard.jpg",

@@ -1367,8 +1367,8 @@ export const services: Service[] = [
     ],
     images: [
       {
-        src: "/images/service-dockside.jpg",
-        alt: "Mobile dockside boat repair at a Fort Lauderdale marina",
+        src: "/images/service-mobile-repair.webp",
+        alt: "Marine mechanic adjusting the carburetor on an outboard engine aboard a boat on the water",
         caption: "Dockside mobile boat repair",
       },
       {
