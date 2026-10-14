@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import { Cormorant_Garamond, IBM_Plex_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 import { AmbientMotes } from "@/components/AmbientMotes";
 import { DocumentLang } from "@/components/DocumentLang";
@@ -21,6 +21,14 @@ const plex = IBM_Plex_Sans({
   variable: "--font-body",
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+/** Refined serif used only for homepage luxury headlines (.lux-serif). */
+const lux = Cormorant_Garamond({
+  variable: "--font-lux",
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600"],
   display: "swap",
 });
 
@@ -75,7 +83,7 @@ export default async function RootLayout({
 }) {
   const locale = await getRequestLocale();
   return (
-    <html lang={locale} className={`${plex.variable} h-full antialiased`}>
+    <html lang={locale} className={`${plex.variable} ${lux.variable} h-full antialiased`}>
       <body className="relative flex min-h-full flex-col font-sans">
         <DocumentLang />
         <JsonLd data={[localBusinessJsonLd(locale), webSiteJsonLd()]} />

@@ -74,6 +74,22 @@ export const problemOptions = [
     hintEs: "Anda irregular, no arranca, servicio",
   },
   {
+    id: "monthly-maintenance",
+    label: "Monthly maintenance",
+    hint: "Recurring checks, washdown, battery & bilge",
+    serviceId: "monthly-maintenance",
+    labelEs: "Mantenimiento mensual",
+    hintEs: "Revisiones, lavado, baterías y sentina",
+  },
+  {
+    id: "upholstery-canvas",
+    label: "Upholstery & canvas",
+    hint: "Bimini, enclosures, cushions, covers",
+    serviceId: "upholstery-canvas",
+    labelEs: "Tapicería y lona",
+    hintEs: "Bimini, cerramientos, cojines, fundas",
+  },
+  {
     id: "not-sure",
     label: "Not sure",
     hint: "Something's wrong — diagnose first",

@@ -58,8 +58,8 @@ export const marineMedia = {
     caption: "Outboard power",
   },
   dockside: {
-    src: "/images/service-dockside.jpg",
-    alt: "Mobile dockside boat repair at the marina",
+    src: "/images/service-mobile-repair.webp",
+    alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
     caption: "Mobile / dockside",
   },
   maintenance: {
@@ -252,6 +252,24 @@ const servicePools: Record<string, ServiceImage[]> = {
     marineMedia.mechanic,
     marineMedia.wake,
     marineMedia.maintenance,
+  ],
+  "upholstery-canvas": [
+    marineMedia.marina,
+    marineMedia.wake,
+    marineMedia.helm,
+    marineMedia.lines,
+    marineMedia.dockside,
+    marineMedia.maintenance,
+  ],
+  "monthly-maintenance": [
+    marineMedia.maintenance,
+    marineMedia.electricalDetail,
+    marineMedia.engine,
+    marineMedia.dockside,
+    marineMedia.marina,
+    marineMedia.mechanic,
+    marineMedia.wake,
+    marineMedia.helm,
   ],
   "hour-300": [
     marineMedia.engine,

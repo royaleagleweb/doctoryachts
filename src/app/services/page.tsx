@@ -157,7 +157,10 @@ export default function ServicesPage() {
             <Link href="/services/100-hour-service">100-hour service</Link> or the heavier{" "}
             <Link href="/services/300-hour-service">300-hour service</Link>. For a dockside visit
             without a tow, start with{" "}
-            <Link href="/services/mobile-boat-repair">mobile boat repair</Link>.
+            <Link href="/services/mobile-boat-repair">mobile boat repair</Link>. For recurring
+            checks, see <Link href="/services/monthly-boat-maintenance">monthly maintenance packages</Link>;
+            for tops, enclosures, and cushions, see{" "}
+            <Link href="/services/boat-upholstery-canvas">upholstery &amp; canvas</Link>.
           </p>
         </div>
         <Card className="mt-10 p-6">

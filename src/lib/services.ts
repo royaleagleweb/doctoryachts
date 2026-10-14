@@ -164,7 +164,7 @@ export const services: Service[] = [
         caption: "Engine bay diagnosis — inboard and related systems",
       },
       {
-        src: "/images/service-dockside.jpg",
+        src: "/images/service-mobile-repair.webp",
         alt: "Dockside mobile marine engine repair at a South Florida marina",
         caption: "Dockside engine service when access allows",
       },
@@ -769,7 +769,7 @@ export const services: Service[] = [
         caption: "Outboard interval service support",
       },
       {
-        src: "/images/service-dockside.jpg",
+        src: "/images/service-mobile-repair.webp",
         alt: "Mobile boat maintenance at the marina",
         caption: "Mobile maintenance when access allows",
       },
@@ -919,7 +919,7 @@ export const services: Service[] = [
         caption: "100-hour / annual interval service",
       },
       {
-        src: "/images/service-dockside.jpg",
+        src: "/images/service-mobile-repair.webp",
         alt: "Mobile 100-hour marine service at the marina",
         caption: "Mobile interval service when access allows",
       },
@@ -1229,7 +1229,7 @@ export const services: Service[] = [
         caption: "Pumps need healthy electrical supply",
       },
       {
-        src: "/images/service-dockside.jpg",
+        src: "/images/service-mobile-repair.webp",
         alt: "Dockside boat plumbing repair service",
         caption: "Dockside plumbing repairs when access allows",
       },
@@ -1367,8 +1367,8 @@ export const services: Service[] = [
     ],
     images: [
       {
-        src: "/images/service-dockside.jpg",
-        alt: "Mobile dockside boat repair at a Fort Lauderdale marina",
+        src: "/images/service-mobile-repair.webp",
+        alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
         caption: "Dockside mobile boat repair",
       },
       {
@@ -1554,6 +1554,238 @@ export const services: Service[] = [
       },
     ],
   },
+  {
+    id: "upholstery-canvas",
+    slug: "boat-upholstery-canvas",
+    title: "Upholstery & Canvas",
+    summary: "Boat upholstery, bimini tops, enclosures, cushions, and covers—planned around how you use the boat.",
+    description:
+      "Boat upholstery and marine canvas in Fort Lauderdale, Miami, and South Florida: bimini tops, enclosures, cushions, seats, and covers. Measured at your dock, quoted before work starts.",
+    content: [
+      "Looking for boat upholstery or marine canvas work in Fort Lauderdale? Doctor Yachts helps owners plan and coordinate upholstery and canvas jobs—bimini tops, full and partial enclosures, cockpit and helm cushions, seat recovering, and boat and console covers—for boats kept at marinas and private docks across Broward, Miami-Dade, and nearby South Florida.",
+      "South Florida sun, salt, and rain are hard on vinyl, foam, stitching, zippers, and canvas. Faded tops, split seams, waterlogged cushions, and covers that no longer fit are common on boats that live outside year-round. The first step is a look at the boat: what is worn, how it is used, and what needs replacing versus repairing.",
+      "We start with a dockside visit to review condition and take notes and measurements when needed. You get a written estimate for the scope before any work begins. Pricing depends on boat size, materials, and the scope of work—contact us for a quote.",
+    ],
+    sections: [
+      {
+        heading: "What upholstery & canvas work covers",
+        body: [
+          "Upholstery and canvas jobs range from a single torn seat to a full cockpit refresh with a new top and enclosure. We scope the job around your boat and how you use it—fishing, cruising, entertaining, or charter-style use—so the plan matches real wear.",
+        ],
+        list: [
+          "Bimini tops: replacement, repair, and refits",
+          "Full and partial enclosures, side curtains, and windows",
+          "Cockpit, helm, and bow cushions",
+          "Seat and bolster recovering",
+          "Boat, console, and helm covers",
+          "Zipper, snap, and stitching repairs",
+        ],
+      },
+      {
+        heading: "Repair or replace?",
+        body: [
+          "Not every worn piece needs to be replaced. Stitching, zippers, snaps, and small tears can often be repaired. Foam that holds water, canvas that has lost its strength, or vinyl that has cracked across a seat usually points toward replacement. We explain what we see so you can decide.",
+        ],
+      },
+      {
+        heading: "Fort Lauderdale, Miami & South Florida",
+        body: [
+          "We visit boats at marinas and private docks in Fort Lauderdale, Dania Beach, Hollywood, Pompano Beach, Miami, and nearby South Florida when access allows. Share the marina, slip, and gate details when you book so the visit goes smoothly.",
+        ],
+      },
+    ],
+    process: [
+      { title: "Tell us what needs work", detail: "Tops, enclosures, cushions, seats, or covers—photos help." },
+      { title: "Dockside look", detail: "We review condition, use, and fit at your slip." },
+      { title: "Written estimate", detail: "Scope and materials agreed before work starts. Contact for a quote." },
+      { title: "Fit and finish", detail: "Install and check fit at the boat." },
+    ],
+    whatWeCheck: [
+      "Canvas condition, fading, and strength",
+      "Stitching, zippers, and snaps",
+      "Frame and fittings for tops and enclosures",
+      "Cushion foam and water retention",
+      "Vinyl cracks, tears, and seams",
+      "Cover fit and tie-down points",
+    ],
+    features: [
+      "Boat upholstery Fort Lauderdale",
+      "Bimini tops and enclosures",
+      "Cushions and seat recovering",
+      "Boat and console covers",
+      "Dockside measuring and review",
+      "Contact for a quote",
+    ],
+    symptoms: [
+      "Faded or torn bimini top",
+      "Enclosure windows cloudy or zippers failing",
+      "Cushions holding water or flattened",
+      "Split seams or cracked vinyl on seats",
+      "Cover no longer fits or tears in wind",
+    ],
+    whenToCall:
+      "Call when tops, enclosures, cushions, seats, or covers are worn, torn, or no longer fit—ideally before a small tear becomes a full replacement.",
+    duration: "Varies by scope",
+    icon: "systems",
+    quickAnswer:
+      "Doctor Yachts handles boat upholstery and canvas work in Fort Lauderdale, Miami, and South Florida—bimini tops, enclosures, cushions, seats, and covers. We review the boat at your dock and give a written estimate before work starts. Contact for a quote.",
+    seoTitle: "Boat Upholstery & Canvas Fort Lauderdale | Bimini Tops & Cushions",
+    seoDescription:
+      "Boat upholstery and marine canvas in Fort Lauderdale, Miami & South Florida—bimini tops, enclosures, cushions, and covers. Contact Doctor Yachts for a quote.",
+    keywords: [
+      "boat upholstery Fort Lauderdale",
+      "marine canvas Fort Lauderdale",
+      "bimini top repair South Florida",
+      "boat enclosures Miami",
+      "boat cushions Fort Lauderdale",
+      "boat covers South Florida",
+    ],
+    images: [
+      {
+        src: "/images/service-upholstery-canvas.webp",
+        alt: "Boat cockpit with white and navy upholstered seats under a canvas bimini top",
+        caption: "Upholstery and bimini canvas",
+      },
+      {
+        src: "/images/yacht-cockpit.jpg",
+        alt: "Yacht cockpit seating and exterior cushions at a South Florida marina",
+        caption: "Cockpit seating",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you do bimini tops and enclosures?",
+        answer:
+          "Yes. We handle bimini top replacement and repair, plus full and partial enclosures. We review the boat first and give a written estimate.",
+      },
+      {
+        question: "How much does boat upholstery cost?",
+        answer:
+          "It depends on boat size, materials, and scope. Contact us for a quote after we review the boat.",
+      },
+      {
+        question: "Can you come to my marina?",
+        answer:
+          "Yes, we visit marinas and private docks in Fort Lauderdale, Miami, and nearby South Florida when access allows.",
+      },
+    ],
+  },
+  {
+    id: "monthly-maintenance",
+    slug: "monthly-boat-maintenance",
+    title: "Monthly Maintenance Packages",
+    summary: "Recurring monthly visits—engine checks, systems inspection, washdown, battery and bilge checks.",
+    description:
+      "Monthly boat maintenance in Fort Lauderdale, Miami, and South Florida: recurring engine checks, systems inspection, washdown, and battery and bilge checks at your dock. Contact for a quote.",
+    content: [
+      "Boats in South Florida that sit between trips still need attention. Doctor Yachts offers monthly maintenance visits for boats at marinas and private docks in Fort Lauderdale, Miami, and nearby South Florida—so small issues get noticed before they ruin a weekend.",
+      "Each visit follows a consistent checklist: engine checks, systems inspection, a washdown, and battery and bilge checks. You get notes after each visit, and anything that needs repair is quoted before work is done.",
+      "Packages are built around your boat, engines, and how often you use it. We don't publish fixed tiers or prices—contact us for a quote.",
+    ],
+    sections: [
+      {
+        heading: "What a monthly visit includes",
+        body: [
+          "The goal is simple: a boat that starts, charges, stays dry, and stays clean between trips. The checklist is adjusted to your engines, systems, and storage.",
+        ],
+        list: [
+          "Engine checks: fluids, belts, hoses, visible leaks, and run-up when appropriate",
+          "Systems inspection: pumps, plumbing, electrical panels, and lights",
+          "Washdown of the boat",
+          "Battery checks: state of charge, terminals, and charging",
+          "Bilge checks: float switches, pumps, and water level",
+          "Visit notes and anything that needs follow-up",
+        ],
+      },
+      {
+        heading: "Why monthly matters in South Florida",
+        body: [
+          "Heat, salt, rain, and growth work on a boat every day it sits. Batteries discharge, bilge switches stick, and raw-water systems foul. Regular checks catch these early—often before they become a no-start or a wet bilge.",
+        ],
+      },
+      {
+        heading: "Fort Lauderdale, Miami & nearby docks",
+        body: [
+          "Monthly visits are scheduled at marinas and private docks in Fort Lauderdale, Dania Beach, Hollywood, Pompano Beach, Miami, and nearby South Florida when access allows.",
+        ],
+      },
+    ],
+    process: [
+      { title: "Tell us about the boat", detail: "Vessel, engines, location, and how often you use it." },
+      { title: "Build the checklist", detail: "We set the visit checklist around your boat. Contact for a quote." },
+      { title: "Monthly visit", detail: "Engine checks, systems inspection, washdown, battery and bilge checks." },
+      { title: "Notes after each visit", detail: "Findings and any repair recommendations, quoted before work." },
+    ],
+    whatWeCheck: [
+      "Engine fluids, belts, and hoses",
+      "Visible leaks and corrosion",
+      "Battery charge and terminals",
+      "Charging system",
+      "Bilge pumps and float switches",
+      "Plumbing and pumps",
+      "Electrical panels and lights",
+      "General condition after washdown",
+    ],
+    features: [
+      "Recurring monthly visits",
+      "Engine checks",
+      "Systems inspection",
+      "Washdown",
+      "Battery and bilge checks",
+      "Contact for a quote",
+    ],
+    symptoms: [
+      "Boat sits for weeks between trips",
+      "Batteries dead when you arrive",
+      "Bilge pump running more than expected",
+      "You want a steady set of eyes on the boat",
+    ],
+    whenToCall:
+      "Set up monthly maintenance when the boat sits between trips, when you're away for part of the year, or when you want regular checks instead of surprises.",
+    duration: "Monthly",
+    icon: "maintenance",
+    quickAnswer:
+      "Doctor Yachts offers monthly boat maintenance in Fort Lauderdale, Miami, and South Florida: recurring engine checks, systems inspection, washdown, and battery and bilge checks at your dock. Contact for a quote.",
+    seoTitle: "Monthly Boat Maintenance Fort Lauderdale | Doctor Yachts",
+    seoDescription:
+      "Monthly boat maintenance packages in Fort Lauderdale, Miami & South Florida—engine checks, systems inspection, washdown, battery & bilge checks. Contact for a quote.",
+    keywords: [
+      "monthly boat maintenance Fort Lauderdale",
+      "boat maintenance packages South Florida",
+      "yacht maintenance Miami",
+      "boat battery and bilge checks",
+      "boat washdown Fort Lauderdale",
+    ],
+    images: [
+      {
+        src: "/images/service-monthly-maintenance.webp",
+        alt: "Marine battery bank and charging connections checked during a monthly boat maintenance visit",
+        caption: "Battery and systems checks",
+      },
+      {
+        src: "/images/service-maintenance.jpg",
+        alt: "Scheduled boat maintenance at a South Florida marina dock",
+        caption: "Maintenance at the dock",
+      },
+    ],
+    faqs: [
+      {
+        question: "What's included in a monthly maintenance visit?",
+        answer:
+          "Engine checks, systems inspection, washdown, and battery and bilge checks, adjusted to your boat. You get notes after each visit.",
+      },
+      {
+        question: "How much do monthly maintenance packages cost?",
+        answer:
+          "It depends on the boat, engines, and checklist. We don't publish fixed tiers—contact us for a quote.",
+      },
+      {
+        question: "Do repairs found during a visit cost extra?",
+        answer:
+          "Anything beyond the checklist is quoted before work is done, so you decide.",
+      },
+    ],
+  },
 ];
 
 export function getServiceBySlug(slug: string) {
@@ -1575,6 +1807,8 @@ export const HUB_SERVICE_ORDER = [
   "hour-300",
   "systems",
   "emergency",
+  "monthly-maintenance",
+  "upholstery-canvas",
 ] as const;
 
 export function servicesInHubOrder() {

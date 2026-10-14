@@ -954,6 +954,153 @@ const es: Record<string, Overlay> = {
       { question: "¿Repower o reparar?", answer: "Depende de condición, horas, costo vs vida que le queda y cómo lo usa. Diagnosticamos primero y damos una recomendación honesta—no un pitch de repower por defecto." },
     ],
   },
+  "upholstery-canvas": {
+    title: "Tapicería y lona",
+    summary: "Tapicería de barcos, biminis, cerramientos, cojines y fundas—planeado según cómo usa el bote.",
+    description:
+      "Tapicería y lona marina en Fort Lauderdale, Miami y el sur de la Florida: biminis, cerramientos, cojines, asientos y fundas. Revisión en su muelle y presupuesto antes de empezar.",
+    content: [
+      "¿Busca tapicería de barcos o trabajos de lona marina en Fort Lauderdale? Doctor Yachts ayuda a planear y coordinar biminis, cerramientos completos y parciales, cojines de cockpit y timón, retapizado de asientos y fundas para botes en marinas y muelles privados de Broward, Miami-Dade y el sur de la Florida.",
+      "El sol, la sal y la lluvia del sur de la Florida castigan el vinil, la espuma, las costuras, los cierres y la lona. Topes desteñidos, costuras abiertas, cojines empapados y fundas que ya no ajustan son comunes en botes que viven afuera todo el año.",
+      "Empezamos con una visita al muelle para revisar el estado y tomar notas y medidas. Recibe un presupuesto escrito antes de cualquier trabajo. El precio depende del tamaño del bote, los materiales y el alcance—contáctenos para una cotización.",
+    ],
+    sections: [
+      {
+        heading: "Qué cubre la tapicería y lona",
+        body: ["Desde un asiento roto hasta renovar el cockpit con tope y cerramiento nuevos. Definimos el alcance según su bote y su uso."],
+        list: [
+          "Biminis: reemplazo, reparación y ajustes",
+          "Cerramientos completos y parciales, cortinas y ventanas",
+          "Cojines de cockpit, timón y proa",
+          "Retapizado de asientos y bolsters",
+          "Fundas de bote, consola y timón",
+          "Reparación de cierres, broches y costuras",
+        ],
+      },
+      {
+        heading: "¿Reparar o reemplazar?",
+        body: ["No todo lo gastado necesita reemplazo. Costuras, cierres, broches y roturas pequeñas a menudo se reparan. Le explicamos lo que vemos para que usted decida."],
+      },
+      {
+        heading: "Fort Lauderdale, Miami y el sur de la Florida",
+        body: ["Visitamos marinas y muelles privados en Fort Lauderdale, Dania Beach, Hollywood, Pompano Beach, Miami y alrededores cuando hay acceso."],
+      },
+    ],
+    process: [
+      { title: "Cuéntenos qué necesita", detail: "Topes, cerramientos, cojines, asientos o fundas—las fotos ayudan." },
+      { title: "Revisión en el muelle", detail: "Revisamos estado, uso y ajuste en su slip." },
+      { title: "Presupuesto escrito", detail: "Alcance y materiales acordados antes de empezar. Contáctenos para cotizar." },
+      { title: "Instalación y ajuste", detail: "Instalamos y verificamos el ajuste en el bote." },
+    ],
+    whatWeCheck: [
+      "Estado, decoloración y resistencia de la lona",
+      "Costuras, cierres y broches",
+      "Estructura y herrajes de topes y cerramientos",
+      "Espuma de cojines y retención de agua",
+      "Grietas, roturas y costuras del vinil",
+      "Ajuste de fundas y puntos de amarre",
+    ],
+    features: [
+      "Tapicería de barcos Fort Lauderdale",
+      "Biminis y cerramientos",
+      "Cojines y retapizado",
+      "Fundas de bote y consola",
+      "Revisión y medidas en el muelle",
+      "Contáctenos para cotizar",
+    ],
+    symptoms: [
+      "Bimini desteñido o roto",
+      "Ventanas opacas o cierres que fallan",
+      "Cojines que retienen agua o aplastados",
+      "Costuras abiertas o vinil agrietado",
+      "La funda ya no ajusta o se rompe con viento",
+    ],
+    whenToCall: "Llame cuando topes, cerramientos, cojines, asientos o fundas estén gastados, rotos o no ajusten—antes de que una rotura pequeña se convierta en reemplazo total.",
+    duration: "Según el alcance",
+    seoTitle: "Tapicería y lona de barcos Fort Lauderdale | Doctor Yachts",
+    seoDescription: "Tapicería y lona marina en Fort Lauderdale, Miami y el sur de la Florida—biminis, cerramientos, cojines y fundas. Contacte a Doctor Yachts para cotizar.",
+    quickAnswer: "Doctor Yachts realiza tapicería y lona de barcos en Fort Lauderdale, Miami y el sur de la Florida—biminis, cerramientos, cojines, asientos y fundas. Revisamos el bote en su muelle y damos presupuesto escrito antes de empezar. Contáctenos para cotizar.",
+    keywords: ["tapicería de barcos Fort Lauderdale", "bimini para botes", "lona marina Miami", "cojines para barcos"],
+    faqs: [
+      { question: "¿Hacen biminis y cerramientos?", answer: "Sí. Reemplazo y reparación de biminis, más cerramientos completos y parciales. Revisamos el bote primero y damos presupuesto escrito." },
+      { question: "¿Cuánto cuesta la tapicería de un bote?", answer: "Depende del tamaño, los materiales y el alcance. Contáctenos para cotizar después de revisar el bote." },
+      { question: "¿Pueden venir a mi marina?", answer: "Sí, visitamos marinas y muelles privados en Fort Lauderdale, Miami y el sur de la Florida cuando hay acceso." },
+    ],
+  },
+  "monthly-maintenance": {
+    title: "Paquetes de mantenimiento mensual",
+    summary: "Visitas mensuales—revisión de motores, inspección de sistemas, lavado, baterías y sentina.",
+    description:
+      "Mantenimiento mensual de barcos en Fort Lauderdale, Miami y el sur de la Florida: revisión de motores, inspección de sistemas, lavado y chequeo de baterías y sentina en su muelle. Contáctenos para cotizar.",
+    content: [
+      "Los botes del sur de la Florida que pasan semanas sin salir también necesitan atención. Doctor Yachts ofrece visitas de mantenimiento mensual en marinas y muelles privados de Fort Lauderdale, Miami y alrededores—para detectar problemas pequeños antes de que arruinen el fin de semana.",
+      "Cada visita sigue una lista fija: revisión de motores, inspección de sistemas, lavado y chequeo de baterías y sentina. Recibe notas después de cada visita, y cualquier reparación se cotiza antes de hacerla.",
+      "Los paquetes se arman según su bote, motores y uso. No publicamos niveles ni precios fijos—contáctenos para cotizar.",
+    ],
+    sections: [
+      {
+        heading: "Qué incluye la visita mensual",
+        body: ["Un bote que arranca, carga, se mantiene seco y limpio entre salidas. La lista se ajusta a sus motores y sistemas."],
+        list: [
+          "Revisión de motores: fluidos, correas, mangueras, fugas y encendido cuando aplica",
+          "Inspección de sistemas: bombas, plomería, paneles eléctricos y luces",
+          "Lavado del bote",
+          "Baterías: carga, terminales y sistema de carga",
+          "Sentina: interruptores de flotador, bombas y nivel de agua",
+          "Notas de la visita y seguimiento",
+        ],
+      },
+      {
+        heading: "Por qué mensual en el sur de la Florida",
+        body: ["Calor, sal, lluvia y crecimiento marino trabajan sobre el bote cada día. Las baterías se descargan, los flotadores se pegan y los sistemas de agua cruda se ensucian. Las revisiones regulares lo detectan a tiempo."],
+      },
+      {
+        heading: "Fort Lauderdale, Miami y muelles cercanos",
+        body: ["Programamos visitas en marinas y muelles privados de Fort Lauderdale, Dania Beach, Hollywood, Pompano Beach, Miami y alrededores cuando hay acceso."],
+      },
+    ],
+    process: [
+      { title: "Cuéntenos del bote", detail: "Embarcación, motores, ubicación y frecuencia de uso." },
+      { title: "Armamos la lista", detail: "Definimos la lista de la visita. Contáctenos para cotizar." },
+      { title: "Visita mensual", detail: "Motores, sistemas, lavado, baterías y sentina." },
+      { title: "Notas después de cada visita", detail: "Hallazgos y recomendaciones, cotizadas antes de trabajar." },
+    ],
+    whatWeCheck: [
+      "Fluidos, correas y mangueras del motor",
+      "Fugas visibles y corrosión",
+      "Carga y terminales de baterías",
+      "Sistema de carga",
+      "Bombas de sentina y flotadores",
+      "Plomería y bombas",
+      "Paneles eléctricos y luces",
+      "Estado general después del lavado",
+    ],
+    features: [
+      "Visitas mensuales",
+      "Revisión de motores",
+      "Inspección de sistemas",
+      "Lavado",
+      "Chequeo de baterías y sentina",
+      "Contáctenos para cotizar",
+    ],
+    symptoms: [
+      "El bote pasa semanas sin salir",
+      "Baterías muertas al llegar",
+      "La bomba de sentina trabaja más de lo normal",
+      "Quiere que alguien revise el bote con regularidad",
+    ],
+    whenToCall: "Programe mantenimiento mensual cuando el bote pasa tiempo sin uso, cuando usted está fuera parte del año o cuando prefiere revisiones regulares en vez de sorpresas.",
+    duration: "Mensual",
+    seoTitle: "Mantenimiento mensual de barcos Fort Lauderdale | Doctor Yachts",
+    seoDescription: "Paquetes de mantenimiento mensual en Fort Lauderdale, Miami y el sur de la Florida—motores, sistemas, lavado, baterías y sentina. Contáctenos para cotizar.",
+    quickAnswer: "Doctor Yachts ofrece mantenimiento mensual de barcos en Fort Lauderdale, Miami y el sur de la Florida: revisión de motores, inspección de sistemas, lavado y chequeo de baterías y sentina en su muelle. Contáctenos para cotizar.",
+    keywords: ["mantenimiento mensual de barcos", "mantenimiento de yates Fort Lauderdale", "paquetes de mantenimiento de botes Miami"],
+    faqs: [
+      { question: "¿Qué incluye la visita mensual?", answer: "Revisión de motores, inspección de sistemas, lavado y chequeo de baterías y sentina, ajustado a su bote. Recibe notas después de cada visita." },
+      { question: "¿Cuánto cuestan los paquetes mensuales?", answer: "Depende del bote, los motores y la lista. No publicamos niveles fijos—contáctenos para cotizar." },
+      { question: "¿Las reparaciones encontradas cuestan aparte?", answer: "Todo lo que va más allá de la lista se cotiza antes de hacerlo, para que usted decida." },
+    ],
+  },
 };
 
 export function localizeService(service: Service, locale: Locale): Service {
@@ -992,6 +1139,8 @@ export function servicesInHubOrderLocalized(locale: Locale): Service[] {
     "hour-300",
     "systems",
     "emergency",
+    "monthly-maintenance",
+    "upholstery-canvas",
   ] as const;
   return order
     .map((id) => services.find((s) => s.id === id))

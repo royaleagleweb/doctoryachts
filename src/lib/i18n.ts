@@ -25,6 +25,8 @@ export const SERVICE_SLUG_ES: Record<string, string> = {
   "outboard-motor-repair": "servicio-de-motor-fuera-de-borda",
   "100-hour-service": "servicio-100-horas",
   "300-hour-service": "servicio-300-horas",
+  "boat-upholstery-canvas": "tapiceria-y-lona-de-barcos",
+  "monthly-boat-maintenance": "mantenimiento-mensual-de-barcos",
 };
 
 export const SERVICE_SLUG_EN: Record<string, string> = Object.fromEntries(
