@@ -50,6 +50,8 @@ export function PageHero({
             alt={image.alt}
             fill
             preload={eager}
+            fetchPriority={eager ? "high" : undefined}
+            loading={eager ? "eager" : undefined}
             sizes="100vw"
             className="object-cover"
           />

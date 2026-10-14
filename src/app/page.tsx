@@ -37,6 +37,8 @@ export default function HomePage() {
             alt={yachts.marinaGold.alt}
             fill
             preload
+            fetchPriority="high"
+            loading="eager"
             sizes="100vw"
             className="object-cover"
           />
