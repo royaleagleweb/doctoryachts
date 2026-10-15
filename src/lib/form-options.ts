@@ -42,6 +42,14 @@ export const problemOptions = [
     hintEs: "Aceite, impulsor, zincs, pretemporada",
   },
   {
+    id: "monthly-package",
+    label: "Monthly maintenance",
+    hint: "Essential, Systems Plus, or Full Care",
+    serviceId: "maintenance",
+    labelEs: "Mantenimiento mensual",
+    hintEs: "Esencial, Sistemas plus o Cuidado completo",
+  },
+  {
     id: "hour-100",
     label: "100-hour service",
     hint: "Annual / ~100 hour interval",

@@ -140,8 +140,12 @@ export default function SpanishHomePage() {
                 <Link href={servicePath("cooling-system-repairs", "es")}>enfriamiento</Link>,{" "}
                 <Link href={servicePath("100-hour-service", "es")}>servicio 100 horas</Link>,{" "}
                 <Link href={servicePath("300-hour-service", "es")}>servicio 300 horas</Link>,{" "}
-                <Link href={servicePath("boat-maintenance", "es")}>mantenimiento de yates</Link>. Llame al{" "}
-                <a href={site.phoneHref}>{site.phone}</a> o <Link href="/es/reservar">reserve una visita</Link>.
+                <Link href={servicePath("boat-maintenance", "es")}>mantenimiento de yates</Link>,{" "}
+                <Link href={`${servicePath("boat-maintenance", "es")}#monthly-packages`}>
+                  paquetes mensuales
+                </Link>
+                . Llame al <a href={site.phoneHref}>{site.phone}</a> o{" "}
+                <Link href="/es/reservar">reserve una visita</Link>.
               </p>
             </div>
           </div>
@@ -173,6 +177,24 @@ export default function SpanishHomePage() {
                 className="object-cover object-[center_40%]"
               />
             </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+          <SectionHeading
+            eyebrow="Cuidado mensual"
+            title="Paquetes de mantenimiento mensual"
+            description="Tres planes en el muelle—Mensual esencial, Sistemas plus y Cuidado completo. Recorridos y chequeos de sistemas en su slip, no una membresía de marina. Llame para el precio del paquete."
+          />
+          <div className="flex flex-wrap gap-3">
+            <Button href={`${servicePath("boat-maintenance", "es")}#monthly-packages`}>
+              Ver paquetes
+            </Button>
+            <Button href={site.phoneHref} variant="ghost">
+              Llamar {site.phone}
+            </Button>
           </div>
         </div>
       </Section>
