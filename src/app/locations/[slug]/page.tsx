@@ -14,6 +14,7 @@ import { Section } from "@/components/Section";
 import { guides } from "@/lib/guides";
 import { images } from "@/lib/images";
 import { getLocationBySlug, locations } from "@/lib/locations";
+import { fitPageTitle, metaDescriptionFor } from "@/lib/page-meta";
 import {
   breadcrumbJsonLd,
   buildMetadata,
@@ -33,10 +34,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const loc = getLocationBySlug(slug);
   if (!loc) return {};
+  const path = `/locations/${loc.slug}`;
   return buildMetadata({
-    title: loc.seoTitle,
-    description: loc.seoDescription,
-    path: `/locations/${loc.slug}`,
+    title: fitPageTitle(loc.seoTitle),
+    description: metaDescriptionFor(path, loc.seoDescription),
+    path,
     keywords: loc.keywords,
   });
 }

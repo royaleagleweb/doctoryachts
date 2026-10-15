@@ -12,9 +12,9 @@ import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Reservar reparación de barcos en línea | Fort Lauderdale y el sur de la Florida",
+  title: "Reservar reparación de barcos en línea | Fort Lauderdale",
   description:
-    "Reserve reparación de barcos en Fort Lauderdale y el sur de la Florida. Cuéntenos qué pasa, dónde está el bote y cuándo le sirve. Presupuestos gratis. Móvil en el muelle cuando hay cupo.",
+    "Reserve reparación de barcos en Fort Lauderdale y el sur de la Florida. Diga qué pasa, dónde está el bote y cuándo. Presupuestos gratis.",
   path: "/es/reservar",
   locale: "es",
   keywords: ["reservar mecánico de yates", "agendar reparación de barcos Fort Lauderdale"],

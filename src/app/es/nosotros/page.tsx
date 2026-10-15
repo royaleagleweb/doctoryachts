@@ -16,9 +16,9 @@ import { getLocalizedServices } from "@/lib/services-localized";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Sobre Doctor Yachts | Mecánico de yates en el sur de la Florida",
+  title: "Sobre Doctor Yachts | Mecánico en Fort Lauderdale",
   description:
-    "Sobre Doctor Yachts—mecánico de yates y botes independiente en Fort Lauderdale, Miami y el sur de la Florida. Reparación móvil y en el muelle, diagnóstico primero. Presupuestos gratis.",
+    "Doctor Yachts es un mecánico de yates independiente en Fort Lauderdale, Miami y el sur de la Florida. Diagnóstico primero y servicio en el muelle. Llame.",
   path: "/es/nosotros",
   locale: "es",
   keywords: ["sobre Doctor Yachts", "mecánico de yates Fort Lauderdale", "mecánico náutico"],

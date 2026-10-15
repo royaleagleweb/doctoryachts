@@ -145,7 +145,7 @@ export const services: Service[] = [
     icon: "engine",
     quickAnswer:
       "Marine engine repair covers inboard and outboard no-starts, overheating, power loss, and generator issues. Doctor Yachts diagnoses first in Fort Lauderdale and South Florida, then repairs with dockside service when access allows. Free estimates before major parts work.",
-    seoTitle: "Marine Engine Repair, Inboard & Outboard | Doctor Yachts | Fort Lauderdale, FL",
+    seoTitle: "Marine Engine Repair, Inboard & Outboard | Fort Lauderdale",
     seoDescription:
       "Expert inboard & outboard marine engine repair in Fort Lauderdale & South Florida. Diagnose-first dockside service. Free estimates — Doctor Yachts.",
     keywords: [
@@ -300,7 +300,7 @@ export const services: Service[] = [
     icon: "electrical",
     quickAnswer:
       "Boat electrical repairs fix dead batteries, weak charging, shore power trips, and intermittent wiring faults. We test the full path—batteries, chargers, alternators, and grounds—across Fort Lauderdale and South Florida docks. Free estimates after diagnosis.",
-    seoTitle: "Boat Electrical Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
+    seoTitle: "Boat Electrical Repairs Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Expert boat electrical repairs in Fort Lauderdale & South Florida. Batteries, charging, shore power, grounds. Free estimates — Doctor Yachts.",
     keywords: [
@@ -454,7 +454,7 @@ export const services: Service[] = [
     icon: "diagnostics",
     quickAnswer:
       "Boat cooling system repairs address overheating from failed impellers, clogged strainers, stuck thermostats, or fouled heat exchangers. Stop running if temps keep rising. Doctor Yachts offers dockside cooling diagnostics in Fort Lauderdale and South Florida. Free estimates.",
-    seoTitle: "Cooling System Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
+    seoTitle: "Cooling System Repairs Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Boat cooling system repairs in Fort Lauderdale & South Florida. Overheating, impellers, strainers, exchangers. Free estimates — Doctor Yachts.",
     keywords: [
@@ -601,7 +601,7 @@ export const services: Service[] = [
     icon: "diagnostics",
     quickAnswer:
       "Boat diagnostics inspect engines, electrical, bilge, and safety systems and deliver written findings with a repair roadmap. Use before season, after purchase, or when faults are intermittent. Available mobile in Fort Lauderdale and South Florida. Free estimates on recommended work.",
-    seoTitle: "Boat Diagnostics | Doctor Yachts | Fort Lauderdale & South Florida, FL",
+    seoTitle: "Boat Diagnostics Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Boat & yacht diagnostics in Fort Lauderdale & South Florida. Written findings, repair roadmap, free estimates on recommended work — Doctor Yachts.",
     keywords: [
@@ -747,7 +747,7 @@ export const services: Service[] = [
     icon: "maintenance",
     quickAnswer:
       "Boat maintenance in Florida should follow manufacturer hours plus saltwater reality—oil and filters, impellers, zincs, belts, and seasonal checks. Doctor Yachts provides scheduled maintenance in Fort Lauderdale and South Florida. Free estimates for packages.",
-    seoTitle: "Boat Maintenance | Doctor Yachts | Fort Lauderdale & South Florida, FL",
+    seoTitle: "Boat Maintenance Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Boat maintenance in Fort Lauderdale & South Florida. Oil service, outboard maintenance, zincs, seasonal commissioning. Free estimates — Doctor Yachts.",
     keywords: [
@@ -901,7 +901,7 @@ export const services: Service[] = [
     icon: "maintenance",
     quickAnswer:
       "100-hour service is manufacturer-interval dockside maintenance—oil and filters, gear lube, impeller and cooling checks, zincs, belts, batteries, and a service log. Doctor Yachts does this visit in Fort Lauderdale and South Florida to prevent Saturday no-starts. Diagnose first. Free estimates.",
-    seoTitle: "100-Hour Boat Service | Doctor Yachts | Fort Lauderdale & South Florida",
+    seoTitle: "100-Hour Boat Service Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "100-hour boat & yacht service in Fort Lauderdale & South Florida. Oil, filters, impeller, zincs, batteries. Dockside interval service. Free estimates — Doctor Yachts.",
     keywords: [
@@ -1056,7 +1056,7 @@ export const services: Service[] = [
     icon: "maintenance",
     quickAnswer:
       "300-hour service is the heavier manufacturer interval: deeper cooling and heat-exchanger attention, thorough electrical and fuel-system checks, plus fluids. Doctor Yachts does this dockside in Fort Lauderdale and South Florida when access allows. Findings before parts. Free estimates.",
-    seoTitle: "300-Hour Boat Service | Doctor Yachts | Fort Lauderdale & South Florida",
+    seoTitle: "300-Hour Boat Service Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "300-hour boat & yacht service in Fort Lauderdale & South Florida. Deeper cooling, electrical & fuel inspection. Dockside. Free estimates — Doctor Yachts.",
     keywords: [
@@ -1207,7 +1207,7 @@ export const services: Service[] = [
     icon: "systems",
     quickAnswer:
       "Boat plumbing repairs cover bilge pumps, freshwater systems, heads, seacocks, and related leaks or failures. Constant bilge running or weak water pressure needs diagnosis, not random part swaps. Mobile service in Fort Lauderdale and South Florida when access allows.",
-    seoTitle: "Boat Plumbing Repairs | Doctor Yachts | Fort Lauderdale & South Florida, FL",
+    seoTitle: "Boat Plumbing Repairs Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Boat plumbing & bilge repairs in Fort Lauderdale & South Florida. Pumps, heads, seacocks, systems. Free estimates — Doctor Yachts.",
     keywords: [
@@ -1629,7 +1629,7 @@ export const services: Service[] = [
     icon: "systems",
     quickAnswer:
       "Doctor Yachts handles boat upholstery and canvas work in Fort Lauderdale, Miami, and South Florida—bimini tops, enclosures, cushions, seats, and covers. We review the boat at your dock and give a written estimate before work starts. Contact for a quote.",
-    seoTitle: "Boat Upholstery & Canvas Fort Lauderdale | Bimini Tops & Cushions",
+    seoTitle: "Boat Upholstery & Canvas Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Boat upholstery and marine canvas in Fort Lauderdale, Miami & South Florida—bimini tops, enclosures, cushions, and covers. Contact Doctor Yachts for a quote.",
     keywords: [

@@ -13,13 +13,14 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { images, yachts } from "@/lib/images";
 import { publicLocations } from "@/lib/locations";
+import { homeMetaDescription } from "@/lib/page-meta";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
 import { servicesInHubOrder } from "@/lib/services";
 import { homeFaqs, site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
-  description: site.description,
+  description: homeMetaDescription,
   path: "/",
 });
 
@@ -48,11 +49,11 @@ export default function HomePage() {
         <div className="wrap lux-hero__inner">
           <div className="lux-hero__glass">
             <p className="eyebrow lux-hero__eyebrow">Doctor Yachts · South Florida</p>
-            <p className="lux-hero__kicker">Mobile boat mechanic in South Florida</p>
+            <p className="lux-hero__kicker">Diagnose first. Dockside.</p>
             <h1 id="home-hero-title" className="lux-serif lux-hero__title">
-              The mechanic who comes to the boat.
+              Mobile boat mechanic in Fort Lauderdale
             </h1>
-            <p className="lux-hero__subhead">Diagnose first. Dockside.</p>
+            <p className="lux-hero__subhead">The mechanic who comes to the boat.</p>
             <p className="lux-hero__desc">
               Fort Lauderdale, Miami, and nearby docks. We confirm by phone during Mon–Sat 7–6.
             </p>

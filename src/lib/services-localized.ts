@@ -106,7 +106,7 @@ const es: Record<string, Overlay> = {
     whenToCall:
       "Llame por reparación de motor cuando no arranca, corre caliente, pierde potencia o tira alarmas—sobre todo antes de un viaje. Un diagnóstico temprano en el muelle en Fort Lauderdale o el sur de la Florida a menudo evita remolque y daño más caro.",
     duration: "2–8 h típico",
-    seoTitle: "Reparación de motores marinos | Mecánico de yates | Fort Lauderdale, FL",
+    seoTitle: "Reparación de motores marinos | Fort Lauderdale",
     seoDescription:
       "Reparación de motores internos y fuera de borda en Fort Lauderdale y el sur de la Florida. Diagnóstico primero, servicio en el muelle. Presupuestos gratis — Doctor Yachts.",
     quickAnswer:
@@ -200,7 +200,7 @@ const es: Record<string, Overlay> = {
     whenToCall:
       "Reserve reparación eléctrica cuando las baterías se mueren, la carga es floja, el shore power se dispara o los electrónicos se apagan. Fallas intermitentes y olores a quemado piden diagnóstico pronto—no siga dando jump y esperando.",
     duration: "1–6 h típico",
-    seoTitle: "Reparación eléctrica de barcos | Doctor Yachts | Fort Lauderdale, FL",
+    seoTitle: "Reparación eléctrica de barcos | Fort Lauderdale",
     seoDescription:
       "Reparación eléctrica de barcos en Fort Lauderdale y el sur de la Florida. Baterías, carga, shore power, tierras. Presupuestos gratis — Doctor Yachts.",
     quickAnswer:
@@ -294,7 +294,7 @@ const es: Record<string, Overlay> = {
     whenToCall:
       "Deje de correr si la temperatura sigue subiendo. Reserve enfriamiento después de cualquier sobrecalentamiento, chorrito débil o strainers que se tapan—antes de que el fin de semana se vuelva daño de motor.",
     duration: "1–5 h típico",
-    seoTitle: "Sistema de enfriamiento | Doctor Yachts | Fort Lauderdale, FL",
+    seoTitle: "Sistema de enfriamiento Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Reparación del sistema de enfriamiento en Fort Lauderdale y el sur de la Florida. Sobrecalentamiento, impulsores, strainers. Presupuestos gratis — Doctor Yachts.",
     quickAnswer:
@@ -570,7 +570,7 @@ const es: Record<string, Overlay> = {
     whenToCall:
       "Reserve el servicio 100 horas cuando el horómetro o el calendario digan que toca—sobre todo antes de temporada alta o un viaje. El uso anual en agua salada en Fort Lauderdale y el sur de la Florida es la base aunque las horas sean pocas.",
     duration: "2–5 h típico",
-    seoTitle: "Servicio 100 horas | Doctor Yachts | Fort Lauderdale y el sur de la Florida",
+    seoTitle: "Servicio 100 horas Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Servicio 100 horas de botes y yates en Fort Lauderdale y el sur de la Florida. Aceite, filtros, impulsor, zincs, baterías. En el muelle. Presupuestos gratis — Doctor Yachts.",
     quickAnswer:
@@ -664,7 +664,7 @@ const es: Record<string, Overlay> = {
     whenToCall:
       "Reserve el servicio 300 horas cuando el manual o el horómetro lo pongan en el intervalo más pesado—o cuando se hayan saltado las visitas de 100 horas. En el muelle en Fort Lauderdale y el sur de la Florida cuando hay acceso.",
     duration: "4–8 h típico",
-    seoTitle: "Servicio 300 horas | Doctor Yachts | Fort Lauderdale y el sur de la Florida",
+    seoTitle: "Servicio 300 horas Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Servicio 300 horas de botes y yates en Fort Lauderdale y el sur de la Florida. Enfriamiento, eléctrico y combustible más a fondo. En el muelle. Presupuestos gratis — Doctor Yachts.",
     quickAnswer:
@@ -845,7 +845,7 @@ const es: Record<string, Overlay> = {
     whenToCall:
       "Llame a un mecánico móvil cuando el bote flota, hay acceso y quiere diagnóstico sin espera de yard—sobre todo no-arranques, fallas eléctricas, enfriamiento y mucho mantenimiento en Fort Lauderdale y el sur de la Florida.",
     duration: "Según el caso",
-    seoTitle: "Mecánico de botes móvil Fort Lauderdale | Reparación en el muelle",
+    seoTitle: "Mecánico de botes móvil Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Mecánico de botes móvil en Fort Lauderdale y el sur de la Florida. Motor, eléctrico y emergencia en el muelle. Presupuestos gratis — Doctor Yachts.",
     quickAnswer:
@@ -937,7 +937,7 @@ const es: Record<string, Overlay> = {
     whenToCall:
       "Reserve servicio de motor fuera de borda en Fort Lauderdale cuando no arranca, se calienta, pierde potencia o toca el intervalo. El diagnóstico en el muelle a menudo resuelve los matadores de finde sin la fila del dealer.",
     duration: "1–6 h típico",
-    seoTitle: "Servicio de motor fuera de borda Fort Lauderdale | Doctor Yachts",
+    seoTitle: "Servicio de motor fuera de borda | Fort Lauderdale",
     seoDescription:
       "Servicio de motor fuera de borda en Fort Lauderdale—no-arranques, sobrecalentamiento, servicio 100 horas. Mecánico móvil con diagnóstico primero. Presupuestos gratis — Doctor Yachts.",
     quickAnswer:
@@ -1091,7 +1091,7 @@ const es: Record<string, Overlay> = {
     ],
     whenToCall: "Programe mantenimiento mensual cuando el bote pasa tiempo sin uso, cuando usted está fuera parte del año o cuando prefiere revisiones regulares en vez de sorpresas.",
     duration: "Mensual",
-    seoTitle: "Mantenimiento mensual de barcos Fort Lauderdale | Doctor Yachts",
+    seoTitle: "Mantenimiento mensual de barcos | Fort Lauderdale",
     seoDescription: "Paquetes de mantenimiento mensual en Fort Lauderdale, Miami y el sur de la Florida—motores, sistemas, lavado, baterías y sentina. Contáctenos para cotizar.",
     quickAnswer: "Doctor Yachts ofrece mantenimiento mensual de barcos en Fort Lauderdale, Miami y el sur de la Florida: revisión de motores, inspección de sistemas, lavado y chequeo de baterías y sentina en su muelle. Contáctenos para cotizar.",
     keywords: ["mantenimiento mensual de barcos", "mantenimiento de yates Fort Lauderdale", "paquetes de mantenimiento de botes Miami"],

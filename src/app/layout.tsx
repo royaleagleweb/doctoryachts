@@ -12,6 +12,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ICON_CACHE } from "@/lib/i18n";
 import { getRequestLocale } from "@/lib/i18n-server";
+import { homeMetaDescription } from "@/lib/page-meta";
 import { absoluteUrl, defaultOgImage, localBusinessJsonLd, webSiteJsonLd } from "@/lib/seo";
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     default: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
     template: `%s | Doctor Yachts`,
   },
-  description: site.description,
+  description: homeMetaDescription,
   keywords: [...seoKeywords],
   icons: {
     icon: [
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
-    description: site.description,
+    description: homeMetaDescription,
     url: site.url,
     siteName: site.name,
     type: "website",
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mobile Boat Mechanic Fort Lauderdale | Doctor Yachts",
-    description: site.description,
+    description: homeMetaDescription,
     images: [defaultOgImage.url],
   },
   robots: { index: true, follow: true },
