@@ -16,9 +16,9 @@ import { servicesInHubOrderLocalized } from "@/lib/services-localized";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Servicios de reparación de barcos | Fort Lauderdale y el sur de la Florida",
+  title: "Servicios de reparación de barcos | Fort Lauderdale",
   description:
-    "Servicios de reparación de barcos en Fort Lauderdale y el sur de la Florida: motor, fuera de borda, servicio 100 horas y 300 horas, eléctrico, enfriamiento, mantenimiento de yates y reparación móvil. Presupuestos gratis.",
+    "Servicios de reparación de barcos en Fort Lauderdale: motor, fuera de borda, servicio de 100 y 300 horas, eléctrico y enfriamiento. Pida presupuesto gratis.",
   path: "/es/servicios",
   locale: "es",
   keywords: [

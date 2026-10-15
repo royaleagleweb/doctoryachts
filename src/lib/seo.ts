@@ -3,6 +3,7 @@ import { hreflangLanguages, localeFromPath, servicePath, type Locale } from "./i
 import { locations } from "./locations";
 import { getLocalizedServices } from "./services-localized";
 import { services } from "./services";
+import { fitMetaDescription, fitPageTitle } from "./page-meta";
 import { site, seoKeywords } from "./site";
 
 type BuildMetaInput = {
@@ -40,10 +41,14 @@ export function buildMetadata({
   const loc = locale ?? localeFromPath(path);
   const allKeywords = [...new Set([...keywords, ...seoKeywords.slice(0, 10)])];
   const languages = hreflangLanguages(path, site.url);
+  // Indexable pages inherit the snippet limits. noindex combo pages keep
+  // their templated titles so this helper does not rewrite them.
+  const pageTitle = noIndex ? title : fitPageTitle(title);
+  const pageDescription = noIndex ? description : fitMetaDescription(description);
 
   return {
-    title: { absolute: title },
-    description,
+    title: { absolute: pageTitle },
+    description: pageDescription,
     keywords: allKeywords,
     alternates: {
       canonical: url,
@@ -53,8 +58,8 @@ export function buildMetadata({
       ? { index: false, follow: true }
       : { index: true, follow: true },
     openGraph: {
-      title,
-      description,
+      title: pageTitle,
+      description: pageDescription,
       url,
       siteName: site.name,
       type: "website",
@@ -63,8 +68,8 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: pageTitle,
+      description: pageDescription,
       images: [defaultOgImage.url],
     },
   };

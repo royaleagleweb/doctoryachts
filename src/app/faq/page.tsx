@@ -18,9 +18,9 @@ import {
 } from "@/lib/yacht-maintenance-faqs";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Yacht Maintenance FAQ | Boat Maintenance Questions South Florida",
+  title: "Yacht Maintenance FAQ Fort Lauderdale | Doctor Yachts",
   description:
-    "40 yacht and boat maintenance questions for South Florida: service intervals, no-starts, overheating, batteries, zincs, generators, and when to book a mobile mechanic. Diagnose-first answers from Doctor Yachts in Fort Lauderdale.",
+    "Yacht and boat maintenance answers for South Florida: intervals, no-starts, overheating, batteries, and zincs. Book a mobile mechanic in Fort Lauderdale.",
   path: "/faq",
   keywords: [
     "yacht maintenance FAQ",

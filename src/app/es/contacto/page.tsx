@@ -11,9 +11,9 @@ import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contactar mecánico de yates | Fort Lauderdale y el sur de la Florida",
+  title: "Contactar mecánico de yates Fort Lauderdale | Doctor Yachts",
   description:
-    "Contacte a Doctor Yachts para reparación de barcos en Fort Lauderdale y el sur de la Florida. Llame en emergencias o envíe un mensaje para presupuestos y agenda.",
+    "Contacte a Doctor Yachts para reparación de barcos en Fort Lauderdale y el sur de la Florida. Llame o envíe un mensaje para un presupuesto y agenda.",
   path: "/es/contacto",
   locale: "es",
   keywords: ["contacto mecánico de yates", "teléfono reparación de barcos"],

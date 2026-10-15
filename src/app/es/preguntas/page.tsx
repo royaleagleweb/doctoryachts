@@ -15,7 +15,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Preguntas de mantenimiento de yates | El sur de la Florida",
   description:
-    "Preguntas de mantenimiento de yates y reparación de barcos en el sur de la Florida: intervalos, no-arranques, sobrecalentamiento, baterías, zincs, servicio 100 horas y 300 horas. Respuestas de Doctor Yachts en Fort Lauderdale.",
+    "Preguntas de mantenimiento de yates en el sur de la Florida: intervalos, no-arranques, baterías y zincs. Reserve un mecánico móvil en Fort Lauderdale.",
   path: "/es/preguntas",
   locale: "es",
   keywords: [

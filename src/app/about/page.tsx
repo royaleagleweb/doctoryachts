@@ -18,7 +18,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "About Doctor Yachts | Boat & Yacht Mechanic South Florida",
   description:
-    "About Doctor Yachts—independent boat and yacht mechanic in Fort Lauderdale, Miami & South Florida. Diagnose-first mobile and dockside marine repair. Free estimates.",
+    "About Doctor Yachts, an independent boat and yacht mechanic in Fort Lauderdale and South Florida. Diagnose-first dockside repair. Call for a free estimate.",
   path: "/about",
   keywords: [
     "about Doctor Yachts",

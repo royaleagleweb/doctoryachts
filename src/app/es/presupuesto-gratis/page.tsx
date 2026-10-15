@@ -15,7 +15,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Presupuesto gratis de reparación de barcos | Fort Lauderdale",
   description:
-    "Pida un presupuesto gratis de reparación de barcos en Fort Lauderdale o el sur de la Florida. Cuéntenos qué pasa y dónde está el bote — servicio náutico móvil y en el muelle.",
+    "Pida un presupuesto gratis de reparación de barcos en Fort Lauderdale o el sur de la Florida. Cuéntenos qué pasa y dónde está el bote.",
   path: "/es/presupuesto-gratis",
   locale: "es",
   keywords: ["presupuesto gratis reparación de barcos", "cotización mecánico náutico"],

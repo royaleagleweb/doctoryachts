@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ServiceLanding } from "@/components/ServiceLanding";
 import { SERVICE_SLUG_ES } from "@/lib/i18n";
 import { services } from "@/lib/services";
+import { fitPageTitle, metaDescriptionFor } from "@/lib/page-meta";
 import { getLocalizedServiceBySlug } from "@/lib/services-localized";
 import { buildMetadata } from "@/lib/seo";
 
@@ -16,10 +17,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const service = getLocalizedServiceBySlug(slug, "es");
   if (!service) return {};
+  const path = `/es/servicios/${service.slug}`;
   return buildMetadata({
-    title: service.seoTitle,
-    description: service.seoDescription,
-    path: `/es/servicios/${service.slug}`,
+    title: fitPageTitle(service.seoTitle),
+    description: metaDescriptionFor(path, service.seoDescription),
+    path,
     keywords: service.keywords,
     locale: "es",
   });

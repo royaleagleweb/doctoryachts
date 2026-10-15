@@ -15,13 +15,14 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { images } from "@/lib/images";
 import { locationPath, servicePath } from "@/lib/i18n";
 import { publicLocations } from "@/lib/locations";
+import { homeMetaDescriptionEs } from "@/lib/page-meta";
 import { faqJsonLd, buildMetadata } from "@/lib/seo";
 import { servicesInHubOrderLocalized } from "@/lib/services-localized";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mecánico de yates móvil Fort Lauderdale | Doctor Yachts",
-  description: site.descriptionEs,
+  description: homeMetaDescriptionEs,
   path: "/es",
   locale: "es",
   keywords: [
@@ -75,9 +76,9 @@ export default function SpanishHomePage() {
       <PageHero
         size="display"
         eyebrow="Doctor Yachts · el sur de la Florida"
-        kicker="Mecánico de yates móvil en el sur de la Florida"
-        title="El mecánico que va al barco."
-        subhead="Primero diagnosticamos. En el muelle."
+        kicker="Primero diagnosticamos. En el muelle."
+        title="Mecánico de yates móvil en Fort Lauderdale"
+        subhead="El mecánico que va al barco."
         description="Fort Lauderdale, Miami y muelles cercanos. Confirmamos por teléfono de lun a sáb, 7–6."
         image={images.homeHero}
         actions={

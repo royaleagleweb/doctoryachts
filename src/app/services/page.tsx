@@ -17,7 +17,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Boat Repair Services | Fort Lauderdale & South Florida",
   description:
-    "Boat repair services in Fort Lauderdale and South Florida: marine engine repair, outboard service, 100-hour and 300-hour service, electrical, cooling, mobile dockside repair, and maintenance. Free estimates.",
+    "Boat repair services in Fort Lauderdale and South Florida: engines, outboards, 100-hour and 300-hour service, electrical, and cooling. Request a free estimate.",
   path: "/services",
   keywords: [
     "boat repair services Fort Lauderdale",

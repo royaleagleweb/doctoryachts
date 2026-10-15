@@ -15,6 +15,7 @@ import { images } from "@/lib/images";
 import { locationPath } from "@/lib/i18n";
 import { locations } from "@/lib/locations";
 import { getLocalizedLocation, localizeLocation } from "@/lib/locations-localized";
+import { fitPageTitle, metaDescriptionFor } from "@/lib/page-meta";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd, serviceJsonLd } from "@/lib/seo";
 import { servicesInHubOrderLocalized } from "@/lib/services-localized";
 import { site } from "@/lib/site";
@@ -29,10 +30,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const loc = getLocalizedLocation(slug, "es");
   if (!loc) return {};
+  const path = `/es/ubicaciones/${loc.slug}`;
   return buildMetadata({
-    title: loc.seoTitle,
-    description: loc.seoDescription,
-    path: `/es/ubicaciones/${loc.slug}`,
+    title: fitPageTitle(loc.seoTitle),
+    description: metaDescriptionFor(path, loc.seoDescription),
+    path,
     keywords: loc.keywords,
     locale: "es",
   });

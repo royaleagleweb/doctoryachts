@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Book Boat Repair Online | Fort Lauderdale & South Florida",
   description:
-    "Book boat repair online in Fort Lauderdale and South Florida. Tell us what's wrong, where the boat is, and when works. Free estimates. Mobile dockside when available.",
+    "Book boat repair online in Fort Lauderdale and South Florida. Share the problem, where the boat is, and when. Free estimates. Dockside when available.",
   path: "/book",
   keywords: [
     "book boat repair Fort Lauderdale",
