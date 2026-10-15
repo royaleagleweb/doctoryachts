@@ -40,19 +40,19 @@ const groups = [
       {
         question: "¿Cuánto cuesta el mantenimiento de yates al año?",
         answer:
-          "No hay un número honesto fijo. El costo sigue el tamaño, las horas, sistemas como generador y aire, y si el bote vive en sal todo el año. Lo preventivo—aceite, filtros, impulsores, zincs, baterías—suele costar menos que un sobrecalentamiento o una falla eléctrica. Doctor Yachts no publica listas inventadas. Primero diagnosticamos y damos presupuesto gratis.",
+          "No hay un número honesto fijo. El costo sigue el tamaño, las horas, sistemas como generador y aire, y si el bote vive en sal todo el año. Lo preventivo—aceite, filtros, impulsores, zincs, baterías—suele costar menos que un sobrecalentamiento o una falla eléctrica. Doctor Yachts no publica listas inventadas. Primero diagnosticamos y damos un presupuesto claro—gratis cuando reserva el trabajo.",
       },
       {
         question: "¿Qué es el servicio 100 horas y el servicio 300 horas?",
         answer:
-          "El servicio 100 horas es el intervalo regular o anual de agua salada: aceite, filtros, gear lube, impulsor, zincs, baterías y bitácora. El servicio 300 horas es el pase más profundo que muchos manuales ponen entre 250 y 300 horas. Hallazgos antes de piezas. Presupuesto gratis de extras.",
+          "El servicio 100 horas es el intervalo regular o anual de agua salada: aceite, filtros, gear lube, impulsor, zincs, baterías y bitácora. El servicio 300 horas es el pase más profundo que muchos manuales ponen entre 250 y 300 horas. Hallazgos antes de piezas. Presupuesto claro de extras—gratis cuando reserva el trabajo.",
       },
     ],
   },
   {
     id: "reservar",
     title: "Reservar un mecánico móvil",
-    intro: "Cómo pedir una visita en el muelle, presupuestos gratis y tiempo de respuesta.",
+    intro: "Cómo pedir una visita en el muelle, cómo funciona el presupuesto y tiempo de respuesta.",
     faqs: [
       {
         question: "¿Cómo reservo un mecánico de yates móvil en el sur de la Florida?",
@@ -61,7 +61,7 @@ const groups = [
       {
         question: "¿Dan presupuestos gratis?",
         answer:
-          "Sí. Cuando entendemos síntomas y ubicación—y completamos el diagnóstico si hay que ver el bote—damos presupuesto gratis del trabajo recomendado antes de autorizar piezas y mano de obra mayores.",
+          "El presupuesto es gratis cuando reserva el trabajo con nosotros. Si solo quiere el presupuesto y no sigue, hay un cargo de $75. Ese $75 se descuenta de la reparación si hacemos el trabajo.",
       },
     ],
   },

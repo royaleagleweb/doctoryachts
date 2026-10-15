@@ -291,7 +291,7 @@ export const guides: Guide[] = [
       {
         question: "Is mobile boat repair more expensive?",
         answer:
-          "Not always. You may pay a trip fee, but you often save towing, yard days, and downtime. Ask for a free estimate with location details.",
+          "Not always. You may pay a trip fee, but you often save towing, yard days, and downtime. Ask for an estimate with location details. Free when you book the job; estimate-only visits are $75, credited if we do the work.",
       },
       {
         question: "Do you work at private docks?",
@@ -341,7 +341,7 @@ export const guides: Guide[] = [
       {
         heading: "What Doctor Yachts does on an electrical call",
         body: [
-          "We test batteries under load, charging sources (alternator/charger/inverter-charger), voltage drop on cables, and distribution panels. You’ll get a plain-language plan and a free estimate for the repair path we recommend.",
+          "We test batteries under load, charging sources (alternator/charger/inverter-charger), voltage drop on cables, and distribution panels. You’ll get a plain-language plan and a clear estimate for the repair path we recommend—free when you book the job.",
         ],
       },
     ],
@@ -363,9 +363,9 @@ export const guides: Guide[] = [
     title: "Emergency Boat Repair Fort Lauderdale",
     seoTitle: "Emergency Boat Repair Fort Lauderdale | Mobile Mechanic",
     seoDescription:
-      "Emergency boat repair Fort Lauderdale: no-start, overheating, bilge, electrical. When to call a mobile boat mechanic and what to do first. Free estimates.",
+      "Emergency boat repair Fort Lauderdale: no-start, overheating, bilge, electrical. When to call a mobile boat mechanic and what to do first. Estimate free when you book.",
     quickAnswer:
-      "For emergency boat repair in Fort Lauderdale, prioritize safety: if you’re taking on water, call for help first. For no-starts, overheating, or dead power at the dock, reduce risk, note symptoms, and call a mobile boat mechanic. Doctor Yachts triages urgent dockside jobs when capacity allows—free estimates for recommended work.",
+      "For emergency boat repair in Fort Lauderdale, prioritize safety: if you’re taking on water, call for help first. For no-starts, overheating, or dead power at the dock, reduce risk, note symptoms, and call a mobile boat mechanic. Doctor Yachts triages urgent dockside jobs when capacity allows. Estimate is free when you book the job; estimate-only visits are $75, credited if we do the work.",
     h1: "Emergency boat repair in Fort Lauderdale: what to do and when to call",
     category: "mobile",
     keywords: [

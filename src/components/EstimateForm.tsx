@@ -65,7 +65,7 @@ export function EstimateForm() {
     const urgency = urgencyOptions.find((u) => u.id === whenNeeded);
 
     const message = [
-      "FREE ESTIMATE REQUEST",
+      "ESTIMATE REQUEST",
       `Problem: ${problem?.label || problemId}`,
       details.trim() ? `Details: ${details.trim()}` : "",
       city ? `City: ${city}` : "",
@@ -324,6 +324,10 @@ export function EstimateForm() {
           {es ? " si necesita ayuda ahora." : " if you need help now."}
         </p>
       )}
+
+      <p className="m-0 rounded-xl border border-gold/25 bg-gold/10 px-3 py-2.5 text-sm text-navy">
+        {f.estPolicy}
+      </p>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="m-0 text-xs text-muted">

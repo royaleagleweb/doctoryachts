@@ -40,8 +40,8 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "How much does yacht maintenance cost per year?",
         answer:
-          "There is no honest flat number. Cost tracks vessel size, engine hours, systems such as generators and air, and whether the boat lives in salt year-round. Preventive work—oil, filters, impellers, zincs, batteries—usually costs less than one neglected overheat or electrical failure. Doctor Yachts does not publish invented price lists. We diagnose first, then give a free estimate for recommended work so you can choose what to do now versus later.",
-        next: { href: "/free-estimate", label: "Get a free estimate" },
+          "There is no honest flat number. Cost tracks vessel size, engine hours, systems such as generators and air, and whether the boat lives in salt year-round. Preventive work—oil, filters, impellers, zincs, batteries—usually costs less than one neglected overheat or electrical failure. Doctor Yachts does not publish invented price lists. We diagnose first, then give a clear estimate for recommended work so you can choose what to do now versus later. The estimate is free when you book the job; estimate-only visits are $75, credited if we do the work.",
+        next: { href: "/free-estimate", label: "Request an estimate" },
       },
       {
         question: "What is the difference between preventive and corrective yacht maintenance?",
@@ -66,7 +66,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
   {
     id: "booking",
     title: "Booking a mobile mechanic",
-    intro: "How to request a dockside visit, free estimates, and response time.",
+    intro: "How to request a dockside visit, how the estimate works, and response time.",
     faqs: [
       {
         question: "How do I book a mobile yacht mechanic in South Florida?",
@@ -77,8 +77,8 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "Do you give free estimates for boat and yacht repair?",
         answer:
-          "Yes. After we understand symptoms and location—and complete diagnosis when the boat needs to be seen—we give a free estimate for recommended repair work before you authorize major parts and labor. An online note can start the conversation; a dockside visit is how we price the real fault. We do not publish invented menus. If you only want guidance first, use the estimate form; book when you already want a visit.",
-        next: { href: "/free-estimate", label: "Get a free estimate" },
+          "The estimate is free when you book the job with us. If you only want an estimate and do not proceed, there is a $75 fee. That $75 is credited toward the repair if we do the work. An online note can start the conversation; a dockside visit is how we price the real fault. We do not publish invented menus.",
+        next: { href: "/free-estimate", label: "Request an estimate" },
       },
       {
         question: "How fast will a mobile boat mechanic respond in Fort Lauderdale?",
@@ -209,7 +209,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "What is a marine heat exchanger and when does it need service?",
         answer:
-          "On many inboards, the heat exchanger is the saltwater-to-coolant interface. Scale, debris, and failed-impeller fragments restrict it. Service when temperatures climb under load, after overheating, or on the engine’s interval. A dockside diagnosis can confirm flow; a thorough clean may need more access. We tell you early if the boat should move. Free estimates cover the recommended repair path after we see the restriction.",
+          "On many inboards, the heat exchanger is the saltwater-to-coolant interface. Scale, debris, and failed-impeller fragments restrict it. Service when temperatures climb under load, after overheating, or on the engine’s interval. A dockside diagnosis can confirm flow; a thorough clean may need more access. We tell you early if the boat should move. You get a clear estimate for the recommended repair path after we see the restriction—free when you book the job.",
         next: { href: "/services/cooling-system-repairs", label: "Cooling system repairs" },
       },
     ],
@@ -321,7 +321,7 @@ export const yachtFaqGroups: YachtFaqGroup[] = [
       {
         question: "What is included in annual yacht maintenance?",
         answer:
-          "Typical annual work includes engine oil and filters on hours, gear lube where it applies, impeller inspection, zincs, belts and hoses, battery and charging health, bilge and critical pumps, and a systems walk-through. Generators and steering get checked when the boat has them. You get notes, not a mystery invoice. Scope follows the vessel, not a brochure package. Ask for a free estimate after we see what is due.",
+          "Typical annual work includes engine oil and filters on hours, gear lube where it applies, impeller inspection, zincs, belts and hoses, battery and charging health, bilge and critical pumps, and a systems walk-through. Generators and steering get checked when the boat has them. You get notes, not a mystery invoice. Scope follows the vessel, not a brochure package. Ask for an estimate after we see what is due—free when you book the job.",
         next: { href: "/services/boat-maintenance", label: "Boat maintenance" },
       },
       {

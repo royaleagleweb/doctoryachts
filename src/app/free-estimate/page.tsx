@@ -9,25 +9,24 @@ import { PageHero } from "@/components/PageHero";
 import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { estimatePolicy, site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Free Boat Repair Estimate | Fort Lauderdale & South Florida",
+  title: "Boat Repair Estimate | Fort Lauderdale & South Florida",
   description:
-    "Request a free boat repair estimate in Fort Lauderdale or South Florida. Tell us what's wrong and where the boat is — mobile and dockside marine service.",
+    "Request a boat repair estimate in Fort Lauderdale or South Florida. Free estimate when you book the job with us. Estimate-only visits are $75, credited if we do the work.",
   path: "/free-estimate",
   keywords: [
-    "free boat repair estimate Fort Lauderdale",
-    "boat mechanic free estimate",
+    "boat repair estimate Fort Lauderdale",
+    "boat mechanic estimate",
     "mobile boat repair quote South Florida",
   ],
 });
 
 const faqs = [
   {
-    question: "Is the estimate really free?",
-    answer:
-      "Yes. After we understand symptoms and location, we provide free estimates for recommended work before you authorize paid repairs.",
+    question: "Is the estimate free?",
+    answer: estimatePolicy.en.faqA,
   },
   {
     question: "How fast will you respond?",
@@ -48,19 +47,19 @@ export default function FreeEstimatePage() {
         data={[
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
-            { name: "Free estimate", path: "/free-estimate" },
+            { name: "Estimate", path: "/free-estimate" },
           ]),
           faqJsonLd(faqs),
         ]}
       />
 
       <PageHero
-        eyebrow="Free estimates"
-        title="Free boat repair estimate"
+        eyebrow="Estimates"
+        title="Boat repair estimate"
         description={
           <>
-            Answer a few practical questions—what&apos;s wrong, where the boat is, and how to reach
-            you. We reply during {site.hours}. Prefer to talk? Call{" "}
+            {estimatePolicy.en.line} Answer a few practical questions—what&apos;s wrong, where the
+            boat is, and how to reach you. We reply during {site.hours}. Prefer to talk? Call{" "}
             <a href={site.phoneHref}>{site.phone}</a>.
           </>
         }
@@ -78,7 +77,7 @@ export default function FreeEstimatePage() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_0.9fr]">
           <Card className="p-5 sm:p-7">
-            <h2 className="font-display text-navy">Request your free estimate</h2>
+            <h2 className="font-display text-navy">Request your estimate</h2>
             <p className="mt-2 text-sm text-steel">
               Fields marked * are required. Everything else is optional but helps us quote faster.
             </p>
@@ -88,6 +87,15 @@ export default function FreeEstimatePage() {
           </Card>
 
           <div className="space-y-6">
+            <Card className="p-5">
+              <h2 className="font-display text-navy">How the estimate works</h2>
+              <p className="mt-3 text-sm text-steel">{estimatePolicy.en.line}</p>
+              <p className="mt-3 text-sm text-steel">
+                No online checkout for the $75—we confirm the visit and the path by phone. Book the
+                job and the estimate fee is taken off.
+              </p>
+            </Card>
+
             <Card className="p-5">
               <h2 className="font-display text-navy">What we need</h2>
               <ol className="mt-4 space-y-3 text-sm text-steel">
@@ -107,8 +115,8 @@ export default function FreeEstimatePage() {
             <Card className="p-5">
               <h2 className="font-display text-navy">What you get</h2>
               <p className="mt-3 text-sm text-steel">
-                After we understand the symptom and location, we outline likely diagnostic steps and a
-                free estimate path for recommended repair work—before you authorize major parts and
+                After we understand the symptom and location, we outline likely diagnostic steps and
+                a clear estimate for recommended repair work—before you authorize major parts and
                 labor.
               </p>
               <p className="mt-3 text-sm text-steel">

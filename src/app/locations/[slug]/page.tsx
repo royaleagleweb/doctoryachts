@@ -48,7 +48,7 @@ export default async function LocationPage({ params }: PageProps) {
   const img = images.locations[loc.slug as keyof typeof images.locations];
   const others = locations.filter((l) => l.slug !== loc.slug);
 
-  const quickAnswer = `Doctor Yachts provides boat repair and mobile dockside mechanic service in ${loc.name}, ${loc.state}—marine engines, electrical, cooling, maintenance, and diagnostics. Free estimates. Call ${site.phone} or book online for marina and private-dock visits when access allows.`;
+  const quickAnswer = `Doctor Yachts provides boat repair and mobile dockside mechanic service in ${loc.name}, ${loc.state}—marine engines, electrical, cooling, maintenance, and diagnostics. Free estimate when you book the job. Call ${site.phone} or book online for marina and private-dock visits when access allows.`;
 
   return (
     <>
@@ -76,7 +76,7 @@ export default async function LocationPage({ params }: PageProps) {
           <>
             <Button href="/book">Book in {loc.shortName}</Button>
             <Button href="/free-estimate" variant="ghost">
-              Get a free estimate
+              Request an estimate
             </Button>
             <Button href={site.phoneHref} variant="ghost">
               Call {site.phone}
@@ -141,7 +141,7 @@ export default async function LocationPage({ params }: PageProps) {
               <ul className="mt-4 list-disc space-y-2 pl-5 text-steel">
                 <li>Diagnose first—clear findings before parts pressure</li>
                 <li>Mobile and dockside when access allows (save the tow when possible)</li>
-                <li>Free estimates on recommended work</li>
+                <li>Clear estimate on recommended work—free when you book the job</li>
                 <li>Engines, electrical, cooling, plumbing systems, and maintenance</li>
               </ul>
             </section>
@@ -153,7 +153,7 @@ export default async function LocationPage({ params }: PageProps) {
                   `Tell us the symptom and where the boat is in ${loc.name} (marina, slip, private dock).`,
                   "We confirm access, schedule, and whether the job is a strong dockside candidate.",
                   "On site we diagnose engines, electrical, cooling, or systems as needed—before parts pressure.",
-                  "You get a free estimate path for recommended work and clear notes for the next trip or survey.",
+                  "You get a clear estimate for recommended work and notes for the next trip or survey. The estimate is free when you book the job.",
                 ].map((step, i) => (
                   <li key={step} className="flex gap-3 text-steel">
                     <span className="text-sm font-semibold text-gold-deep">{i + 1}.</span>
@@ -162,9 +162,10 @@ export default async function LocationPage({ params }: PageProps) {
                 ))}
               </ol>
               <p className="mt-4 text-steel">
-                Prefer a quick quote first? Use our{" "}
-                <Link href="/free-estimate">free boat repair estimate</Link> form or call{" "}
-                <a href={site.phoneHref}>{site.phone}</a>.
+                Prefer a quote first? Use our{" "}
+                <Link href="/free-estimate">boat repair estimate</Link> form or call{" "}
+                <a href={site.phoneHref}>{site.phone}</a>. The estimate is free when you book the
+                job; estimate-only visits are $75, credited if we do the work.
               </p>
             </section>
 

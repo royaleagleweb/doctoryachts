@@ -26,14 +26,14 @@ export const locations: Location[] = [
     region: "Broward County",
     seoTitle: "Boat Repair | Doctor Yachts | Fort Lauderdale, FL",
     seoDescription:
-      "Get expert mobile boat repair & maintenance in Fort Lauderdale, FL. Engines, electrical, plumbing & cooling system repairs. Free estimates — Doctor Yachts.",
+      "Get expert mobile boat repair & maintenance in Fort Lauderdale, FL. Engines, electrical, plumbing & cooling system repairs. Estimate free when you book — Doctor Yachts.",
     h1: "Boat repair in Fort Lauderdale — dockside, diagnose first",
     intro:
       "Doctor Yachts provides boat repair and boat maintenance for Fort Lauderdale and Broward—mobile and dockside marine engine repair, electrical, and systems service.",
     content: [
       "Boat owners throughout the Fort Lauderdale, FL area can depend on Doctor Yachts for quality mobile and dockside repairs. From sportfish and center consoles to cabin cruisers and motor yachts, we work where the boat lives whenever access allows.",
       "We handle marine engine repair (inboard and outboard), boat electrical repairs, cooling system issues, bilge and plumbing systems, and scheduled boat maintenance.",
-      "If you need a trusted boat mechanic in Fort Lauderdale for a no-start at the slip or planned service before a trip, we diagnose first and give free estimates on recommended work.",
+      "If you need a trusted boat mechanic in Fort Lauderdale for a no-start at the slip or planned service before a trip, we diagnose first and give a clear estimate on recommended work—free when you book the job.",
       "Fort Lauderdale is one of the densest boating markets in the U.S.—New River, Intracoastal, Port Everglades–adjacent marinas, and private docks all demand different access logistics. Mobile boat repair here often beats waiting on a tow or yard slot for no-starts, charging faults, and overheating.",
       "Searchers looking for boat repair Fort Lauderdale, outboard motor repair, or a mobile boat mechanic near Las Olas and East Fort Lauderdale get a diagnose-first independent mechanic—not a brokerage or detailing package upsell.",
     ],
@@ -75,7 +75,7 @@ export const locations: Location[] = [
       {
         question: "Do you offer free estimates for Fort Lauderdale boat repair?",
         answer:
-          "Yes. After we understand symptoms and location, we provide free estimates for recommended work before you authorize major parts and labor.",
+          "The estimate is free when you book the job with us. If you only want an estimate and do not proceed, there is a $75 fee. That $75 is credited toward the repair if we do the work.",
       },
       {
         question: "Can you do emergency boat repair in Fort Lauderdale?",
@@ -92,14 +92,14 @@ export const locations: Location[] = [
     region: "Broward County",
     seoTitle: "Mobile Boat Repair | Doctor Yachts | Pompano Beach, FL",
     seoDescription:
-      "Get reliable mobile boat repair services in Pompano Beach, FL. Engines, electrical, maintenance & dockside service. Free estimates — Doctor Yachts.",
+      "Get reliable mobile boat repair services in Pompano Beach, FL. Engines, electrical, maintenance & dockside service. Estimate free when you book — Doctor Yachts.",
     h1: "Mobile boat repair in Pompano Beach, FL",
     intro:
       "We offer mobile boat repairs and more in Pompano Beach, FL—on-site engine, electrical, and systems service so you can get back on the water.",
     content: [
       "When your boat needs repairs so you can enjoy the water again, Doctor Yachts is ready to help in Pompano Beach and nearby Broward docks. Mobile boat repair means we come to the marina, private dock, or storage when access allows.",
       "We can lend a hand with marine engine repair, boat electrical repairs, cooling system service, boat plumbing and bilge issues, and routine boat maintenance.",
-      "Call for a free estimate or book online. Whether the vessel is at home or the dock, reliable boat services for a thriving coastal community are what we do.",
+      "Call for an estimate or book online. Free when you book the job; estimate-only visits are $75, credited if we do the work. Whether the vessel is at home or the dock, reliable boat services for a thriving coastal community are what we do.",
       "Pompano Beach and Lighthouse Point owners often want the same outcome as Fort Lauderdale searchers: a mobile boat mechanic who shows up prepared, diagnoses before parts, and gets the weekend trip back on track. Hillsboro Inlet–area docks and Intracoastal slips are routine coverage.",
     ],
     neighborhoods: [
@@ -144,7 +144,7 @@ export const locations: Location[] = [
     region: "Miami-Dade County",
     seoTitle: "Boat Repair | Doctor Yachts | Miami & Miami Beach, FL",
     seoDescription:
-      "Get expert boat repair in Miami & Miami Beach, FL. Mobile engine, electrical & maintenance service. Free estimates — Doctor Yachts.",
+      "Get expert boat repair in Miami & Miami Beach, FL. Mobile engine, electrical & maintenance service. Estimate free when you book — Doctor Yachts.",
     h1: "Boat repair and mobile marine service in Miami & Miami Beach",
     intro:
       "From Miami Beach to Biscayne Bay and Miami marinas, Doctor Yachts delivers specialist boat repair and yacht mechanic service—engines, electrical systems, diagnostics, and maintenance with dockside discipline.",
@@ -249,16 +249,16 @@ export const locations: Location[] = [
     region: "Broward County",
     seoTitle: "Boat Repair Dania Beach FL | Doctor Yachts",
     seoDescription:
-      "Boat repair in Dania Beach, FL—mobile and dockside marine engine, electrical, and maintenance near Fort Lauderdale. Free estimates — Doctor Yachts.",
+      "Boat repair in Dania Beach, FL—mobile and dockside marine engine, electrical, and maintenance near Fort Lauderdale. Estimate free when you book — Doctor Yachts.",
     h1: "Boat repair in Dania Beach, FL",
     intro:
       "Doctor Yachts provides boat repair and mobile mechanic service for Dania Beach marinas and docks—minutes from Fort Lauderdale’s service corridor.",
     content: [
       "Dania Beach sits in the middle of Broward boating. Owners searching for boat repair Dania Beach often need the same mobile engine, electrical, and maintenance work we do daily in Fort Lauderdale.",
-      "We come dockside when access allows for no-starts, overheating, charging issues, and scheduled service. Free estimates after we understand symptoms and location.",
+      "We come dockside when access allows for no-starts, overheating, charging issues, and scheduled service. Clear estimate after we understand symptoms and location—free when you book.",
       "If your boat is between Hollywood and Fort Lauderdale, Dania Beach is core coverage—not a stretch call.",
       "Many Dania Beach owners compare Fort Lauderdale yards with mobile service. For intermittent electrical faults, outboard no-starts, and impeller/cooling jobs, dockside diagnosis is often the faster path—especially when the boat is already in a working slip.",
-      "We treat Dania Beach as part of the same Broward coverage as Fort Lauderdale: diagnose first, free estimates on recommended work, and honest guidance when a job needs haul-out instead of mobile repair.",
+      "We treat Dania Beach as part of the same Broward coverage as Fort Lauderdale: diagnose first, clear estimate on recommended work—free when you book, and honest guidance when a job needs haul-out instead of mobile repair.",
     ],
     neighborhoods: [
       "Dania Beach marinas",
@@ -298,16 +298,16 @@ export const locations: Location[] = [
     region: "Broward County",
     seoTitle: "Boat Repair Hollywood FL | Doctor Yachts",
     seoDescription:
-      "Boat repair in Hollywood, FL—mobile dockside mechanic for engines, electrical, and maintenance. Free estimates — Doctor Yachts.",
+      "Boat repair in Hollywood, FL—mobile dockside mechanic for engines, electrical, and maintenance. Estimate free when you book — Doctor Yachts.",
     h1: "Boat repair in Hollywood, Florida",
     intro:
       "Mobile boat repair and dockside mechanic service for Hollywood, FL owners—engines, electrical, and maintenance without always towing first.",
     content: [
       "Hollywood, FL boaters sit between Miami-Dade and Fort Lauderdale service options. Doctor Yachts covers Hollywood docks for mobile boat repair, outboard and inboard issues, and electrical faults.",
-      "Book a free estimate with your marina and symptoms. We’ll confirm access and whether the job is a dockside fix or needs a different path.",
+      "Request an estimate with your marina and symptoms. We’ll confirm access and whether the job is a dockside fix or needs a different path.",
       "Owners searching for boat repair Hollywood FL or a boat mechanic near Hallandale often need weekend reliability: no-starts, weak charging, overheating, and bilge pump failures. We diagnose at the dock when access allows so you are not always towing first.",
       "Hollywood Intracoastal and nearby private docks are within routine Broward coverage. Include marina name, slip, parking, and gate details when you book so mobile service can plan the visit correctly.",
-      "Free estimates after we understand the symptom and location. Same diagnose-first standard as our Fort Lauderdale and South Florida work.",
+      "Clear estimate after we understand the symptom and location—free when you book. Same diagnose-first standard as our Fort Lauderdale and South Florida work.",
     ],
     neighborhoods: [
       "Hollywood Intracoastal",

@@ -18,7 +18,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "About Doctor Yachts | Boat & Yacht Mechanic South Florida",
   description:
-    "About Doctor Yachts—independent boat and yacht mechanic in Fort Lauderdale, Miami & South Florida. Diagnose-first mobile and dockside marine repair. Free estimates.",
+    "About Doctor Yachts—independent boat and yacht mechanic in Fort Lauderdale, Miami & South Florida. Diagnose-first mobile and dockside marine repair. Free estimate when you book.",
   path: "/about",
   keywords: [
     "about Doctor Yachts",
@@ -77,7 +77,7 @@ export default function AboutPage() {
             <AnswerBox
               label="Quick answer"
               question="What is Doctor Yachts?"
-              answer="Doctor Yachts is an independent boat and yacht mechanic serving South Florida with mobile and dockside marine engine repair, electrical work, cooling and systems service, diagnostics, and maintenance. We diagnose first, give free estimates, and fix what matters—without yard upsell theater."
+              answer="Doctor Yachts is an independent boat and yacht mechanic serving South Florida with mobile and dockside marine engine repair, electrical work, cooling and systems service, diagnostics, and maintenance. We diagnose first, give a clear estimate—free when you book the job—and fix what matters—without yard upsell theater."
             />
 
             <div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
               <p className="mt-4 text-steel">
                 We’re not a brokerage, not a detailing crew, and not a general handyman. Engines,
                 electrical, pumps, cooling, and the gray area where those systems fight each
-                other—that’s the work. Free estimates after diagnosis for recommended repairs.
+                other—that’s the work. Clear estimate after diagnosis for recommended repairs—free when you book the job.
               </p>
             </div>
 
@@ -134,9 +134,11 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-navy">Free estimates &amp; how to start</h2>
+              <h2 className="font-display text-navy">Estimates &amp; how to start</h2>
               <p className="mt-3 text-steel">
-                Request a <Link href="/free-estimate">free estimate</Link>,{" "}
+                Free estimate when you book the job with us. Estimate-only visits are $75, credited
+                toward the repair if we do the work.{" "}
+                <Link href="/free-estimate">Request an estimate</Link>,{" "}
                 <Link href="/book">book online</Link>, or call{" "}
                 <a href={site.phoneHref}>{site.phone}</a>. Include city/marina and symptoms for the
                 fastest response. Read common questions on our <Link href="/faq">FAQ</Link> and owner{" "}
@@ -147,7 +149,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-3">
               <Button href="/book">Book a visit</Button>
               <Button href="/free-estimate" variant="ghost">
-                Get a free estimate
+                Request an estimate
               </Button>
               <Button href="/contact" variant="ghost">
                 Contact

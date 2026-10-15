@@ -46,7 +46,7 @@ export default function GuidesHubPage() {
           These guides answer the searches South Florida boat owners actually type—and the
           questions AI overviews summarize. Each article opens with a direct answer, then steps,
           local context for Fort Lauderdale and nearby docks, and FAQs. For hands-on help,{" "}
-          <Link href="/free-estimate">request a free estimate</Link> or{" "}
+          <Link href="/free-estimate">request an estimate</Link> or{" "}
           <Link href="/book">book boat repair</Link>.
         </p>
         <ul className="mt-10 grid gap-4 md:grid-cols-2">

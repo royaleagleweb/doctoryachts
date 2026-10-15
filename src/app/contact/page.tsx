@@ -15,7 +15,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Boat Mechanic | Fort Lauderdale & South Florida",
   description:
-    "Contact Doctor Yachts for boat repair in Fort Lauderdale and South Florida. Call for emergencies or send a message for free estimates and scheduling.",
+    "Contact Doctor Yachts for boat repair in Fort Lauderdale and South Florida. Call for emergencies or send a message to request an estimate or schedule a visit.",
   path: "/contact",
   keywords: [
     "contact boat mechanic Fort Lauderdale",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "Should I call or use the form?",
     answer:
-      "Call for urgent no-starts, overheating, flooding risk, or same-day needs. Use the form for non-urgent questions, free estimate requests, and scheduling details.",
+      "Call for urgent no-starts, overheating, flooding risk, or same-day needs. Use the form for non-urgent questions, estimate requests, and scheduling details.",
   },
   {
     question: "What information should I include?",
@@ -55,7 +55,7 @@ export default function ContactPage() {
         title="Contact a boat mechanic in Fort Lauderdale & South Florida"
         description={
           <>
-            Urgent safety or no-start? Call now. For free estimates and scheduling, use the form or{" "}
+            Urgent safety or no-start? Call now. For an estimate or scheduling, use the form or{" "}
             <Link href="/book">book online</Link>.
           </>
         }
@@ -76,7 +76,7 @@ export default function ContactPage() {
             <AnswerBox
               label="Quick answer"
               question="How do I reach Doctor Yachts?"
-              answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message for free estimates and scheduling. We serve Fort Lauderdale, Miami, and nearby South Florida docks.`}
+              answer={`Call ${site.phone} during ${site.hours} for urgent boat repair triage, or send a message to request an estimate or schedule a visit. Free estimate when you book the job; estimate-only visits are $75, credited if we do the work. We serve Fort Lauderdale, Miami, and nearby South Florida docks.`}
             />
             <Card className="card-accent p-6 sm:p-8">
               <p className="eyebrow">Direct lines</p>
@@ -110,14 +110,14 @@ export default function ContactPage() {
                 </div>
               </dl>
               <p className="mt-6 text-sm text-steel">
-                Also: <Link href="/free-estimate">free estimate</Link> · <Link href="/faq">FAQ</Link>
+                Also: <Link href="/free-estimate">request an estimate</Link> · <Link href="/faq">FAQ</Link>
               </p>
             </Card>
           </div>
           <Card className="p-6 sm:p-8">
             <h2 className="font-display text-navy">Send a message</h2>
             <p className="mt-2 text-sm text-steel">
-              Include city/marina and symptoms for a faster free estimate.
+              Include city/marina and symptoms so we can reply with a clear estimate.
             </p>
             <div className="mt-5">
               <ContactForm />

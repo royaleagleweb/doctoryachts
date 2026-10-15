@@ -42,8 +42,10 @@ export default function TermsPage() {
           <div>
             <h2 className="font-display text-navy">Website &amp; estimates</h2>
             <p className="mt-3 text-steel">
-              Information on this site is general. A free estimate is based on the symptoms and
+              Information on this site is general. An estimate is based on the symptoms and
               location you share and is not a guarantee of total cost until we diagnose the vessel.
+              The estimate is free when you book the job with us. Estimate-only visits are $75,
+              credited toward the repair if we do the work.
               Online booking is a service request — we confirm access, scope, and availability before
               a visit is locked.
             </p>

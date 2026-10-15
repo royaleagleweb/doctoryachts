@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-/** Simple contact form for /contact — free estimate uses EstimateForm */
+/** Simple contact form for /contact — estimate requests use EstimateForm */
 export function ContactForm() {
   const pathname = usePathname() || "/";
   const locale = localeFromPath(pathname);

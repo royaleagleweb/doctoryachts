@@ -18,7 +18,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Reparación de barcos cerca de mí | Fort Lauderdale y el sur de la Florida",
   description:
-    "Zonas de reparación de barcos: Fort Lauderdale, Dania Beach, Hollywood, Miami y Palm Beach. Mecánico móvil en el muelle. Presupuestos gratis — Doctor Yachts.",
+    "Zonas de reparación de barcos: Fort Lauderdale, Dania Beach, Hollywood, Miami y Palm Beach. Mecánico móvil en el muelle. Presupuesto gratis al reservar — Doctor Yachts.",
   path: "/es/ubicaciones",
   locale: "es",
   keywords: [
@@ -68,7 +68,7 @@ export default function SpanishLocationsPage() {
           <>
             <Button href="/es/reservar">Reservar visita</Button>
             <Button href="/es/presupuesto-gratis" variant="ghost">
-              Pedir presupuesto gratis
+              Pedir presupuesto
             </Button>
             <Button href={site.phoneHref} variant="ghost">
               Llamar {site.phone}
@@ -82,7 +82,7 @@ export default function SpanishLocationsPage() {
           <AnswerBox
             label="Respuesta rápida"
             question="¿Dan reparación de barcos cerca de Fort Lauderdale?"
-            answer={`Sí. Doctor Yachts da reparación de barcos y mecánico móvil en Fort Lauderdale y ciudades cercanas del sur de la Florida, incluidas Dania Beach, Hollywood, Miami y el condado de Palm Beach. Presupuestos gratis. Llame al ${site.phone} o reserve en línea.`}
+            answer={`Sí. Doctor Yachts da reparación de barcos y mecánico móvil en Fort Lauderdale y ciudades cercanas del sur de la Florida, incluidas Dania Beach, Hollywood, Miami y el condado de Palm Beach. Presupuesto gratis al reservar el trabajo. Llame al ${site.phone} o reserve en línea.`}
           />
 
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -112,8 +112,8 @@ export default function SpanishLocationsPage() {
             <p className="text-steel">
               Si buscó “reparación de barcos cerca de mí” en Fort Lauderdale o necesita un mecánico
               de yates en el condado de Palm Beach, el proceso es el mismo: describa el síntoma,
-              comparta el acceso al muelle y primero diagnosticamos. Presupuesto gratis del trabajo
-              recomendado. Llame al <a href={site.phoneHref}>{site.phone}</a> o{" "}
+              comparta el acceso al muelle y primero diagnosticamos. Presupuesto claro del trabajo
+              recomendado—gratis cuando reserva. Llame al <a href={site.phoneHref}>{site.phone}</a> o{" "}
               <Link href="/es/reservar">reserve una visita</Link>.
             </p>
             <div className="grid gap-4 sm:grid-cols-3">

@@ -13,7 +13,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Boat Mechanic Reviews | Fort Lauderdale Clients",
   description:
-    "Leave a Doctor Yachts review on Google or Yelp Fort Lauderdale. Diagnose-first boat mechanic. Free estimates. Call " +
+    "Leave a Doctor Yachts review on Google or Yelp Fort Lauderdale. Diagnose-first boat mechanic. Free estimate when you book. Call " +
     site.phone +
     ".",
   path: "/reviews",
@@ -36,7 +36,7 @@ const standards = [
   },
   {
     title: "Plain-language options",
-    body: "Free estimates on recommended work and notes you can keep for surveys or the next trip.",
+    body: "Clear estimates on recommended work—free when you book the job—and notes you can keep for surveys or the next trip.",
   },
 ];
 
@@ -122,7 +122,7 @@ export default function ReviewsPage() {
           </div>
 
           <p className="text-sm text-steel">
-            Ready to book? <Link href="/free-estimate">Request a free estimate</Link> or{" "}
+            Ready to book? <Link href="/free-estimate">Request an estimate</Link> or{" "}
             <Link href="/book">book online</Link>.
           </p>
         </div>

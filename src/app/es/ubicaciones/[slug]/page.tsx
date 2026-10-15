@@ -45,7 +45,7 @@ export default async function SpanishLocationPage({ params }: PageProps) {
   const img = images.locations[loc.slug as keyof typeof images.locations];
   const others = locations.filter((l) => l.slug !== loc.slug).map((l) => localizeLocation(l, "es"));
   const hub = servicesInHubOrderLocalized("es");
-  const quickAnswer = `Doctor Yachts da reparación de barcos y mecánico móvil en ${loc.name}, ${loc.state}—motores, eléctrico, enfriamiento, mantenimiento de yates y diagnóstico. Presupuestos gratis. Llame al ${site.phone} o reserve en línea para visitas a marina y muelle privado cuando hay acceso.`;
+  const quickAnswer = `Doctor Yachts da reparación de barcos y mecánico móvil en ${loc.name}, ${loc.state}—motores, eléctrico, enfriamiento, mantenimiento de yates y diagnóstico. Presupuesto gratis al reservar el trabajo. Llame al ${site.phone} o reserve en línea para visitas a marina y muelle privado cuando hay acceso.`;
 
   return (
     <>
@@ -73,7 +73,7 @@ export default async function SpanishLocationPage({ params }: PageProps) {
           <>
             <Button href="/es/reservar">Reservar en {loc.shortName}</Button>
             <Button href="/es/presupuesto-gratis" variant="ghost">
-              Pedir presupuesto gratis
+              Pedir presupuesto
             </Button>
             <Button href={site.phoneHref} variant="ghost">
               Llamar {site.phone}
@@ -134,7 +134,7 @@ export default async function SpanishLocationPage({ params }: PageProps) {
               <ul className="mt-4 list-disc space-y-2 pl-5 text-steel">
                 <li>Primero diagnosticamos—hallazgos claros antes de la presión de piezas</li>
                 <li>Móvil y en el muelle cuando hay acceso (se ahorra el remolque cuando se puede)</li>
-                <li>Presupuesto gratis del trabajo recomendado</li>
+                <li>Presupuesto claro del trabajo recomendado—gratis cuando reserva el trabajo</li>
                 <li>Motores, eléctrico, enfriamiento, plomería y mantenimiento—incluido 100 y 300 horas</li>
               </ul>
             </section>

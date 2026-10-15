@@ -130,14 +130,14 @@ export default async function GuidePage({ params }: PageProps) {
               <Card className="card-accent p-6">
                 <h2 className="font-display text-navy">Need this fixed in South Florida?</h2>
                 <p className="mt-2 text-sm text-steel">
-                  Book a visit—we confirm by phone during {site.hours}. Free estimates. Mobile and
-                  dockside when access allows. Call{" "}
+                  Book a visit—we confirm by phone during {site.hours}. Free estimate when you book
+                  the job. Mobile and dockside when access allows. Call{" "}
                   <a href={site.phoneHref}>{site.phone}</a>.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <Button href="/book">Book a visit</Button>
                   <Button href="/free-estimate" variant="ghost">
-                    Get a free estimate
+                    Request an estimate
                   </Button>
                 </div>
               </Card>

@@ -16,7 +16,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Boat Repair Near Me | Fort Lauderdale & South Florida",
   description:
-    "Boat repair service areas: Fort Lauderdale, Dania Beach, Hollywood, Miami & Palm Beach. Mobile dockside mechanic. Free estimates — Doctor Yachts.",
+    "Boat repair service areas: Fort Lauderdale, Dania Beach, Hollywood, Miami & Palm Beach. Mobile dockside mechanic. Estimate free when you book — Doctor Yachts.",
   path: "/locations",
   keywords: [
     "boat repair near me Fort Lauderdale",
@@ -66,7 +66,7 @@ export default function LocationsPage() {
           <>
             <Button href="/book">Book a visit</Button>
             <Button href="/free-estimate" variant="ghost">
-              Get a free estimate
+              Request an estimate
             </Button>
             <Button href={site.phoneHref} variant="ghost">
               Call {site.phone}
@@ -80,7 +80,7 @@ export default function LocationsPage() {
           <AnswerBox
             label="Quick answer"
             question="Do you offer boat repair near Fort Lauderdale?"
-            answer={`Yes. Doctor Yachts provides boat repair and mobile dockside mechanic service in Fort Lauderdale and nearby South Florida cities including Dania Beach, Hollywood, Miami, and Palm Beach County. Free estimates. Call ${site.phone} or book online.`}
+            answer={`Yes. Doctor Yachts provides boat repair and mobile dockside mechanic service in Fort Lauderdale and nearby South Florida cities including Dania Beach, Hollywood, Miami, and Palm Beach County. Free estimate when you book the job. Call ${site.phone} or book online.`}
           />
 
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -107,7 +107,7 @@ export default function LocationsPage() {
             <p className="text-steel">
               Whether you searched “boat repair near me” in Fort Lauderdale or need a yacht mechanic
               in Palm Beach County, the process is the same: describe the symptom, share dock access,
-              and we diagnose first. Free estimates on recommended work. Call{" "}
+              and we diagnose first. Clear estimate on recommended work—free when you book. Call{" "}
               <a href={site.phoneHref}>{site.phone}</a> or <Link href="/book">book a visit</Link>.
             </p>
             <div className="grid gap-4 sm:grid-cols-3">
