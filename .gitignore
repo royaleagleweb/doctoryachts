@@ -41,6 +41,9 @@ yarn-error.log*
 .wrangler
 .dev.vars
 
+# build-time responsive WebP (scripts/optimize-images.mjs)
+/public/images/opt/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

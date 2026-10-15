@@ -21,7 +21,9 @@ export function PageHeroImage({
         src={src}
         alt={alt}
         fill
-        priority={priority}
+        preload={priority}
+        fetchPriority={priority ? "high" : undefined}
+        loading={priority ? "eager" : undefined}
         sizes="100vw"
         className="object-cover"
       />
