@@ -122,6 +122,9 @@ export function Footer() {
             <Link href="/reviews" className="no-underline hover:text-white">
               {copy.footer.reviews}
             </Link>
+            <Link href="/gallery" className="no-underline hover:text-white">
+              {copy.footer.gallery}
+            </Link>
             <span>{copy.footer.tag}</span>
           </span>
         </div>
