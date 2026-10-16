@@ -173,6 +173,7 @@ export default function SpanishAboutPage() {
           { href: "/es/servicios", label: "Todos los servicios", note: "Motores, eléctrico, móvil…" },
           { href: "/es/preguntas", label: "Preguntas", note: "Dudas comunes de dueños" },
           { href: "/reviews", label: "Reseñas", note: "Comentarios de dueños" },
+          { href: "/gallery", label: "Galería de botes y yates", note: "Motores, muelles y sistemas" },
         ]}
       />
 
