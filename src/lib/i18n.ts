@@ -116,17 +116,23 @@ export function pathFor(locale: Locale, enPath: string): string {
   return switchPath(enPath, locale);
 }
 
+/**
+ * hreflang map for a public URL. Omit a language when that page has no
+ * translation. Do not use switchPath() here — its homepage fallback is only
+ * for the header switcher, and it produced non-reciprocal es alternates.
+ */
 export function hreflangLanguages(pathname: string, baseUrl: string): Record<string, string> {
   const path = normalizePath(pathname);
   const base = baseUrl.replace(/\/$/, "");
-  const enPath = localeFromPath(path) === "es" ? switchPath(path, "en") : path;
-  const esPath = switchPath(enPath, "es");
   const abs = (p: string) => (p === "/" ? base : `${base}${p}`);
-  return {
-    en: abs(enPath),
-    es: abs(esPath),
-    "x-default": abs(enPath),
-  };
+  const enPath = localeFromPath(path) === "es" ? switchPathOrNull(path, "en") : path;
+  const esPath = enPath != null ? switchPathOrNull(enPath, "es") : path;
+
+  const languages: Record<string, string> = {};
+  if (enPath) languages.en = abs(enPath);
+  if (esPath) languages.es = abs(esPath);
+  languages["x-default"] = abs(enPath ?? path);
+  return languages;
 }
 
 export function setLocaleCookie(locale: Locale) {
