@@ -16,6 +16,7 @@ import { locationPath, pathFor, servicePath } from "@/lib/i18n";
 import { locations } from "@/lib/locations";
 import { imageListKey } from "@/lib/images";
 import { getServicePageMedia, type ServicePageMedia } from "@/lib/marine-media";
+import { localizeServiceImage } from "@/lib/service-image-copy";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
 import type { Service, ServiceImage } from "@/lib/services";
 import { services } from "@/lib/services";
@@ -81,10 +82,27 @@ function MediaBand({
   );
 }
 
+function withLocaleMedia(media: ServicePageMedia, locale: Locale): ServicePageMedia {
+  const img = (image: ServiceImage) => localizeServiceImage(image, locale);
+  return {
+    hero: img(media.hero),
+    about: img(media.about),
+    symptoms: img(media.symptoms),
+    included: img(media.included),
+    sections: media.sections.map(img),
+    checks: img(media.checks),
+    process: img(media.process),
+    local: img(media.local),
+    audience: img(media.audience),
+    diagnose: img(media.diagnose),
+    gallery: media.gallery.map(img),
+  };
+}
+
 export function ServiceLanding({ service, locale }: { service: Service; locale: Locale }) {
   const copy = t(locale);
   const sp = copy.servicePage;
-  const media: ServicePageMedia = getServicePageMedia(service);
+  const media: ServicePageMedia = withLocaleMedia(getServicePageMedia(service), locale);
   const all = getLocalizedServices(locale);
   const related = relatedServices(all, service.id);
   const relatedGuides = guides.filter((g) => g.relatedServices.includes(service.id)).slice(0, 4);

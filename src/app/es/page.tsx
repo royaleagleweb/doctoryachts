@@ -167,7 +167,7 @@ export default function SpanishHomePage() {
             <div className="shot relative aspect-[4/3]">
               <Image
                 src={images.gallery.dockside.src}
-                alt={images.gallery.dockside.alt}
+                alt={images.gallery.dockside.altEs}
                 fill
                 sizes="25vw"
                 className="object-cover object-[center_40%]"

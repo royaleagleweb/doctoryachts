@@ -63,7 +63,7 @@ export default function SpanishLocationsPage() {
         eyebrow="Zonas de servicio"
         title="Zonas de reparación de barcos en el sur de la Florida"
         description="Cobertura de mecánico móvil y en el muelle en Broward, Miami-Dade y el condado de Palm Beach. Reserve—confirmamos por teléfono de lun a sáb, 7–6."
-        image={images.gallery.dockside}
+        image={{ src: images.gallery.dockside.src, alt: images.gallery.dockside.altEs }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>

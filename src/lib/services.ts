@@ -1,3 +1,5 @@
+import { serviceImageFields, serviceMobileRepairImage, serviceOutboardImage } from "./service-image-copy";
+
 export type ServiceSection = {
   heading: string;
   body: string[];
@@ -163,11 +165,7 @@ export const services: Service[] = [
         alt: "Marine engine bay during professional boat engine repair",
         caption: "Engine bay diagnosis — inboard and related systems",
       },
-      {
-        src: "/images/service-mobile-repair.webp",
-        alt: "Dockside mobile marine engine repair at a South Florida marina",
-        caption: "Dockside engine service when access allows",
-      },
+      serviceImageFields(serviceMobileRepairImage),
       {
         src: "/images/service-diagnostics.jpg",
         alt: "Marine diagnostics supporting engine repair findings",
@@ -475,11 +473,7 @@ export const services: Service[] = [
         alt: "Marine engine bay related to cooling system repair",
         caption: "Cooling diagnosis in the engine bay",
       },
-      {
-        src: "/images/service-outboard.jpg",
-        alt: "Outboard motors where telltale cooling flow matters",
-        caption: "Outboard telltale / cooling flow issues",
-      },
+      serviceImageFields(serviceOutboardImage),
     ],
     faqs: [
       {
@@ -763,16 +757,8 @@ export const services: Service[] = [
         alt: "Scheduled boat maintenance at a South Florida marina dock",
         caption: "Dockside maintenance visit",
       },
-      {
-        src: "/images/service-outboard.jpg",
-        alt: "Outboard motors during interval boat maintenance",
-        caption: "Outboard interval service support",
-      },
-      {
-        src: "/images/service-mobile-repair.webp",
-        alt: "Mobile boat maintenance at the marina",
-        caption: "Mobile maintenance when access allows",
-      },
+      serviceImageFields(serviceOutboardImage),
+      serviceImageFields(serviceMobileRepairImage),
     ],
     faqs: [
       {
@@ -913,16 +899,8 @@ export const services: Service[] = [
       "yacht 100 hour maintenance",
     ],
     images: [
-      {
-        src: "/images/service-outboard.jpg",
-        alt: "100-hour boat interval service — systems and cooling check at a South Florida dock",
-        caption: "100-hour / annual interval service",
-      },
-      {
-        src: "/images/service-mobile-repair.webp",
-        alt: "Mobile 100-hour marine service at the marina",
-        caption: "Mobile interval service when access allows",
-      },
+      serviceImageFields(serviceOutboardImage),
+      serviceImageFields(serviceMobileRepairImage),
       {
         src: "/images/service-cooling.jpg",
         alt: "Cooling and impeller checks during 100-hour boat service",
@@ -1228,11 +1206,7 @@ export const services: Service[] = [
         alt: "Electrical supply diagnosis for boat pumps",
         caption: "Pumps need healthy electrical supply",
       },
-      {
-        src: "/images/service-mobile-repair.webp",
-        alt: "Dockside boat plumbing repair service",
-        caption: "Dockside plumbing repairs when access allows",
-      },
+      serviceImageFields(serviceMobileRepairImage),
     ],
     faqs: [
       {
@@ -1366,11 +1340,7 @@ export const services: Service[] = [
       "on-site boat repair Fort Lauderdale",
     ],
     images: [
-      {
-        src: "/images/service-mobile-repair.webp",
-        alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
-        caption: "Dockside mobile boat repair",
-      },
+      serviceImageFields(serviceMobileRepairImage),
       {
         src: "/images/location-fort-lauderdale.jpg",
         alt: "Fort Lauderdale marinas served by mobile boat mechanic",
@@ -1515,11 +1485,7 @@ export const services: Service[] = [
       "boat motor repair Fort Lauderdale",
     ],
     images: [
-      {
-        src: "/images/service-outboard.jpg",
-        alt: "Twin outboard motors on a boat at Fort Lauderdale marina",
-        caption: "Outboard motors at the dock",
-      },
+      serviceImageFields(serviceOutboardImage),
       {
         src: "/images/service-engine.jpg",
         alt: "Marine power systems related to outboard repair",
