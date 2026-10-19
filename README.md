@@ -75,8 +75,17 @@ Also included:
 | Business name, phone, email, hours, **city/service area** | `src/lib/site.ts` |
 | Services + SEO copy/keywords | `src/lib/services.ts` |
 | Site URL for canonicals/sitemap | `NEXT_PUBLIC_SITE_URL` |
+| Google Analytics 4 measurement ID | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
 | Brand colors | `src/app/globals.css` |
 | Gallery photos | Add images under `public/gallery/` and update `src/app/gallery/page.tsx` |
+
+## Analytics
+
+Google Analytics 4 stays off until `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set to a measurement ID such as `G-XXXXXXXX`. With the variable unset, pages render no analytics tag.
+
+Set it as a **build** variable on Cloudflare (Workers & Pages → the `doctoryachts` project → Settings → Variables and Secrets, same place as `NEXT_PUBLIC_SITE_URL`), then redeploy. Next.js inlines `NEXT_PUBLIC_*` at build time, so a runtime-only Worker secret will not turn the tag on.
+
+In the GA4 web stream, turn off Enhanced measurement → **Page changes based on browser history events**. The site already sends a page view on each client-side route change.
 
 ## Booking & contact
 
