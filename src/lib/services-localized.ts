@@ -1,5 +1,6 @@
 import { SERVICE_SLUG_ES } from "./i18n";
 import type { Locale } from "./i18n";
+import { localizeServiceImages } from "./service-image-copy";
 import { services, type Service } from "./services";
 
 type Overlay = Pick<
@@ -1111,6 +1112,7 @@ export function localizeService(service: Service, locale: Locale): Service {
     ...service,
     ...overlay,
     slug: SERVICE_SLUG_ES[service.slug] ?? service.slug,
+    images: localizeServiceImages(service.images, "es"),
   };
 }
 

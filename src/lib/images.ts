@@ -1,3 +1,5 @@
+import { serviceMobileRepairImage, serviceOutboardImage } from "./service-image-copy";
+
 /** Brand & page images in /public/images. */
 
 export type BrandImage = {
@@ -137,8 +139,9 @@ export const images = {
       alt: "Marine bilge pumps and systems compartment",
     },
     dockside: {
-      src: "/images/service-mobile-repair.webp",
-      alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
+      src: serviceMobileRepairImage.src,
+      alt: serviceMobileRepairImage.alt,
+      altEs: serviceMobileRepairImage.altEs,
     },
     miami: {
       src: "/images/location-miami.jpg",
@@ -179,16 +182,16 @@ export const images = {
       alt: "Boat plumbing and bilge system repairs",
     },
     emergency: {
-      src: "/images/service-mobile-repair.webp",
-      alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
+      src: serviceMobileRepairImage.src,
+      alt: serviceMobileRepairImage.alt,
     },
     outboard: {
-      src: "/images/service-outboard.jpg",
-      alt: "Outboard motor repair Fort Lauderdale",
+      src: serviceOutboardImage.src,
+      alt: serviceOutboardImage.alt,
     },
     "hour-100": {
-      src: "/images/service-outboard.jpg",
-      alt: "100-hour boat interval service — systems and cooling check at the dock",
+      src: serviceOutboardImage.src,
+      alt: serviceOutboardImage.alt,
     },
     "hour-300": {
       src: "/images/service-engine.jpg",

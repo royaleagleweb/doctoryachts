@@ -1,3 +1,4 @@
+import { serviceImageFields, serviceMobileRepairImage, serviceOutboardImage } from "./service-image-copy";
 import type { Service, ServiceImage } from "./services";
 
 /** Shared marine atmosphere images for service landing pages */
@@ -52,16 +53,8 @@ export const marineMedia = {
     alt: "Boat cooling system and raw-water plumbing",
     caption: "Cooling systems",
   },
-  outboard: {
-    src: "/images/service-outboard.jpg",
-    alt: "Outboard motors at a Florida marina dock",
-    caption: "Outboard power",
-  },
-  dockside: {
-    src: "/images/service-mobile-repair.webp",
-    alt: "Mobile marine mechanic working on a boat engine at a South Florida marina dock",
-    caption: "Mobile / dockside",
-  },
+  outboard: serviceImageFields(serviceOutboardImage),
+  dockside: serviceImageFields(serviceMobileRepairImage),
   maintenance: {
     src: "/images/service-maintenance.jpg",
     alt: "Boat maintenance at a South Florida dock",
