@@ -4,6 +4,7 @@ import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
+import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
@@ -169,6 +170,8 @@ export default function SpanishServicesPage() {
           </p>
         </Card>
       </Section>
+
+      <FaqSection title="Preguntas sobre los servicios" faqs={hubFaqs} />
 
       <CTA />
     </>
