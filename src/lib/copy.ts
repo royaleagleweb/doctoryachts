@@ -31,6 +31,7 @@ export const chrome = {
       reviews: "Reviews",
       privacy: "Privacy",
       terms: "Terms",
+      gallery: "Gallery",
       tag: "Diagnose first · free estimates",
     },
     cta: {
@@ -252,6 +253,7 @@ export const chrome = {
       reviews: "Reseñas",
       privacy: "Privacidad",
       terms: "Términos",
+      gallery: "Galería",
       tag: "Primero diagnosticamos · presupuestos gratis",
     },
     cta: {

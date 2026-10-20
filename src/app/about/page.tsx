@@ -198,6 +198,7 @@ export default function AboutPage() {
           { href: "/guides", label: "Repair guides", note: "Repair checklists" },
           { href: "/faq", label: "Full FAQ", note: "Common owner questions" },
           { href: "/reviews", label: "Reviews", note: "Owner feedback" },
+          { href: "/gallery", label: "Boat & yacht gallery", note: "Engines, docks, and systems" },
         ]}
       />
 

@@ -7,6 +7,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { imageListKey, images, yachtStrip } from "@/lib/images";
+import { marineMedia } from "@/lib/marine-media";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -27,7 +28,7 @@ const workShots = [
   { id: "electrical", ...images.gallery.electrical, kicker: "Electrical", href: "/services/electrical-repairs" },
   { id: "diagnostics", ...images.gallery.diagnostics, kicker: "Diagnostics", href: "/services/boat-diagnostics" },
   { id: "maintenance", ...images.gallery.maintenance, kicker: "Maintenance", href: "/services/boat-maintenance" },
-  { id: "systems", ...images.gallery.systems, kicker: "Systems", href: "/services/plumbing-repairs" },
+  { id: "systems", ...marineMedia.bilge, kicker: "Systems", href: "/services/plumbing-repairs" },
   { id: "dockside", ...images.gallery.dockside, kicker: "Mobile", href: "/services/mobile-boat-repair" },
   { id: "hull", ...images.gallery.hull, kicker: "Hull", href: "/services" },
   { id: "teak", ...images.gallery.teak, kicker: "Deck", href: "/about" },
