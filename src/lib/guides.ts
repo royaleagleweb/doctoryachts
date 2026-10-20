@@ -28,7 +28,7 @@ export const guides: Guide[] = [
   {
     slug: "boat-wont-start-checklist",
     title: "Boat Won’t Start? A Practical Checklist",
-    seoTitle: "Boat Won’t Start Checklist | Fort Lauderdale Boat Mechanic Tips",
+    seoTitle: "Boat Won’t Start Checklist Fort Lauderdale | Doctor Yachts",
     seoDescription:
       "Boat won’t start? Follow this free checklist for battery, fuel, safety cutoffs, and when to call a mobile boat mechanic in Fort Lauderdale or South Florida.",
     quickAnswer:
@@ -303,7 +303,7 @@ export const guides: Guide[] = [
   {
     slug: "signs-you-need-marine-electrical-repair",
     title: "Signs You Need Marine Electrical Repair",
-    seoTitle: "Signs You Need Boat Electrical Repair | Battery & Charging Issues",
+    seoTitle: "Signs You Need Boat Electrical Repair | Fort Lauderdale",
     seoDescription:
       "Dead batteries, dim electronics, shore power trips? Learn signs you need marine electrical repair and when to call a Fort Lauderdale boat electrician/mechanic.",
     quickAnswer:
@@ -434,7 +434,7 @@ export const guides: Guide[] = [
   {
     slug: "what-does-a-boat-mechanic-do",
     title: "What Does a Boat Mechanic Do?",
-    seoTitle: "What Does a Boat Mechanic Do? | Yacht & Boat Repair Explained",
+    seoTitle: "What Does a Boat Mechanic Do? | Fort Lauderdale",
     seoDescription:
       "What a boat mechanic does: engines, electrical, cooling, diagnostics, and maintenance. How Doctor Yachts works in Fort Lauderdale & South Florida.",
     quickAnswer:

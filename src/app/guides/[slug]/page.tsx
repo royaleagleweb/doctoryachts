@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { getGuideBySlug, guides } from "@/lib/guides";
+import { fitPageTitle, metaDescriptionFor } from "@/lib/page-meta";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -30,10 +31,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const guide = getGuideBySlug(slug);
   if (!guide) return {};
+  const path = `/guides/${guide.slug}`;
   return buildMetadata({
-    title: guide.seoTitle,
-    description: guide.seoDescription,
-    path: `/guides/${guide.slug}`,
+    title: fitPageTitle(guide.seoTitle),
+    description: metaDescriptionFor(path, guide.seoDescription),
+    path,
     keywords: guide.keywords,
   });
 }

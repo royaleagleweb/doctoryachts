@@ -16,7 +16,7 @@ import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Reparación de barcos cerca de mí | Fort Lauderdale y el sur de la Florida",
+  title: "Reparación de barcos cerca de mí | Fort Lauderdale",
   description:
     "Zonas de reparación de barcos: Fort Lauderdale, Dania Beach, Hollywood, Miami y Palm Beach. Mecánico móvil en el muelle. Presupuestos gratis — Doctor Yachts.",
   path: "/es/ubicaciones",

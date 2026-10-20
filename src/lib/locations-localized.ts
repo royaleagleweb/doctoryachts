@@ -47,7 +47,7 @@ const es: Record<string, Overlay> = {
     ],
   },
   miami: {
-    seoTitle: "Reparación de barcos | Doctor Yachts | Miami y Miami Beach, FL",
+    seoTitle: "Reparación de barcos Miami y Miami Beach | Doctor Yachts",
     seoDescription:
       "Reparación de barcos en Miami y Miami Beach. Motor, eléctrico y mantenimiento móvil. Presupuestos gratis — Doctor Yachts.",
     h1: "Reparación de barcos y servicio náutico móvil en Miami y Miami Beach",
@@ -148,7 +148,7 @@ const es: Record<string, Overlay> = {
     ],
   },
   "pompano-beach": {
-    seoTitle: "Reparación móvil de barcos | Doctor Yachts | Pompano Beach, FL",
+    seoTitle: "Reparación móvil de barcos Pompano Beach | Doctor Yachts",
     seoDescription:
       "Reparación móvil de barcos en Pompano Beach. Motores, eléctrico, mantenimiento y servicio en el muelle. Presupuestos gratis — Doctor Yachts.",
     h1: "Reparación móvil de barcos en Pompano Beach, FL",
