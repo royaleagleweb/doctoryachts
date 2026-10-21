@@ -4,6 +4,12 @@ import { locations } from "./locations";
 import { getLocalizedServices } from "./services-localized";
 import { services } from "./services";
 import { fitMetaDescription, fitPageTitle } from "./page-meta";
+import {
+  defaultSharePhoto,
+  SHARE_HEIGHT,
+  SHARE_WIDTH,
+  shareImageForPath,
+} from "./share-image";
 import { site, seoKeywords } from "./site";
 
 type BuildMetaInput = {
@@ -15,12 +21,13 @@ type BuildMetaInput = {
   locale?: Locale;
 };
 
-/** Default social/share image — keep in sync with LocalBusiness schema + layout OG */
+/** Default social/share image — keep in sync with LocalBusiness schema + layout OG. */
 export const defaultOgImage = {
-  url: "/images/service-engine.jpg",
-  width: 1200,
-  height: 630,
-  alt: `${site.name} — mobile boat mechanic in Fort Lauderdale`,
+  url: defaultSharePhoto.src,
+  width: SHARE_WIDTH,
+  height: SHARE_HEIGHT,
+  alt: defaultSharePhoto.alt,
+  type: "image/jpeg",
 } as const;
 
 export function absoluteUrl(path = "/") {
@@ -45,6 +52,14 @@ export function buildMetadata({
   // their templated titles so this helper does not rewrite them.
   const pageTitle = noIndex ? title : fitPageTitle(title);
   const pageDescription = noIndex ? description : fitMetaDescription(description);
+  const share = shareImageForPath(path, loc);
+  const image = {
+    url: absoluteUrl(share.src),
+    width: SHARE_WIDTH,
+    height: SHARE_HEIGHT,
+    alt: share.alt,
+    type: "image/jpeg" as const,
+  };
 
   return {
     title: { absolute: pageTitle },
@@ -64,13 +79,13 @@ export function buildMetadata({
       siteName: site.name,
       type: "website",
       locale: loc === "es" ? "es_US" : "en_US",
-      images: [defaultOgImage],
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title: pageTitle,
       description: pageDescription,
-      images: [defaultOgImage.url],
+      images: [image],
     },
   };
 }
