@@ -25,3 +25,17 @@ Replacement photos for the outboard and mobile-repair cards. Both are real photo
 - **Processing:** Center cover-crop from 1200×797 to 1280×720 WebP (quality 78). The source file on Commons is 1200px wide, so the export is a slight upscale to match the other 1280×720 cards.
 
 These are documentary photographs, not Doctor Yachts job photos. A photo from an actual Fort Lauderdale dock visit would still be the better long-term image for the mobile-repair page if Roy has one — this one shows Coast Guard training, not a marina service call.
+
+## `public/images/service-hour-300.jpg`
+
+- **What it shows:** A Yanmar 6LPA marine diesel installed in a Corvette 320 motor yacht engine bay: silver valve cover with the Yanmar name, black hoses, a belt, and a filter. It is not the blue-hose engine bay in `service-engine.jpg`.
+- **Used for:** The 300-hour service card, which previously reused `service-engine.jpg`.
+- **Title:** Photo showing installation of Yanmar 6LPA diesel engine in a Corvette 320 motoryacht
+- **Author:** DavidPaygate
+- **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Commercial use is allowed. Attribution is required, and adaptations stay under the same license. This file is an adaptation (center cover-crop and resize).
+- **Attribution:** Photo by DavidPaygate, via Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Cropped and resized for this site.
+- **Source:** https://commons.wikimedia.org/wiki/File:Photo_of_Yanmar_6LPA_engine_in_Corvette_320.jpg
+- **File:** https://upload.wikimedia.org/wikipedia/commons/6/6d/Photo_of_Yanmar_6LPA_engine_in_Corvette_320.jpg
+- **Processing:** Center cover-crop from 2357×2388 to 1280×720 JPEG (mozjpeg, quality 80).
+
+The 100-hour card now uses the existing `public/images/marine-mechanic.jpg` (a mechanic working dockside on a boat engine). That file was already in the repo and was not on the homepage. The Dania Beach card uses the existing `public/images/marine-marina.jpg`. The homepage story photos (`marine-helm.jpg`, `marine-bilge.jpg`, `marine-lines.jpg`, `gallery-teak.jpg`) were already in the repo and were not on the homepage.

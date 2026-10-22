@@ -11,7 +11,7 @@ import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { images, yachts } from "@/lib/images";
+import { homeStory, images, yachts } from "@/lib/images";
 import { publicLocations } from "@/lib/locations";
 import { homeMetaDescription } from "@/lib/page-meta";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
@@ -146,8 +146,8 @@ export default function HomePage() {
           <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
             <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
               <Image
-                src={images.gallery.electrical.src}
-                alt={images.gallery.electrical.alt}
+                src={homeStory.helm.src}
+                alt={homeStory.helm.alt}
                 fill
                 sizes="40vw"
                 className="object-cover object-[center_30%]"
@@ -155,8 +155,8 @@ export default function HomePage() {
             </div>
             <div className="shot relative aspect-[4/3]">
               <Image
-                src={images.gallery.systems.src}
-                alt={images.gallery.systems.alt}
+                src={homeStory.bilge.src}
+                alt={homeStory.bilge.alt}
                 fill
                 sizes="25vw"
                 className="object-cover object-center"
@@ -164,8 +164,8 @@ export default function HomePage() {
             </div>
             <div className="shot relative aspect-[4/3]">
               <Image
-                src={images.gallery.dockside.src}
-                alt={images.gallery.dockside.alt}
+                src={homeStory.lines.src}
+                alt={homeStory.lines.alt}
                 fill
                 sizes="25vw"
                 className="object-cover object-[center_40%]"
@@ -198,8 +198,8 @@ export default function HomePage() {
           <div className="relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
             <div className="shot absolute inset-0">
               <Image
-                src={images.gallery.maintenance.src}
-                alt={images.gallery.maintenance.alt}
+                src={homeStory.teak.src}
+                alt={homeStory.teak.alt}
                 fill
                 sizes="50vw"
                 className="object-cover object-[center_35%]"

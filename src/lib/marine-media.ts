@@ -1,4 +1,9 @@
-import { serviceImageFields, serviceMobileRepairImage, serviceOutboardImage } from "./service-image-copy";
+import {
+  serviceHour300Image,
+  serviceImageFields,
+  serviceMobileRepairImage,
+  serviceOutboardImage,
+} from "./service-image-copy";
 import type { Service, ServiceImage } from "./services";
 
 /** Shared marine atmosphere images for service landing pages */
@@ -70,6 +75,7 @@ export const marineMedia = {
     alt: "Marine systems and pump compartment",
     caption: "Plumbing & systems",
   },
+  hour300: serviceImageFields(serviceHour300Image),
   ftl: {
     src: "/images/location-fort-lauderdale.jpg",
     alt: "Fort Lauderdale Intracoastal marinas and yachts",
@@ -237,12 +243,12 @@ const servicePools: Record<string, ServiceImage[]> = {
     marineMedia.maintenance,
   ],
   "hour-100": [
-    marineMedia.outboard,
+    marineMedia.mechanic,
     marineMedia.dockside,
     marineMedia.cooling,
     marineMedia.engine,
     marineMedia.marina,
-    marineMedia.mechanic,
+    marineMedia.outboard,
     marineMedia.wake,
     marineMedia.maintenance,
   ],
@@ -265,7 +271,7 @@ const servicePools: Record<string, ServiceImage[]> = {
     marineMedia.helm,
   ],
   "hour-300": [
-    marineMedia.engine,
+    marineMedia.hour300,
     marineMedia.cooling,
     marineMedia.maintenance,
     marineMedia.electrical,
