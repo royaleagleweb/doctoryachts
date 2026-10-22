@@ -1,8 +1,8 @@
 import type { Locale } from "./i18n";
 
 /**
- * Replacement photos for the outboard and mobile-repair cards.
- * English copy is what the files store; Spanish pages swap alt/caption by src.
+ * Card photos whose English alt is stored on the file record.
+ * Spanish pages swap alt/caption by src.
  */
 export const serviceOutboardImage = {
   src: "/images/service-outboard.jpg",
@@ -22,9 +22,30 @@ export const serviceMobileRepairImage = {
   captionEs: "Trabajo de fuera de borda en la popa, en el agua",
 } as const;
 
+/** Existing dockside mechanic photo, unused on the homepage before the 100-hour card. */
+export const serviceHour100Image = {
+  src: "/images/marine-mechanic.jpg",
+  alt: "Marine mechanic working dockside on a boat engine",
+  altEs: "Mecánico náutico trabajando en el motor de un bote, junto al muelle",
+  caption: "Dockside engine work",
+  captionEs: "Trabajo de motor en el muelle",
+} as const;
+
+/** Yanmar 6LPA in a Corvette 320 engine bay. See docs/IMAGE-CREDITS.md. */
+export const serviceHour300Image = {
+  src: "/images/service-hour-300.jpg",
+  alt: "Yanmar 6LPA marine diesel with hoses, belts, and filters in a motor yacht engine bay",
+  altEs:
+    "Diésel marino Yanmar 6LPA con mangueras, correas y filtros en el compartimento de motor de un yate",
+  caption: "Engine bay with hoses, belts, and filters",
+  captionEs: "Compartimento de motor con mangueras, correas y filtros",
+} as const;
+
 const bySrc = {
   [serviceOutboardImage.src]: serviceOutboardImage,
   [serviceMobileRepairImage.src]: serviceMobileRepairImage,
+  [serviceHour100Image.src]: serviceHour100Image,
+  [serviceHour300Image.src]: serviceHour300Image,
 } as const;
 
 export function serviceImageFields(image: (typeof bySrc)[keyof typeof bySrc]): {

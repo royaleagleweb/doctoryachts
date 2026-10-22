@@ -12,7 +12,7 @@ import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { images } from "@/lib/images";
+import { homeStory, images, yachts } from "@/lib/images";
 import { locationPath, servicePath } from "@/lib/i18n";
 import { publicLocations } from "@/lib/locations";
 import { homeMetaDescriptionEs } from "@/lib/page-meta";
@@ -80,7 +80,10 @@ export default function SpanishHomePage() {
         title="Mecánico de yates móvil en Fort Lauderdale"
         subhead="El mecánico que va al barco."
         description="Fort Lauderdale, Miami y muelles cercanos. Confirmamos por teléfono de lun a sáb, 7–6."
-        image={images.homeHero}
+        image={{
+          src: yachts.marinaGold.src,
+          alt: "Yate a motor de lujo en una marina del sur de la Florida, con luz dorada",
+        }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>
@@ -149,8 +152,8 @@ export default function SpanishHomePage() {
           <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
             <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
               <Image
-                src={images.gallery.electrical.src}
-                alt={images.gallery.electrical.alt}
+                src={homeStory.helm.src}
+                alt={homeStory.helm.altEs}
                 fill
                 sizes="40vw"
                 className="object-cover object-[center_30%]"
@@ -158,8 +161,8 @@ export default function SpanishHomePage() {
             </div>
             <div className="shot relative aspect-[4/3]">
               <Image
-                src={images.gallery.systems.src}
-                alt={images.gallery.systems.alt}
+                src={homeStory.bilge.src}
+                alt={homeStory.bilge.altEs}
                 fill
                 sizes="25vw"
                 className="object-cover object-center"
@@ -167,8 +170,8 @@ export default function SpanishHomePage() {
             </div>
             <div className="shot relative aspect-[4/3]">
               <Image
-                src={images.gallery.dockside.src}
-                alt={images.gallery.dockside.altEs}
+                src={homeStory.lines.src}
+                alt={homeStory.lines.altEs}
                 fill
                 sizes="25vw"
                 className="object-cover object-[center_40%]"
@@ -201,8 +204,8 @@ export default function SpanishHomePage() {
           <div className="relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
             <div className="shot absolute inset-0">
               <Image
-                src={images.gallery.maintenance.src}
-                alt={images.gallery.maintenance.alt}
+                src={homeStory.teak.src}
+                alt={homeStory.teak.altEs}
                 fill
                 sizes="50vw"
                 className="object-cover object-[center_35%]"

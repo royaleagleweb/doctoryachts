@@ -1,4 +1,9 @@
-import { serviceMobileRepairImage, serviceOutboardImage } from "./service-image-copy";
+import {
+  serviceHour100Image,
+  serviceHour300Image,
+  serviceMobileRepairImage,
+  serviceOutboardImage,
+} from "./service-image-copy";
 
 /** Brand & page images in /public/images. */
 
@@ -190,12 +195,12 @@ export const images = {
       alt: serviceOutboardImage.alt,
     },
     "hour-100": {
-      src: serviceOutboardImage.src,
-      alt: serviceOutboardImage.alt,
+      src: serviceHour100Image.src,
+      alt: serviceHour100Image.alt,
     },
     "hour-300": {
-      src: "/images/service-engine.jpg",
-      alt: "300-hour marine interval service",
+      src: serviceHour300Image.src,
+      alt: serviceHour300Image.alt,
     },
     "upholstery-canvas": {
       src: "/images/service-upholstery-canvas.webp",
@@ -216,8 +221,8 @@ export const images = {
       alt: "Mobile boat repair Pompano Beach FL waterfront",
     },
     "dania-beach": {
-      src: "/images/yacht-marina-gold.jpg",
-      alt: "Boat repair Dania Beach FL",
+      src: "/images/marine-marina.jpg",
+      alt: "Yachts along a South Florida marina dock under a bright sky",
     },
     "hollywood-fl": {
       src: "/images/yacht-cruising.jpg",
@@ -231,5 +236,32 @@ export const images = {
       src: "/images/yacht-night.jpg",
       alt: "Boat mechanic Palm Beach County docks",
     },
+  },
+} as const;
+
+/**
+ * Homepage story photos. Kept off the service-card and location-card sets
+ * so those sections do not repeat the same file.
+ */
+export const homeStory = {
+  helm: {
+    src: "/images/marine-helm.jpg",
+    alt: "Yacht helm instruments and navigation station",
+    altEs: "Instrumentos del timón de un yate y estación de navegación",
+  },
+  bilge: {
+    src: "/images/marine-bilge.jpg",
+    alt: "Boat bilge pumps and marine plumbing systems",
+    altEs: "Bombas de sentina y plomería marina en un bote",
+  },
+  lines: {
+    src: "/images/marine-lines.jpg",
+    alt: "Dock lines and yacht hull at the waterline",
+    altEs: "Cabos de amarre y casco de un yate en la línea de flotación",
+  },
+  teak: {
+    src: "/images/gallery-teak.jpg",
+    alt: "Freshly washed teak yacht deck in coastal light",
+    altEs: "Cubierta de teca de un yate recién lavada, con luz costera",
   },
 } as const;

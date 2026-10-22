@@ -1,4 +1,10 @@
-import { serviceImageFields, serviceMobileRepairImage, serviceOutboardImage } from "./service-image-copy";
+import {
+  serviceHour100Image,
+  serviceHour300Image,
+  serviceImageFields,
+  serviceMobileRepairImage,
+  serviceOutboardImage,
+} from "./service-image-copy";
 
 export type ServiceSection = {
   heading: string;
@@ -899,7 +905,7 @@ export const services: Service[] = [
       "yacht 100 hour maintenance",
     ],
     images: [
-      serviceImageFields(serviceOutboardImage),
+      serviceImageFields(serviceHour100Image),
       serviceImageFields(serviceMobileRepairImage),
       {
         src: "/images/service-cooling.jpg",
@@ -1046,11 +1052,7 @@ export const services: Service[] = [
       "heat exchanger service boat",
     ],
     images: [
-      {
-        src: "/images/service-engine.jpg",
-        alt: "300-hour marine service inspection in an engine bay",
-        caption: "Deeper interval inspection in the engine bay",
-      },
+      serviceImageFields(serviceHour300Image),
       {
         src: "/images/service-cooling.jpg",
         alt: "Cooling and heat-exchanger attention during 300-hour service",
