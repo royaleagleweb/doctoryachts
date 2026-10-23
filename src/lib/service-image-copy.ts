@@ -22,13 +22,14 @@ export const serviceMobileRepairImage = {
   captionEs: "Trabajo de fuera de borda en la popa, en el agua",
 } as const;
 
-/** Existing dockside mechanic photo, unused on the homepage before the 100-hour card. */
+/** Coast Guard cutter diesel. See docs/IMAGE-CREDITS.md. Not a Doctor Yachts dock photo. */
 export const serviceHour100Image = {
   src: "/images/marine-mechanic.jpg",
-  alt: "Marine mechanic working dockside on a boat engine",
-  altEs: "Mecánico náutico trabajando en el motor de un bote, junto al muelle",
-  caption: "Dockside engine work",
-  captionEs: "Trabajo de motor en el muelle",
+  alt: "U.S. Coast Guard machinery technician using a wrench on the main diesel engine aboard the cutter Eagle",
+  altEs:
+    "Técnico de maquinaria de la Guardia Costera de EE. UU. usando una llave en el motor diésel principal a bordo del cúter Eagle",
+  caption: "Wrench work on a cutter's main diesel",
+  captionEs: "Trabajo con llave en el diésel principal de un cúter",
 } as const;
 
 /** Yanmar 6LPA in a Corvette 320 engine bay. See docs/IMAGE-CREDITS.md. */
