@@ -1,4 +1,5 @@
 import {
+  serviceHour100Image,
   serviceHour300Image,
   serviceImageFields,
   serviceMobileRepairImage,
@@ -28,11 +29,7 @@ export const marineMedia = {
     alt: "Yacht helm instruments and navigation station",
     caption: "Helm & systems",
   },
-  mechanic: {
-    src: "/images/marine-mechanic.jpg",
-    alt: "Marine mechanic working dockside on a boat engine",
-    caption: "Dockside diagnosis",
-  },
+  mechanic: serviceImageFields(serviceHour100Image),
   bilge: {
     src: "/images/marine-bilge.jpg",
     alt: "Boat bilge pumps and marine plumbing systems",

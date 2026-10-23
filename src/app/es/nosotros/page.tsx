@@ -57,7 +57,7 @@ export default function SpanishAboutPage() {
         title="Mecánico independiente de botes y yates en el sur de la Florida"
         subhead="Primero diagnosticamos. En el muelle."
         description="Fort Lauderdale, Miami y muelles cercanos. Motores, eléctrico, enfriamiento, diagnóstico, mantenimiento."
-        image={images.aboutHero}
+        image={{ src: images.aboutHero.src, alt: images.aboutHero.altEs }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>

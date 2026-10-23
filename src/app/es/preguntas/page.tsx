@@ -142,7 +142,7 @@ export default function SpanishFaqPage() {
             servicio 100 horas y 300 horas. Confirmamos en horario {site.hoursEs}.
           </>
         }
-        image={images.mechanic}
+        image={{ src: images.mechanic.src, alt: images.mechanic.altEs }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>

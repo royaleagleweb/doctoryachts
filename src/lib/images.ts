@@ -91,12 +91,14 @@ export const images = {
     alt: "Yacht engine bay — Doctor Yachts mobile boat mechanic in South Florida",
   },
   aboutHero: {
-    src: "/images/marine-mechanic.jpg",
-    alt: "Marine mechanic working dockside on a boat engine — Doctor Yachts",
+    src: serviceHour100Image.src,
+    alt: serviceHour100Image.alt,
+    altEs: serviceHour100Image.altEs,
   },
   mechanic: {
-    src: "/images/marine-mechanic.jpg",
-    alt: "Marine mechanic working dockside on a boat engine — Doctor Yachts",
+    src: serviceHour100Image.src,
+    alt: serviceHour100Image.alt,
+    altEs: serviceHour100Image.altEs,
   },
   contactHero: {
     src: "/images/yacht-intracoastal.jpg",
