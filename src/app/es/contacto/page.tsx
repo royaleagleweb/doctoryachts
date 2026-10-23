@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
+import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { ReviewLinks } from "@/components/ReviewLinks";
@@ -92,6 +93,8 @@ export default function SpanishContactPage() {
           </Card>
         </div>
       </Section>
+
+      <FaqSection title="Preguntas de contacto" faqs={faqs} />
 
       <CTA />
     </>
