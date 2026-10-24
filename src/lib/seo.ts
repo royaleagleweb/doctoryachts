@@ -90,7 +90,7 @@ export function localBusinessJsonLd(locale: Locale = "en") {
       locale === "es" ? "Doctor Yachts — mecánicos náuticos" : "Doctor Yachts Marine Mechanics",
     description: locale === "es" ? site.descriptionEs : site.description,
     url: locale === "es" ? `${site.url}/es` : site.url,
-    telephone: site.phone,
+    telephone: site.phoneSchema,
     email: site.email,
     priceRange: "$$",
     slogan: locale === "es" ? site.taglineEs : site.tagline,
@@ -103,6 +103,12 @@ export function localBusinessJsonLd(locale: Locale = "en") {
       postalCode: site.postalCode,
       addressCountry: site.addressCountry,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: site.latitude,
+      longitude: site.longitude,
+    },
+    hasMap: site.hasMap,
     sameAs: [site.profiles.yelp, site.profiles.google],
     areaServed: locations.map((loc) => ({
       "@type": "City",
@@ -177,7 +183,7 @@ export function serviceJsonLd(input: {
       "@type": "LocalBusiness",
       name: site.name,
       url: site.url,
-      telephone: site.phone,
+      telephone: site.phoneSchema,
       email: site.email,
       address: {
         "@type": "PostalAddress",
@@ -187,6 +193,12 @@ export function serviceJsonLd(input: {
         postalCode: site.postalCode,
         addressCountry: site.addressCountry,
       },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: site.latitude,
+        longitude: site.longitude,
+      },
+      hasMap: site.hasMap,
     },
     areaServed: locations.map((loc) => loc.name),
     serviceType: input.name,
