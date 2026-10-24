@@ -11,8 +11,11 @@ export const site = {
   descriptionEs:
     "Reparación de barcos y mantenimiento de yates en Fort Lauderdale y el sur de la Florida. Mecánico náutico móvil/en el muelle: motor, eléctrico y servicio. Presupuestos gratis — Doctor Yachts.",
   email: "info@doctoryachts.com",
+  /** Visible phone text. JSON-LD uses `phoneSchema`; click-to-call uses `phoneHref`. */
   phone: "(954) 770-1910",
   phoneHref: "tel:+19547701910",
+  /** International format for schema.org telephone only. */
+  phoneSchema: "+1-954-770-1910",
   address: "Serving marinas & private docks across South Florida",
   addressEs: "Marinas y muelles privados en el sur de la Florida",
   streetAddress: "2029 SW 20th St",
@@ -20,6 +23,20 @@ export const site = {
   addressRegion: "FL",
   postalCode: "33315",
   addressCountry: "US",
+  /**
+   * Shop pin for LocalBusiness.geo. OpenStreetMap Nominatim, 2026-10-24,
+   * query "2029 SW 20th St, Fort Lauderdale, FL 33315" matched house 2029,
+   * postcode 33315 (OSM way 10794984) at 26.0961825, -80.1651470.
+   * Rounded to 5 decimal places.
+   */
+  latitude: 26.09618,
+  longitude: -80.16515,
+  /**
+   * LocalBusiness.hasMap. Google Maps search for the street address.
+   * The Business Profile share link stays in profiles.google (sameAs).
+   */
+  hasMap:
+    "https://www.google.com/maps/search/?api=1&query=2029+SW+20th+St%2C+Fort+Lauderdale%2C+FL+33315",
   serviceArea: `${primaryMarket} — ${cityListText}`,
   region: primaryMarket,
   hours: "Mon–Sat · 7:00 AM – 6:00 PM",
