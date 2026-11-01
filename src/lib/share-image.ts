@@ -1,3 +1,4 @@
+import { galleryHero } from "./gallery-photos";
 import { normalizePath, SERVICE_SLUG_EN, type Locale } from "./i18n";
 import { getLocationBySlug } from "./locations";
 import { getServiceBySlug } from "./services";
@@ -167,9 +168,9 @@ const PAGE_PHOTOS: Record<string, SharePhoto> = {
   "/es/nosotros": about,
   "/guides": maintenance,
   "/gallery": {
-    src: systems.src,
-    alt: "Marine bilge pumps and systems compartment",
-    altEs: "Bombas de sentina y compartimento de sistemas",
+    src: "/images/og/gallery.jpg",
+    alt: galleryHero.alt,
+    altEs: galleryHero.altEs,
   },
   "/reviews": {
     src: diagnostics.src,

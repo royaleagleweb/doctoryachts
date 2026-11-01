@@ -6,33 +6,21 @@ import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
-import { imageListKey, images, yachtStrip } from "@/lib/images";
-import { marineMedia } from "@/lib/marine-media";
+import { galleryHero, galleryWater, galleryWork } from "@/lib/gallery-photos";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Boat & Yacht Gallery | Doctor Yachts South Florida",
   description:
-    "Gallery of South Florida yachts, marinas, and marine mechanic work—engines, electrical, dockside service. Doctor Yachts Fort Lauderdale.",
+    "Reference photos of marine engines, outboards, electrical panels, and Fort Lauderdale marinas. Not Doctor Yachts job photos.",
   path: "/gallery",
   keywords: [
-    "yacht gallery Fort Lauderdale",
-    "boat repair gallery",
+    "Fort Lauderdale Intracoastal photos",
+    "boat engine photographs",
     "South Florida marina photos",
-    "marine mechanic work photos",
+    "outboard motor maintenance photos",
   ],
 });
-
-const workShots = [
-  { id: "engine", ...images.gallery.engine, kicker: "Engine", href: "/services/marine-engine-repair" },
-  { id: "electrical", ...images.gallery.electrical, kicker: "Electrical", href: "/services/electrical-repairs" },
-  { id: "diagnostics", ...images.gallery.diagnostics, kicker: "Diagnostics", href: "/services/boat-diagnostics" },
-  { id: "maintenance", ...images.gallery.maintenance, kicker: "Maintenance", href: "/services/boat-maintenance" },
-  { id: "systems", ...marineMedia.bilge, kicker: "Systems", href: "/services/plumbing-repairs" },
-  { id: "dockside", ...images.gallery.dockside, kicker: "Mobile", href: "/services/mobile-boat-repair" },
-  { id: "hull", ...images.gallery.hull, kicker: "Hull", href: "/services" },
-  { id: "teak", ...images.gallery.teak, kicker: "Deck", href: "/about" },
-];
 
 export default function GalleryPage() {
   return (
@@ -46,25 +34,25 @@ export default function GalleryPage() {
 
       <PageHero
         eyebrow="Gallery"
-        title="Marine service work in South Florida"
-        subhead="Engines, electrical, cooling, dockside."
-        description="Service-category photos for the work we do—engines, electrical, diagnostics, maintenance, plumbing systems, and mobile marina repair. Captions describe the photo, not a specific job."
-        image={images.gallery.systems}
+        title="Marine work and Fort Lauderdale water"
+        subhead="Reference photographs. Not Doctor Yachts job photos."
+        description="Public-domain and Creative Commons pictures of engines, outboards, electrical panels, and Fort Lauderdale waterways. Each caption says what the photo actually shows."
+        image={galleryHero}
       />
 
       <Section>
         <SectionHeading
-          title="Systems & service work"
-          description="Context shots for engines, electrical, diagnostics, maintenance, and dockside repair—not claimed job photos."
+          title="Engines, outboards, and electrical gear"
+          description="Coast Guard, Navy, and Wikimedia photographs of mechanic work and boat systems. They are examples of the equipment, not pictures from a Doctor Yachts visit."
         />
         <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {workShots.map((shot) => (
+          {galleryWork.map((shot) => (
             <MediaCard
               key={shot.id}
               href={shot.href}
               image={shot}
               kicker={shot.kicker}
-              description={shot.alt}
+              description={shot.caption}
             />
           ))}
         </div>
@@ -76,17 +64,17 @@ export default function GalleryPage() {
 
       <Section tone="soft">
         <SectionHeading
-          title="Docks we work around"
-          description="Fort Lauderdale and nearby South Florida water. Captions describe the photo, not a specific job."
+          title="Fort Lauderdale waterways"
+          description="Published photographs of the Intracoastal, the New River, and the harbor. They are not pictures from a Doctor Yachts dock call."
         />
         <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {yachtStrip.map((shot, i) => (
+          {galleryWater.map((shot) => (
             <MediaCard
-              key={imageListKey(shot.src, i)}
-              href="/locations"
+              key={shot.id}
+              href={shot.href}
               image={shot}
-              kicker={shot.caption}
-              description={shot.alt}
+              kicker={shot.kicker}
+              description={shot.caption}
             />
           ))}
         </div>

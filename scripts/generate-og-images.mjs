@@ -28,6 +28,7 @@ const CROPS = [
   { file: "service-diagnostics.jpg", source: "service-diagnostics.jpg" },
   { file: "service-maintenance.jpg", source: "service-maintenance.jpg" },
   { file: "service-systems.jpg", source: "service-systems.jpg" },
+  { file: "gallery.jpg", source: "gallery-outboard-overhaul.jpg" },
   { file: "service-outboard.jpg", source: "service-outboard.jpg" },
   { file: "service-mobile-repair.jpg", source: "service-mobile-repair.webp" },
   { file: "service-upholstery.jpg", source: "service-upholstery-canvas.webp" },
