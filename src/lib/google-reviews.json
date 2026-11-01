@@ -1,0 +1,44 @@
+{
+  "ratingLabel": "5.0",
+  "rating": 5,
+  "count": 12,
+  "readAllUrl": "https://search.google.com/local/reviews?placeid=ChIJvyYCo5tVYqARN7GP0VZzpJQ",
+  "reviews": [
+    {
+      "name": "Asaf Amir",
+      "stars": 5,
+      "posted": "2026-08-23",
+      "text": "Excellent service and very professional work. The team was reliable, knowledgeable, and did a great job. Highly recommend them for any boat repair and maintenance needs!",
+      "id": "Ci9DQUlRQUNvZENodHljRjlvT25veExYRnhia3RpYWpkWmJVaExNVFpDTFdodFIzYxAB"
+    },
+    {
+      "name": "davidbaldav",
+      "stars": 5,
+      "posted": "2026-08-23",
+      "text": "Excellent service from Doctor Yachts! Very professional, responsive, and knowledgeable. They took great care of the boat and made the whole process easy from start to finish. Quality work and great communication. Highly recommend!",
+      "id": "Ci9DQUlRQUNvZENodHljRjlvT213eGVtRjBNRTlVYUZKVE1tUmhibXhUVERCdmVXYxAB"
+    },
+    {
+      "name": "שיקמה ביטון",
+      "stars": 5,
+      "posted": "2026-08-25",
+      "text": "Best outboard motor repair in Fort Lauderdale.\nThe mechanic quickly found the issue and performed the 100-hour service on my yacht.\nI found my new company for maintenance.",
+      "id": "Ci9DQUlRQUNvZENodHljRjlvT2pSbmNqZDZVMnRUYm5sUU4wczNkRUk0U201SGJHYxAB",
+      "nameLang": "he"
+    },
+    {
+      "name": "Anıl Türkyılmaz",
+      "stars": 5,
+      "posted": "2026-09-24",
+      "text": "They came out yesterday to work on my Silverton 410, and I couldn’t be happier with their service!\n\nThis is definitely a team I’ll continue working with. They are very professional, knowledgeable, and deliver great results. They quickly identified the issue and did everything they could to provide the best possible solution.\n\nI’m extremely satisfied with their work and look forward to working with them on a regular basis. Highly recommended!\n\nThank you!!!",
+      "id": "Ci9DQUlRQUNvZENodHljRjlvT2tkdVFWVlNkR3B0YkcxeFduRTRaMlJmTFRkeU9WRRAB"
+    },
+    {
+      "name": "Clevis Cruz",
+      "stars": 5,
+      "posted": "2026-09-15",
+      "text": "Great service and very professional work! They replaced both batteries on my Mercury V8 300 HP and made sure everything was properly connected and working correctly. The job was done efficiently, with great attention to detail.\n\nVery knowledgeable about marine systems and Mercury engines. I highly recommend this company for boat repairs and maintenance!",
+      "id": "Ci9DQUlRQUNvZENodHljRjlvT2s5UVVVNHdVMWd4WW10RFlYTlVUakZNZG5JNFVHYxAB"
+    }
+  ]
+}

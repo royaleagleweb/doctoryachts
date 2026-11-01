@@ -8,7 +8,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
-import { ReviewLinks } from "@/components/ReviewLinks";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -262,7 +262,7 @@ export default function SpanishHomePage() {
             <p className="eyebrow">Reseñas</p>
             <h2 className="font-display">Lea o deje una reseña</h2>
             <p className="mt-3 text-steel">
-              Google y Yelp de Doctor Yachts en Fort Lauderdale. Sin ratings inventados en este sitio.
+              Reseñas de clientes en el perfil de Google de Doctor Yachts en Fort Lauderdale. El texto se muestra en el idioma original.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -272,14 +272,11 @@ export default function SpanishHomePage() {
             <Button href={site.profiles.yelp} variant="ghost" target="_blank" rel="noopener noreferrer">
               Yelp
             </Button>
-            <Link href="/reviews" className="text-sm font-semibold text-gold no-underline hover:text-gold-light">
-              Página de reseñas →
-            </Link>
           </div>
         </div>
-        <p className="mt-6">
-          <ReviewLinks />
-        </p>
+        <div className="mt-8">
+          <GoogleReviews locale="es" limit={2} moreHref="/reviews" />
+        </div>
       </Section>
 
       <FaqSection title="Preguntas frecuentes" faqs={homeFaqsEs} />

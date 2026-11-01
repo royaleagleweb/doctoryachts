@@ -7,7 +7,7 @@ import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
-import { ReviewLinks } from "@/components/ReviewLinks";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -256,8 +256,7 @@ export default function HomePage() {
             <p className="eyebrow">Reviews</p>
             <h2 className="font-display">Read or leave a review</h2>
             <p className="mt-3 text-steel">
-              Google and Yelp for Doctor Yachts in Fort Lauderdale. No invented ratings on this
-              site.
+              Client reviews from the Doctor Yachts Google profile in Fort Lauderdale.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -267,14 +266,11 @@ export default function HomePage() {
             <Button href={site.profiles.yelp} variant="ghost" target="_blank" rel="noopener noreferrer">
               Yelp
             </Button>
-            <Link href="/reviews" className="text-sm font-semibold text-gold no-underline hover:text-gold-light">
-              Reviews page →
-            </Link>
           </div>
         </div>
-        <p className="mt-6">
-          <ReviewLinks />
-        </p>
+        <div className="mt-8">
+          <GoogleReviews limit={2} moreHref="/reviews" />
+        </div>
       </Section>
 
       <FaqSection title="Common questions" faqs={homeFaqs} />
