@@ -41,7 +41,7 @@ const LASTMOD = {
   book: "2026-08-21",
   reviews: "2026-08-16",
   about: "2026-08-21",
-  gallery: "2026-08-16",
+  gallery: "2026-11-01",
   contact: "2026-08-21",
   privacy: "2026-08-16",
   terms: "2026-08-16",
