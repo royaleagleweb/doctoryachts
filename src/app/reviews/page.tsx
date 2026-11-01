@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
@@ -13,7 +14,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Boat Mechanic Reviews | Fort Lauderdale Clients",
   description:
-    "Leave a Doctor Yachts review on Google or Yelp Fort Lauderdale. Diagnose-first boat mechanic. Free estimates. Call " +
+    "Doctor Yachts has a 5.0 Google rating from 12 reviews in Fort Lauderdale. Read them here or leave one on Google or Yelp. Call " +
     site.phone +
     ".",
   path: "/reviews",
@@ -53,22 +54,26 @@ export default function ReviewsPage() {
       <PageHero
         eyebrow="Reviews"
         title="Reviews & reputation"
-        subhead="What we stand for on every visit."
-        description="Read or leave a review for Doctor Yachts on Google or Yelp. Below is what we stand for on every visit."
+        subhead="From the Google profile."
+        description="Five Google reviews are shown below in the reviewers' own words. Read all 12 on Google, or leave a review on Google or Yelp."
         image={images.gallery.diagnostics}
         actions={
           <>
             <Button href={site.profiles.google} target="_blank" rel="noopener noreferrer">
-              Google
+              Leave a Google review
             </Button>
             <Button href={site.profiles.yelp} variant="ghost" target="_blank" rel="noopener noreferrer">
-              Yelp
+              Leave a Yelp review
             </Button>
           </>
         }
       />
 
       <Section>
+        <GoogleReviews summaryAs="h2" showLeaveLinks />
+      </Section>
+
+      <Section tone="soft">
         <div className="space-y-10">
           <div className="grid gap-5 md:grid-cols-3">
             {standards.map((s) => (
