@@ -4,6 +4,7 @@ import { BookingForm } from "@/components/BookingForm";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CTA } from "@/components/CTA";
+import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { ReviewLinks } from "@/components/ReviewLinks";
@@ -115,6 +116,8 @@ export default function SpanishBookPage() {
           </aside>
         </div>
       </Section>
+
+      <FaqSection title="Preguntas sobre la reserva" faqs={faqs} />
 
       <CTA />
     </>

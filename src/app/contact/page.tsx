@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { ContactForm } from "@/components/ContactForm";
 import { CTA } from "@/components/CTA";
+import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { ReviewLinks } from "@/components/ReviewLinks";
@@ -125,6 +126,8 @@ export default function ContactPage() {
           </Card>
         </div>
       </Section>
+
+      <FaqSection title="Contact FAQ" faqs={faqs} />
 
       <CTA />
     </>
