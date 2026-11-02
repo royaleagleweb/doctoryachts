@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, IBM_Plex_Sans } from "next/font/google";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { AmbientMotes } from "@/components/AmbientMotes";
 import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
+import { GaPageViews, GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { MobileCta } from "@/components/MobileCta";
 import { PointerTrail } from "@/components/PointerTrail";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import { ICON_CACHE } from "@/lib/i18n";
 import { getRequestLocale } from "@/lib/i18n-server";
 import { homeMetaDescription } from "@/lib/page-meta";
@@ -96,6 +98,14 @@ export default async function RootLayout({
         <main className="relative z-[2] flex-1">{children}</main>
         <Footer />
         <MobileCta />
+        {GA_MEASUREMENT_ID ? (
+          <>
+            <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+            <Suspense fallback={null}>
+              <GaPageViews />
+            </Suspense>
+          </>
+        ) : null}
       </body>
     </html>
   );
