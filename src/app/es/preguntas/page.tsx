@@ -6,7 +6,6 @@ import { CTA, ShopActions } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { images } from "@/lib/images";
 import { servicePath } from "@/lib/i18n";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { getLocalizedServices } from "@/lib/services-localized";
@@ -142,7 +141,6 @@ export default function SpanishFaqPage() {
             servicio 100 horas y 300 horas. Confirmamos en horario {site.hoursEs}.
           </>
         }
-        image={{ src: images.mechanic.src, alt: images.mechanic.altEs }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>

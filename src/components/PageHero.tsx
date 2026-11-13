@@ -1,10 +1,4 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
-
-export type PageHeroImage = {
-  src: string;
-  alt: string;
-};
 
 type PageHeroProps = {
   eyebrow?: string;
@@ -13,13 +7,11 @@ type PageHeroProps = {
   subhead?: ReactNode;
   description?: ReactNode;
   actions?: ReactNode;
-  image?: PageHeroImage;
   meta?: ReactNode;
-  priority?: boolean;
   size?: "default" | "display";
 };
 
-/** Full-bleed hero: photo with a cool ink scrim, tight Plex, brass accent. */
+/** Navy band hero. Photo treatment was removed; brass type sits on the ink ground. */
 export function PageHero({
   eyebrow,
   kicker,
@@ -27,15 +19,12 @@ export function PageHero({
   subhead,
   description,
   actions,
-  image,
   meta,
-  priority,
   size = "default",
 }: PageHeroProps) {
-  const eager = priority ?? Boolean(image);
   const classes = [
     "page-hero",
-    image ? "page-hero--cinema" : "page-hero--band",
+    "page-hero--band",
     size === "display" ? "page-hero--display" : "",
   ]
     .filter(Boolean)
@@ -43,21 +32,6 @@ export function PageHero({
 
   return (
     <section className={classes}>
-      {image && (
-        <div className="page-hero__media">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            preload={eager}
-            fetchPriority={eager ? "high" : undefined}
-            loading={eager ? "eager" : undefined}
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-      )}
-      <div className="page-hero__veil" aria-hidden />
       <div className="wrap page-hero__grid">
         <div className="page-hero__copy">
           {meta}

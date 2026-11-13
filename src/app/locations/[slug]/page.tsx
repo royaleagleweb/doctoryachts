@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnswerBox } from "@/components/AnswerBox";
@@ -12,7 +11,6 @@ import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Section } from "@/components/Section";
 import { guides } from "@/lib/guides";
-import { images } from "@/lib/images";
 import { getLocationBySlug, locations } from "@/lib/locations";
 import { fitPageTitle, metaDescriptionFor } from "@/lib/page-meta";
 import {
@@ -47,7 +45,6 @@ export default async function LocationPage({ params }: PageProps) {
   const { slug } = await params;
   const loc = getLocationBySlug(slug);
   if (!loc) notFound();
-  const img = images.locations[loc.slug as keyof typeof images.locations];
   const others = locations.filter((l) => l.slug !== loc.slug);
 
   const quickAnswer = `Doctor Yachts provides boat repair and mobile dockside mechanic service in ${loc.name}, ${loc.state}—marine engines, electrical, cooling, maintenance, and diagnostics. Free estimates. Call ${site.phone} or book online for marina and private-dock visits when access allows.`;
@@ -186,11 +183,6 @@ export default async function LocationPage({ params }: PageProps) {
           </div>
 
           <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-            <div className="shot">
-              <div className="shot-img relative aspect-[16/10]">
-                <Image src={img.src} alt={img.alt} fill sizes="300px" className="object-cover" />
-              </div>
-            </div>
             <Card className="p-5">
               <p className="eyebrow">Local corridors</p>
               <ul className="mt-4 space-y-2">

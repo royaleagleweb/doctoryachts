@@ -8,7 +8,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { images } from "@/lib/images";
 import { publicLocations } from "@/lib/locations";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -61,7 +60,6 @@ export default function LocationsPage() {
         eyebrow="Service areas"
         title="Boat repair service areas in South Florida"
         description="Mobile and dockside boat mechanic coverage across Broward, Miami-Dade, and Palm Beach County. Book a visit—we confirm by phone during Mon–Sat 7–6."
-        image={images.gallery.dockside}
         actions={
           <>
             <Button href="/book">Book a visit</Button>
@@ -85,12 +83,10 @@ export default function LocationsPage() {
 
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {publicLocations.map((loc) => {
-              const img = images.locations[loc.slug as keyof typeof images.locations];
               return (
                 <MediaCard
                   key={loc.slug}
                   href={`/locations/${loc.slug}`}
-                  image={img}
                   kicker={loc.region}
                   title={`Boat repair ${loc.name}`}
                   description={loc.intro}

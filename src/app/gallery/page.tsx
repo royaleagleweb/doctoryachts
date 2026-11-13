@@ -6,7 +6,7 @@ import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
-import { imageListKey, images, yachtStrip } from "@/lib/images";
+import { images, yachtStrip } from "@/lib/images";
 import { marineMedia } from "@/lib/marine-media";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
@@ -49,7 +49,6 @@ export default function GalleryPage() {
         title="Marine service work in South Florida"
         subhead="Engines, electrical, cooling, dockside."
         description="Service-category photos for the work we do—engines, electrical, diagnostics, maintenance, plumbing systems, and mobile marina repair. Captions describe the photo, not a specific job."
-        image={images.gallery.systems}
       />
 
       <Section>
@@ -62,7 +61,6 @@ export default function GalleryPage() {
             <MediaCard
               key={shot.id}
               href={shot.href}
-              image={shot}
               kicker={shot.kicker}
               description={shot.alt}
             />
@@ -80,11 +78,10 @@ export default function GalleryPage() {
           description="Fort Lauderdale and nearby South Florida water. Captions describe the photo, not a specific job."
         />
         <div className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {yachtStrip.map((shot, i) => (
+          {yachtStrip.map((shot) => (
             <MediaCard
-              key={imageListKey(shot.src, i)}
+              key={shot.caption}
               href="/locations"
-              image={shot}
               kicker={shot.caption}
               description={shot.alt}
             />

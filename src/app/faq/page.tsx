@@ -7,7 +7,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { guides } from "@/lib/guides";
-import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -71,7 +70,6 @@ export default function FaqPage() {
             no-starts, cooling, electrical, generators. We confirm during {site.hours}.
           </>
         }
-        image={images.mechanic}
         actions={
           <>
             <Button href="/book">Book a visit</Button>

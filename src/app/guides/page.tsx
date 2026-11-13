@@ -6,7 +6,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { guides } from "@/lib/guides";
-import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -38,7 +37,6 @@ export default function GuidesHubPage() {
         title="Boat repair guides written for real searches—and AI answers"
         subhead="Direct answers first, then the steps."
         description="Direct answers first, then steps and FAQs. Built so Google, AI overviews, and owners can extract clear guidance about boat repair in Fort Lauderdale and South Florida."
-        image={images.gallery.maintenance}
       />
 
       <Section>
