@@ -220,6 +220,25 @@ h3 {
   outline-offset: 3px;
 }
 
+/*
+  Parent link colors (cta-band, footer) are more specific than .btn and were
+  painting solid brass buttons the same gold as their fill. Keep navy labels.
+*/
+a.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy),
+button.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy) {
+  color: var(--navy-deep);
+}
+a.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy):hover,
+button.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy):hover,
+a.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy):focus,
+button.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy):focus,
+a.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy):focus-visible,
+button.btn:not(.btn-ghost):not(.btn-ghost-light):not(.btn-navy):focus-visible {
+  color: var(--navy-deep);
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
 .btn-gold {
   background: var(--gold);
   color: var(--navy-deep);
