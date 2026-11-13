@@ -17,7 +17,7 @@ import { absoluteUrl, defaultOgImage, localBusinessJsonLd, webSiteJsonLd } from 
 import { seoKeywords, site } from "@/lib/site";
 import "./globals.css";
 
-/** One family sitewide — IBM Plex Sans. No display / brochure face. */
+/** Body face sitewide — IBM Plex Sans. */
 const plex = IBM_Plex_Sans({
   variable: "--font-body",
   subsets: ["latin", "latin-ext"],
@@ -25,7 +25,7 @@ const plex = IBM_Plex_Sans({
   display: "swap",
 });
 
-/** Refined serif used only for homepage luxury headlines (.lux-serif). */
+/** Serif for headlines on the nautical chart. */
 const lux = Cormorant_Garamond({
   variable: "--font-lux",
   subsets: ["latin", "latin-ext"],

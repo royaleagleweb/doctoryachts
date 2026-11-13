@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
+import { CoastChart, CompassRose } from "@/components/Nautical";
 
 export type PageHeroImage = {
   src: string;
@@ -17,6 +17,7 @@ type PageHeroProps = {
   meta?: ReactNode;
   priority?: boolean;
   size?: "default" | "display";
+  showMap?: boolean;
 };
 
 /** Full-bleed hero: photo with a cool ink scrim, tight Plex, brass accent. */
@@ -31,30 +32,24 @@ export function PageHero({
   meta,
   priority,
   size = "default",
+  showMap = false,
 }: PageHeroProps) {
-  const eager = priority ?? Boolean(image);
+  void image;
+  void priority;
   const classes = [
     "page-hero",
-    image ? "page-hero--cinema" : "page-hero--band",
+    "page-hero--band",
     size === "display" ? "page-hero--display" : "",
+    showMap ? "page-hero--map" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <section className={classes}>
-      {image && (
-        <div className="page-hero__media">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            preload={eager}
-            fetchPriority={eager ? "high" : undefined}
-            loading={eager ? "eager" : undefined}
-            sizes="100vw"
-            className="object-cover"
-          />
+      {showMap ? null : (
+        <div className="page-hero__compass">
+          <CompassRose />
         </div>
       )}
       <div className="page-hero__veil" aria-hidden />
@@ -68,6 +63,7 @@ export function PageHero({
           {description && <div className="page-hero__desc">{description}</div>}
           {actions && <div className="page-hero__actions">{actions}</div>}
         </div>
+        {showMap ? <CoastChart /> : null}
       </div>
     </section>
   );

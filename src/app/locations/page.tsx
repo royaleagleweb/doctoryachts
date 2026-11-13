@@ -61,6 +61,7 @@ export default function LocationsPage() {
         eyebrow="Service areas"
         title="Boat repair service areas in South Florida"
         description="Mobile and dockside boat mechanic coverage across Broward, Miami-Dade, and Palm Beach County. Book a visit—we confirm by phone during Mon–Sat 7–6."
+        showMap
         image={images.gallery.dockside}
         actions={
           <>

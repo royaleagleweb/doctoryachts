@@ -23,6 +23,7 @@ export function ServiceCard({ service, compact = false, locale = "en" }: Service
     <MediaCard
       href={servicePath(enSlug, locale)}
       image={img}
+      mark={service.icon}
       title={service.title}
       description={compact ? undefined : service.summary}
       footer={

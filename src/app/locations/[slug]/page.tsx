@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { ChartPlate } from "@/components/Nautical";
 import { notFound } from "next/navigation";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -188,7 +188,7 @@ export default async function LocationPage({ params }: PageProps) {
           <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
             <div className="shot">
               <div className="shot-img relative aspect-[16/10]">
-                <Image src={img.src} alt={img.alt} fill sizes="300px" className="object-cover" />
+                <ChartPlate seed={img.src.length} />
               </div>
             </div>
             <Card className="p-5">

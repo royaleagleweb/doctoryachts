@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { ChartPlate } from "@/components/Nautical";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
@@ -134,13 +134,7 @@ export default function SpanishAboutPage() {
           <div>
             <div className="shot">
               <div className="shot-img relative aspect-[4/3]">
-                <Image
-                  src={images.gallery.maintenance.src}
-                  alt={images.gallery.maintenance.alt}
-                  fill
-                  sizes="50vw"
-                  className="object-cover object-[center_30%]"
-                />
+                <ChartPlate seed={images.gallery.maintenance.src.length} icon="maintenance" />
               </div>
               <div className="border-t border-line px-4 py-3 text-sm text-steel">
                 Horario · {site.hoursEs} · {site.phone}

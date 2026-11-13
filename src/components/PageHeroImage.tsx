@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ChartPlate } from "@/components/Nautical";
 
 type PageHeroImageProps = {
   src: string;
@@ -8,31 +8,16 @@ type PageHeroImageProps = {
   overlay?: "navy" | "soft" | "none";
 };
 
+/** Chart plate in the old hero-image slot. Photographs stay out of the page. */
 export function PageHeroImage({
   src,
   alt,
-  priority = false,
   className = "",
-  overlay = "navy",
 }: PageHeroImageProps) {
+  void alt;
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        preload={priority}
-        fetchPriority={priority ? "high" : undefined}
-        loading={priority ? "eager" : undefined}
-        sizes="100vw"
-        className="object-cover"
-      />
-      {overlay === "navy" && (
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/72 via-navy/40 to-transparent" />
-      )}
-      {overlay === "soft" && (
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/58 via-navy/18 to-transparent" />
-      )}
+      <ChartPlate seed={src.length} />
     </div>
   );
 }

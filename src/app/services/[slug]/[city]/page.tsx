@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { ChartPlate } from "@/components/Nautical";
 import { notFound } from "next/navigation";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -183,13 +183,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
 
           <div className="shot">
             <div className="shot-img relative aspect-[16/10]">
-              <Image
-                src={secondary.src}
-                alt={`${name} service near ${location.name} — ${secondary.alt}`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 70vw"
-                className="object-cover"
-              />
+              <ChartPlate seed={secondary.src.length} icon={service.icon} />
             </div>
             {secondary.caption && (
               <div className="border-t border-line px-4 py-3 text-[0.65rem] text-steel">

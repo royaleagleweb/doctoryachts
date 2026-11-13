@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ChartPlate } from "@/components/Nautical";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
@@ -56,16 +56,10 @@ function MediaBand({
   return (
     <section className="section-floor border-b border-line">
       <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
-        <div className={`relative min-h-[260px] lg:min-h-[420px] ${reverse ? "lg:order-2" : ""}`}>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/50 via-navy/12 to-transparent p-4 pt-16">
-            <p className="text-xs text-white/85">{image.caption ?? fallbackCaption}</p>
+        <div className={`shot relative min-h-[260px] lg:min-h-[420px] ${reverse ? "lg:order-2" : ""}`}>
+          <ChartPlate seed={image.src.length} />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 pt-16">
+            <p className="chart-frame__caption">{image.caption ?? fallbackCaption}</p>
           </div>
         </div>
         <div
@@ -280,17 +274,10 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
 
       <section className="border-b border-line bg-navy text-paper">
         <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
-          <div className="relative min-h-[320px]">
-            <Image
-              src={media.process.src}
-              alt={media.process.alt}
-              fill
-              sizes="50vw"
-              className="object-cover opacity-90"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/45 to-transparent" />
+          <div className="shot relative min-h-[320px]">
+            <ChartPlate seed={media.process.src.length + 2} icon="diagnostics" />
             <div className="absolute bottom-6 left-6 right-6">
-              <p className="text-xs text-white/85">{media.process.caption ?? sp.processCaption}</p>
+              <p className="text-xs text-pearl/80">{media.process.caption ?? sp.processCaption}</p>
               <p className="font-display mt-1 text-xl text-paper">{sp.processOverlay}</p>
             </div>
           </div>
@@ -353,14 +340,8 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
 
       <section className="border-b border-line bg-navy-deep">
         <div className="wrap grid items-center gap-0 lg:grid-cols-2">
-          <div className="relative min-h-[300px] lg:min-h-[400px]">
-            <Image
-              src={media.diagnose.src}
-              alt={media.diagnose.alt}
-              fill
-              sizes="50vw"
-              className="object-cover"
-            />
+          <div className="shot relative min-h-[300px] lg:min-h-[400px]">
+            <ChartPlate seed={media.diagnose.src.length + 4} icon="engine" />
           </div>
           <div className="bg-navy px-6 py-12 text-paper sm:px-12 lg:min-h-[400px] lg:py-16">
             <p className="eyebrow">{sp.diagnoseEyebrow}</p>
@@ -403,9 +384,9 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {media.gallery.map((img, i) => (
-              <figure key={imageListKey(img.src, i)} className="shot m-0">
+              <figure key={imageListKey(img.src, i)} className="shot relative m-0">
                 <div className="shot-img relative aspect-[4/3]">
-                  <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover" />
+                  <ChartPlate seed={img.src.length + i} />
                 </div>
                 <figcaption className="border-t border-line px-3 py-2 text-xs text-steel">
                   {img.caption ?? img.alt}

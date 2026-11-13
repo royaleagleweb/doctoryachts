@@ -1,10 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ChartPlate } from "@/components/Nautical";
 
 type MediaCardProps = {
   href?: string;
   image: { src: string; alt: string };
+  mark?: string;
   title?: ReactNode;
   kicker?: string;
   description?: ReactNode;
@@ -18,6 +19,7 @@ type MediaCardProps = {
 export function MediaCard({
   href,
   image,
+  mark,
   title,
   kicker,
   description,
@@ -26,13 +28,7 @@ export function MediaCard({
   const body = (
     <article className="media-card group flex h-full flex-col">
       <div className="media-card__shot relative aspect-[16/10] overflow-hidden">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition duration-500 group-hover:scale-[1.04]"
-        />
+        <ChartPlate seed={image.src.length} icon={mark} />
       </div>
       {(kicker || title || description || footer) && (
         <div className="flex flex-1 flex-col pt-4">

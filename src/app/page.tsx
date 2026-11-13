@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -7,11 +6,12 @@ import { CTA } from "@/components/CTA";
 import { FaqSection } from "@/components/FaqSection";
 import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
+import { ChartPlate, CoastChart } from "@/components/Nautical";
 import { ReviewLinks } from "@/components/ReviewLinks";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { homeStory, images, yachts } from "@/lib/images";
+import { images } from "@/lib/images";
 import { publicLocations } from "@/lib/locations";
 import { homeMetaDescription } from "@/lib/page-meta";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
@@ -31,39 +31,26 @@ export default function HomePage() {
     <>
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
-      <section className="lux-hero" aria-labelledby="home-hero-title">
-        <div className="lux-hero__media">
-          <Image
-            src={yachts.marinaGold.src}
-            alt={yachts.marinaGold.alt}
-            fill
-            preload
-            fetchPriority="high"
-            loading="eager"
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-        <div className="lux-hero__veil" aria-hidden />
-        <div className="lux-hero__sheen" aria-hidden />
-        <div className="wrap lux-hero__inner">
-          <div className="lux-hero__glass">
-            <p className="eyebrow lux-hero__eyebrow">Doctor Yachts · South Florida</p>
-            <p className="lux-hero__kicker">Diagnose first. Dockside.</p>
-            <h1 id="home-hero-title" className="lux-serif lux-hero__title">
+      <section className="chart-hero" aria-labelledby="home-hero-title">
+        <div className="wrap chart-hero__layout">
+          <div className="chart-hero__copy">
+            <p className="eyebrow">Doctor Yachts · South Florida</p>
+            <p className="chart-hero__kicker">Diagnose first. Dockside.</p>
+            <h1 id="home-hero-title" className="chart-hero__title">
               Mobile boat mechanic in Fort Lauderdale
             </h1>
-            <p className="lux-hero__subhead">The mechanic who comes to the boat.</p>
-            <p className="lux-hero__desc">
+            <p className="chart-hero__subhead">The mechanic who comes to the boat.</p>
+            <p className="chart-hero__desc">
               Fort Lauderdale, Miami, and nearby docks. We confirm by phone during Mon–Sat 7–6.
             </p>
-            <div className="lux-hero__actions">
+            <div className="chart-hero__actions">
               <Button href="/book">Book a visit</Button>
               <Button href={site.phoneHref} variant="ghost">
                 Call {site.phone}
               </Button>
             </div>
           </div>
+          <CoastChart />
         </div>
       </section>
 
@@ -145,31 +132,13 @@ export default function HomePage() {
           </div>
           <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
             <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
-              <Image
-                src={homeStory.helm.src}
-                alt={homeStory.helm.alt}
-                fill
-                sizes="40vw"
-                className="object-cover object-[center_30%]"
-              />
+              <ChartPlate seed={3} icon="engine" />
             </div>
             <div className="shot relative aspect-[4/3]">
-              <Image
-                src={homeStory.bilge.src}
-                alt={homeStory.bilge.alt}
-                fill
-                sizes="25vw"
-                className="object-cover object-center"
-              />
+              <ChartPlate seed={5} icon="electrical" />
             </div>
             <div className="shot relative aspect-[4/3]">
-              <Image
-                src={homeStory.lines.src}
-                alt={homeStory.lines.alt}
-                fill
-                sizes="25vw"
-                className="object-cover object-[center_40%]"
-              />
+              <ChartPlate seed={8} icon="diagnostics" />
             </div>
           </div>
         </div>
@@ -195,16 +164,8 @@ export default function HomePage() {
 
       <Section tone="soft">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
-            <div className="shot absolute inset-0">
-              <Image
-                src={homeStory.teak.src}
-                alt={homeStory.teak.alt}
-                fill
-                sizes="50vw"
-                className="object-cover object-[center_35%]"
-              />
-            </div>
+          <div className="shot relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
+            <ChartPlate seed={11} icon="maintenance" />
           </div>
           <div className="reveal-in flex flex-col justify-center py-2">
             <SectionHeading
@@ -280,9 +241,6 @@ export default function HomePage() {
       <FaqSection title="Common questions" faqs={homeFaqs} />
 
       <section className="lux-cta" aria-labelledby="lux-cta-title">
-        <div className="lux-cta__media" aria-hidden>
-          <Image src={yachts.night.src} alt="" fill sizes="100vw" className="object-cover" />
-        </div>
         <div className="wrap lux-cta__inner reveal-in">
           <p className="eyebrow lux-hero__eyebrow">Fort Lauderdale · Miami · South Florida</p>
           <h2 id="lux-cta-title" className="lux-serif lux-cta__title">

@@ -1,30 +1,31 @@
 @import "tailwindcss";
 
 /*
-  Doctor Yachts — cool ink + ivory + antique brass
-  Deep navy chrome, cream reading bands, gold as metal
-  One family: IBM Plex Sans
+  Doctor Yachts — nautical chart
+  Deep navy field, faint depth contours, antique brass rules.
+  Headlines: Cormorant Garamond. Body: IBM Plex Sans.
+  Brass is for metal, rules, and large accents. Body copy stays pearl.
 */
 :root {
-  --navy: #0c1220;
-  --navy-deep: #070b12;
-  --navy-mid: #152033;
-  --gold: #c9a24a;
-  --gold-deep: #8a6a1e;
-  --gold-light: #d4b66a;
+  --navy: #0c1e36;
+  --navy-deep: #071422;
+  --navy-mid: #16324c;
+  --gold: #d4b15a;
+  --gold-deep: #e2c56a;
+  --gold-light: #f3e2b0;
   --white: #ffffff;
-  --pearl: #f6f1e8;
-  --ivory: #f6f1e8;
-  --ink: #121826;
-  --deep: #070b12;
-  --paper: #f6f1e8;
-  --paper-deep: #efe8dc;
-  --steel: #243044;
-  --steel-light: #efe6d4;
-  --muted: #3a4558;
-  --line: rgba(201, 162, 74, 0.28);
-  --background: #070b12;
-  --foreground: #f6f1e8;
+  --pearl: #f4efe4;
+  --ivory: #f7f1e6;
+  --ink: #102033;
+  --deep: #071422;
+  --paper: #f7f1e6;
+  --paper-deep: #12304a;
+  --steel: #d2cbbd;
+  --steel-light: #e6dfd2;
+  --muted: #5c6574;
+  --line: rgba(212, 177, 90, 0.34);
+  --background: #071422;
+  --foreground: #f4efe4;
   --radius: 2px;
   --radius-sm: 2px;
   --radius-pill: 2px;
@@ -52,8 +53,8 @@
   --color-steel: var(--steel);
   --color-steel-light: var(--steel-light);
   --font-sans: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
-  --font-display: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
-  --font-serif: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
+  --font-display: var(--font-lux), "Cormorant Garamond", Georgia, serif;
+  --font-serif: var(--font-lux), "Cormorant Garamond", Georgia, serif;
   --font-mono: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
 }
 
@@ -67,45 +68,55 @@ html {
 body {
   margin: 0;
   color: var(--pearl);
-  background: var(--deep);
+  background-color: var(--navy-deep);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='760' height='760' viewBox='0 0 760 760'><g fill='none' stroke='%23d4b15a' stroke-width='1' opacity='0.16'><path d='M-20 70C80 30 180 120 300 70S520 20 780 100'/><path d='M-20 150C100 100 200 200 330 140S540 80 780 180'/><path d='M-20 240C110 180 220 290 350 220S560 150 780 270'/><path d='M-20 330C120 270 230 380 370 310S580 230 780 360'/><path d='M-20 430C130 360 240 480 390 400S590 320 780 460'/><path d='M-20 530C140 460 250 580 400 500S600 410 780 560'/><path d='M-20 630C150 560 270 680 420 600S620 510 780 660'/></g></svg>");
+  background-size: 760px 760px;
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.65;
 }
 
-/* Reading surface is ivory + navy ink so pages never inherit pearl-on-ivory */
+/* Chart field. Pearl copy on navy. Ivory is reserved for form controls. */
 main {
-  background: var(--ivory);
-  color: var(--ink);
+  background: transparent;
+  color: var(--pearl);
 }
 
 h1,
 h2,
+.font-display,
+.font-serif {
+  font-family: var(--font-lux), "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: inherit;
+  text-wrap: balance;
+}
+
 h3,
 h4,
 h5,
-h6,
-.font-display,
-.font-serif {
+h6 {
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.028em;
-  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
   color: inherit;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.05rem, 4.8vw, 3.25rem);
-  font-weight: 700;
-  letter-spacing: -0.038em;
-  line-height: 1.02;
+  font-size: clamp(2.15rem, 4.8vw, 3.45rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 h2 {
-  font-size: clamp(1.45rem, 2.6vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 h3 {
   font-size: clamp(1.08rem, 1.6vw, 1.28rem);
@@ -114,10 +125,10 @@ h3 {
 }
 
 .page-hero h1 {
-  font-size: clamp(2.1rem, 5vw, 3.4rem);
-  font-weight: 700;
-  letter-spacing: -0.042em;
-  line-height: 0.96;
+  font-size: clamp(2.35rem, 5vw, 3.7rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
   max-width: 14em;
   color: #fff;
 }
@@ -154,12 +165,15 @@ h3 {
 .section-soft,
 .bg-paper,
 .bg-white {
-  background: var(--ivory);
-  color: var(--ink);
+  background: transparent;
+  color: var(--pearl);
+}
+.section-soft {
+  background: color-mix(in srgb, var(--navy) 42%, transparent);
 }
 .bg-paper-deep {
-  background: var(--paper-deep);
-  color: var(--ink);
+  background: color-mix(in srgb, var(--navy-mid) 72%, transparent);
+  color: var(--pearl);
 }
 
 .section-dark {
@@ -170,7 +184,7 @@ h3 {
 .eyebrow,
 .case-tag {
   margin: 0 0 0.75rem;
-  color: var(--gold-deep);
+  color: var(--gold);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -289,10 +303,10 @@ h3 {
 /* Cards — no cheap gray boxes. Hairline brass or no box. */
 .panel,
 .card {
-  background: transparent;
-  border: none;
+  background: color-mix(in srgb, var(--navy) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);
   border-radius: 0;
-  color: var(--ink);
+  color: var(--pearl);
 }
 
 .answer-box {
@@ -315,8 +329,8 @@ h3 {
 
 .panel-navy,
 .card-accent {
-  background: transparent;
-  color: var(--ink);
+  background: color-mix(in srgb, var(--navy) 55%, transparent);
+  color: var(--pearl);
   border: none;
   border-radius: 0;
   border-left: 1px solid var(--gold);
@@ -329,7 +343,7 @@ h3 {
   border-radius: 0;
   padding: 0.7rem 0.15rem 0.7rem 0.9rem;
   font-size: 0.9rem;
-  color: var(--ink);
+  color: var(--pearl);
 }
 
 .shot {
@@ -354,10 +368,10 @@ h3 {
 .input-field {
   width: 100%;
   border: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);
-  background: transparent;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  background: var(--ivory);
   min-height: 48px;
-  padding: 0.85rem 0.15rem;
+  padding: 0.85rem 0.75rem;
   border-radius: 0;
   font-size: 1.05rem;
   font-family: inherit;
@@ -387,19 +401,19 @@ select.input-field option {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--pearl);
 }
 
 .chip {
   cursor: pointer;
   border-radius: var(--radius);
-  border: 1px solid color-mix(in srgb, var(--gold) 38%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
   background: transparent;
   min-height: 48px;
   padding: 0.85rem 1.2rem;
   text-align: left;
   transition: background 0.12s ease, border-color 0.12s ease;
-  color: var(--navy);
+  color: var(--pearl);
   font: inherit;
 }
 .chip:hover {
@@ -413,7 +427,7 @@ select.input-field option {
 }
 .chip .text-pearl,
 .chip .text-navy {
-  color: var(--navy);
+  color: var(--pearl);
 }
 
 .sr-only {
@@ -439,11 +453,13 @@ select.input-field option {
 }
 
 a {
-  color: var(--gold-deep);
+  color: var(--gold);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
 a:hover {
-  color: var(--gold);
+  color: var(--gold-light);
 }
 a:focus-visible {
   outline: 2px solid var(--gold);
@@ -459,28 +475,26 @@ textarea {
 }
 
 /*
-  Contrast contract:
-  - Ivory reading surfaces use navy ink (never cream/white body copy)
-  - Navy chrome uses pearl / warm ivory (never navy or taupe-gray copy)
-  - Brass stays for accents only
+  Contrast contract on the chart field:
+  - Body and headings are pearl on navy
+  - Brass is for rules, buttons, and accents (never brass text on a brass fill)
+  - Form fields stay ivory with navy ink
 */
 .text-pearl,
 .text-white,
-.text-paper {
-  color: var(--ink);
+.text-paper,
+.text-navy,
+.text-ink {
+  color: var(--pearl);
 }
 .text-pearl\/80,
 .text-pearl\/75,
 .text-pearl\/90,
 .text-white\/85,
 .text-white\/80 {
-  color: color-mix(in srgb, var(--ink) 82%, transparent);
+  color: color-mix(in srgb, var(--pearl) 82%, transparent);
 }
 
-.text-navy,
-.text-ink {
-  color: var(--navy);
-}
 .text-navy\/90 {
   color: color-mix(in srgb, var(--navy) 90%, transparent);
 }
@@ -626,11 +640,11 @@ textarea {
 }
 
 .page-hero--display h1 {
-  font-size: clamp(2.65rem, 7.6vw, 5.5rem);
-  font-weight: 700;
-  letter-spacing: -0.042em;
-  line-height: 0.92;
-  max-width: 9.4em;
+  font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  max-width: 12em;
 }
 
 .page-hero__kicker {
@@ -643,10 +657,22 @@ textarea {
 
 .page-hero__subhead {
   margin: 0.85rem 0 0;
-  font-size: clamp(1.18rem, 2.2vw, 1.5rem);
+  font-family: var(--font-lux), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   color: var(--gold);
+}
+.page-hero__subhead::before,
+.chart-hero__subhead::before {
+  content: "";
+  display: inline-block;
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-right: 0.7rem;
+  background: var(--gold);
+  transform: rotate(45deg);
+  vertical-align: 0.08em;
 }
 
 .page-hero__desc {
@@ -899,7 +925,7 @@ textarea {
   object-position: center 28%;
 }
 .media-card h3 {
-  color: var(--ink);
+  color: var(--pearl);
 }
 .media-card-link:hover .media-card__shot {
   border-color: var(--gold-light);
@@ -945,7 +971,7 @@ textarea {
   justify-content: space-between;
   gap: 1rem;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--pearl);
 }
 .faq-item__q::-webkit-details-marker {
   display: none;
@@ -987,7 +1013,7 @@ textarea {
   align-items: center;
   border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);
   padding: 0.35rem 0.75rem;
-  color: var(--ink);
+  color: var(--pearl);
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
@@ -1012,7 +1038,7 @@ textarea {
 
 /* Problem links */
 .problem-rail-wrap {
-  background: var(--ivory);
+  background: transparent;
   border: none;
   padding: 0;
 }
@@ -1032,7 +1058,7 @@ textarea {
   padding: 0.35rem 0.85rem 0.35rem 0;
   border: none;
   background: transparent;
-  color: var(--ink);
+  color: var(--pearl);
   text-decoration: none !important;
   transition: color 0.12s ease;
 }
@@ -1286,4 +1312,298 @@ textarea {
   .lux-hero__media img, .lux-hero__sheen, .lux-hero__glass { animation: none; transform: none; }
   .lux-cards .media-card-link, .lux-cards > a { transition: none; }
   .lux-cards .media-card-link:hover, .lux-cards > a:hover { transform: none; }
+}
+
+/* ===== Nautical chart layer ===== */
+.page-hero,
+.chart-hero,
+.lux-hero,
+.lux-cta,
+.cta-band {
+  background: transparent;
+}
+.page-hero__veil,
+.lux-hero__veil,
+.lux-hero__sheen,
+.lux-cta::after {
+  display: none;
+}
+.page-hero__compass {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 68px;
+  height: 68px;
+  color: var(--gold);
+  pointer-events: none;
+}
+.page-hero--map .page-hero__compass {
+  display: none;
+}
+.page-hero--map .page-hero__grid,
+.chart-hero__layout {
+  display: grid;
+  gap: 1.75rem 2rem;
+  align-items: center;
+}
+@media (min-width: 980px) {
+  .page-hero--map .page-hero__grid,
+  .chart-hero__layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.9fr);
+  }
+}
+.page-hero--map.page-hero--display {
+  min-height: 0;
+}
+.chart-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+@media (min-width: 980px) {
+  .chart-hero {
+    min-height: min(calc(100svh - 4.75rem), 820px);
+  }
+}
+.page-hero--map {
+  overflow: visible;
+}
+.chart-hero__kicker {
+  margin: 0 0 0.65rem;
+  color: var(--pearl);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.chart-hero__title {
+  margin: 0;
+  max-width: 12em;
+  color: #fff;
+  font-size: clamp(2.55rem, 5.2vw, 4.35rem);
+  line-height: 1.02;
+}
+.chart-hero__subhead {
+  margin: 0.9rem 0 0;
+  color: var(--gold);
+  font-family: var(--font-lux), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 600;
+}
+.chart-hero__desc {
+  margin: 0.9rem 0 0;
+  max-width: 34rem;
+  color: color-mix(in srgb, var(--pearl) 86%, transparent);
+  line-height: 1.6;
+}
+.chart-hero__actions,
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+.coast-chart {
+  margin: 0;
+  width: 100%;
+  max-width: 520px;
+  justify-self: center;
+}
+.coast-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.chart-plate {
+  position: absolute;
+  inset: 0;
+  color: var(--gold);
+}
+.chart-plate svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.chart-plate__mark,
+.chart-plate__pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+}
+.chart-plate__pin {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--navy-deep);
+}
+.chart-plate__pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.chart-frame__caption {
+  border-top: 1px solid var(--line);
+  padding: 0.65rem 0.15rem 0;
+  color: var(--steel);
+  font-size: 0.8rem;
+}
+.media-card__shot {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+  border-bottom: 1px solid var(--gold);
+}
+.shot {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+}
+
+a.btn,
+button.btn {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+}
+a.btn:hover,
+button.btn:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  color: var(--navy-deep);
+}
+a.btn-ghost,
+button.btn-ghost,
+a.btn.btn-ghost,
+button.btn.btn-ghost,
+.page-hero a.btn-ghost,
+.chart-hero a.btn-ghost,
+.site-header a.btn-ghost,
+.site-footer a.btn-ghost,
+.section-dark a.btn-ghost,
+.cta-band a.btn-ghost,
+.mobile-cta a.btn-ghost,
+.lux-cta a.btn-ghost,
+.bg-navy a.btn-ghost,
+.bg-navy-deep a.btn-ghost {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+a.btn-ghost:hover,
+button.btn-ghost:hover,
+.page-hero a.btn-ghost:hover,
+.chart-hero a.btn-ghost:hover,
+.site-header a.btn-ghost:hover,
+.cta-band a.btn-ghost:hover,
+.mobile-cta a.btn-ghost:hover,
+.lux-cta a.btn-ghost:hover,
+.section-dark a.btn-ghost:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+}
+
+.site-header a,
+.site-header__link,
+.mobile-cta a,
+a.btn,
+.media-card-link,
+.problem-rail a,
+.faq-jump a,
+.brand-wordmark {
+  text-decoration: none;
+}
+.review-links a {
+  text-decoration-line: underline;
+  text-underline-offset: 0.16em;
+}
+.site-header__link,
+.brand-wordmark {
+  text-transform: uppercase;
+}
+main :is(p, li, dd, figcaption, address) a {
+  text-decoration-line: underline;
+  text-underline-offset: 0.16em;
+}
+.site-footer a:not(.btn) {
+  text-decoration-line: underline;
+  text-underline-offset: 0.14em;
+}
+
+.lux-trust {
+  background: transparent;
+  border-top: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+  color: var(--pearl);
+}
+.faq-item__icon,
+.faq-item__next a,
+.process-open .n,
+.chapter-num {
+  color: var(--gold);
+}
+.input-field,
+select.input-field,
+textarea.input-field {
+  background: var(--ivory);
+  color: var(--ink);
+}
+.input-field::placeholder {
+  color: var(--muted);
+}
+
+@media (max-width: 1023px) {
+  .site-header .wrap {
+    gap: 0.45rem;
+  }
+  .site-header .brand-wordmark {
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+  }
+  .site-header .btn {
+    min-height: 44px !important;
+    padding: 0.35rem 0.55rem;
+    letter-spacing: 0.04em;
+    font-size: 0.68rem;
+  }
+  .lang-switch {
+    margin-left: 0;
+    min-height: 44px;
+    padding: 0.25rem 0.4rem;
+    letter-spacing: 0.08em;
+  }
+  .mobile-cta .btn {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    padding-inline: 0.4rem;
+    white-space: nowrap;
+  }
+  .coast-chart svg {
+    max-height: 460px;
+  }
+}
+@media (max-width: 720px) {
+  .page-hero:not(.page-hero--map) .page-hero__copy {
+    padding-right: 3.25rem;
+  }
+  .page-hero__compass {
+    width: 48px;
+    height: 48px;
+  }
+  .page-hero--display h1,
+  .chart-hero__title {
+    font-size: clamp(2.15rem, 10vw, 2.85rem);
+  }
 }
