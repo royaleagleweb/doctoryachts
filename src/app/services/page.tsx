@@ -10,7 +10,6 @@ import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { servicesInHubOrder } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -90,7 +89,6 @@ export default function ServicesPage() {
         title="Boat repair services in South Florida"
         subhead="Diagnose first. Dockside."
         description="Engine, outboard, 100-hour and 300-hour service, electrical, cooling, diagnostics, maintenance, plumbing, mobile. Fort Lauderdale and nearby docks."
-        image={images.homeHero}
         actions={
           <>
             <Button href="/book">Book a visit</Button>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { AnswerBox } from "@/components/AnswerBox";
@@ -14,11 +13,8 @@ import { guides } from "@/lib/guides";
 import type { Locale } from "@/lib/i18n";
 import { locationPath, pathFor, servicePath } from "@/lib/i18n";
 import { locations } from "@/lib/locations";
-import { imageListKey } from "@/lib/images";
-import { getServicePageMedia, type ServicePageMedia } from "@/lib/marine-media";
-import { localizeServiceImage } from "@/lib/service-image-copy";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
-import type { Service, ServiceImage } from "@/lib/services";
+import type { Service } from "@/lib/services";
 import { services } from "@/lib/services";
 import { getLocalizedServices } from "@/lib/services-localized";
 import { site } from "@/lib/site";
@@ -38,71 +34,29 @@ function relatedServices(all: Service[], currentId: string): Service[] {
   return others.slice(0, 4);
 }
 
-function MediaBand({
-  image,
-  reverse = false,
+function TextBand({
   eyebrow,
   title,
-  fallbackCaption,
   children,
 }: {
-  image: ServiceImage;
-  reverse?: boolean;
   eyebrow?: string;
   title: string;
-  fallbackCaption: string;
   children: ReactNode;
 }) {
   return (
     <section className="section-floor border-b border-line">
-      <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
-        <div className={`relative min-h-[260px] lg:min-h-[420px] ${reverse ? "lg:order-2" : ""}`}>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/50 via-navy/12 to-transparent p-4 pt-16">
-            <p className="text-xs text-white/85">{image.caption ?? fallbackCaption}</p>
-          </div>
-        </div>
-        <div
-          className={`flex flex-col justify-center px-0 py-10 lg:py-14 ${
-            reverse ? "lg:order-1 lg:pr-12" : "lg:pl-12"
-          }`}
-        >
-          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-          <h2 className="font-display mt-3 text-navy">{title}</h2>
-          <div className="mt-4 space-y-3 text-base leading-relaxed text-steel">{children}</div>
-        </div>
+      <div className="wrap max-w-3xl py-10 lg:py-14">
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+        <h2 className="font-display mt-3 text-navy">{title}</h2>
+        <div className="mt-4 space-y-3 text-base leading-relaxed text-steel">{children}</div>
       </div>
     </section>
   );
 }
 
-function withLocaleMedia(media: ServicePageMedia, locale: Locale): ServicePageMedia {
-  const img = (image: ServiceImage) => localizeServiceImage(image, locale);
-  return {
-    hero: img(media.hero),
-    about: img(media.about),
-    symptoms: img(media.symptoms),
-    included: img(media.included),
-    sections: media.sections.map(img),
-    checks: img(media.checks),
-    process: img(media.process),
-    local: img(media.local),
-    audience: img(media.audience),
-    diagnose: img(media.diagnose),
-    gallery: media.gallery.map(img),
-  };
-}
-
 export function ServiceLanding({ service, locale }: { service: Service; locale: Locale }) {
   const copy = t(locale);
   const sp = copy.servicePage;
-  const media: ServicePageMedia = withLocaleMedia(getServicePageMedia(service), locale);
   const all = getLocalizedServices(locale);
   const related = relatedServices(all, service.id);
   const relatedGuides = guides.filter((g) => g.relatedServices.includes(service.id)).slice(0, 4);
@@ -149,7 +103,6 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
             <span className="mt-3 block text-sm">{sp.areaLine}</span>
           </>
         }
-        image={media.hero}
         actions={
           <>
             <Button href={`${pathFor(locale, "/book")}?service=${service.id}`}>{sp.book}</Button>
@@ -182,11 +135,9 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         </div>
       </section>
 
-      <MediaBand
-        image={media.about}
+      <TextBand
         eyebrow={sp.aboutEyebrow}
         title={sp.aboutTitle(service.title)}
-        fallbackCaption={sp.mediaCaption}
       >
         {service.content.map((p) => (
           <p key={p.slice(0, 56)}>{p}</p>
@@ -201,14 +152,11 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
             ))}
           </p>
         )}
-      </MediaBand>
+      </TextBand>
 
-      <MediaBand
-        image={media.symptoms}
-        reverse
+      <TextBand
         eyebrow={sp.symptomsEyebrow}
         title={sp.symptomsTitle}
-        fallbackCaption={sp.mediaCaption}
       >
         <p>{sp.symptomsLead}</p>
         <ul className="mt-2 grid gap-2 sm:grid-cols-1">
@@ -219,29 +167,24 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
           ))}
         </ul>
         <p className="mt-2 font-medium text-navy">{service.whenToCall}</p>
-      </MediaBand>
+      </TextBand>
 
-      <MediaBand
-        image={media.included}
+      <TextBand
         eyebrow={sp.scopeEyebrow}
         title={sp.scopeTitle}
-        fallbackCaption={sp.mediaCaption}
       >
         <ul className="list-disc space-y-2 pl-5 text-sm text-steel">
           {service.features.map((f) => (
             <li key={f}>{f}</li>
           ))}
         </ul>
-      </MediaBand>
+      </TextBand>
 
-      {service.sections.map((section, sectionIdx) => (
-        <MediaBand
+      {service.sections.map((section) => (
+        <TextBand
           key={section.heading}
-          image={media.sections[sectionIdx] ?? media.about}
-          reverse={sectionIdx % 2 === 1}
           eyebrow={sp.detailsEyebrow}
           title={section.heading}
-          fallbackCaption={sp.mediaCaption}
         >
           {section.body.map((p) => (
             <p key={p.slice(0, 56)}>{p}</p>
@@ -255,15 +198,12 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
               ))}
             </ul>
           )}
-        </MediaBand>
+        </TextBand>
       ))}
 
-      <MediaBand
-        image={media.checks}
-        reverse={service.sections.length % 2 === 0}
+      <TextBand
         eyebrow={sp.inspectEyebrow}
         title={sp.inspectTitle}
-        fallbackCaption={sp.mediaCaption}
       >
         <p>{sp.inspectLead(service.title)}</p>
         <ol className="mt-2 grid gap-2">
@@ -276,27 +216,15 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
             </li>
           ))}
         </ol>
-      </MediaBand>
+      </TextBand>
 
       <section className="border-b border-line bg-navy text-paper">
-        <div className="wrap grid items-stretch gap-0 lg:grid-cols-2">
-          <div className="relative min-h-[320px]">
-            <Image
-              src={media.process.src}
-              alt={media.process.alt}
-              fill
-              sizes="50vw"
-              className="object-cover opacity-90"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/45 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <p className="text-xs text-white/85">{media.process.caption ?? sp.processCaption}</p>
-              <p className="font-display mt-1 text-xl text-paper">{sp.processOverlay}</p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center px-0 py-12 lg:px-12">
+        <div className="wrap max-w-3xl py-12">
+          <div className="flex flex-col justify-center">
             <p className="eyebrow">{sp.processEyebrow}</p>
             <h2 className="font-display mt-3">{sp.processTitle(service.title)}</h2>
+            <p className="mt-3 text-xs text-white/85">{sp.processCaption}</p>
+            <p className="font-display mt-1 text-xl text-paper">{sp.processOverlay}</p>
             <ol className="mt-8 space-y-5">
               {service.process.map((step, i) => (
                 <li key={step.title} className="flex gap-4 border-b border-white/10 pb-5">
@@ -314,12 +242,9 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
         </div>
       </section>
 
-      <MediaBand
-        image={media.local}
-        reverse
+      <TextBand
         eyebrow={sp.areaEyebrow}
         title={sp.areaTitle(service.title)}
-        fallbackCaption={sp.mediaCaption}
       >
         <p>{sp.areaP1(service.title)}</p>
         <p>
@@ -336,33 +261,22 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
           <Link href={`${pathFor(locale, "/book")}?service=${service.id}`}>{sp.areaP3c}</Link>. {sp.areaP3d}{" "}
           {hours}.
         </p>
-      </MediaBand>
+      </TextBand>
 
-      <MediaBand
-        image={media.audience}
+      <TextBand
         eyebrow={sp.whoEyebrow}
         title={sp.whoTitle}
-        fallbackCaption={sp.mediaCaption}
       >
         <ul className="list-disc space-y-2 pl-5 marker:text-gold">
           {sp.who.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
-      </MediaBand>
+      </TextBand>
 
       <section className="border-b border-line bg-navy-deep">
-        <div className="wrap grid items-center gap-0 lg:grid-cols-2">
-          <div className="relative min-h-[300px] lg:min-h-[400px]">
-            <Image
-              src={media.diagnose.src}
-              alt={media.diagnose.alt}
-              fill
-              sizes="50vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="bg-navy px-6 py-12 text-paper sm:px-12 lg:min-h-[400px] lg:py-16">
+        <div className="wrap">
+          <div className="bg-navy px-6 py-12 text-paper sm:px-12 lg:py-16">
             <p className="eyebrow">{sp.diagnoseEyebrow}</p>
             <h2 className="font-display mt-4">{sp.diagnoseTitle}</h2>
             <p className="mt-4 text-sm leading-relaxed text-steel">{sp.diagnoseP1}</p>
@@ -400,18 +314,6 @@ export function ServiceLanding({ service, locale }: { service: Service; locale: 
               <p className="mt-2 max-w-2xl text-sm text-steel">{sp.galleryBody}</p>
             </div>
             <p className="text-sm text-steel">{sp.galleryMeta}</p>
-          </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {media.gallery.map((img, i) => (
-              <figure key={imageListKey(img.src, i)} className="shot m-0">
-                <div className="shot-img relative aspect-[4/3]">
-                  <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover" />
-                </div>
-                <figcaption className="border-t border-line px-3 py-2 text-xs text-steel">
-                  {img.caption ?? img.alt}
-                </figcaption>
-              </figure>
-            ))}
           </div>
         </div>
       </section>

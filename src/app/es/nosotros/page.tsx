@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -10,7 +9,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Section } from "@/components/Section";
-import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { getLocalizedServices } from "@/lib/services-localized";
 import { site } from "@/lib/site";
@@ -57,7 +55,6 @@ export default function SpanishAboutPage() {
         title="Mecánico independiente de botes y yates en el sur de la Florida"
         subhead="Primero diagnosticamos. En el muelle."
         description="Fort Lauderdale, Miami y muelles cercanos. Motores, eléctrico, enfriamiento, diagnóstico, mantenimiento."
-        image={{ src: images.aboutHero.src, alt: images.aboutHero.altEs }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>
@@ -132,20 +129,9 @@ export default function SpanishAboutPage() {
           </div>
 
           <div>
-            <div className="shot">
-              <div className="shot-img relative aspect-[4/3]">
-                <Image
-                  src={images.gallery.maintenance.src}
-                  alt={images.gallery.maintenance.alt}
-                  fill
-                  sizes="50vw"
-                  className="object-cover object-[center_30%]"
-                />
-              </div>
-              <div className="border-t border-line px-4 py-3 text-sm text-steel">
-                Horario · {site.hoursEs} · {site.phone}
-              </div>
-            </div>
+            <p className="border-t border-line py-3 text-sm text-steel">
+              Horario · {site.hoursEs} · {site.phone}
+            </p>
             <Card className="mt-5 p-5">
               <p className="eyebrow">Servicios núcleo</p>
               <ul className="mt-3 space-y-2">

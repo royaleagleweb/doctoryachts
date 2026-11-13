@@ -566,6 +566,9 @@ textarea {
 .page-hero--display {
   min-height: min(92vh, 860px);
 }
+.page-hero--band.page-hero--display {
+  min-height: 0;
+}
 
 .page-hero--band {
   background: var(--navy);
@@ -888,6 +891,11 @@ textarea {
   min-height: 48px;
 }
 
+.media-card {
+  height: 100%;
+  border-top: 1px solid color-mix(in srgb, var(--gold) 42%, transparent);
+  padding: 1.15rem 0.1rem 0.35rem;
+}
 .media-card__shot {
   border-radius: 0;
   box-shadow: none;
@@ -910,7 +918,7 @@ textarea {
 
 .shop-grid {
   display: grid;
-  gap: 2rem 1.5rem;
+  gap: 0.35rem 1.75rem;
 }
 @media (min-width: 640px) {
   .shop-grid {
@@ -1191,9 +1199,8 @@ textarea {
 .lux-hero {
   position: relative;
   isolation: isolate;
-  min-height: min(92svh, 860px);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   background: var(--navy-deep);
   color: #fff;
@@ -1211,7 +1218,7 @@ textarea {
   background: linear-gradient(115deg, transparent 40%, rgb(212 182 106 / 0.10) 50%, transparent 60%);
   animation: lux-sheen 14s ease-in-out infinite;
 }
-.lux-hero__inner { width: 100%; padding-top: 7rem; padding-bottom: 2rem; }
+.lux-hero__inner { width: 100%; padding-top: 4.5rem; padding-bottom: 4.25rem; }
 .lux-hero__glass {
   max-width: 40rem;
   padding: 1.75rem 1.5rem;

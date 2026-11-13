@@ -2,7 +2,6 @@ import { MediaCard } from "@/components/MediaCard";
 import { t } from "@/lib/copy";
 import type { Locale } from "@/lib/i18n";
 import { servicePath } from "@/lib/i18n";
-import { images } from "@/lib/images";
 import type { Service } from "@/lib/services";
 import { services } from "@/lib/services";
 
@@ -15,14 +14,12 @@ type ServiceCardProps = {
 };
 
 export function ServiceCard({ service, compact = false, locale = "en" }: ServiceCardProps) {
-  const img = service.images[0] ?? images.services[service.id as keyof typeof images.services];
   const enSlug = services.find((s) => s.id === service.id)?.slug ?? service.slug;
   const copy = t(locale);
 
   return (
     <MediaCard
       href={servicePath(enSlug, locale)}
-      image={img}
       title={service.title}
       description={compact ? undefined : service.summary}
       footer={

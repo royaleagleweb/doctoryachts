@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -10,7 +9,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Section } from "@/components/Section";
-import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -60,7 +58,6 @@ export default function AboutPage() {
         title="Independent boat & yacht mechanic for South Florida"
         subhead="Diagnose first. Dockside."
         description="Fort Lauderdale, Miami, and nearby docks. Engines, electrical, cooling, diagnostics, maintenance."
-        image={images.aboutHero}
         actions={
           <>
             <Button href="/book">Book a visit</Button>
@@ -156,20 +153,9 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <div className="shot">
-              <div className="shot-img relative aspect-[4/3]">
-                <Image
-                  src={images.gallery.maintenance.src}
-                  alt={images.gallery.maintenance.alt}
-                  fill
-                  sizes="50vw"
-                  className="object-cover object-[center_30%]"
-                />
-              </div>
-              <div className="border-t border-line px-4 py-3 text-sm text-steel">
-                Shop hours · {site.hours} · {site.phone}
-              </div>
-            </div>
+            <p className="border-t border-line py-3 text-sm text-steel">
+              Shop hours · {site.hours} · {site.phone}
+            </p>
             <Card className="mt-5 p-5">
               <p className="eyebrow">Core services</p>
               <ul className="mt-3 space-y-2">
