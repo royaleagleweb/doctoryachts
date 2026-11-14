@@ -9,6 +9,7 @@ import {
   problemOptions,
   urgencyOptions,
 } from "@/lib/form-options";
+import { trackLead } from "@/lib/analytics";
 import { t } from "@/lib/copy";
 import { readDelivery } from "@/lib/form-delivery";
 import { localeFromPath, pathFor } from "@/lib/i18n";
@@ -96,6 +97,7 @@ export function EstimateForm() {
       const json = await res.json();
       const delivery = readDelivery(res.ok, json, f.sendFailed);
       if (!delivery.ok) throw new Error(delivery.error);
+      trackLead("free-estimate", locale);
       setStatus("success");
     } catch (err) {
       setStatus("error");

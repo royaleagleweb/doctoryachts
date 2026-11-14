@@ -59,6 +59,18 @@ export default function PrivacyPage() {
           </div>
 
           <div>
+            <h2 className="font-display text-navy">Site analytics</h2>
+            <p className="mt-3 text-steel">
+              This site uses Google Analytics cookies to understand how the site is used, including
+              which pages people visit. You can opt out in your browser with the{" "}
+              <a href="https://tools.google.com/dlpage/gaoptout">
+                Google Analytics Opt-out Browser Add-on
+              </a>
+              .
+            </p>
+          </div>
+
+          <div>
             <h2 className="font-display text-navy">Questions</h2>
             <p className="mt-3 text-steel">
               Email <a href={`mailto:${site.email}`}>{site.email}</a> or call{" "}

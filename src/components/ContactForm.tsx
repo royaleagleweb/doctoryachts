@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
+import { trackLead } from "@/lib/analytics";
 import { t } from "@/lib/copy";
 import { readDelivery } from "@/lib/form-delivery";
 import { localeFromPath } from "@/lib/i18n";
@@ -32,6 +33,7 @@ export function ContactForm() {
       const json = await res.json();
       const delivery = readDelivery(res.ok, json, f.sendFailed);
       if (!delivery.ok) throw new Error(delivery.error);
+      trackLead("contact", locale);
       setStatus("success");
       form.reset();
     } catch (err) {
