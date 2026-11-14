@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -12,7 +11,6 @@ import { GoogleReviews } from "@/components/GoogleReviews";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { homeStory, images, yachts } from "@/lib/images";
 import { locationPath, servicePath } from "@/lib/i18n";
 import { publicLocations } from "@/lib/locations";
 import { homeMetaDescriptionEs } from "@/lib/page-meta";
@@ -80,10 +78,6 @@ export default function SpanishHomePage() {
         title="Mecánico de yates móvil en Fort Lauderdale"
         subhead="El mecánico que va al barco."
         description="Fort Lauderdale, Miami y muelles cercanos. Confirmamos por teléfono de lun a sáb, 7–6."
-        image={{
-          src: yachts.marinaGold.src,
-          alt: "Yate a motor de lujo en una marina del sur de la Florida, con luz dorada",
-        }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>
@@ -126,7 +120,7 @@ export default function SpanishHomePage() {
       </Section>
 
       <Section tone="soft">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <div className="max-w-3xl">
           <div className="reveal-in space-y-8">
             <AnswerBox
               label="Respuesta rápida"
@@ -147,35 +141,6 @@ export default function SpanishHomePage() {
                 <Link href={servicePath("boat-maintenance", "es")}>mantenimiento de yates</Link>. Llame al{" "}
                 <a href={site.phoneHref}>{site.phone}</a> o <Link href="/es/reservar">reserve una visita</Link>.
               </p>
-            </div>
-          </div>
-          <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
-            <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
-              <Image
-                src={homeStory.helm.src}
-                alt={homeStory.helm.altEs}
-                fill
-                sizes="40vw"
-                className="object-cover object-[center_30%]"
-              />
-            </div>
-            <div className="shot relative aspect-[4/3]">
-              <Image
-                src={homeStory.bilge.src}
-                alt={homeStory.bilge.altEs}
-                fill
-                sizes="25vw"
-                className="object-cover object-center"
-              />
-            </div>
-            <div className="shot relative aspect-[4/3]">
-              <Image
-                src={homeStory.lines.src}
-                alt={homeStory.lines.altEs}
-                fill
-                sizes="25vw"
-                className="object-cover object-[center_40%]"
-              />
             </div>
           </div>
         </div>
@@ -200,18 +165,7 @@ export default function SpanishHomePage() {
       </Section>
 
       <Section tone="soft">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
-            <div className="shot absolute inset-0">
-              <Image
-                src={homeStory.teak.src}
-                alt={homeStory.teak.altEs}
-                fill
-                sizes="50vw"
-                className="object-cover object-[center_35%]"
-              />
-            </div>
-          </div>
+        <div className="max-w-3xl">
           <div className="reveal-in flex flex-col justify-center py-2">
             <SectionHeading
               eyebrow="Por qué Doctor Yachts"
@@ -241,18 +195,14 @@ export default function SpanishHomePage() {
           </Link>
         </div>
         <div className="shop-grid shop-grid--areas">
-          {publicLocations.map((loc) => {
-            const img = images.locations[loc.slug as keyof typeof images.locations];
-            return (
-              <MediaCard
-                key={loc.slug}
-                href={locationPath(loc.slug, "es")}
-                image={img}
-                title={loc.name}
-                description={loc.region}
-              />
-            );
-          })}
+          {publicLocations.map((loc) => (
+            <MediaCard
+              key={loc.slug}
+              href={locationPath(loc.slug, "es")}
+              title={loc.name}
+              description={loc.region}
+            />
+          ))}
         </div>
       </Section>
 

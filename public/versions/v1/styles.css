@@ -86,18 +86,6 @@ a { color: var(--brass-light); text-decoration: none; }
 .reveal-delay-3 { transition-delay: 0.36s; }
 .reveal-delay-4 { transition-delay: 0.48s; }
 
-/* film grain overlay */
-body::after {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain 0.8s steps(2) infinite;
-}
-
 /* ---------- header ---------- */
 .topbar {
   position: fixed;
@@ -369,9 +357,7 @@ h2 {
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
 }
 .svc-media {
-  position: relative;
-  height: 190px;
-  overflow: hidden;
+  display: none;
 }
 .svc-media img {
   width: 100%;

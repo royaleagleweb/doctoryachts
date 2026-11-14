@@ -10,7 +10,6 @@ import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { images } from "@/lib/images";
 import { servicePath } from "@/lib/i18n";
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
 import { servicesInHubOrderLocalized } from "@/lib/services-localized";
@@ -90,7 +89,6 @@ export default function SpanishServicesPage() {
         title="Servicios de reparación de barcos en el sur de la Florida"
         subhead="Primero diagnosticamos. En el muelle."
         description="Motor, fuera de borda, servicio 100 horas y 300 horas, eléctrico, enfriamiento, diagnóstico, mantenimiento, plomería, móvil. Fort Lauderdale y muelles cercanos."
-        image={images.homeHero}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>

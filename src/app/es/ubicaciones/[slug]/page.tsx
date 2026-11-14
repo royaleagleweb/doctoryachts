@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnswerBox } from "@/components/AnswerBox";
@@ -11,7 +10,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Section } from "@/components/Section";
-import { images } from "@/lib/images";
 import { locationPath } from "@/lib/i18n";
 import { locations } from "@/lib/locations";
 import { getLocalizedLocation, localizeLocation } from "@/lib/locations-localized";
@@ -44,7 +42,6 @@ export default async function SpanishLocationPage({ params }: PageProps) {
   const { slug } = await params;
   const loc = getLocalizedLocation(slug, "es");
   if (!loc) notFound();
-  const img = images.locations[loc.slug as keyof typeof images.locations];
   const others = locations.filter((l) => l.slug !== loc.slug).map((l) => localizeLocation(l, "es"));
   const hub = servicesInHubOrderLocalized("es");
   const quickAnswer = `Doctor Yachts da reparación de barcos y mecánico móvil en ${loc.name}, ${loc.state}—motores, eléctrico, enfriamiento, mantenimiento de yates y diagnóstico. Presupuestos gratis. Llame al ${site.phone} o reserve en línea para visitas a marina y muelle privado cuando hay acceso.`;
@@ -143,13 +140,6 @@ export default async function SpanishLocationPage({ params }: PageProps) {
           </div>
 
           <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-            {img && (
-              <div className="shot">
-                <div className="shot-img relative aspect-[16/10]">
-                  <Image src={img.src} alt={img.alt} fill sizes="300px" className="object-cover" />
-                </div>
-              </div>
-            )}
             <Card className="p-5">
               <p className="eyebrow">Corredores locales</p>
               <ul className="mt-4 space-y-2">

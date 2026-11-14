@@ -48,7 +48,7 @@
     .tag { display: inline-flex; align-items: center; gap: .4rem; padding: .28rem .55rem; border: 1px solid var(--line); background: var(--foam); color: var(--teal); font-family: "IBM Plex Mono", monospace; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
     .tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); }
     .hero { border-bottom: 1px solid var(--line); }
-    .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 70vh; }
+    .hero .wrap { display: grid; grid-template-columns: 1fr; gap: 0; min-height: 0; }
     @media (max-width: 900px) {
       .hero .wrap { grid-template-columns: 1fr; }
       body::before { display: none; }
@@ -57,8 +57,8 @@
     h1 { font-size: clamp(2.2rem, 4.5vw, 3.1rem); line-height: 1.05; font-weight: 600; margin: 1.25rem 0; }
     h1 em { font-style: normal; color: var(--teal); }
     h1 .dash { color: var(--coral); }
-    .shot { background: var(--foam); border: 1px solid var(--line); box-shadow: 3px 3px 0 rgba(14,42,44,.12); position: relative; min-height: 320px; }
-    .shot-img { position: absolute; inset: 0; background: center/cover url("../public/images/home-hero.jpg"); }
+    .shot { display: none; }
+    .shot-img { display: none; }
     .shot::before, .shot::after { content: ""; position: absolute; z-index: 2; width: 10px; height: 10px; pointer-events: none; }
     .shot::before { left: 8px; top: 8px; border-left: 1.5px solid color-mix(in srgb, var(--coral) 70%, transparent); border-top: 1.5px solid color-mix(in srgb, var(--coral) 70%, transparent); }
     .shot::after { right: 8px; bottom: 8px; border-right: 1.5px solid color-mix(in srgb, var(--teal) 70%, transparent); border-bottom: 1.5px solid color-mix(in srgb, var(--teal) 70%, transparent); }
@@ -76,11 +76,11 @@
     .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.15rem; margin-top: 1.75rem; }
     @media (max-width: 800px) { .svc-grid { grid-template-columns: 1fr; } }
     .svc { overflow: hidden; }
-    .svc .ph { aspect-ratio: 16/10; background: center/cover #ccc; position: relative; }
-    .s1 { background-image: url("../public/images/service-engine.jpg"); }
-    .s2 { background-image: url("../public/images/service-electrical.jpg"); }
-    .s3 { background-image: url("../public/images/service-diagnostics.jpg"); }
-    .dx { position: absolute; left: .65rem; top: .65rem; background: rgba(14,42,44,.85); color: var(--chart); padding: .2rem .45rem; font-family: "IBM Plex Mono", monospace; font-size: .65rem; }
+    .svc .ph { background: var(--ink); position: relative; padding: .55rem .75rem; }
+    .s1 {  }
+    .s2 {  }
+    .s3 {  }
+    .dx { position: static; background: transparent; color: var(--chart); padding: 0; font-family: "IBM Plex Mono", monospace; font-size: .65rem; }
     .svc .body { padding: 1.1rem; border-top: 1px solid var(--line); }
     .cta { background: var(--teal); color: #fff; padding: 2.5rem 0; position: relative; overflow: hidden; }
     .cta::before { content: ""; position: absolute; inset: 0; opacity: .2; background: radial-gradient(circle at 20% 50%, #fff 0, transparent 40%), radial-gradient(circle at 80% 20%, #e05a3c 0, transparent 35%); }
@@ -125,11 +125,6 @@
           <div><p class="mono" style="color:var(--coral)">FTL</p><p style="font-size:.85rem;color:var(--muted);margin-top:.25rem">Fort Lauderdale</p></div>
           <div><p class="mono" style="color:var(--coral)">MIA</p><p style="font-size:.85rem;color:var(--muted);margin-top:.25rem">Miami / Beach</p></div>
           <div><p class="mono" style="color:var(--coral)">PBI</p><p style="font-size:.85rem;color:var(--muted);margin-top:.25rem">Palm Beach</p></div>
-        </div>
-      </div>
-      <div style="position:relative;padding:1.5rem 0 1.5rem 1rem">
-        <div class="shot" style="height:100%;min-height:380px">
-          <div class="shot-img"></div>
         </div>
       </div>
     </div>

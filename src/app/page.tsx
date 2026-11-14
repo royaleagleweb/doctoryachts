@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
 import { Button } from "@/components/Button";
@@ -11,7 +10,6 @@ import { GoogleReviews } from "@/components/GoogleReviews";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
-import { homeStory, images, yachts } from "@/lib/images";
 import { publicLocations } from "@/lib/locations";
 import { homeMetaDescription } from "@/lib/page-meta";
 import { buildMetadata, faqJsonLd } from "@/lib/seo";
@@ -32,18 +30,6 @@ export default function HomePage() {
       <JsonLd data={faqJsonLd([...homeFaqs])} />
 
       <section className="lux-hero" aria-labelledby="home-hero-title">
-        <div className="lux-hero__media">
-          <Image
-            src={yachts.marinaGold.src}
-            alt={yachts.marinaGold.alt}
-            fill
-            preload
-            fetchPriority="high"
-            loading="eager"
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
         <div className="lux-hero__veil" aria-hidden />
         <div className="lux-hero__sheen" aria-hidden />
         <div className="wrap lux-hero__inner">
@@ -118,7 +104,7 @@ export default function HomePage() {
       </Section>
 
       <Section tone="soft">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <div className="max-w-3xl">
           <div className="reveal-in space-y-8">
             <AnswerBox
               label="Quick answer"
@@ -143,35 +129,6 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="reveal-in grid gap-3 sm:grid-cols-2 lg:sticky lg:top-36">
-            <div className="shot relative aspect-[4/5] sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]">
-              <Image
-                src={homeStory.helm.src}
-                alt={homeStory.helm.alt}
-                fill
-                sizes="40vw"
-                className="object-cover object-[center_30%]"
-              />
-            </div>
-            <div className="shot relative aspect-[4/3]">
-              <Image
-                src={homeStory.bilge.src}
-                alt={homeStory.bilge.alt}
-                fill
-                sizes="25vw"
-                className="object-cover object-center"
-              />
-            </div>
-            <div className="shot relative aspect-[4/3]">
-              <Image
-                src={homeStory.lines.src}
-                alt={homeStory.lines.alt}
-                fill
-                sizes="25vw"
-                className="object-cover object-[center_40%]"
-              />
-            </div>
-          </div>
         </div>
       </Section>
 
@@ -194,18 +151,7 @@ export default function HomePage() {
       </Section>
 
       <Section tone="soft">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[420px]">
-            <div className="shot absolute inset-0">
-              <Image
-                src={homeStory.teak.src}
-                alt={homeStory.teak.alt}
-                fill
-                sizes="50vw"
-                className="object-cover object-[center_35%]"
-              />
-            </div>
-          </div>
+        <div className="max-w-3xl">
           <div className="reveal-in flex flex-col justify-center py-2">
             <SectionHeading
               eyebrow="Why Doctor Yachts"
@@ -235,18 +181,14 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="shop-grid shop-grid--areas lux-cards reveal-in">
-          {publicLocations.map((loc) => {
-            const img = images.locations[loc.slug as keyof typeof images.locations];
-            return (
-              <MediaCard
-                key={loc.slug}
-                href={`/locations/${loc.slug}`}
-                image={img}
-                title={loc.name}
-                description={loc.region}
-              />
-            );
-          })}
+          {publicLocations.map((loc) => (
+            <MediaCard
+              key={loc.slug}
+              href={`/locations/${loc.slug}`}
+              title={loc.name}
+              description={loc.region}
+            />
+          ))}
         </div>
       </Section>
 
@@ -276,9 +218,6 @@ export default function HomePage() {
       <FaqSection title="Common questions" faqs={homeFaqs} />
 
       <section className="lux-cta" aria-labelledby="lux-cta-title">
-        <div className="lux-cta__media" aria-hidden>
-          <Image src={yachts.night.src} alt="" fill sizes="100vw" className="object-cover" />
-        </div>
         <div className="wrap lux-cta__inner reveal-in">
           <p className="eyebrow lux-hero__eyebrow">Fort Lauderdale · Miami · South Florida</p>
           <h2 id="lux-cta-title" className="lux-serif lux-cta__title">

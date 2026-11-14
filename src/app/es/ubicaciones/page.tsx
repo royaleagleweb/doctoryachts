@@ -8,7 +8,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { MediaCard } from "@/components/MediaCard";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { images } from "@/lib/images";
 import { locationPath } from "@/lib/i18n";
 import { publicLocations } from "@/lib/locations";
 import { localizeLocation } from "@/lib/locations-localized";
@@ -63,7 +62,6 @@ export default function SpanishLocationsPage() {
         eyebrow="Zonas de servicio"
         title="Zonas de reparación de barcos en el sur de la Florida"
         description="Cobertura de mecánico móvil y en el muelle en Broward, Miami-Dade y el condado de Palm Beach. Reserve—confirmamos por teléfono de lun a sáb, 7–6."
-        image={{ src: images.gallery.dockside.src, alt: images.gallery.dockside.altEs }}
         actions={
           <>
             <Button href="/es/reservar">Reservar visita</Button>
@@ -88,12 +86,10 @@ export default function SpanishLocationsPage() {
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {publicLocations.map((raw) => {
               const loc = localizeLocation(raw, "es");
-              const img = images.locations[loc.slug as keyof typeof images.locations];
               return (
                 <MediaCard
                   key={loc.slug}
                   href={locationPath(loc.slug, "es")}
-                  image={img}
                   kicker={loc.region}
                   title={`Reparación de barcos ${loc.name}`}
                   description={loc.intro}

@@ -111,8 +111,8 @@ nav.main a:hover, nav.main a.active { color: var(--navy); }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  min-height: 520px;
+  grid-template-columns: 1fr;
+  min-height: 0;
   background: var(--white);
   border-bottom: 1px solid var(--line);
 }
@@ -161,9 +161,7 @@ nav.main a:hover, nav.main a.active { color: var(--navy); }
 }
 .hero-meta strong { display: block; color: var(--ink); font-size: 0.95rem; }
 .hero-photo {
-  position: relative;
-  min-height: 320px;
-  background: var(--navy) center/cover no-repeat;
+  display: none;
 }
 .hero-photo::after {
   content: "";
@@ -214,15 +212,13 @@ section.block.alt { background: var(--white); border-block: 1px solid var(--line
 
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
 }
 @media (max-width: 800px) { .split { grid-template-columns: 1fr; } }
 .split-photo {
-  min-height: 280px;
-  background: var(--navy) center/cover no-repeat;
-  border: 1px solid var(--line);
+  display: none;
 }
 .list-check { list-style: none; margin-top: 1rem; }
 .list-check li {

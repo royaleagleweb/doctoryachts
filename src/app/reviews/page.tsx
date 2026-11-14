@@ -7,7 +7,6 @@ import { GoogleReviews } from "@/components/GoogleReviews";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { images } from "@/lib/images";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -56,7 +55,6 @@ export default function ReviewsPage() {
         title="Reviews & reputation"
         subhead="From the Google profile."
         description="Five Google reviews are shown below in the reviewers' own words. Read all 12 on Google, or leave a review on Google or Yelp."
-        image={images.gallery.diagnostics}
         actions={
           <>
             <Button href={site.profiles.google} target="_blank" rel="noopener noreferrer">

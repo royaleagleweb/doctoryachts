@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnswerBox } from "@/components/AnswerBox";
@@ -64,8 +63,6 @@ export default async function ServiceCityPage({ params }: PageProps) {
 
   const { service, location, path } = pair;
   const name = serviceDisplayName(service);
-  const hero = service.images[0];
-  const secondary = service.images[1] ?? service.images[0];
   const content = serviceCityContent(service, location);
   const faqs = serviceCityFaqs(service, location);
 
@@ -109,7 +106,6 @@ export default async function ServiceCityPage({ params }: PageProps) {
         eyebrow={`${location.region} · ${location.state}${service.duration ? ` · ${service.duration}` : ""}`}
         title={serviceCityH1(service, location)}
         description={`Mobile and dockside ${name.toLowerCase()} for boat and yacht owners in ${location.name}—diagnose first, free estimates, clear notes.`}
-        image={{ src: hero.src, alt: `${name} in ${location.name}, FL — ${hero.alt}` }}
         actions={
           <>
             <Button href={`/book?service=${service.id}`}>Book in {location.shortName}</Button>
@@ -180,23 +176,6 @@ export default async function ServiceCityPage({ params }: PageProps) {
               ))}
             </ul>
           </section>
-
-          <div className="shot">
-            <div className="shot-img relative aspect-[16/10]">
-              <Image
-                src={secondary.src}
-                alt={`${name} service near ${location.name} — ${secondary.alt}`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 70vw"
-                className="object-cover"
-              />
-            </div>
-            {secondary.caption && (
-              <div className="border-t border-line px-4 py-3 text-[0.65rem] text-steel">
-                {secondary.caption} · {location.name}
-              </div>
-            )}
-          </div>
 
           <section>
             <h2 className="font-display text-2xl font-semibold text-navy">
