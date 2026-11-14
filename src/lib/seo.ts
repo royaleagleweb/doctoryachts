@@ -90,6 +90,12 @@ export function buildMetadata({
   };
 }
 
+/**
+ * LocalBusiness for the shop. Deliberately has no aggregateRating or Review
+ * nodes: Google treats review markup on the business's own site as
+ * self-serving and will not show stars for it. The 5.0 / 12 figure is
+ * rendered as visible text on /reviews only.
+ */
 export function localBusinessJsonLd(locale: Locale = "en") {
   const localized = getLocalizedServices(locale);
   const catalogName =
